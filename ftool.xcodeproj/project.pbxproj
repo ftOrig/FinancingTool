@@ -21,6 +21,8 @@
 		182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */; };
 		182C4A9D20DA4BAC003C59F6 /* FCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */; };
 		182C4AA220DA51BF003C59F6 /* AppDefaultUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4AA120DA51BF003C59F6 /* AppDefaultUtil.m */; };
+		845606A120DD01790078EDE6 /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* MineController.m */; };
+		845606A220DD01790078EDE6 /* MineController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845606A020DD01790078EDE6 /* MineController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,9 @@
 		182C4A9F20DA4E27003C59F6 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ftool/Macros.h; sourceTree = SOURCE_ROOT; };
 		182C4AA020DA51BF003C59F6 /* AppDefaultUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDefaultUtil.h; path = ftool/AppDefaultUtil.h; sourceTree = SOURCE_ROOT; };
 		182C4AA120DA51BF003C59F6 /* AppDefaultUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDefaultUtil.m; path = ftool/AppDefaultUtil.m; sourceTree = SOURCE_ROOT; };
+		8456069E20DD01790078EDE6 /* MineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineController.h; sourceTree = "<group>"; };
+		8456069F20DD01790078EDE6 /* MineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineController.m; sourceTree = "<group>"; };
+		845606A020DD01790078EDE6 /* MineController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +123,7 @@
 		182C4A5820DA43CC003C59F6 /* ftool */ = {
 			isa = PBXGroup;
 			children = (
+				8456069D20DD01580078EDE6 /* Mine */,
 				182C4A8B20DA4966003C59F6 /* common */,
 				182C4A9020DA4A8D003C59F6 /* counter */,
 				182C4A8F20DA4A85003C59F6 /* home */,
@@ -182,6 +188,16 @@
 				182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */,
 			);
 			path = counter;
+			sourceTree = "<group>";
+		};
+		8456069D20DD01580078EDE6 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				8456069E20DD01790078EDE6 /* MineController.h */,
+				8456069F20DD01790078EDE6 /* MineController.m */,
+				845606A020DD01790078EDE6 /* MineController.xib */,
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +267,7 @@
 				TargetAttributes = {
 					182C4A5520DA43CC003C59F6 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					182C4A6D20DA43CD003C59F6 = {
 						CreatedOnToolsVersion = 9.2;
@@ -292,6 +308,7 @@
 			files = (
 				182C4A6620DA43CC003C59F6 /* LaunchScreen.storyboard in Resources */,
 				182C4A9D20DA4BAC003C59F6 /* FCounterViewController.xib in Resources */,
+				845606A220DD01790078EDE6 /* MineController.xib in Resources */,
 				182C4A6320DA43CC003C59F6 /* Assets.xcassets in Resources */,
 				182C4A9820DA4B48003C59F6 /* FHomeViewController.xib in Resources */,
 				182C4A6120DA43CC003C59F6 /* Main.storyboard in Resources */,
@@ -319,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845606A120DD01790078EDE6 /* MineController.m in Sources */,
 				182C4A5E20DA43CC003C59F6 /* ViewController.m in Sources */,
 				182C4A8E20DA49C0003C59F6 /* TabBarController.m in Sources */,
 				182C4A6920DA43CC003C59F6 /* main.m in Sources */,
@@ -488,8 +506,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MX57N3NB7G;
 				INFOPLIST_FILE = ftool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.p2p.ftool;
@@ -503,8 +522,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MX57N3NB7G;
 				INFOPLIST_FILE = ftool/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.p2p.ftool;
