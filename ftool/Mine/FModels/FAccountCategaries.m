@@ -10,4 +10,40 @@
 
 @implementation FAccountCategaries
 
++ (NSDictionary *)mj_objectClassInArray{
+    
+    return @{@"expensesTypeArr": [FFirstType class], @"incomeTypeArr": [FFirstType class]};
+}
+
+@end
+
+@implementation FFirstType
+
++ (instancetype)firstTypeWithName:(NSString *)name budget:(CGFloat)budget subTypeArr:(NSMutableArray<FSubType *> *)subTypeArr{
+    
+    FFirstType *bean = [FFirstType new];
+    bean.name = name;
+    bean.budget = budget;
+    bean.subTypeArr = subTypeArr;
+    
+    return bean;
+}
+
+
++ (NSDictionary *)mj_objectClassInArray{
+    
+    return @{@"subTypeArr": [FSubType class]};
+}
+@end
+
+
+@implementation FSubType
+
++ (instancetype)subTypeWithName:(NSString *)name{
+    
+    FSubType *bean = [FSubType new];
+    bean.name = name;
+    
+    return bean;
+}
 @end

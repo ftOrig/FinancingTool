@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class FAccountCategaries;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, strong) UserModel *userInfo;
+@property (nonatomic,strong) FAccountCategaries *aFAccountCategaries;
 @end
 

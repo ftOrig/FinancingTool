@@ -496,7 +496,7 @@ typedef NS_ENUM(NSInteger, BRDatePickerStyle) {
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-    return 100.f;
+    return MIN(100.f, [UIScreen mainScreen].bounds.size.width/([self numberOfComponentsInPickerView:pickerView]));
 }
 
 // 4.选中时回调的委托方法，在此方法中实现省份和城市间的联动

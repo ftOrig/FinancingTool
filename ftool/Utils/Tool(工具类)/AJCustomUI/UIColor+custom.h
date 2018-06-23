@@ -31,6 +31,7 @@
 + (instancetype)ys_lightOrange;// 浅橙色字体颜色值（进度条末端）
 + (instancetype)ys_red;
 + (instancetype)ys_enable;
++ (instancetype)ys_green;
 
 /** 颜色转换 IOS中十六进制的颜色转换为UIColor **/
 + (UIColor *) colorWithHexString: (NSString *)color;

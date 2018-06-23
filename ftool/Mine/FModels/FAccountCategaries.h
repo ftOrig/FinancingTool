@@ -13,9 +13,9 @@
 // 记账类别
 @interface FAccountCategaries : BaseEntity
 
-@property (nonatomic, strong) NSMutableArray<FFirstType *> *expensesTypeArr;
-@property (nonatomic, strong) NSMutableArray<FFirstType *> *incomeTypeArr;
-@property (nonatomic, strong) NSMutableArray<NSString *> *accountTypeArr;
+@property (nonatomic, copy) NSMutableArray<FFirstType *> *expensesTypeArr;
+@property (nonatomic, copy) NSMutableArray<FFirstType *> *incomeTypeArr;
+@property (nonatomic, copy) NSMutableArray<NSString *> *accountTypeArr;
 @end
 
 
@@ -24,9 +24,9 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isEditable;
 @property (nonatomic,assign) CGFloat budget;
-@property (nonatomic, strong) NSMutableArray<FSubType *> *subTypeArr;
+@property (nonatomic, copy) NSMutableArray<FSubType *> *subTypeArr;
 
-+ (instancetype)firstTypeWithName:(NSString *)name budget:(CGFloat)budget subTypeArr:(NSArray *)SubTypeArr;
++ (instancetype)firstTypeWithName:(NSString *)name budget:(CGFloat)budget subTypeArr:(NSMutableArray<FSubType *> *)SubTypeArr;
 @end
 
 @interface FSubType : BaseEntity
@@ -35,5 +35,5 @@
 @property (nonatomic, assign) BOOL isEditable;
 
 
-//@property (nonatomic, strong) NSDictionary<NSString *> *subTypeArr;
++ (instancetype)subTypeWithName:(NSString *)name;
 @end

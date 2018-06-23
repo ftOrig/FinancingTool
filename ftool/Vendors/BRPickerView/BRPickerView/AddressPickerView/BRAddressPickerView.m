@@ -282,11 +282,11 @@
 - (void)initUI {
     [super initUI];
     if (self.showType == BRAddressPickerModeProvince) {
-        self.titleLabel.text = @"请选择省份";
+        self.titleLabel.text = @"请选择";
     } else if (self.showType == BRAddressPickerModeCity) {
-        self.titleLabel.text = @"请选择城市";
+        self.titleLabel.text = @"请选择";
     } else {
-        self.titleLabel.text = @"请选择地区";
+        self.titleLabel.text = @"请选择";
     }
     // 添加时间选择器
     [self.alertView addSubview:self.pickerView];

@@ -21,6 +21,12 @@
 {
     return [self colorWithHexString:@"#969696"];
 }
+
++ (instancetype)ys_green
+{
+    return [UIColor colorWithRed:37/255.f green:178/255.f blue:121/255.f alpha:1.0];
+}
+
 + (instancetype)ys_blue
 {
     return [self colorWithHexString:@"#3296F0"];
