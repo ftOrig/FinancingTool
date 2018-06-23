@@ -1,0 +1,91 @@
+//
+//  UIView+AJ.h
+//  SP2P_6.1
+//
+//  Created by eims on 16/8/23.
+//  Copyright © 2016年 EIMS. All rights reserved.
+//
+#import <UIKit/UIKit.h>
+//
+//* 这个枚举是配合UIViewOutterDelegate使用的，自定义view面向协议<UIViewOutterDelegate>，事件向外传递需添加一个代理属性，
+// 见方法可知是内部view的事件，- (void)customView:(UIView *)sectionView didClickWithType:(ClickType)type，
+//  通过ClickType来判断是点击的什么事件，
+// @property (nonatomic, weak) id<UIViewOutterDelegate> outterDelegate;
+//
+typedef NS_ENUM(NSInteger, ClickType){
+    ClickType_sendEmail = 1,       // 账单-结算详情页面 “发送邮件”点击
+    ClickType_adjustAmount,    // 账单-结算详情页面 “调整金额”点击
+    ClickType_selectVendor,    // 月账单查询页面-“选择商户号”
+    ClickType_selectMonth,    // 月账单查询页面- “选择月份”
+    ClickType_couponToUse,    // 点击卡券“立即使用”按钮
+    ClickType_researchBluetooth,    // 点击扫一扫界面“重新搜索”蓝牙按钮
+    ClickType_connectBluetooth,    // 点击扫一扫界面蓝牙列表里面的“连接”按钮
+    ClickType_selectGoodsType,    // 点击收款-界面“请选择商品类别”
+    ClickType_paymentBtnClick,    // 点击收款-界面“收款”
+    ClickType_paymentSignNameCancel,    // 点击POS签名页面“取消”
+    ClickType_paymentSignNameResign,    // 点击POS签名页面“重签”
+    ClickType_paymentSignNameSure,    // 点击POS签名页面“确定”
+    ClickType_paymentMPOSSwipTimeout,    // POS刷卡页面“倒计时”结束
+    ClickType_paymentMPOSSwipTimedown1S,    // POS刷卡页面“倒计时”1S
+};
+
+@protocol UIViewOutterDelegate <NSObject>
+// 自定义uiview向外部发消息的方法，UIview告知代理
+//
+@optional
+/**区块view里面的各个按钮点击事件，代理传递 */
+- (void)customView:(UIView *)sectionView didClickWithType:(ClickType)type;
+@end
+
+
+@protocol UIViewInnerDelegate <NSObject>
+// uiview的内部实现的方法，外部可调用uiview的UIViewInnerDelegate协议方法
+@optional
+/** 给外界提供更新view的数据的方法声明*/
+- (void)reloadDataWithObject:(id)bean;
+@end
+
+
+@interface UIView (AJ)
+@property (assign, nonatomic) CGFloat x;
+@property (assign, nonatomic) CGFloat y;
+@property (assign, nonatomic) CGFloat width;
+@property (assign, nonatomic) CGFloat height;
+@property (assign, nonatomic) CGSize size;
+@property (assign, nonatomic) CGPoint origin;
+@property (assign, nonatomic, readonly) CGFloat maxX;
+@property (assign, nonatomic, readonly) CGFloat maxY;
+@property (assign, nonatomic, readonly) CGFloat minX;
+@property (assign, nonatomic, readonly) CGFloat minY;
+
+
+/**
+  梯度背景色
+ */
+- (void)gradientView;
+- (void)gradientViewWithFrame:(CGRect)frame;
+
+/** 屏幕适配不成比例的UI设计稿时 根据屏幕获取值的方法*/
++ (CGFloat)getValueFromArray:(NSArray *)arr;
+
+
+- (void)setCornerRadiu:(CGFloat)radius borderWidth:(CGFloat)border borderColor:(UIColor *)color;
+/**
+  移除梯度背景色
+ */
+- (void)removeGradientView;
+
+
+/**
+  抖动动画
+ */
+- (void)shakeAnimation;
+
+- (UIViewController*)viewController;
+@end
+
+
+//@interface UIControl (AJ)
+//@property (nonatomic, assign) NSTimeInterval custom_acceptEventInterval;// 可以用这个给重复点击加间隔
+//@end
+

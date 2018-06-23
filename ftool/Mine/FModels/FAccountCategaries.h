@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseEntity.h"
 
 @class FFirstType, FSubType;
 // 记账类别
-@interface FAccountCategaries : NSObject
+@interface FAccountCategaries : BaseEntity
 
 @property (nonatomic, strong) NSMutableArray<FFirstType *> *expensesTypeArr;
 @property (nonatomic, strong) NSMutableArray<FFirstType *> *incomeTypeArr;
@@ -18,7 +19,7 @@
 @end
 
 
-@interface FFirstType : NSObject
+@interface FFirstType : BaseEntity
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isEditable;
@@ -28,7 +29,7 @@
 + (instancetype)firstTypeWithName:(NSString *)name budget:(CGFloat)budget subTypeArr:(NSArray *)SubTypeArr;
 @end
 
-@interface FSubType : NSObject
+@interface FSubType : BaseEntity
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isEditable;
