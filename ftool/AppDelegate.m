@@ -21,6 +21,15 @@
     TabBarController *tabbarVC = [[TabBarController alloc] init];
     self.window.rootViewController = tabbarVC;
     
+    
+    
+    NSDictionary *expensesDic = @{};
+    NSDictionary *incomeDic = @{};
+    NSDictionary *accountTypeDic = @{};
+    NSDictionary *plistDic = @{@"expensesType":expensesDic,
+                               @"incomeType":incomeDic,
+                               @"expensesType":accountTypeDic};
+    
     return YES;
 }
 

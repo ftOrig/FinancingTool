@@ -23,6 +23,7 @@
 		182C4AA220DA51BF003C59F6 /* AppDefaultUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4AA120DA51BF003C59F6 /* AppDefaultUtil.m */; };
 		845606A120DD01790078EDE6 /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* MineController.m */; };
 		845606A220DD01790078EDE6 /* MineController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845606A020DD01790078EDE6 /* MineController.xib */; };
+		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		8456069E20DD01790078EDE6 /* MineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineController.h; sourceTree = "<group>"; };
 		8456069F20DD01790078EDE6 /* MineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineController.m; sourceTree = "<group>"; };
 		845606A020DD01790078EDE6 /* MineController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineController.xib; sourceTree = "<group>"; };
+		845606A420DD1C740078EDE6 /* FAccountCategaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAccountCategaries.h; sourceTree = "<group>"; };
+		845606A520DD1C740078EDE6 /* FAccountCategaries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAccountCategaries.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,11 +196,21 @@
 		8456069D20DD01580078EDE6 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				845606A320DD1C490078EDE6 /* FModels */,
 				8456069E20DD01790078EDE6 /* MineController.h */,
 				8456069F20DD01790078EDE6 /* MineController.m */,
 				845606A020DD01790078EDE6 /* MineController.xib */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		845606A320DD1C490078EDE6 /* FModels */ = {
+			isa = PBXGroup;
+			children = (
+				845606A420DD1C740078EDE6 /* FAccountCategaries.h */,
+				845606A520DD1C740078EDE6 /* FAccountCategaries.m */,
+			);
+			path = FModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */,
 				845606A120DD01790078EDE6 /* MineController.m in Sources */,
 				182C4A5E20DA43CC003C59F6 /* ViewController.m in Sources */,
 				182C4A8E20DA49C0003C59F6 /* TabBarController.m in Sources */,
