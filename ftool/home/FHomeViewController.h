@@ -6,8 +6,8 @@
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AJContainTableController.h"
 
-@interface FHomeViewController : UIViewController
+@interface FHomeViewController : AJContainTableController
 
 @end
