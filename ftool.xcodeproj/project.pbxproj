@@ -126,19 +126,27 @@
 		847B38A320DDE5BC002DE2CE /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B385A20DDE5BC002DE2CE /* MASViewConstraint.m */; };
 		847B38A420DDE5BC002DE2CE /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B385B20DDE5BC002DE2CE /* MASViewAttribute.m */; };
 		847B38A520DDE5BC002DE2CE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 847B385C20DDE5BC002DE2CE /* README.md */; };
-		847B38C120DDE5DB002DE2CE /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38AA20DDE5DB002DE2CE /* BRStringPickerView.m */; };
-		847B38C220DDE5DB002DE2CE /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38AF20DDE5DB002DE2CE /* BRDatePickerView.m */; };
-		847B38C320DDE5DB002DE2CE /* NSDate+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38B020DDE5DB002DE2CE /* NSDate+BRAdd.m */; };
-		847B38C420DDE5DB002DE2CE /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38B220DDE5DB002DE2CE /* BRBaseView.m */; };
-		847B38C520DDE5DB002DE2CE /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38B520DDE5DB002DE2CE /* BRAddressModel.m */; };
-		847B38C620DDE5DB002DE2CE /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 847B38B720DDE5DB002DE2CE /* BRPickerView.bundle */; };
-		847B38C720DDE5DB002DE2CE /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38B920DDE5DB002DE2CE /* BRAddressPickerView.m */; };
-		847B38C820DDE5DB002DE2CE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 847B38BA20DDE5DB002DE2CE /* LICENSE */; };
-		847B38C920DDE5DB002DE2CE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 847B38BB20DDE5DB002DE2CE /* README.md */; };
-		847B38CA20DDE5DB002DE2CE /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 847B38BE20DDE5DB002DE2CE /* README.markdown */; };
-		847B38CB20DDE5DB002DE2CE /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 847B38BF20DDE5DB002DE2CE /* License.txt */; };
-		847B38CC20DDE5DB002DE2CE /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38C020DDE5DB002DE2CE /* DejalActivityView.m */; };
 		847B38CF20DDEA18002DE2CE /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38CD20DDEA18002DE2CE /* UserModel.m */; };
+		847B38E620DDEEDB002DE2CE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 847B38D220DDEEDB002DE2CE /* README.md */; };
+		847B38E720DDEEDB002DE2CE /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38D920DDEEDB002DE2CE /* SDCycleScrollView.m */; };
+		847B38E820DDEEDB002DE2CE /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38DA20DDEEDB002DE2CE /* UIView+SDExtension.m */; };
+		847B38E920DDEEDB002DE2CE /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38DB20DDEEDB002DE2CE /* SDCollectionViewCell.m */; };
+		847B38EA20DDEEDB002DE2CE /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38DE20DDEEDB002DE2CE /* TADotView.m */; };
+		847B38EB20DDEEDB002DE2CE /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38DF20DDEEDB002DE2CE /* TAPageControl.m */; };
+		847B38EC20DDEEDB002DE2CE /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38E020DDEEDB002DE2CE /* TAAnimatedDotView.m */; };
+		847B38ED20DDEEDB002DE2CE /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38E120DDEEDB002DE2CE /* TAAbstractDotView.m */; };
+		847B390420DDF016002DE2CE /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38F220DDF015002DE2CE /* BRStringPickerView.m */; };
+		847B390520DDF016002DE2CE /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38F720DDF015002DE2CE /* BRDatePickerView.m */; };
+		847B390620DDF016002DE2CE /* NSDate+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38F820DDF015002DE2CE /* NSDate+BRAdd.m */; };
+		847B390720DDF016002DE2CE /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38FA20DDF015002DE2CE /* BRBaseView.m */; };
+		847B390820DDF016002DE2CE /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B38FD20DDF015002DE2CE /* BRAddressModel.m */; };
+		847B390920DDF016002DE2CE /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 847B38FF20DDF015002DE2CE /* BRPickerView.bundle */; };
+		847B390A20DDF016002DE2CE /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B390120DDF015002DE2CE /* BRAddressPickerView.m */; };
+		847B390B20DDF016002DE2CE /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 847B390220DDF015002DE2CE /* LICENSE */; };
+		847B390C20DDF016002DE2CE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 847B390320DDF015002DE2CE /* README.md */; };
+		847B391220DDF024002DE2CE /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 847B390F20DDF024002DE2CE /* README.markdown */; };
+		847B391320DDF024002DE2CE /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 847B391020DDF024002DE2CE /* License.txt */; };
+		847B391420DDF024002DE2CE /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B391120DDF024002DE2CE /* DejalActivityView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -396,28 +404,43 @@
 		847B385A20DDE5BC002DE2CE /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
 		847B385B20DDE5BC002DE2CE /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
 		847B385C20DDE5BC002DE2CE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		847B38A920DDE5DB002DE2CE /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
-		847B38AA20DDE5DB002DE2CE /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
-		847B38AB20DDE5DB002DE2CE /* BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPickerView.h; sourceTree = "<group>"; };
-		847B38AD20DDE5DB002DE2CE /* BRDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDatePickerView.h; sourceTree = "<group>"; };
-		847B38AE20DDE5DB002DE2CE /* NSDate+BRAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRAdd.h"; sourceTree = "<group>"; };
-		847B38AF20DDE5DB002DE2CE /* BRDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRDatePickerView.m; sourceTree = "<group>"; };
-		847B38B020DDE5DB002DE2CE /* NSDate+BRAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRAdd.m"; sourceTree = "<group>"; };
-		847B38B220DDE5DB002DE2CE /* BRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseView.m; sourceTree = "<group>"; };
-		847B38B320DDE5DB002DE2CE /* BRBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBaseView.h; sourceTree = "<group>"; };
-		847B38B520DDE5DB002DE2CE /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
-		847B38B620DDE5DB002DE2CE /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
-		847B38B720DDE5DB002DE2CE /* BRPickerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BRPickerView.bundle; sourceTree = "<group>"; };
-		847B38B820DDE5DB002DE2CE /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
-		847B38B920DDE5DB002DE2CE /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
-		847B38BA20DDE5DB002DE2CE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		847B38BB20DDE5DB002DE2CE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		847B38BD20DDE5DB002DE2CE /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
-		847B38BE20DDE5DB002DE2CE /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
-		847B38BF20DDE5DB002DE2CE /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
-		847B38C020DDE5DB002DE2CE /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		847B38CD20DDEA18002DE2CE /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		847B38CE20DDEA18002DE2CE /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		847B38D220DDEEDB002DE2CE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		847B38D620DDEEDB002DE2CE /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		847B38D720DDEEDB002DE2CE /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		847B38D820DDEEDB002DE2CE /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		847B38D920DDEEDB002DE2CE /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		847B38DA20DDEEDB002DE2CE /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		847B38DB20DDEEDB002DE2CE /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		847B38DD20DDEEDB002DE2CE /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		847B38DE20DDEEDB002DE2CE /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		847B38DF20DDEEDB002DE2CE /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		847B38E020DDEEDB002DE2CE /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		847B38E120DDEEDB002DE2CE /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		847B38E220DDEEDB002DE2CE /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		847B38E320DDEEDB002DE2CE /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		847B38E420DDEEDB002DE2CE /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		847B38F120DDF015002DE2CE /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
+		847B38F220DDF015002DE2CE /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
+		847B38F320DDF015002DE2CE /* BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPickerView.h; sourceTree = "<group>"; };
+		847B38F520DDF015002DE2CE /* BRDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDatePickerView.h; sourceTree = "<group>"; };
+		847B38F620DDF015002DE2CE /* NSDate+BRAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRAdd.h"; sourceTree = "<group>"; };
+		847B38F720DDF015002DE2CE /* BRDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRDatePickerView.m; sourceTree = "<group>"; };
+		847B38F820DDF015002DE2CE /* NSDate+BRAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRAdd.m"; sourceTree = "<group>"; };
+		847B38FA20DDF015002DE2CE /* BRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseView.m; sourceTree = "<group>"; };
+		847B38FB20DDF015002DE2CE /* BRBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBaseView.h; sourceTree = "<group>"; };
+		847B38FD20DDF015002DE2CE /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
+		847B38FE20DDF015002DE2CE /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
+		847B38FF20DDF015002DE2CE /* BRPickerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BRPickerView.bundle; sourceTree = "<group>"; };
+		847B390020DDF015002DE2CE /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
+		847B390120DDF015002DE2CE /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
+		847B390220DDF015002DE2CE /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		847B390320DDF015002DE2CE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		847B390E20DDF024002DE2CE /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
+		847B390F20DDF024002DE2CE /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		847B391020DDF024002DE2CE /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		847B391120DDF024002DE2CE /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -690,8 +713,9 @@
 		847B37B920DDE594002DE2CE /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
-				847B38A620DDE5DB002DE2CE /* BRPickerView */,
-				847B38BC20DDE5DB002DE2CE /* DejalActivityView */,
+				847B390D20DDF024002DE2CE /* DejalActivityView */,
+				847B38EE20DDF015002DE2CE /* BRPickerView */,
+				847B38D020DDEEDB002DE2CE /* SDCycleScrollView */,
 				847B381220DDE5BB002DE2CE /* FDFullscreenPopGesture */,
 				847B381820DDE5BC002DE2CE /* IQKeyboardManager */,
 				847B384020DDE5BC002DE2CE /* Masonry */,
@@ -1020,80 +1044,132 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
-		847B38A620DDE5DB002DE2CE /* BRPickerView */ = {
+		847B38D020DDEEDB002DE2CE /* SDCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				847B38A720DDE5DB002DE2CE /* BRPickerView */,
-				847B38BA20DDE5DB002DE2CE /* LICENSE */,
-				847B38BB20DDE5DB002DE2CE /* README.md */,
+				847B38D220DDEEDB002DE2CE /* README.md */,
+				847B38D320DDEEDB002DE2CE /* SDCycleScrollView */,
 			);
-			name = BRPickerView;
-			path = "../../../../YSTMobilePortal-iOS/MobilePaymentOS/Pods/BRPickerView";
+			path = SDCycleScrollView;
 			sourceTree = "<group>";
 		};
-		847B38A720DDE5DB002DE2CE /* BRPickerView */ = {
+		847B38D320DDEEDB002DE2CE /* SDCycleScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				847B38A820DDE5DB002DE2CE /* StringPickerView */,
-				847B38AB20DDE5DB002DE2CE /* BRPickerView.h */,
-				847B38AC20DDE5DB002DE2CE /* DatePickerView */,
-				847B38B120DDE5DB002DE2CE /* Base */,
-				847B38B420DDE5DB002DE2CE /* AddressPickerView */,
+				847B38D420DDEEDB002DE2CE /* Lib */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		847B38D420DDEEDB002DE2CE /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				847B38D520DDEEDB002DE2CE /* SDCycleScrollView */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		847B38D520DDEEDB002DE2CE /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				847B38D620DDEEDB002DE2CE /* UIView+SDExtension.h */,
+				847B38D720DDEEDB002DE2CE /* SDCycleScrollView.h */,
+				847B38D820DDEEDB002DE2CE /* SDCollectionViewCell.h */,
+				847B38D920DDEEDB002DE2CE /* SDCycleScrollView.m */,
+				847B38DA20DDEEDB002DE2CE /* UIView+SDExtension.m */,
+				847B38DB20DDEEDB002DE2CE /* SDCollectionViewCell.m */,
+				847B38DC20DDEEDB002DE2CE /* PageControl */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		847B38DC20DDEEDB002DE2CE /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				847B38DD20DDEEDB002DE2CE /* TAAbstractDotView.h */,
+				847B38DE20DDEEDB002DE2CE /* TADotView.m */,
+				847B38DF20DDEEDB002DE2CE /* TAPageControl.m */,
+				847B38E020DDEEDB002DE2CE /* TAAnimatedDotView.m */,
+				847B38E120DDEEDB002DE2CE /* TAAbstractDotView.m */,
+				847B38E220DDEEDB002DE2CE /* TADotView.h */,
+				847B38E320DDEEDB002DE2CE /* TAAnimatedDotView.h */,
+				847B38E420DDEEDB002DE2CE /* TAPageControl.h */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
+		847B38EE20DDF015002DE2CE /* BRPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				847B38EF20DDF015002DE2CE /* BRPickerView */,
+				847B390220DDF015002DE2CE /* LICENSE */,
+				847B390320DDF015002DE2CE /* README.md */,
 			);
 			path = BRPickerView;
 			sourceTree = "<group>";
 		};
-		847B38A820DDE5DB002DE2CE /* StringPickerView */ = {
+		847B38EF20DDF015002DE2CE /* BRPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				847B38A920DDE5DB002DE2CE /* BRStringPickerView.h */,
-				847B38AA20DDE5DB002DE2CE /* BRStringPickerView.m */,
+				847B38F020DDF015002DE2CE /* StringPickerView */,
+				847B38F320DDF015002DE2CE /* BRPickerView.h */,
+				847B38F420DDF015002DE2CE /* DatePickerView */,
+				847B38F920DDF015002DE2CE /* Base */,
+				847B38FC20DDF015002DE2CE /* AddressPickerView */,
+			);
+			path = BRPickerView;
+			sourceTree = "<group>";
+		};
+		847B38F020DDF015002DE2CE /* StringPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				847B38F120DDF015002DE2CE /* BRStringPickerView.h */,
+				847B38F220DDF015002DE2CE /* BRStringPickerView.m */,
 			);
 			path = StringPickerView;
 			sourceTree = "<group>";
 		};
-		847B38AC20DDE5DB002DE2CE /* DatePickerView */ = {
+		847B38F420DDF015002DE2CE /* DatePickerView */ = {
 			isa = PBXGroup;
 			children = (
-				847B38AD20DDE5DB002DE2CE /* BRDatePickerView.h */,
-				847B38AE20DDE5DB002DE2CE /* NSDate+BRAdd.h */,
-				847B38AF20DDE5DB002DE2CE /* BRDatePickerView.m */,
-				847B38B020DDE5DB002DE2CE /* NSDate+BRAdd.m */,
+				847B38F520DDF015002DE2CE /* BRDatePickerView.h */,
+				847B38F620DDF015002DE2CE /* NSDate+BRAdd.h */,
+				847B38F720DDF015002DE2CE /* BRDatePickerView.m */,
+				847B38F820DDF015002DE2CE /* NSDate+BRAdd.m */,
 			);
 			path = DatePickerView;
 			sourceTree = "<group>";
 		};
-		847B38B120DDE5DB002DE2CE /* Base */ = {
+		847B38F920DDF015002DE2CE /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				847B38B220DDE5DB002DE2CE /* BRBaseView.m */,
-				847B38B320DDE5DB002DE2CE /* BRBaseView.h */,
+				847B38FA20DDF015002DE2CE /* BRBaseView.m */,
+				847B38FB20DDF015002DE2CE /* BRBaseView.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-		847B38B420DDE5DB002DE2CE /* AddressPickerView */ = {
+		847B38FC20DDF015002DE2CE /* AddressPickerView */ = {
 			isa = PBXGroup;
 			children = (
-				847B38B520DDE5DB002DE2CE /* BRAddressModel.m */,
-				847B38B620DDE5DB002DE2CE /* BRAddressPickerView.h */,
-				847B38B720DDE5DB002DE2CE /* BRPickerView.bundle */,
-				847B38B820DDE5DB002DE2CE /* BRAddressModel.h */,
-				847B38B920DDE5DB002DE2CE /* BRAddressPickerView.m */,
+				847B38FD20DDF015002DE2CE /* BRAddressModel.m */,
+				847B38FE20DDF015002DE2CE /* BRAddressPickerView.h */,
+				847B38FF20DDF015002DE2CE /* BRPickerView.bundle */,
+				847B390020DDF015002DE2CE /* BRAddressModel.h */,
+				847B390120DDF015002DE2CE /* BRAddressPickerView.m */,
 			);
 			path = AddressPickerView;
 			sourceTree = "<group>";
 		};
-		847B38BC20DDE5DB002DE2CE /* DejalActivityView */ = {
+		847B390D20DDF024002DE2CE /* DejalActivityView */ = {
 			isa = PBXGroup;
 			children = (
-				847B38BD20DDE5DB002DE2CE /* DejalActivityView.h */,
-				847B38BE20DDE5DB002DE2CE /* README.markdown */,
-				847B38BF20DDE5DB002DE2CE /* License.txt */,
-				847B38C020DDE5DB002DE2CE /* DejalActivityView.m */,
+				847B390E20DDF024002DE2CE /* DejalActivityView.h */,
+				847B390F20DDF024002DE2CE /* README.markdown */,
+				847B391020DDF024002DE2CE /* License.txt */,
+				847B391120DDF024002DE2CE /* DejalActivityView.m */,
 			);
-			name = DejalActivityView;
-			path = "../../../../YSTMobilePortal-iOS/MobilePaymentOS/Pods/DejalActivityView";
+			path = DejalActivityView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1208,24 +1284,25 @@
 				182C4A9D20DA4BAC003C59F6 /* FCounterViewController.xib in Resources */,
 				847B386720DDE5BC002DE2CE /* LICENSE in Resources */,
 				847B389A20DDE5BC002DE2CE /* LICENSE in Resources */,
+				847B38E620DDEEDB002DE2CE /* README.md in Resources */,
 				847B388520DDE5BC002DE2CE /* LICENSE.txt in Resources */,
-				847B38CA20DDE5DB002DE2CE /* README.markdown in Resources */,
 				847B386920DDE5BC002DE2CE /* LICENSE in Resources */,
 				182C4A6320DA43CC003C59F6 /* Assets.xcassets in Resources */,
+				847B390C20DDF016002DE2CE /* README.md in Resources */,
+				847B390920DDF016002DE2CE /* BRPickerView.bundle in Resources */,
 				847B387E20DDE5BC002DE2CE /* README.md in Resources */,
+				847B391320DDF024002DE2CE /* License.txt in Resources */,
 				847B388320DDE5BC002DE2CE /* SVProgressHUD.bundle in Resources */,
 				847B389120DDE5BC002DE2CE /* IQKeyboardManager.bundle in Resources */,
-				847B38C920DDE5DB002DE2CE /* README.md in Resources */,
 				847B388920DDE5BC002DE2CE /* LICENSE.md in Resources */,
+				847B391220DDF024002DE2CE /* README.markdown in Resources */,
 				847B388620DDE5BC002DE2CE /* LICENSE in Resources */,
 				847B388820DDE5BC002DE2CE /* README.md in Resources */,
 				847B388A20DDE5BC002DE2CE /* README.md in Resources */,
-				847B38C620DDE5DB002DE2CE /* BRPickerView.bundle in Resources */,
+				847B390B20DDF016002DE2CE /* LICENSE in Resources */,
 				847B386C20DDE5BC002DE2CE /* MJRefresh.bundle in Resources */,
-				847B38C820DDE5DB002DE2CE /* LICENSE in Resources */,
 				847B388420DDE5BC002DE2CE /* README.md in Resources */,
 				847B386820DDE5BC002DE2CE /* README.md in Resources */,
-				847B38CB20DDE5DB002DE2CE /* License.txt in Resources */,
 				847B38A520DDE5BC002DE2CE /* README.md in Resources */,
 				847B379720DDE458002DE2CE /* close_btn_icon@2x.png in Resources */,
 			);
@@ -1260,9 +1337,10 @@
 				847B385E20DDE5BC002DE2CE /* NSObject+MJKeyValue.m in Sources */,
 				847B387520DDE5BC002DE2CE /* MJRefreshAutoNormalFooter.m in Sources */,
 				847B389D20DDE5BC002DE2CE /* MASCompositeConstraint.m in Sources */,
-				847B38C320DDE5DB002DE2CE /* NSDate+BRAdd.m in Sources */,
+				847B38EC20DDEEDB002DE2CE /* TAAnimatedDotView.m in Sources */,
 				847B388E20DDE5BC002DE2CE /* IQBarButtonItem.m in Sources */,
 				847B389E20DDE5BC002DE2CE /* MASConstraintMaker.m in Sources */,
+				847B38EB20DDEEDB002DE2CE /* TAPageControl.m in Sources */,
 				847B389420DDE5BC002DE2CE /* IQUIWindow+Hierarchy.m in Sources */,
 				847B379C20DDE458002DE2CE /* WSPlaceholderTextView.m in Sources */,
 				847B38CF20DDEA18002DE2CE /* UserModel.m in Sources */,
@@ -1270,25 +1348,27 @@
 				847B387320DDE5BC002DE2CE /* MJRefreshAutoStateFooter.m in Sources */,
 				847B385D20DDE5BC002DE2CE /* MJPropertyType.m in Sources */,
 				847B386620DDE5BC002DE2CE /* MJFoundation.m in Sources */,
-				847B38C720DDE5DB002DE2CE /* BRAddressPickerView.m in Sources */,
-				847B38C420DDE5DB002DE2CE /* BRBaseView.m in Sources */,
+				847B38E920DDEEDB002DE2CE /* SDCollectionViewCell.m in Sources */,
+				847B38EA20DDEEDB002DE2CE /* TADotView.m in Sources */,
 				847B387620DDE5BC002DE2CE /* MJRefreshNormalHeader.m in Sources */,
 				847B387A20DDE5BC002DE2CE /* MJRefreshHeader.m in Sources */,
 				847B387B20DDE5BC002DE2CE /* MJRefreshBackFooter.m in Sources */,
 				847B379320DDE458002DE2CE /* NavBar.m in Sources */,
 				847B379F20DDE458002DE2CE /* UIImageView+AJ.m in Sources */,
 				847B379820DDE458002DE2CE /* UITableViewCell+AJ.m in Sources */,
+				847B390820DDF016002DE2CE /* BRAddressModel.m in Sources */,
 				847B37A220DDE458002DE2CE /* NSDate+AJax.m in Sources */,
 				847B386320DDE5BC002DE2CE /* NSObject+MJClass.m in Sources */,
 				847B387F20DDE5BC002DE2CE /* SVRadialGradientLayer.m in Sources */,
 				847B389220DDE5BC002DE2CE /* IQKeyboardManager.m in Sources */,
+				847B390720DDF016002DE2CE /* BRBaseView.m in Sources */,
 				847B388B20DDE5BC002DE2CE /* IQTextView.m in Sources */,
+				847B38E820DDEEDB002DE2CE /* UIView+SDExtension.m in Sources */,
 				847B389520DDE5BC002DE2CE /* IQUITextFieldView+Additions.m in Sources */,
 				847B389320DDE5BC002DE2CE /* IQNSArray+Sort.m in Sources */,
 				847B385F20DDE5BC002DE2CE /* MJProperty.m in Sources */,
 				847B379520DDE458002DE2CE /* AJMonthSectionHeader.m in Sources */,
 				847B379020DDE458002DE2CE /* MyTools.m in Sources */,
-				847B38CC20DDE5DB002DE2CE /* DejalActivityView.m in Sources */,
 				847B379420DDE458002DE2CE /* LDProgressView.m in Sources */,
 				847B38A120DDE5BC002DE2CE /* View+MASAdditions.m in Sources */,
 				847B386D20DDE5BC002DE2CE /* UIScrollView+MJExtension.m in Sources */,
@@ -1296,9 +1376,11 @@
 				847B37AA20DDE458002DE2CE /* BaseWKWebViewController.m in Sources */,
 				847B386020DDE5BC002DE2CE /* NSObject+MJCoding.m in Sources */,
 				847B389720DDE5BC002DE2CE /* IQUIView+Hierarchy.m in Sources */,
+				847B391420DDF024002DE2CE /* DejalActivityView.m in Sources */,
 				847B37A320DDE458002DE2CE /* UIButton+Custom.m in Sources */,
 				847B389020DDE5BC002DE2CE /* IQPreviousNextView.m in Sources */,
 				847B37A720DDE458002DE2CE /* AJNetWorkController.m in Sources */,
+				847B390520DDF016002DE2CE /* BRDatePickerView.m in Sources */,
 				847B37AC20DDE458002DE2CE /* AJTextFieldBaseController.m in Sources */,
 				847B38A320DDE5BC002DE2CE /* MASViewConstraint.m in Sources */,
 				847B389820DDE5BC002DE2CE /* IQUIViewController+Additions.m in Sources */,
@@ -1315,6 +1397,7 @@
 				847B379220DDE458002DE2CE /* UIView+AJ.m in Sources */,
 				847B37A820DDE458002DE2CE /* AJContainTableController.m in Sources */,
 				847B387920DDE5BC002DE2CE /* MJRefreshFooter.m in Sources */,
+				847B390A20DDF016002DE2CE /* BRAddressPickerView.m in Sources */,
 				847B386B20DDE5BC002DE2CE /* MJRefreshConst.m in Sources */,
 				847B386F20DDE5BC002DE2CE /* UIView+MJExtension.m in Sources */,
 				182C4A6920DA43CC003C59F6 /* main.m in Sources */,
@@ -1322,8 +1405,8 @@
 				847B37B520DDE563002DE2CE /* NavigationController.m in Sources */,
 				847B389F20DDE5BC002DE2CE /* MASLayoutConstraint.m in Sources */,
 				847B378F20DDE458002DE2CE /* ReLogin.m in Sources */,
-				847B38C120DDE5DB002DE2CE /* BRStringPickerView.m in Sources */,
 				847B387020DDE5BC002DE2CE /* MJRefreshBackGifFooter.m in Sources */,
+				847B38ED20DDEEDB002DE2CE /* TAAbstractDotView.m in Sources */,
 				847B388220DDE5BC002DE2CE /* SVIndefiniteAnimatedView.m in Sources */,
 				847B37A620DDE458002DE2CE /* BaseEntity.m in Sources */,
 				847B387C20DDE5BC002DE2CE /* MJRefreshAutoFooter.m in Sources */,
@@ -1338,20 +1421,21 @@
 				847B387D20DDE5BC002DE2CE /* MJRefreshComponent.m in Sources */,
 				847B386E20DDE5BC002DE2CE /* NSBundle+MJRefresh.m in Sources */,
 				847B379920DDE458002DE2CE /* UIColor+custom.m in Sources */,
+				847B390420DDF016002DE2CE /* BRStringPickerView.m in Sources */,
 				847B387820DDE5BC002DE2CE /* MJRefreshGifHeader.m in Sources */,
 				847B386520DDE5BC002DE2CE /* MJPropertyKey.m in Sources */,
+				847B38E720DDEEDB002DE2CE /* SDCycleScrollView.m in Sources */,
 				847B378E20DDE458002DE2CE /* SecurityUtil.m in Sources */,
 				847B38A420DDE5BC002DE2CE /* MASViewAttribute.m in Sources */,
 				847B388120DDE5BC002DE2CE /* SVProgressHUD.m in Sources */,
-				847B38C520DDE5DB002DE2CE /* BRAddressModel.m in Sources */,
 				847B37A420DDE458002DE2CE /* ProductItem.m in Sources */,
 				847B386120DDE5BC002DE2CE /* MJExtensionConst.m in Sources */,
-				847B38C220DDE5DB002DE2CE /* BRDatePickerView.m in Sources */,
 				847B389C20DDE5BC002DE2CE /* ViewController+MASAdditions.m in Sources */,
 				182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */,
 				847B378C20DDE458002DE2CE /* AJIDFATool.m in Sources */,
 				847B379120DDE458002DE2CE /* UITextField+custom.m in Sources */,
 				847B378D20DDE458002DE2CE /* AppDefaultUtil.m in Sources */,
+				847B390620DDF016002DE2CE /* NSDate+BRAdd.m in Sources */,
 				847B389920DDE5BC002DE2CE /* IQKeyboardReturnKeyHandler.m in Sources */,
 				847B37A120DDE458002DE2CE /* NSString+AJ.m in Sources */,
 				847B38A020DDE5BC002DE2CE /* NSArray+MASAdditions.m in Sources */,
