@@ -174,8 +174,8 @@
 		847B396420DE0F03002DE2CE /* FTakeRecordExpandController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396320DE0F03002DE2CE /* FTakeRecordExpandController.m */; };
 		847B396720DE0F17002DE2CE /* FTakeRecordIncomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */; };
 		847B396A20DE148D002DE2CE /* FTakeRecordExpandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396920DE148D002DE2CE /* FTakeRecordExpandView.m */; };
-		847B396D20DE1B91002DE2CE /* WSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396C20DE1B91002DE2CE /* WSPlaceholderTextView.m */; };
 		847B397120DE524B002DE2CE /* AccoutCategeries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847B397020DE524B002DE2CE /* AccoutCategeries.plist */; };
+		847B397720DE5B8E002DE2CE /* WSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -521,9 +521,9 @@
 		847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTakeRecordIncomeController.m; sourceTree = "<group>"; };
 		847B396820DE148D002DE2CE /* FTakeRecordExpandView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTakeRecordExpandView.h; sourceTree = "<group>"; };
 		847B396920DE148D002DE2CE /* FTakeRecordExpandView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTakeRecordExpandView.m; sourceTree = "<group>"; };
-		847B396B20DE1B91002DE2CE /* WSPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WSPlaceholderTextView.h; path = "../../../../../自己过往工作资料/微金在线/微金在线APP/微金在线/微金在线/Expand(扩展)/Tool(工具类)/AJCustomUI/WSPlaceholderTextView.h"; sourceTree = "<group>"; };
-		847B396C20DE1B91002DE2CE /* WSPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WSPlaceholderTextView.m; path = "../../../../../自己过往工作资料/微金在线/微金在线APP/微金在线/微金在线/Expand(扩展)/Tool(工具类)/AJCustomUI/WSPlaceholderTextView.m"; sourceTree = "<group>"; };
 		847B397020DE524B002DE2CE /* AccoutCategeries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccoutCategeries.plist; sourceTree = "<group>"; };
+		847B397520DE5B8E002DE2CE /* WSPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPlaceholderTextView.h; sourceTree = "<group>"; };
+		847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPlaceholderTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -714,8 +714,8 @@
 		847B374D20DDE458002DE2CE /* AJCustomUI */ = {
 			isa = PBXGroup;
 			children = (
-				847B396B20DE1B91002DE2CE /* WSPlaceholderTextView.h */,
-				847B396C20DE1B91002DE2CE /* WSPlaceholderTextView.m */,
+				847B397520DE5B8E002DE2CE /* WSPlaceholderTextView.h */,
+				847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */,
 				847B374E20DDE458002DE2CE /* UITableViewCell+AJ.h */,
 				847B374F20DDE458002DE2CE /* UITextField+custom.m */,
 				847B375020DDE458002DE2CE /* UIView+AJ.m */,
@@ -1539,7 +1539,6 @@
 				847B37A220DDE458002DE2CE /* NSDate+AJax.m in Sources */,
 				847B386320DDE5BC002DE2CE /* NSObject+MJClass.m in Sources */,
 				847B387F20DDE5BC002DE2CE /* SVRadialGradientLayer.m in Sources */,
-				847B396D20DE1B91002DE2CE /* WSPlaceholderTextView.m in Sources */,
 				847B389220DDE5BC002DE2CE /* IQKeyboardManager.m in Sources */,
 				847B390720DDF016002DE2CE /* BRBaseView.m in Sources */,
 				847B388B20DDE5BC002DE2CE /* IQTextView.m in Sources */,
@@ -1578,6 +1577,7 @@
 				847B396A20DE148D002DE2CE /* FTakeRecordExpandView.m in Sources */,
 				847B388C20DDE5BC002DE2CE /* IQToolbar.m in Sources */,
 				847B394D20DDF1BC002DE2CE /* UIView+WebCache.m in Sources */,
+				847B397720DE5B8E002DE2CE /* WSPlaceholderTextView.m in Sources */,
 				847B388D20DDE5BC002DE2CE /* IQTitleBarButtonItem.m in Sources */,
 				847B37B220DDE512002DE2CE /* BaseViewController.m in Sources */,
 				847B387420DDE5BC002DE2CE /* MJRefreshAutoGifFooter.m in Sources */,
