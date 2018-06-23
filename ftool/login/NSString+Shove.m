@@ -2,7 +2,7 @@
 //  NSString+Shove.m
 //  Shove
 //
-//  Created by 英迈思实验室移动开发部 on 14-8-28.
+//  Created by  on 14-8-28.
 //  Copyright (c) 2014年 EIMS. All rights reserved.
 //
 #import <CommonCrypto/CommonDigest.h>
@@ -36,7 +36,7 @@
  */
 - (BOOL)isEmpty
 {
-    return ((self.length == 0) || (self == nil) || ([self isKindOfClass:[NSNull class]]) || (self.length == 0));
+    return ((self.length == 0) || (self == nil) || ([self isKindOfClass:[NSNull class]]) );
 }
 
 /* 

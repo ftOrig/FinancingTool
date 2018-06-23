@@ -15,11 +15,12 @@
 #import "UIButton+CountDown.h"
 //#import "CertificationViewController.h"
 //#import "RegisterSucceedController.h"
+#import "CaptchaView.h"
 
 @interface FRegisterViewController ()<UITextFieldDelegate> //HTTPClientDelegate, 
 {
 	BOOL _mbIsShowKeyboard;			//是否展示键盘
-	UIButton *_verifyBtn;			//验证码按钮
+//    UIButton *_verifyBtn;            //验证码按钮
 	UILabel  *_phoneLabel;			//手机号码提示label
 	UIView   *_superView;			//主视图
 	UIButton *_registBtn;			//注册按钮
@@ -28,11 +29,14 @@
 	UILabel  *_leftlabel;
 	UILabel  *_rightlabel;
 	NSString *_html;
+    
+    InputView *_imgCodeInput;
+    CaptchaView *_imageVerifyView;
 }
 
 @property(nonatomic,strong) InputView *phoneInput;
 @property(nonatomic,strong) InputView *pwdInput;
-@property(nonatomic,strong) InputView *verifyInput;
+//@property(nonatomic,strong) InputView *verifyInput;
 @property(nonatomic,strong) InputView *inviteInput;
 @end
 
@@ -55,15 +59,14 @@
 - (void)initView{
 //    self.navigationController.fd_prefersNavigationBarHidden = YES;
 	self.view.backgroundColor = BGC;
-    
-    
+
     _superView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     _superView.backgroundColor = BGC;
     [self.view addSubview:_superView];
 	
 	//logo视图
 	UIImageView *logoImgView = [UIImageView new];
-	logoImgView.image = [UIImage imageNamed:@"logo"];
+	logoImgView.image = [UIImage imageNamed:@"flogo"];
     logoImgView.layer.cornerRadius = 45*SCALE;
     logoImgView.layer.masksToBounds = YES;
 	[_superView addSubview:logoImgView];
@@ -87,7 +90,7 @@
 	}];
 	
 	// 手机号输入栏
-	_phoneInput = [[InputView alloc]initWithImgName:@"regist_phone_normal" WithSelectImgName:@"regist_phone_lighted" placeContent:@"填写本人手机号"];
+	_phoneInput = [[InputView alloc]initWithImgName:@"regist_phone_normal" WithSelectImgName:@"regist_phone_lighted" placeContent:@"请输入手机号"];
 	_phoneInput.inputField.delegate = self;
 	[_phoneInput.inputField addTarget:self action:@selector(textFieldDidChange:)  forControlEvents:UIControlEventEditingChanged];
 	[_superView addSubview:_phoneInput];
@@ -142,43 +145,66 @@
 	}];
 	
 	//验证码输入栏
-    _verifyInput = [[InputView alloc]initWithImgName:@"regist_safe_normal" WithSelectImgName:@"regist_safe_lighted" placeContent:@"6位随机数"];
-    _verifyInput.inputField.delegate = self;
-    _verifyInput.inputField.clearButtonMode = UITextFieldViewModeNever;
-    [_verifyInput.inputField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-	[_superView addSubview:_verifyInput];
-	[_verifyInput mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.top.equalTo(_pwdInput.mas_bottom).with.offset(20 * SCALE);
-		make.left.equalTo(_superView.mas_left).with.offset(5);
-		make.right.equalTo(_superView.mas_right).with.offset(-5);
-		make.height.mas_equalTo(30 * SCALE);
-	}];
+//    _verifyInput = [[InputView alloc]initWithImgName:@"regist_invite_normal" WithSelectImgName:@"regist_invite_lighted" placeContent:@"手机验证码"];
+//    _verifyInput.inputField.delegate = self;
+//    _verifyInput.inputField.clearButtonMode = UITextFieldViewModeNever;
+//    [_verifyInput.inputField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+//    [_superView addSubview:_verifyInput];
+//    [_verifyInput mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(_pwdInput.mas_bottom).with.offset(20 * SCALE);
+//        make.left.equalTo(_superView.mas_left).with.offset(5);
+//        make.right.equalTo(_superView.mas_right).with.offset(-5);
+//        make.height.mas_equalTo(30 * SCALE);
+//    }];
 	
-    //获取验证码按钮
-    _verifyBtn = [UIButton buttonWithFrame:CGRectZero font:12.0f titleColor:[UIColor whiteColor] normalImage:@"button" disableImage:@"regist_btn_normal" target:self action:@selector(VerifyBtnClick) title:@"获取验证码" superview:_superView];
-    _verifyBtn.enabled = NO;
-    [_verifyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//    //获取验证码按钮
+//    _verifyBtn = [UIButton buttonWithFrame:CGRectZero font:12.0f titleColor:[UIColor whiteColor] normalImage:@"button" disableImage:@"regist_btn_normal" target:self action:@selector(VerifyBtnClick) title:@"获取验证码" superview:_superView];
+//    _verifyBtn.enabled = NO;
+//
+//    [_verifyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(_pwdInput.mas_bottom).with.offset(10 * SCALE);
+//        make.right.equalTo(_superView.mas_right).with.offset(-15);
+//        make.size.mas_equalTo(CGSizeMake(100, 30 * SCALE));
+//    }];
+    
+    //图形验证码
+    _imgCodeInput = [[InputView alloc] init];
+    [_superView addSubview:_imgCodeInput];
+    
+    _imageVerifyView = [[CaptchaView alloc] init];
+    [_imgCodeInput addSubview:_imageVerifyView];
+    //图形验证码
+    [_imgCodeInput mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_pwdInput.mas_bottom).with.offset(10 * SCALE);
-        make.right.equalTo(_superView.mas_right).with.offset(-15);
+        make.left.equalTo(_superView.mas_left).with.offset(0);
+        make.right.equalTo(_superView.mas_right).with.offset(0);
+        make.height.mas_equalTo(CGSizeMake(100, 30 * SCALE));
+    }];
+    
+    //图形验证码图片
+    [_imageVerifyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_pwdInput.mas_bottom).with.offset(10*HSCALE);
+        make.right.equalTo(_imgCodeInput.mas_right).offset(-5);
         make.size.mas_equalTo(CGSizeMake(100, 30 * SCALE));
     }];
 	
 	//邀请码输入栏
-	_inviteInput = [[InputView alloc]initWithImgName:@"regist_invite_normal" WithSelectImgName:@"regist_invite_lighted" placeContent:@"无邀请码可忽略此项"];
+	_inviteInput = [[InputView alloc]initWithImgName:@"regist_invite_normal" WithSelectImgName:@"regist_invite_lighted" placeContent:@"请输入右边答案"]; //邀请码可选项
 	_inviteInput.inputField.delegate = self;
 	[_superView addSubview:_inviteInput];
 	[_inviteInput mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.top.equalTo(_verifyInput.mas_bottom).with.offset(20 * SCALE);
+		make.top.equalTo(_pwdInput.mas_bottom).with.offset(20 * SCALE); //_verifyInput.mas_bottom
 		make.left.equalTo(_superView.mas_left).with.offset(5);
-		make.right.equalTo(_superView.mas_right).with.offset(-5);
+		make.right.equalTo(_imgCodeInput.mas_left).with.offset(5);
 		make.height.mas_equalTo(30 * SCALE);
 	}];
 	
 	//注册按钮
-    _registBtn = [UIButton buttonWithFrame:CGRectZero font:15.0 titleColor:[UIColor whiteColor] normalImage:@"button" disableImage:@"regist_btn_normal" target:self action:@selector(registerAction) title:@"同意协议并注册" superview:_superView];
+    _registBtn = [UIButton buttonWithFrame:CGRectZero font:15.0 titleColor:[UIColor whiteColor] normalImage:@"regist_btn_lighted" disableImage:@"regist_btn_normal" target:self action:@selector(registerAction) title:@"注 册" superview:_superView];
     _registBtn.enabled = NO;
 	[_registBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.top.equalTo(_inviteInput.mas_bottom).with.offset(15 * SCALE);
+		make.top.equalTo(_inviteInput.mas_bottom).with.offset(25 * SCALE);
 		make.left.equalTo(_superView.mas_left).with.offset(18);
 		make.right.equalTo(_superView.mas_right).with.offset(-18);
 		make.height.mas_equalTo(45 * WSCALE);
@@ -214,8 +240,8 @@
 		make.height.mas_equalTo(0.5);
     }];
     
-    //协议按钮
-    _proctolBtn = [UIButton buttonWithFrame:CGRectZero font:14.0 titleColor:baseNavColor normalImage:nil disableImage:nil target:self action:@selector(proctolBtnAction) title:@"平台注册协议" superview:_superView];
+    //协议按钮 平台注册协议
+    _proctolBtn = [UIButton buttonWithFrame:CGRectZero font:14.0 titleColor:baseNavColor normalImage:nil disableImage:nil target:self action:@selector(proctolBtnAction) title:@"" superview:_superView];
     [_proctolBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_registBtn.mas_bottom).with.offset(15 * SCALE);
         make.centerX.mas_equalTo(_superView.mas_centerX);
@@ -276,14 +302,18 @@
 
 /* 注册按钮事件触发 */
 - (void)registerAction{
-    
 	[self ControlAction];
+    if (![_imageVerifyView verifyContent:_imgCodeInput.inputField.text]) {
+        [SVProgressHUD showImage:nil status:@"图形验证码不正确"];
+        return;
+    }
+    
 	[[AppDefaultUtil sharedInstance] setPhoneNum:_phoneInput.inputField.text];// 保存用户账号(手机号)
 //    NSString *pwdStr = [NSString encrypt3DES:_pwdInput.inputField.text key:DESkey];//用户密码3Des加密
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
 	[parameters setObject:_phoneInput.inputField.text forKey:@"mobile"];
 //    [parameters setObject:pwdStr forKey:@"password"];
-	[parameters setObject:_verifyInput.inputField.text forKey:@"verificationCode"];
+//    [parameters setObject:_verifyInput.inputField.text forKey:@"verificationCode"];
 	[parameters setObject:_inviteInput.inputField.text forKey:@"invitationCode"];
 	[parameters setObject:@"3" forKey:@"deviceType"];
 //    [self.requestClient requestGet:@"app/services" withParameters:parameters];
@@ -369,10 +399,10 @@
 		_pwdInput.leftImg.highlighted = YES;
 		[self  moveView];
 	}
-	else if (_verifyInput.inputField == textField){
-		_verifyInput.leftImg.highlighted = YES;
-		[self  moveView];
-	}
+//    else if (_verifyInput.inputField == textField){
+//        _verifyInput.leftImg.highlighted = YES;
+//        [self  moveView];
+//    }
 	else if (_inviteInput.inputField == textField){
 		_inviteInput.leftImg.highlighted = YES;
 		[self  moveView];
@@ -394,10 +424,10 @@
 		_pwdInput.leftImg.highlighted = NO;
 		[self resumeView];
 	}
-	else if (_verifyInput.inputField == textField){
-		_verifyInput.leftImg.highlighted = NO;
-		[self resumeView];
-	}
+//    else if (_verifyInput.inputField == textField){
+//        _verifyInput.leftImg.highlighted = NO;
+//        [self resumeView];
+//    }
 	else if (_inviteInput.inputField == textField){
 		_inviteInput.leftImg.highlighted = NO;
 		[self resumeView];
@@ -417,11 +447,11 @@
 			return NO;
 		}
 	}
-	else if (_verifyInput.inputField == textField){
-		if (range.location >= 6) {
-			return NO;
-		}
-	}
+//    else if (_verifyInput.inputField == textField){
+//        if (range.location >= 6) {
+//            return NO;
+//        }
+//    }
 	return YES;
 }
 
@@ -429,14 +459,15 @@
 -(void)textFieldDidChange:(id)sender{
 	UITextField *textField = (UITextField *)sender;
 	if (_phoneInput.inputField == textField) {
-		_verifyBtn.enabled = NO;
+//        _verifyBtn.enabled = NO;
 		if ([_phoneInput.inputField.text isPhone]) {
-			_verifyBtn.enabled = YES;
+//            _verifyBtn.enabled = YES;
 		}
 	}
-	if (_verifyInput.inputField.text.length == 6 && [_phoneInput.inputField.text isPhone] && _pwdInput.inputField.text.length > 5) {
-		_registBtn.enabled = YES;
-	}
+    //_verifyInput.inputField.text.length == 6 &&
+    if ([_phoneInput.inputField.text isPhone] && _pwdInput.inputField.text.length > 5) {
+        _registBtn.enabled = YES;
+    }
 }
 
 

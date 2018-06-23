@@ -2,7 +2,7 @@
 //  NSString+Shove.h
 //  Shove
 //
-//  Created by 英迈思实验室移动开发部 on 14-8-28.
+//  Created by  on 14-8-28.
 //  Copyright (c) 2014年 EIMS. All rights reserved.
 //
 

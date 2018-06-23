@@ -2,8 +2,8 @@
 //  AppDefaultUtil.m
 //  SP2P_7
 //
-//  Created by 李小斌 on 14+9+30.
-//  Copyright (c) 2014年 EIMS. All rights reserved.
+//  Created by  on 14+9+30.
+//  Copyright (c) 201 EIMS. All rights reserved.
 //
 
 #import "AppDefaultUtil.h"

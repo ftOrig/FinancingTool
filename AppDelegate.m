@@ -18,8 +18,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-     [[AppDefaultUtil sharedInstance] setLoginState:NO]; //测试登录
-    
+      [[AppDefaultUtil sharedInstance] setLoginState:NO]; //测试登录
+    NSString *clientVersion = [[NSUserDefaults standardUserDefaults] stringForKey:@"clientVersion"];
+    //判断应用程序是否更新了版本
+    NSLog(@"clientVersion = [%@]", clientVersion);
+    if ([clientVersion isEqualToString:CLIENT_VERSION]) {
+        NSLog(@"未更新,正常使用");
+        
+    }else if(clientVersion == nil ){
+        NSLog(@"首次安装");
+        [[NSUserDefaults standardUserDefaults] setObject:CLIENT_VERSION forKey:@"clientVersion"];
+        [FUsersTool setDefaultUser];
+    } else{
+        NSLog(@"更新了APP");
+        [[NSUserDefaults standardUserDefaults] setObject:CLIENT_VERSION forKey:@"clientVersion"];
+      
+    }
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

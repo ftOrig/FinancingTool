@@ -16,6 +16,8 @@
 		182C4A9720DA4B48003C59F6 /* FHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9520DA4B48003C59F6 /* FHomeViewController.m */; };
 		182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */; };
 		182C4A9D20DA4BAC003C59F6 /* FCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */; };
+		184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D020DE824300EF7AA1 /* CaptchaView.m */; };
+		184901D420DE961700EF7AA1 /* FUsersTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D320DE961700EF7AA1 /* FUsersTool.m */; };
 		184F90D120DE437E009D37F9 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C120DE437D009D37F9 /* InputView.m */; };
 		184F90D220DE437E009D37F9 /* UIButton+KK.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C220DE437D009D37F9 /* UIButton+KK.m */; };
 		184F90D320DE437E009D37F9 /* ForgetKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C420DE437D009D37F9 /* ForgetKeyController.m */; };
@@ -225,6 +227,10 @@
 		182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCounterViewController.m; sourceTree = "<group>"; };
 		182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCounterViewController.xib; sourceTree = "<group>"; };
 		182C4A9F20DA4E27003C59F6 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ftool/Macros.h; sourceTree = SOURCE_ROOT; };
+		184901CF20DE824300EF7AA1 /* CaptchaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptchaView.h; sourceTree = "<group>"; };
+		184901D020DE824300EF7AA1 /* CaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptchaView.m; sourceTree = "<group>"; };
+		184901D220DE961700EF7AA1 /* FUsersTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUsersTool.h; sourceTree = "<group>"; };
+		184901D320DE961700EF7AA1 /* FUsersTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUsersTool.m; sourceTree = "<group>"; };
 		184F90C120DE437D009D37F9 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
 		184F90C220DE437D009D37F9 /* UIButton+KK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+KK.m"; sourceTree = "<group>"; };
 		184F90C320DE437D009D37F9 /* NSString+Shove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Shove.h"; sourceTree = "<group>"; };
@@ -693,6 +699,8 @@
 				184F90C420DE437D009D37F9 /* ForgetKeyController.m */,
 				184F90CF20DE437E009D37F9 /* InputView.h */,
 				184F90C120DE437D009D37F9 /* InputView.m */,
+				184901CF20DE824300EF7AA1 /* CaptchaView.h */,
+				184901D020DE824300EF7AA1 /* CaptchaView.m */,
 				184F90D020DE437E009D37F9 /* FLoginViewController.h */,
 				184F90CD20DE437D009D37F9 /* FLoginViewController.m */,
 				184F90C320DE437D009D37F9 /* NSString+Shove.h */,
@@ -703,6 +711,8 @@
 				184F90C820DE437D009D37F9 /* UIButton+CountDown.m */,
 				184F90CB20DE437D009D37F9 /* UIButton+KK.h */,
 				184F90C220DE437D009D37F9 /* UIButton+KK.m */,
+				184901D220DE961700EF7AA1 /* FUsersTool.h */,
+				184901D320DE961700EF7AA1 /* FUsersTool.m */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -1626,6 +1636,7 @@
 				847B395620DDF870002DE2CE /* FHomeCell.m in Sources */,
 				847B37AA20DDE458002DE2CE /* BaseWKWebViewController.m in Sources */,
 				847B394120DDF1BC002DE2CE /* SDWebImageDownloader.m in Sources */,
+				184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */,
 				847B386020DDE5BC002DE2CE /* NSObject+MJCoding.m in Sources */,
 				847B389720DDE5BC002DE2CE /* IQUIView+Hierarchy.m in Sources */,
 				847B391420DDF024002DE2CE /* DejalActivityView.m in Sources */,
@@ -1684,6 +1695,7 @@
 				847B394820DDF1BC002DE2CE /* NSData+ImageContentType.m in Sources */,
 				847B37A520DDE458002DE2CE /* AJTime.m in Sources */,
 				847B37A020DDE458002DE2CE /* NSDictionary+AJ.m in Sources */,
+				184901D420DE961700EF7AA1 /* FUsersTool.m in Sources */,
 				182C4A5B20DA43CC003C59F6 /* AppDelegate.m in Sources */,
 				847B387220DDE5BC002DE2CE /* MJRefreshBackNormalFooter.m in Sources */,
 				847B388F20DDE5BC002DE2CE /* IQUIView+IQKeyboardToolbar.m in Sources */,
