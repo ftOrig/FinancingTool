@@ -9,7 +9,7 @@
 #import "FMineController.h"
 #import "FHomeViewController.h"
 #import "NavigationController.h"
-
+#import "LoginViewController.h"
 
 @interface TabBarController () < UITabBarControllerDelegate>
 
@@ -49,6 +49,26 @@
     
     self.delegate = self;
 
+}
+
+#pragma mark - UITabBarControllerDelegate
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"%s %@", __FUNCTION__, viewController.tabBarItem.title);
+    //判断的是当前点击的tabBarItem的标题
+    if ([viewController.tabBarItem.title isEqualToString:@"我的"] && ![[AppDefaultUtil sharedInstance]isLoginState]) {
+        
+        //如果未登录，则跳转登录界面
+        LoginViewController *loginView = [[LoginViewController alloc] init];
+        UINavigationController *loginNVC = [[UINavigationController alloc] initWithRootViewController:loginView];
+//        loginView.backType = MyWealth;
+        [((UINavigationController *)tabBarController.selectedViewController) presentViewController:loginNVC animated:YES completion:nil];
+        
+        return NO;
+    }
+    else{
+        return YES;
+    }
 }
 
 /*获取底部栏按钮*/

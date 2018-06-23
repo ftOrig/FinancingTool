@@ -23,6 +23,17 @@
 #define baseOrangeColor UIColorFromHex(0xfa5e0b)  //橙色色调
 #define baseYellowColor UIColorFromHex(0xFAB742)  //浅黄色色调
 
+#define ITHIGHT   44
+#define CELLHIGHT 58
+#define NAVBAR_HEIGHT  ADDBAR(44)
+#define SEGMENTHEIGHT  40
+#define SCALE    MSHIGHT / 568
+#define WSCALE   MSWIDTH / 375
+#define HSCALE   MSHIGHT / 667
+#define TABLEHEIGHT MSHIGHT-NAVBAR_HEIGHT
+#define MSWIDTH [UIScreen mainScreen].bounds.size.width
+#define MSHIGHT CGRectGetHeight([UIScreen mainScreen].bounds)
+
 
 #define CHANGETABBAR   @"ChangeTabbarIndex"
 

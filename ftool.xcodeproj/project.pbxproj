@@ -16,6 +16,16 @@
 		182C4A9720DA4B48003C59F6 /* FHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9520DA4B48003C59F6 /* FHomeViewController.m */; };
 		182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */; };
 		182C4A9D20DA4BAC003C59F6 /* FCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */; };
+		184F90D120DE437E009D37F9 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C120DE437D009D37F9 /* InputView.m */; };
+		184F90D220DE437E009D37F9 /* UIButton+KK.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C220DE437D009D37F9 /* UIButton+KK.m */; };
+		184F90D320DE437E009D37F9 /* ForgetKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C420DE437D009D37F9 /* ForgetKeyController.m */; };
+		184F90D420DE437E009D37F9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C520DE437D009D37F9 /* RegisterViewController.m */; };
+		184F90D520DE437E009D37F9 /* UIButton+CountDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C820DE437D009D37F9 /* UIButton+CountDown.m */; };
+		184F90D620DE437E009D37F9 /* ColorTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C920DE437D009D37F9 /* ColorTools.m */; };
+		184F90D720DE437E009D37F9 /* NSString+Shove.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90CA20DE437D009D37F9 /* NSString+Shove.m */; };
+		184F90D820DE437E009D37F9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90CD20DE437D009D37F9 /* LoginViewController.m */; };
+		184F90E120DE4D6F009D37F9 /* NSString+encryptDES.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90DF20DE4D6F009D37F9 /* NSString+encryptDES.m */; };
+		184F90E420DE4F8C009D37F9 /* ConverUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90E220DE4F8B009D37F9 /* ConverUtil.m */; };
 		845606A120DD01790078EDE6 /* FMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* FMineController.m */; };
 		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
 		847B378C20DDE458002DE2CE /* AJIDFATool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374220DDE458002DE2CE /* AJIDFATool.m */; };
@@ -215,6 +225,27 @@
 		182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCounterViewController.m; sourceTree = "<group>"; };
 		182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCounterViewController.xib; sourceTree = "<group>"; };
 		182C4A9F20DA4E27003C59F6 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ftool/Macros.h; sourceTree = SOURCE_ROOT; };
+		184F90C120DE437D009D37F9 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
+		184F90C220DE437D009D37F9 /* UIButton+KK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+KK.m"; sourceTree = "<group>"; };
+		184F90C320DE437D009D37F9 /* NSString+Shove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Shove.h"; sourceTree = "<group>"; };
+		184F90C420DE437D009D37F9 /* ForgetKeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetKeyController.m; sourceTree = "<group>"; };
+		184F90C520DE437D009D37F9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		184F90C620DE437D009D37F9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		184F90C720DE437D009D37F9 /* UIButton+CountDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CountDown.h"; sourceTree = "<group>"; };
+		184F90C820DE437D009D37F9 /* UIButton+CountDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CountDown.m"; sourceTree = "<group>"; };
+		184F90C920DE437D009D37F9 /* ColorTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTools.m; sourceTree = "<group>"; };
+		184F90CA20DE437D009D37F9 /* NSString+Shove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Shove.m"; sourceTree = "<group>"; };
+		184F90CB20DE437D009D37F9 /* UIButton+KK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+KK.h"; sourceTree = "<group>"; };
+		184F90CC20DE437D009D37F9 /* ForgetKeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetKeyController.h; sourceTree = "<group>"; };
+		184F90CD20DE437D009D37F9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		184F90CE20DE437D009D37F9 /* ColorTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTools.h; sourceTree = "<group>"; };
+		184F90CF20DE437E009D37F9 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		184F90D020DE437E009D37F9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		184F90DD20DE4C21009D37F9 /* NetWorkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkConfig.h; sourceTree = "<group>"; };
+		184F90DF20DE4D6F009D37F9 /* NSString+encryptDES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+encryptDES.m"; sourceTree = "<group>"; };
+		184F90E020DE4D6F009D37F9 /* NSString+encryptDES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+encryptDES.h"; sourceTree = "<group>"; };
+		184F90E220DE4F8B009D37F9 /* ConverUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverUtil.m; sourceTree = "<group>"; };
+		184F90E320DE4F8C009D37F9 /* ConverUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverUtil.h; sourceTree = "<group>"; };
 		8456069E20DD01790078EDE6 /* FMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMineController.h; sourceTree = "<group>"; };
 		8456069F20DD01790078EDE6 /* FMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMineController.m; sourceTree = "<group>"; };
 		845606A420DD1C740078EDE6 /* FAccountCategaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAccountCategaries.h; sourceTree = "<group>"; };
@@ -578,6 +609,7 @@
 		182C4A5820DA43CC003C59F6 /* ftool */ = {
 			isa = PBXGroup;
 			children = (
+				184F90C020DE4219009D37F9 /* login */,
 				847B37B920DDE594002DE2CE /* Vendors */,
 				847B373F20DDE451002DE2CE /* Utils */,
 				8456069D20DD01580078EDE6 /* Mine */,
@@ -652,6 +684,40 @@
 			path = counter;
 			sourceTree = "<group>";
 		};
+		184F90C020DE4219009D37F9 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				184F90CE20DE437D009D37F9 /* ColorTools.h */,
+				184F90C920DE437D009D37F9 /* ColorTools.m */,
+				184F90CC20DE437D009D37F9 /* ForgetKeyController.h */,
+				184F90C420DE437D009D37F9 /* ForgetKeyController.m */,
+				184F90CF20DE437E009D37F9 /* InputView.h */,
+				184F90C120DE437D009D37F9 /* InputView.m */,
+				184F90D020DE437E009D37F9 /* LoginViewController.h */,
+				184F90CD20DE437D009D37F9 /* LoginViewController.m */,
+				184F90C320DE437D009D37F9 /* NSString+Shove.h */,
+				184F90CA20DE437D009D37F9 /* NSString+Shove.m */,
+				184F90C620DE437D009D37F9 /* RegisterViewController.h */,
+				184F90C520DE437D009D37F9 /* RegisterViewController.m */,
+				184F90C720DE437D009D37F9 /* UIButton+CountDown.h */,
+				184F90C820DE437D009D37F9 /* UIButton+CountDown.m */,
+				184F90CB20DE437D009D37F9 /* UIButton+KK.h */,
+				184F90C220DE437D009D37F9 /* UIButton+KK.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		184F90DE20DE4D25009D37F9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				184F90E320DE4F8C009D37F9 /* ConverUtil.h */,
+				184F90E220DE4F8B009D37F9 /* ConverUtil.m */,
+				184F90E020DE4D6F009D37F9 /* NSString+encryptDES.h */,
+				184F90DF20DE4D6F009D37F9 /* NSString+encryptDES.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		8456069D20DD01580078EDE6 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +740,8 @@
 		847B373F20DDE451002DE2CE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				184F90DE20DE4D25009D37F9 /* Network */,
+				184F90DD20DE4C21009D37F9 /* NetWorkConfig.h */,
 				847B374020DDE458002DE2CE /* Tool(工具类) */,
 			);
 			path = Utils;
@@ -1504,8 +1572,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */,
+				184F90E120DE4D6F009D37F9 /* NSString+encryptDES.m in Sources */,
 				847B389620DDE5BC002DE2CE /* IQUIScrollView+Additions.m in Sources */,
 				847B37A920DDE458002DE2CE /* NoDataView.m in Sources */,
+				184F90D420DE437E009D37F9 /* RegisterViewController.m in Sources */,
 				847B379620DDE458002DE2CE /* AJImgBrowser.m in Sources */,
 				845606A120DD01790078EDE6 /* FMineController.m in Sources */,
 				847B385E20DDE5BC002DE2CE /* NSObject+MJKeyValue.m in Sources */,
@@ -1518,6 +1588,7 @@
 				847B38EB20DDEEDB002DE2CE /* TAPageControl.m in Sources */,
 				847B389420DDE5BC002DE2CE /* IQUIWindow+Hierarchy.m in Sources */,
 				847B394220DDF1BC002DE2CE /* UIImage+GIF.m in Sources */,
+				184F90D520DE437E009D37F9 /* UIButton+CountDown.m in Sources */,
 				847B38CF20DDEA18002DE2CE /* UserModel.m in Sources */,
 				847B393E20DDF1BC002DE2CE /* SDWebImageManager.m in Sources */,
 				847B38A220DDE5BC002DE2CE /* MASConstraint.m in Sources */,
@@ -1559,6 +1630,7 @@
 				847B389720DDE5BC002DE2CE /* IQUIView+Hierarchy.m in Sources */,
 				847B391420DDF024002DE2CE /* DejalActivityView.m in Sources */,
 				847B396420DE0F03002DE2CE /* FTakeRecordExpandController.m in Sources */,
+				184F90D720DE437E009D37F9 /* NSString+Shove.m in Sources */,
 				847B37A320DDE458002DE2CE /* UIButton+Custom.m in Sources */,
 				847B394520DDF1BC002DE2CE /* SDWebImagePrefetcher.m in Sources */,
 				847B389020DDE5BC002DE2CE /* IQPreviousNextView.m in Sources */,
@@ -1578,6 +1650,7 @@
 				847B388C20DDE5BC002DE2CE /* IQToolbar.m in Sources */,
 				847B394D20DDF1BC002DE2CE /* UIView+WebCache.m in Sources */,
 				847B397720DE5B8E002DE2CE /* WSPlaceholderTextView.m in Sources */,
+				184F90D620DE437E009D37F9 /* ColorTools.m in Sources */,
 				847B388D20DDE5BC002DE2CE /* IQTitleBarButtonItem.m in Sources */,
 				847B37B220DDE512002DE2CE /* BaseViewController.m in Sources */,
 				847B387420DDE5BC002DE2CE /* MJRefreshAutoGifFooter.m in Sources */,
@@ -1588,6 +1661,7 @@
 				847B379220DDE458002DE2CE /* UIView+AJ.m in Sources */,
 				847B37A820DDE458002DE2CE /* AJContainTableController.m in Sources */,
 				847B387920DDE5BC002DE2CE /* MJRefreshFooter.m in Sources */,
+				184F90D220DE437E009D37F9 /* UIButton+KK.m in Sources */,
 				847B390A20DDF016002DE2CE /* BRAddressPickerView.m in Sources */,
 				847B386B20DDE5BC002DE2CE /* MJRefreshConst.m in Sources */,
 				847B386F20DDE5BC002DE2CE /* UIView+MJExtension.m in Sources */,
@@ -1597,6 +1671,7 @@
 				847B389F20DDE5BC002DE2CE /* MASLayoutConstraint.m in Sources */,
 				847B394920DDF1BC002DE2CE /* UIImageView+WebCache.m in Sources */,
 				847B394E20DDF1BC002DE2CE /* UIButton+WebCache.m in Sources */,
+				184F90E420DE4F8C009D37F9 /* ConverUtil.m in Sources */,
 				847B378F20DDE458002DE2CE /* ReLogin.m in Sources */,
 				847B387020DDE5BC002DE2CE /* MJRefreshBackGifFooter.m in Sources */,
 				847B394020DDF1BC002DE2CE /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1605,6 +1680,7 @@
 				847B37A620DDE458002DE2CE /* BaseEntity.m in Sources */,
 				847B387C20DDE5BC002DE2CE /* MJRefreshAutoFooter.m in Sources */,
 				847B389B20DDE5BC002DE2CE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				184F90D120DE437E009D37F9 /* InputView.m in Sources */,
 				847B394820DDF1BC002DE2CE /* NSData+ImageContentType.m in Sources */,
 				847B37A520DDE458002DE2CE /* AJTime.m in Sources */,
 				847B37A020DDE458002DE2CE /* NSDictionary+AJ.m in Sources */,
@@ -1617,7 +1693,9 @@
 				847B386E20DDE5BC002DE2CE /* NSBundle+MJRefresh.m in Sources */,
 				847B379920DDE458002DE2CE /* UIColor+custom.m in Sources */,
 				847B394420DDF1BC002DE2CE /* SDWebImageCompat.m in Sources */,
+				184F90D320DE437E009D37F9 /* ForgetKeyController.m in Sources */,
 				847B390420DDF016002DE2CE /* BRStringPickerView.m in Sources */,
+				184F90D820DE437E009D37F9 /* LoginViewController.m in Sources */,
 				847B387820DDE5BC002DE2CE /* MJRefreshGifHeader.m in Sources */,
 				847B386520DDE5BC002DE2CE /* MJPropertyKey.m in Sources */,
 				847B38E720DDEEDB002DE2CE /* SDCycleScrollView.m in Sources */,
