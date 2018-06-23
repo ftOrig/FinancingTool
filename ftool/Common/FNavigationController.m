@@ -1,18 +1,18 @@
 //
-//  NavigationController.m
+//  FNavigationController.m
 //  微金在线
 //
 //  Created by 首控微金财富 on 2017/5/15.
 //  Copyright © 2017年 zhouli. All rights reserved.
 //
 
-#import "NavigationController.h"
+#import "FNavigationController.h"
 
-@interface NavigationController ()
+@interface FNavigationController ()
 
 @end
 
-@implementation NavigationController
+@implementation FNavigationController
 
 + (void)initialize
 {

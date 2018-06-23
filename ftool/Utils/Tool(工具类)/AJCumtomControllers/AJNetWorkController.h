@@ -6,7 +6,7 @@
 //  Copyright © 2016年 EIMS. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "FBaseViewController.h"
 
 @protocol NetworkRefrenceProtocol <NSObject>
 
@@ -15,6 +15,6 @@
 - (void)initView;
 @end
 
-@interface AJNetWorkController : BaseViewController<NetworkRefrenceProtocol>
+@interface AJNetWorkController : FBaseViewController<NetworkRefrenceProtocol>
 
 @end

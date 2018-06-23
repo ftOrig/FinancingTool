@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "TabBarController.h"
+#import "FTabBarController.h"
 #import "IQKeyboardManager.h"
 
 @interface AppDelegate ()
@@ -24,7 +24,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    TabBarController *tabbarVC = [[TabBarController alloc] init];
+    FTabBarController *tabbarVC = [[FTabBarController alloc] init];
     self.window.rootViewController = tabbarVC;
     
     [self setUpKeyboardManager];

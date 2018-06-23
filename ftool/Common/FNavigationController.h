@@ -1,5 +1,5 @@
 //
-//  NavigationController.h
+//  FNavigationController.h
 //  微金在线
 //
 //  Created by 首控微金财富 on 2017/5/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NavigationController : UINavigationController
+@interface FNavigationController : UINavigationController
 
 @end

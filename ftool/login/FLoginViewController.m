@@ -4,14 +4,14 @@
 //
 //  登录
 
-#import "LoginViewController.h"
-#import "RegisterViewController.h"
+#import "FLoginViewController.h"
+#import "FRegisterViewController.h"
 #import "ForgetKeyController.h"
 #import "InputView.h"
 //#import "SetGestureLockView.h"
 #import "Macros.h"
 
-@interface LoginViewController ()< UITextFieldDelegate>
+@interface FLoginViewController ()< UITextFieldDelegate>
 {
 	UIButton *_loginBtn;			//登录按钮
 	UIButton *_forgetBtn;			//忘记密码按钮
@@ -32,7 +32,7 @@
 
 @end
 
-@implementation LoginViewController
+@implementation FLoginViewController
 
 #pragma mark - 控制器视图生命周期方法
 -(void)viewWillAppear:(BOOL)animated{
@@ -61,7 +61,7 @@
 	
 	//logo视图
 	UIImageView *logoImgView = [UIImageView new];
-	logoImgView.image = [UIImage imageNamed:@"logo"];
+	logoImgView.image = [UIImage imageNamed:@"flogo"];
     logoImgView.layer.cornerRadius = 45*SCALE;
     logoImgView.layer.masksToBounds = YES;
 	[_superView addSubview:logoImgView];
@@ -216,7 +216,7 @@
 -(void)registBtnClick{
 	[self resumeView];
 	[self ControlAction];
-	RegisterViewController *registView = [[RegisterViewController alloc] init];
+	FRegisterViewController *registView = [[FRegisterViewController alloc] init];
 	[self.navigationController pushViewController:registView animated:YES];
 }
 
@@ -484,9 +484,7 @@
 	[[AppDefaultUtil sharedInstance] setPassword:pwdStr];// 保存用户密码（des加密）
     [[AppDefaultUtil sharedInstance] setLoginState:YES];
     
-//    if (self.tabBarController.selectedIndex == 2) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:CHANGETABBAR object:@"2"];
-//    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:CHANGETABBAR object:@"2"];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 //    _setGestureView = [[SetGestureLockView alloc]initWithFrame:[[UIScreen mainScreen] bounds] delegate:self];

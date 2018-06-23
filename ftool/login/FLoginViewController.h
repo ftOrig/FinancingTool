@@ -1,5 +1,5 @@
 //
-//  LoginViewController.h
+//  FLoginViewController.h
 //  SP2P_10
 //
 //  Created by Jerry on 15/10/10.
@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface FLoginViewController : UIViewController
 
 @property (nonatomic, assign) NSInteger backType;
 

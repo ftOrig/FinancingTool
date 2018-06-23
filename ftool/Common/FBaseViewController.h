@@ -19,10 +19,10 @@ typedef enum : NSUInteger {
 } BackType; // 控制器—返回类型
 
 @class NetWorkClient;
-@interface BaseViewController : UIViewController<NavBarDelegate>
+@interface FBaseViewController : UIViewController<NavBarDelegate>
 @end
 
-@interface BaseViewController (network)<NoDataViewDelegate>
+@interface FBaseViewController (network)<NoDataViewDelegate>
 
 @property (nonatomic, strong) NetWorkClient *requestClient;
 

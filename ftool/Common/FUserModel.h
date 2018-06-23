@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserModel : NSObject
+@interface FUserModel : NSObject
 
 @property (nonatomic , copy) NSString *token;
 @property (nonatomic , copy) NSString *devicetoken;//友盟通知
@@ -29,12 +29,12 @@
 @property (nonatomic, assign) int type;//  1 借款人  0 投资人
 @property (nonatomic, copy) NSString *risk_quantity ;// 风险评测次数 0表示用户未评测 1-5次
 
-+ (UserModel *)sharedUser;
++ (FUserModel *)sharedUser;
 
 
 @end
 
-@interface UserModel (Archiver)<NSCoding>
+@interface FUserModel (Archiver)<NSCoding>
 /**
  将用户数据储存在 NSUserDefaults
  */

@@ -6,12 +6,12 @@
 //  Copyright © 2015年 EIMS. All rights reserved.
 //  所有控制器的基类
 
-#import "BaseViewController.h"
+#import "FBaseViewController.h"
 
-@interface BaseViewController ()
+@interface FBaseViewController ()
 @end
 
-@implementation BaseViewController
+@implementation FBaseViewController
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -43,7 +43,7 @@
 }
 @end
 
-@implementation  BaseViewController (network)
+@implementation  FBaseViewController (network)
 
 static char requestClientKey;// 属性关联
 - (void)setRequestClient:(NetWorkClient *)requestClient

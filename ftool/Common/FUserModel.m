@@ -6,14 +6,14 @@
 //  Copyright (c) 2016年 dawe. All rights reserved.
 //
 
-#import "UserModel.h"
+#import "FUserModel.h"
 #import "AppDefaultUtil.h"
 #import "AJExtension.h"
 #import "Macros_AJ.h"
 
 static NSString *const UserDefaultKey_userModel = @"userModel";
 static NSString *const UserDefaultKey_closeGesture_AppendStr = @"CloseGesture";
-@implementation UserModel
+@implementation FUserModel
 
 static NSUserDefaults *defaults;
 
@@ -41,7 +41,7 @@ static NSUserDefaults *defaults;
     [defaults synchronize];
 }
 
-+ (UserModel *)sharedUser
++ (FUserModel *)sharedUser
 {
 //    static UserModel *userModel_p = nil;
 //    static dispatch_once_t onceToken;
@@ -64,7 +64,7 @@ static NSUserDefaults *defaults;
 @end
 
 
-@implementation UserModel(Archiver)
+@implementation FUserModel(Archiver)
 
 - (void)saveTo_NSUserDefaults
 {
@@ -85,7 +85,7 @@ static NSUserDefaults *defaults;
 {
     NSData *userData = [defaults objectForKey:UserDefaultKey_userModel];
     if (!userData) return nil;
-    UserModel *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+    FUserModel *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
     
     NSString *gestureKey = [user.phone appendStr:UserDefaultKey_closeGesture_AppendStr];
     user.isCloseGesture = [defaults boolForKey:gestureKey];

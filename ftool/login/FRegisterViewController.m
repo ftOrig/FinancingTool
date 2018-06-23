@@ -6,8 +6,8 @@
 //  Copyright © 2015年 EIMS. All rights reserved.
 //  注册
 
-#import "RegisterViewController.h"
-#import "LoginViewController.h"
+#import "FRegisterViewController.h"
+#import "FLoginViewController.h"
 //#import "CapitalEntrustController.h"
 //#import "MyWebViewController.h"
 //#import "ReLogin.h"
@@ -16,7 +16,7 @@
 //#import "CertificationViewController.h"
 //#import "RegisterSucceedController.h"
 
-@interface RegisterViewController ()<UITextFieldDelegate> //HTTPClientDelegate, 
+@interface FRegisterViewController ()<UITextFieldDelegate> //HTTPClientDelegate, 
 {
 	BOOL _mbIsShowKeyboard;			//是否展示键盘
 	UIButton *_verifyBtn;			//验证码按钮
@@ -36,7 +36,7 @@
 @property(nonatomic,strong) InputView *inviteInput;
 @end
 
-@implementation RegisterViewController
+@implementation FRegisterViewController
 
 #pragma mark - 控制器视图生命周期方法
 -(void)viewWillAppear:(BOOL)animated{
