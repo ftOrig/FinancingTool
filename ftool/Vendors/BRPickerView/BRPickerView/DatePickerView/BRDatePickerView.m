@@ -269,7 +269,13 @@ typedef NS_ENUM(NSInteger, BRDatePickerStyle) {
 
 #pragma mark - 设置数据源数组
 - (void)setupDateArray {
-    NSInteger year = [self.yearArr[_yearIndex] integerValue];
+
+    NSInteger year = 2018;
+    @try{
+        year = [self.yearArr[_yearIndex] integerValue];
+    }@catch(NSException *exception){
+       year = [self.yearArr[0] integerValue];
+    }
     // 1.设置 monthArr 数组
     [self setupMonthArr:year];
     // 更新索引：防止更新 monthArr 后数组越界

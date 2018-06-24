@@ -10,6 +10,7 @@
 #import "FTakeRecordExpandView.h"
 
 @interface FTakeRecordExpandController ()
+@property (nonatomic, weak) FTakeRecordExpandView *contentV;
 
 @end
 
@@ -29,7 +30,7 @@
     tableview.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     FTakeRecordExpandView *contentV = [FTakeRecordExpandView viewWithFrame:RECT(0, 0, MSWIDTH, 500) backgroundColor:nil superview:tableview];
     tableview.contentSize = CGSizeMake(0, contentV.height+30);
-    
+    self.contentV = contentV;
     CGFloat leading = 15.f;
     CGFloat btnW = (MSWIDTH - 2*leading - 40)/2;
     UIButton *saveBtn = [AJCornerCircle buttonWithFrame:RECT(leading, tableview.maxY+15, btnW, 35) backgroundColor:NavgationColor title:@"保存" titleColor:AJWhiteColor titleFont:15 target:self action:@selector(saveBtnClick:) superview:self.view];
@@ -48,6 +49,20 @@
 
 - (void)saveBtnClick:(UIButton *)sender
 {
-    
+    BOOL infoDone = [self.contentV infoDoneCheck];
+    if (!infoDone) {
+        ShowLightMessage(@"报告老板，信息填写不完整！");
+    }else{
+        
+        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"账单保存成功" preferredStyle:UIAlertControllerStyleAlert];
+        
+         [alertCon addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alertCon addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            
+            
+        }]];
+        
+        [self presentViewController:alertCon animated:YES completion:nil];
+    }
 }
 @end

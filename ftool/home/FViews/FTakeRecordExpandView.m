@@ -22,6 +22,14 @@
 
 @implementation FTakeRecordExpandView
 
+
+- (BOOL)infoDoneCheck{
+    
+    return  ![self.expandCategeryL.text isEqualToString:@"未选择"] &&
+            ![self.accountCategeryL.text isEqualToString:@"未选择"] &&
+            ![self.dateL.text isEqualToString:@"未选择"];
+}
+
 - (instancetype)initWithFrame:(CGRect)frame{
     
     self = [super initWithFrame:frame];
@@ -39,21 +47,36 @@
         
         self.dateL = [self addRowWithY:self.subviews.lastObject.maxY Title:@"时间" touchaction:@selector(dateClick:)];
         
-        WSPlaceholderTextView *textView = [WSPlaceholderTextView textViewWithFrame:RECT(leading, self.subviews.lastObject.maxY+20, MSWIDTH-2*leading, 200) textColor:[UIColor blackColor] bgColor:nil font:15 superV:self];
+        WSPlaceholderTextView *textView = [WSPlaceholderTextView textViewWithFrame:RECT(leading, self.subviews.lastObject.maxY+20, MSWIDTH-2*leading, 160) textColor:[UIColor blackColor] bgColor:nil font:15 superV:self];
         textView.delegate = self;
         textView.placeholder = @"备注...";
         textView.placeholderColor = [UIColor ys_lightGray];
         ViewBorderRadius(textView, 2.f, .5, [UIColor ys_grayLine]);
         self.textView = textView;
         self.height = textView.maxY;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editExpandseCategotyNotiHandler:) name:BRAddressPickerViewTitleClickNotification object:nil];
     }
     return self;
 }
 
+- (void)editExpandseCategotyNotiHandler:(NSNotification *)note
+{
+    if ([note.object isKindOfClass:[UITapGestureRecognizer class]]) {
+        
+        
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)dateClick:(UIControl *)sender{
     
-    NSDate *minDate = [NSDate setMonth:1 day:1];
+    NSDate *minDate = [NSDate setYear:2018 month:1 day:1 hour:1 minute:1];
+//    NSDate *minDate = [NSDate setMonth:1 day:1];
     NSDate *maxDate = [NSDate date];
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -66,16 +89,17 @@
         [formatter setDateFormat:@"MM-dd HH:mm"];
         NSDate *resultdate = [formatter dateFromString:resultStr];
         [formatter setDateFormat:@"MM月dd日HH时mm分"];
-        DLOG(@"resultDate == %@", resultdate);
-
+        self.dateL.text = [formatter stringFromDate:resultdate];
     } cancelBlock:nil];
 }
 
 - (void)accountCategeryClick:(UIControl *)sender
 {
     FAccountCategaries *AccountCategary = AppDelegateInstance.aFAccountCategaries;
-    [BRStringPickerView showStringPickerWithTitle:nil dataSource:AccountCategary.accountTypeArr defaultSelValue:nil resultBlock:^(id selectValue) {
+    NSString *defultValue = [self.accountCategeryL.text isEqualToString:@"未选择"]?nil:self.accountCategeryL.text;
+    [BRStringPickerView showStringPickerWithTitle:nil dataSource:AccountCategary.accountTypeArr defaultSelValue:defultValue resultBlock:^(id selectValue) {
         
+        self.accountCategeryL.text = [NSString stringWithFormat:@"%@", selectValue];
         DLOG(@"accountCategeryClick : %@", selectValue);
     }];
 }
@@ -105,13 +129,14 @@
         [tempArr1 addObject:proviceDic];
     }
     DLOG(@"%@", tempArr1);
-    // 【转换】：以@" "自字符串为基准将字符串分离成数组，如：@"浙江省 杭州市 西湖区" ——》@[@"浙江省", @"杭州市", @"西湖区"]
-    NSArray *defaultSelArr = [self.expandCategeryL.text componentsSeparatedByString:@" -> "];
+    NSArray *defaultSelArr = [self.expandCategeryL.text componentsSeparatedByString:@"->"];
     defaultSelArr = defaultSelArr.count==2?defaultSelArr:nil;
     // NSArray *dataSource = [weakSelf getAddressDataSource];  //从外部传入地区数据源
     NSArray *dataSource = tempArr1; // dataSource 为空时，就默认使用框架内部提供的数据源（即 BRCity.plist）
     [BRAddressPickerView showAddressPickerWithShowType:BRAddressPickerModeCity dataSource:dataSource defaultSelected:defaultSelArr isAutoSelect:YES themeColor:nil resultBlock:^(BRProvinceModel *province, BRCityModel *city, BRAreaModel *area) {
         
+        NSString *resultStr = [NSString stringWithFormat:@"%@->%@", province.name, city.name];
+        self.expandCategeryL.text = resultStr;
     } cancelBlock:^{
         
     }];

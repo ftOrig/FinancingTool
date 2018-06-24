@@ -38,10 +38,7 @@
 - (void)initFAccountCategaries{
     
     NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
-    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:AccoutCategeriesPath];
-    
     self.aFAccountCategaries = [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
-    
 }
 
 - (void)generatePlist{

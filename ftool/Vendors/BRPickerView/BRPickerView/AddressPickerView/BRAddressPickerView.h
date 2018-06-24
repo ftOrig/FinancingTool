@@ -19,6 +19,8 @@ typedef NS_ENUM(NSInteger, BRAddressPickerMode) {
     BRAddressPickerModeArea
 };
 
+static NSString * const BRAddressPickerViewTitleClickNotification = @"BRAddressPickerViewTitleClickNotification";
+
 typedef void(^BRAddressResultBlock)(BRProvinceModel *province, BRCityModel *city, BRAreaModel *area);
 typedef void(^BRAddressCancelBlock)(void);
 

@@ -176,6 +176,7 @@
 		847B396A20DE148D002DE2CE /* FTakeRecordExpandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396920DE148D002DE2CE /* FTakeRecordExpandView.m */; };
 		847B397120DE524B002DE2CE /* AccoutCategeries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847B397020DE524B002DE2CE /* AccoutCategeries.plist */; };
 		847B397720DE5B8E002DE2CE /* WSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */; };
+		AACFDBEC20DF540100BDFA0E /* FEditFirstTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -524,6 +525,8 @@
 		847B397020DE524B002DE2CE /* AccoutCategeries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccoutCategeries.plist; sourceTree = "<group>"; };
 		847B397520DE5B8E002DE2CE /* WSPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPlaceholderTextView.h; sourceTree = "<group>"; };
 		847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPlaceholderTextView.m; sourceTree = "<group>"; };
+		AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditFirstTypeController.h; sourceTree = "<group>"; };
+		AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditFirstTypeController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -638,6 +641,8 @@
 				847B396320DE0F03002DE2CE /* FTakeRecordExpandController.m */,
 				847B396520DE0F17002DE2CE /* FTakeRecordIncomeController.h */,
 				847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */,
+				AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */,
+				AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1630,6 +1635,7 @@
 				847B386120DDE5BC002DE2CE /* MJExtensionConst.m in Sources */,
 				847B389C20DDE5BC002DE2CE /* ViewController+MASAdditions.m in Sources */,
 				182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */,
+				AACFDBEC20DF540100BDFA0E /* FEditFirstTypeController.m in Sources */,
 				847B378C20DDE458002DE2CE /* AJIDFATool.m in Sources */,
 				847B379120DDE458002DE2CE /* UITextField+custom.m in Sources */,
 				847B378D20DDE458002DE2CE /* AppDefaultUtil.m in Sources */,

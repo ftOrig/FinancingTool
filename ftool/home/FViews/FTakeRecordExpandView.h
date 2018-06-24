@@ -10,4 +10,6 @@
 
 @interface FTakeRecordExpandView : UIView
 
+// 信息完成检查
+- (BOOL)infoDoneCheck;
 @end

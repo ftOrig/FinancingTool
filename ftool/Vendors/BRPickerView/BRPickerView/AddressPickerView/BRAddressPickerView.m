@@ -278,15 +278,26 @@
     return cityModel.arealist;
 }
 
+- (void)titleClick:(UITapGestureRecognizer *)gesture{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:BRAddressPickerViewTitleClickNotification object:gesture];
+}
+
 #pragma mark - 初始化子视图
 - (void)initUI {
     [super initUI];
+    
+    UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleClick:)];
+    [self.titleLabel addGestureRecognizer:tapgesture];
+    self.titleLabel.font = [UIFont systemFontOfSize:16];
+    self.titleLabel.textColor = kDefaultThemeColor;
+    self.titleLabel.userInteractionEnabled = YES;
     if (self.showType == BRAddressPickerModeProvince) {
-        self.titleLabel.text = @"请选择";
+        self.titleLabel.text = @"编辑分类";
     } else if (self.showType == BRAddressPickerModeCity) {
-        self.titleLabel.text = @"请选择";
+        self.titleLabel.text = @"编辑分类";
     } else {
-        self.titleLabel.text = @"请选择";
+        self.titleLabel.text = @"编辑分类";
     }
     // 添加时间选择器
     [self.alertView addSubview:self.pickerView];
