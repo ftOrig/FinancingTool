@@ -20,26 +20,49 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
    
     [self initView];
     
-    self.dataArray = AppDelegateInstance.aFAccountCategaries.expensesTypeArr;
+    FFirstType *firstBena = AppDelegateInstance.aFAccountCategaries.expensesTypeArr[self.selectFirstTypeIndex];
+    self.dataArray = firstBena.subTypeArr.copy;
 }
 
 - (void)initView {
     
-    NavBar *bar = [[NavBar alloc] initWithTitle:@"编辑分类" leftName:nil rightName:nil delegate:self];
+    NavBar *bar = [[NavBar alloc] initWithTitle:self.title?:@"编辑子分类" leftName:nil rightName:@"保存" delegate:self];
     
-    self.tableView = [UITableView tableViewWithFrmae:RECT(0, bar.maxY, MSWIDTH, MSHIGHT-bar.maxY) backgroundColor:AJGrayBackgroundColor delegate:self tableViewStyle:UITableViewStylePlain separatorStyle:UITableViewCellSeparatorStyleNone superview:self.view];
+//    UIView *bugetView = [UIView viewWithFrame:RECT(0, bar.maxY, MSWIDTH, 50) backgroundColor:AJWhiteColor superview:self.view];
+//    UITextField
+    
+    self.tableView = [UITableView tableViewWithFrmae:RECT(0, bar.maxY, MSWIDTH, MSHIGHT-bar.maxY) backgroundColor:AJGrayBackgroundColor delegate:self tableViewStyle:UITableViewStylePlain separatorStyle:UITableViewCellSeparatorStyleSingleLineEtched superview:self.view];
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+    self.tableView.rowHeight = 55.f;
+    UIView *footer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 50) backgroundColor:nil superview:nil];
+    UIButton *btn = [UIButton buttonWithFrame:RECT(50, 30, MSWIDTH-100, 37) backgroundColor:AJWhiteColor title:@"添加分类" titleColor:[UIColor ys_black] titleFont:15 target:self action:@selector(addFirstType:) superview:footer];
+    [btn setImage:[UIImage imageNamed:@"FirstType_add"] forState:UIControlStateNormal];
+    btn.imageEdgeInsets = EDGEINSET(7, 0, 7, -10);
+    btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.tableView.tableFooterView = footer;
+}
+
+- (void)nextItemClick{
     
+    // 预算
+    // 分类修改
+    
+}
+
+- (void)addFirstType:(UIButton *)sender
+{
+    //    AJRedSelectListController *controller = [AJRedSelectListController new];
+    //    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     FEditFirstTypeCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    FFirstType *bean = self.dataArray[indexPath.row];
-    cell.textLabel.text = bean.name;
-    cell.imageView.image = [UIImage imageNamed:bean.iconName];
+    FSubType *bean = self.dataArray[indexPath.row];
+    cell.textL.text = bean.name;
+    cell.imgV.image = [UIImage imageNamed:bean.iconName];
     return cell;
 }
 

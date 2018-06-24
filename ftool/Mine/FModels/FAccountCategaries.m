@@ -53,4 +53,17 @@
     
     return bean;
 }
+
+- (NSString *)iconName{
+    
+    if (!_iconName) {
+        
+        int x = arc4random() % 10;
+        if (x==0) {
+            x += 1;
+        }
+        return [NSString stringWithFormat:@"FirstType_%02d", x];
+    }
+    return _iconName;
+}
 @end

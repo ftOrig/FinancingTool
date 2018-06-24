@@ -10,4 +10,5 @@
 
 @interface FEditSubTypeController : AJContainTableController
 
+@property (nonatomic,assign) NSInteger selectFirstTypeIndex;
 @end

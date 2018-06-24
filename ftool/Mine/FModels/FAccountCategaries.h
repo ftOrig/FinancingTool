@@ -32,6 +32,7 @@
 
 @interface FSubType : BaseEntity
 
+@property (nonatomic, copy) NSString *iconName;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isEditable;
 

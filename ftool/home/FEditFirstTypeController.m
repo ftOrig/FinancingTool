@@ -8,6 +8,7 @@
 
 #import "FEditFirstTypeController.h"
 #import "FEditFirstTypeCell.h"
+#import "FEditSubTypeController.h"
 
 @interface FEditFirstTypeController ()
 
@@ -25,7 +26,7 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
 
 - (void)initView {
     
-    NavBar *bar = [[NavBar alloc] initWithTitle:@"编辑分类" leftName:nil rightName:nil delegate:self];
+    NavBar *bar = [[NavBar alloc] initWithTitle:@"编辑分类" leftName:nil rightName:@"保存" delegate:self];
 
     self.tableView = [UITableView tableViewWithFrmae:RECT(0, bar.maxY, MSWIDTH, MSHIGHT-bar.maxY) backgroundColor:AJGrayBackgroundColor delegate:self tableViewStyle:UITableViewStylePlain separatorStyle:UITableViewCellSeparatorStyleSingleLineEtched superview:self.view];
     
@@ -35,9 +36,16 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
     UIView *footer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 50) backgroundColor:nil superview:nil];
     UIButton *btn = [UIButton buttonWithFrame:RECT(50, 30, MSWIDTH-100, 37) backgroundColor:AJWhiteColor title:@"添加分类" titleColor:[UIColor ys_black] titleFont:15 target:self action:@selector(addFirstType:) superview:footer];
     [btn setImage:[UIImage imageNamed:@"FirstType_add"] forState:UIControlStateNormal];
-    btn.imageEdgeInsets = EDGEINSET(5, 0, 5, 0);
+    btn.imageEdgeInsets = EDGEINSET(7, 0, 7, -10);
     btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.tableView.tableFooterView = footer;
+}
+
+- (void)nextItemClick{
+    
+    ShowLightMessage(@"已成功保存");
+    // 预算
+    // 分类修改
 }
 
 - (void)addFirstType:(UIButton *)sender
@@ -59,7 +67,11 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    FFirstType *bean = self.dataArray[indexPath.row];
+    FEditSubTypeController *controller = [FEditSubTypeController new];
+    controller.title = bean.name;
+    controller.selectFirstTypeIndex = indexPath.row;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 
