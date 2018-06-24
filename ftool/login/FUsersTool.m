@@ -12,30 +12,64 @@
 
 #define KEY_UserList @"FkUserList" //用户列表
 
+#define KEY_Name @"name"
+#define KEY_Pwd  @"pwd"
+
 #define defName @"13388888888" //默认用户名
 #define defNamePass @"123456"  //默认用户密码
 
 @implementation FUsersTool
 
+//保存一个默认账号
 +(void)setDefaultUser{
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *defUser = [NSDictionary dictionaryWithObjectsAndKeys:@"name",defName, @"pwd", defNamePass, nil];
+    NSString *desPwd = [NSString encrypt3DES:defNamePass key:DESkey]; //密码加密保存
+    NSDictionary *defUser = [NSDictionary dictionaryWithObjectsAndKeys:defName,KEY_Name, desPwd, KEY_Pwd, nil];
     [defaults setObject:defUser forKey:KEY_DefaultUser];
+    
+    NSMutableArray *userList = [NSMutableArray arrayWithObjects:defUser, nil];
+    [defaults setObject:userList forKey:KEY_UserList]; //保存默认用户到列表中
 }
 
-+(BOOL) loginUser:(NSString *)name andPassword:(NSString *)pwd{
+//登录 密码要加密
++(BOOL) loginUser:(NSString *)name andPassword:(NSString *)desPwd{
+//    NSDictionary *defaultUser = [[NSUserDefaults standardUserDefaults] dictionaryForKey:KEY_DefaultUser];
+//    if([[defaultUser objectForKey:KEY_Name] isEqualToString:name] && [[defaultUser objectForKey:KEY_Pwd] isEqualToString:desPwd]) return YES;
     
+    NSMutableArray *userList = [[NSUserDefaults standardUserDefaults] mutableArrayValueForKey:KEY_UserList];
+    for(NSDictionary *item in userList){
+//        NSLog(@"item = %@", item);
+        if ([[item objectForKey:KEY_Name] isEqualToString:name] && [[item objectForKey:KEY_Pwd] isEqualToString:desPwd]) {
+            return YES;
+        }
+    }
+
     return NO;
 }
 
-+(BOOL) registUser:(NSString *)name andPassword:(NSString *)pwd{
-    
+//注册用户到列表中  密码要加
++(BOOL) registUser:(NSString *)name andPassword:(NSString *)desPwd{
+    if([self isExsits:name]){
+        NSLog(@"用户已存在： %@",name);
+    }else {
+        NSMutableArray *userList = [[NSUserDefaults standardUserDefaults] mutableArrayValueForKey:KEY_UserList];
+        NSDictionary *regUser = [NSDictionary dictionaryWithObjectsAndKeys:name,KEY_Name,desPwd, KEY_Pwd, nil];
+        [userList addObject:regUser];
+        return YES;
+    }
     return NO;
 }
 
-+(BOOL) isExsits:(NSString *)name{
-    
+//用户是否已存在
++(BOOL) isExsits:(NSString *)username{
+    NSMutableArray *userList = [[NSUserDefaults standardUserDefaults] mutableArrayValueForKey:KEY_UserList];
+    for(NSDictionary *item in userList){
+//        NSLog(@"exsit.item = %@", item);
+        if ([[item objectForKey:KEY_Name] isEqualToString:username]) {
+            return YES;
+        }
+    }
     return NO;
 }
 

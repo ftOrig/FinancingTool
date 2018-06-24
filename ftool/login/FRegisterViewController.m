@@ -30,7 +30,6 @@
 	UILabel  *_rightlabel;
 	NSString *_html;
     
-    InputView *_imgCodeInput;
     CaptchaView *_imageVerifyView;
 }
 
@@ -168,25 +167,15 @@
 //        make.size.mas_equalTo(CGSizeMake(100, 30 * SCALE));
 //    }];
     
-    //图形验证码
-    _imgCodeInput = [[InputView alloc] init];
-    [_superView addSubview:_imgCodeInput];
-    
+
     _imageVerifyView = [[CaptchaView alloc] init];
-    [_imgCodeInput addSubview:_imageVerifyView];
-    //图形验证码
-    [_imgCodeInput mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_pwdInput.mas_bottom).with.offset(10 * SCALE);
-        make.left.equalTo(_superView.mas_left).with.offset(0);
-        make.right.equalTo(_superView.mas_right).with.offset(0);
-        make.height.mas_equalTo(CGSizeMake(100, 30 * SCALE));
-    }];
+    [_superView addSubview:_imageVerifyView];
     
-    //图形验证码图片
+    //图形验证码
     [_imageVerifyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_pwdInput.mas_bottom).with.offset(10*HSCALE);
-        make.right.equalTo(_imgCodeInput.mas_right).offset(-5);
-        make.size.mas_equalTo(CGSizeMake(100, 30 * SCALE));
+        make.right.equalTo(_superView.mas_right).offset(-5);
+        make.size.mas_equalTo(CGSizeMake(100, 40 * SCALE));
     }];
 	
 	//邀请码输入栏
@@ -196,7 +185,7 @@
 	[_inviteInput mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.top.equalTo(_pwdInput.mas_bottom).with.offset(20 * SCALE); //_verifyInput.mas_bottom
 		make.left.equalTo(_superView.mas_left).with.offset(5);
-		make.right.equalTo(_imgCodeInput.mas_left).with.offset(5);
+		make.right.equalTo(_superView.mas_right).with.offset(-110);
 		make.height.mas_equalTo(30 * SCALE);
 	}];
 	
@@ -303,13 +292,14 @@
 /* 注册按钮事件触发 */
 - (void)registerAction{
 	[self ControlAction];
-    if (![_imageVerifyView verifyContent:_imgCodeInput.inputField.text]) {
+    NSString *reslut = _inviteInput.inputField.text;
+    if (![_imageVerifyView verifyContent:reslut]) {
         [SVProgressHUD showImage:nil status:@"图形验证码不正确"];
         return;
     }
     
 	[[AppDefaultUtil sharedInstance] setPhoneNum:_phoneInput.inputField.text];// 保存用户账号(手机号)
-//    NSString *pwdStr = [NSString encrypt3DES:_pwdInput.inputField.text key:DESkey];//用户密码3Des加密
+    NSString *pwdStr = [NSString encrypt3DES:_pwdInput.inputField.text key:DESkey];//用户密码3Des加密
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
 	[parameters setObject:_phoneInput.inputField.text forKey:@"mobile"];
 //    [parameters setObject:pwdStr forKey:@"password"];
@@ -317,6 +307,13 @@
 	[parameters setObject:_inviteInput.inputField.text forKey:@"invitationCode"];
 	[parameters setObject:@"3" forKey:@"deviceType"];
 //    [self.requestClient requestGet:@"app/services" withParameters:parameters];
+    if([FUsersTool isExsits:_phoneInput.inputField.text]){
+        [SVProgressHUD showImage:nil status:@"用户已存在"];
+    }
+    else if ([FUsersTool registUser:_phoneInput.inputField.text andPassword:pwdStr]) {
+        [SVProgressHUD showImage:nil status:@"注册成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
 }
 
@@ -415,8 +412,10 @@
 		_phoneInput.leftImg.highlighted = NO;
 		if (_phoneInput.inputField.text.length) {
 			if (![_phoneInput.inputField.text isPhone]) {
-				[self showPhoneLabel];
-			}
+                [self showPhoneLabel:nil];
+            }else if([FUsersTool isExsits:_phoneInput.inputField.text]){
+                [self showPhoneLabel:@"用户已存在"];
+            }
 		}
 		[self  resumeView];
 	}
@@ -511,11 +510,12 @@
 
 
 // 展示号码错误提示label
-- (void)showPhoneLabel{
+- (void)showPhoneLabel:(NSString *)errmsg{
 	NSTimeInterval animationDuration=0.30f;
 	[UIView beginAnimations:@"ShowPhoneLabel" context:nil];
 	[UIView setAnimationDuration:animationDuration];
     _phoneLabel.hidden = NO;
+    _phoneLabel.text = errmsg? errmsg: @"请输入正确的手机号码";
 	[_phoneLabel mas_updateConstraints:^(MASConstraintMaker *make) {
 		make.top.equalTo(_phoneInput.mas_bottom).with.offset(0.5);
 		make.left.equalTo(_superView.mas_left).with.offset(40);

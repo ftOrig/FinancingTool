@@ -231,7 +231,10 @@
 /*登录按钮触发*/
 -(void)loginBtnAction{
 	[self ControlAction];
-    if([_phoneInput.inputField.text isEqualToString:@"13299990000"] && [_pwdInput.inputField.text isEqualToString:@"112233"]){
+    
+    NSString *password1 = [NSString encrypt3DES:_pwdInput.inputField.text key:DESkey];
+    if ([FUsersTool loginUser:_phoneInput.inputField.text andPassword:password1]) {
+        [SVProgressHUD showImage:nil status:@"成功登录"];
         [self loginSuccess];
     }else {
         [SVProgressHUD showImage:nil status:@"用户名或密码错误"];
@@ -239,7 +242,7 @@
     
 	_typeNum = 1;
 	NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-//    NSString *password1 = [NSString encrypt3DES:_pwdInput.inputField.text key:DESkey];
+
 	[parameters setObject:@"123" forKey:@"OPT"];
 	[parameters setObject:@"" forKey:@"body"];
 	[parameters setObject:_phoneInput.inputField.text forKey:@"mobile"];
@@ -438,7 +441,7 @@
 
 //显示忘记密码按钮
 - (void)showforgetBtn{
-	_forgetBtn.hidden = NO;
+//    _forgetBtn.hidden = NO;
 	_registBtn.hidden = YES;
 	_leftlabel.hidden = YES;
 	_rightlabel.hidden = YES;
