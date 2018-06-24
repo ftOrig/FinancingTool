@@ -20,8 +20,15 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
     [super viewDidLoad];
 
     [self initView];
+    self.dataArray = AppDelegateInstance.aFAccountCategaries.expensesTypeArr;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
     
     self.dataArray = AppDelegateInstance.aFAccountCategaries.expensesTypeArr;
+    [self.tableView reloadData];
 }
 
 - (void)initView {
