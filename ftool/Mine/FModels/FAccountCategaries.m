@@ -29,6 +29,13 @@
     return bean;
 }
 
+- (NSString *)iconName{
+    
+    if (!_iconName) {
+        return @"FirstType_10";
+    }
+    return _iconName;
+}
 
 + (NSDictionary *)mj_objectClassInArray{
     

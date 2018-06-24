@@ -1,9 +1,5 @@
 //
 //  UserModel.h
-//  ShareCommunity
-//
-//  Created by nofeng(185306) on 13-7-12.
-//  Copyright (c) 2013年 sf-express. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

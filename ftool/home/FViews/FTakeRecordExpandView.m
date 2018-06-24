@@ -64,7 +64,9 @@
 {
     if ([note.object isKindOfClass:[UITapGestureRecognizer class]]) {
         
-        
+        if ([self.delegate respondsToSelector:@selector(customView:didClickWithType:)]) {
+            [self.delegate customView:self didClickWithType:ClickType_editCategory];
+        }
     }
 }
 
@@ -97,8 +99,7 @@
 {
     FAccountCategaries *AccountCategary = AppDelegateInstance.aFAccountCategaries;
     NSString *defultValue = [self.accountCategeryL.text isEqualToString:@"未选择"]?nil:self.accountCategeryL.text;
-    [BRStringPickerView showStringPickerWithTitle:nil dataSource:AccountCategary.accountTypeArr defaultSelValue:defultValue resultBlock:^(id selectValue) {
-        
+    [BRStringPickerView showStringPickerWithTitle:nil dataSource:AccountCategary.accountTypeArr defaultSelValue:defultValue isAutoSelect:YES themeColor:nil resultBlock:^(id selectValue) {
         self.accountCategeryL.text = [NSString stringWithFormat:@"%@", selectValue];
         DLOG(@"accountCategeryClick : %@", selectValue);
     }];
@@ -153,7 +154,7 @@
     line.tag = 90;
     contentL.backgroundColor = AJGrayBackgroundColor;
     CGFloat imgVW = 8.f;
-    UIImageView *imgV = [UIImageView imageViewWithFrame:RECT(MSWIDTH - imgVW - 15, contentL.y, imgVW, contentL.height) imageFile:@"Payments_arrow" superview:view];
+    UIImageView *imgV = [UIImageView imageViewWithFrame:RECT(MSWIDTH - imgVW - 25, contentL.y, imgVW, contentL.height) imageFile:@"Payments_arrow" superview:view];
     imgV.contentMode = UIViewContentModeScaleAspectFit;
     return contentL;
 }

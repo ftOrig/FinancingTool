@@ -8,8 +8,9 @@
 
 #import "FTakeRecordExpandController.h"
 #import "FTakeRecordExpandView.h"
+#import "FEditFirstTypeController.h"
 
-@interface FTakeRecordExpandController ()
+@interface FTakeRecordExpandController ()<UIViewOutterDelegate>
 @property (nonatomic, weak) FTakeRecordExpandView *contentV;
 
 @end
@@ -22,6 +23,16 @@
     [self initView];
 }
 
+#pragma  mark - UIViewOutterDelegate
+- (void)customView:(UIView *)sectionView didClickWithType:(ClickType)type{
+    
+    if (ClickType_editCategory == type) {
+        
+        FEditFirstTypeController *controller = [FEditFirstTypeController new];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+}
+
 - (void)initView {
     
     self.view.backgroundColor = AJGrayBackgroundColor;
@@ -29,6 +40,7 @@
 //    tableview.tableFooterView = [UIView new];
     tableview.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     FTakeRecordExpandView *contentV = [FTakeRecordExpandView viewWithFrame:RECT(0, 0, MSWIDTH, 500) backgroundColor:nil superview:tableview];
+    contentV.delegate = self;
     tableview.contentSize = CGSizeMake(0, contentV.height+30);
     self.contentV = contentV;
     CGFloat leading = 15.f;

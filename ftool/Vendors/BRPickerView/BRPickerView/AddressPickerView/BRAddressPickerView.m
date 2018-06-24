@@ -280,6 +280,7 @@
 
 - (void)titleClick:(UITapGestureRecognizer *)gesture{
     
+    [self dismissWithAnimation:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:BRAddressPickerViewTitleClickNotification object:gesture];
 }
 

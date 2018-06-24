@@ -22,6 +22,7 @@
 @interface FFirstType : BaseEntity
 
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *iconName;
 @property (nonatomic, assign) BOOL isEditable;
 @property (nonatomic,assign) CGFloat budget;
 @property (nonatomic, copy) NSMutableArray<FSubType *> *subTypeArr;

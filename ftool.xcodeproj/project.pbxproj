@@ -30,6 +30,9 @@
 		184F90E420DE4F8C009D37F9 /* ConverUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90E220DE4F8B009D37F9 /* ConverUtil.m */; };
 		845606A120DD01790078EDE6 /* FMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* FMineController.m */; };
 		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
+		84617B7320DF8D8200D6630E /* FEditFirstTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */; };
+		84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */; };
+		84617B7720DF8F3A00D6630E /* FEditSubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */; };
 		847B378C20DDE458002DE2CE /* AJIDFATool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374220DDE458002DE2CE /* AJIDFATool.m */; };
 		847B378D20DDE458002DE2CE /* AppDefaultUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374420DDE458002DE2CE /* AppDefaultUtil.m */; };
 		847B378E20DDE458002DE2CE /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374520DDE458002DE2CE /* SecurityUtil.m */; };
@@ -257,6 +260,11 @@
 		8456069F20DD01790078EDE6 /* FMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMineController.m; sourceTree = "<group>"; };
 		845606A420DD1C740078EDE6 /* FAccountCategaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAccountCategaries.h; sourceTree = "<group>"; };
 		845606A520DD1C740078EDE6 /* FAccountCategaries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAccountCategaries.m; sourceTree = "<group>"; };
+		84617B7020DF8D8200D6630E /* FEditFirstTypeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditFirstTypeCell.h; sourceTree = "<group>"; };
+		84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditFirstTypeCell.m; sourceTree = "<group>"; };
+		84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FEditFirstTypeCell.xib; sourceTree = "<group>"; };
+		84617B7520DF8F3A00D6630E /* FEditSubTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditSubTypeController.h; sourceTree = "<group>"; };
+		84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditSubTypeController.m; sourceTree = "<group>"; };
 		847B373E20DDE342002DE2CE /* Product.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.pch; sourceTree = "<group>"; };
 		847B374220DDE458002DE2CE /* AJIDFATool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJIDFATool.m; sourceTree = "<group>"; };
 		847B374320DDE458002DE2CE /* ReLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReLogin.h; sourceTree = "<group>"; };
@@ -681,6 +689,8 @@
 				847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */,
 				AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */,
 				AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */,
+				84617B7520DF8F3A00D6630E /* FEditSubTypeController.h */,
+				84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1402,6 +1412,9 @@
 				847B395520DDF870002DE2CE /* FHomeCell.xib */,
 				847B396820DE148D002DE2CE /* FTakeRecordExpandView.h */,
 				847B396920DE148D002DE2CE /* FTakeRecordExpandView.m */,
+				84617B7020DF8D8200D6630E /* FEditFirstTypeCell.h */,
+				84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */,
+				84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */,
 			);
 			path = FViews;
 			sourceTree = "<group>";
@@ -1550,6 +1563,7 @@
 				847B395720DDF870002DE2CE /* FHomeCell.xib in Resources */,
 				847B388320DDE5BC002DE2CE /* SVProgressHUD.bundle in Resources */,
 				847B389120DDE5BC002DE2CE /* IQKeyboardManager.bundle in Resources */,
+				84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */,
 				847B393D20DDF1BC002DE2CE /* README.md in Resources */,
 				847B388920DDE5BC002DE2CE /* LICENSE.md in Resources */,
 				847B391220DDF024002DE2CE /* README.markdown in Resources */,
@@ -1625,6 +1639,7 @@
 				847B37A220DDE458002DE2CE /* NSDate+AJax.m in Sources */,
 				847B386320DDE5BC002DE2CE /* NSObject+MJClass.m in Sources */,
 				847B387F20DDE5BC002DE2CE /* SVRadialGradientLayer.m in Sources */,
+				84617B7320DF8D8200D6630E /* FEditFirstTypeCell.m in Sources */,
 				847B389220DDE5BC002DE2CE /* IQKeyboardManager.m in Sources */,
 				847B390720DDF016002DE2CE /* BRBaseView.m in Sources */,
 				847B388B20DDE5BC002DE2CE /* IQTextView.m in Sources */,
@@ -1640,6 +1655,7 @@
 				847B387120DDE5BC002DE2CE /* MJRefreshBackStateFooter.m in Sources */,
 				847B395620DDF870002DE2CE /* FHomeCell.m in Sources */,
 				847B37AA20DDE458002DE2CE /* BaseWKWebViewController.m in Sources */,
+				84617B7720DF8F3A00D6630E /* FEditSubTypeController.m in Sources */,
 				847B394120DDF1BC002DE2CE /* SDWebImageDownloader.m in Sources */,
 				184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */,
 				847B386020DDE5BC002DE2CE /* NSObject+MJCoding.m in Sources */,

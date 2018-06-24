@@ -1,9 +1,5 @@
 //
 //  UIView+AJ.h
-//  SP2P_6.1
-//
-//  Created by eims on 16/8/23.
-//  Copyright © 2016年 EIMS. All rights reserved.
 //
 #import <UIKit/UIKit.h>
 //
@@ -13,20 +9,7 @@
 // @property (nonatomic, weak) id<UIViewOutterDelegate> outterDelegate;
 //
 typedef NS_ENUM(NSInteger, ClickType){
-    ClickType_sendEmail = 1,       // 账单-结算详情页面 “发送邮件”点击
-    ClickType_adjustAmount,    // 账单-结算详情页面 “调整金额”点击
-    ClickType_selectVendor,    // 月账单查询页面-“选择商户号”
-    ClickType_selectMonth,    // 月账单查询页面- “选择月份”
-    ClickType_couponToUse,    // 点击卡券“立即使用”按钮
-    ClickType_researchBluetooth,    // 点击扫一扫界面“重新搜索”蓝牙按钮
-    ClickType_connectBluetooth,    // 点击扫一扫界面蓝牙列表里面的“连接”按钮
-    ClickType_selectGoodsType,    // 点击收款-界面“请选择商品类别”
-    ClickType_paymentBtnClick,    // 点击收款-界面“收款”
-    ClickType_paymentSignNameCancel,    // 点击POS签名页面“取消”
-    ClickType_paymentSignNameResign,    // 点击POS签名页面“重签”
-    ClickType_paymentSignNameSure,    // 点击POS签名页面“确定”
-    ClickType_paymentMPOSSwipTimeout,    // POS刷卡页面“倒计时”结束
-    ClickType_paymentMPOSSwipTimedown1S,    // POS刷卡页面“倒计时”1S
+    ClickType_editCategory = 1,       // 账单-结算详情页面 “发送邮件”点击
 };
 
 @protocol UIViewOutterDelegate <NSObject>
