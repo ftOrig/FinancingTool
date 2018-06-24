@@ -47,20 +47,24 @@
         
         // 左边btn
         _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_leftBtn setImage:[UIImage imageNamed:@"back_arrows_White"] forState:UIControlStateNormal];
         [_leftBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
         _leftBtn.adjustsImageWhenHighlighted = NO;
         [self addSubview:_leftBtn];
-//        if (leftName.length) {
-//            
-//            [_leftBtn setTitle:leftName forState:UIControlStateNormal];
-//            _leftBtn.titleLabel.font = [UIFont systemFontOfSize:15.0];
+        if (leftName.length) {
+//
+            [_leftBtn setTitle:leftName forState:UIControlStateNormal];
+            _leftBtn.titleLabel.font = [UIFont systemFontOfSize:17.0];
 //            CGSize leftBtnSize = [_leftBtn sizeWithTitle:leftName font:_leftBtn.titleLabel.font];
 //            _leftBtn.frame = CGRectMake(0, 20, leftBtnSize.width + 20, self.frame.size.height - 20);
 //        }else{
 //            _leftBtn.hidden = YES;
+            _leftBtn.frame = CGRectMake(15, 20, 60, self.frame.size.height - 20);
+
+        }else{
+            [_leftBtn setImage:[UIImage imageNamed:@"back_arrows_White"] forState:UIControlStateNormal];
             _leftBtn.frame = CGRectMake(15, 20, 25, self.frame.size.height - 20);
-//        }
+
+        }
         
         // 右边btn
         if(rightName.length){
@@ -74,7 +78,7 @@
                 _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
                 [_rightBtn setTitle:rightName forState:UIControlStateNormal];
                 _rightBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
-                CGSize rightBtnSize = [rightName sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.0f]}];
+                CGSize rightBtnSize = [rightName sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17.0f]}];
                 CGFloat btnW = MAX(rightBtnSize.width+10, 34);
                 _rightBtn.frame = CGRectMake(MSWIDTH - rightBtnSize.width - 15, 20, btnW , self.frame.size.height - 20);
                 [_rightBtn addTarget:self action:@selector(nextAction) forControlEvents:UIControlEventTouchUpInside];

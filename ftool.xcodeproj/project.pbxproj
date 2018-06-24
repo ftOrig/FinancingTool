@@ -192,6 +192,7 @@
 		847B397120DE524B002DE2CE /* AccoutCategeries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847B397020DE524B002DE2CE /* AccoutCategeries.plist */; };
 		847B397720DE5B8E002DE2CE /* WSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */; };
 		AACFDBEC20DF540100BDFA0E /* FEditFirstTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */; };
+		AACFDBEF20DFDC8C00BDFA0E /* FAddSubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACFDBEE20DFDC8C00BDFA0E /* FAddSubTypeController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -572,6 +573,8 @@
 		847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPlaceholderTextView.m; sourceTree = "<group>"; };
 		AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditFirstTypeController.h; sourceTree = "<group>"; };
 		AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditFirstTypeController.m; sourceTree = "<group>"; };
+		AACFDBED20DFDC8C00BDFA0E /* FAddSubTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAddSubTypeController.h; sourceTree = "<group>"; };
+		AACFDBEE20DFDC8C00BDFA0E /* FAddSubTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAddSubTypeController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -691,6 +694,8 @@
 				AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */,
 				84617B7520DF8F3A00D6630E /* FEditSubTypeController.h */,
 				84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */,
+				AACFDBED20DFDC8C00BDFA0E /* FAddSubTypeController.h */,
+				AACFDBEE20DFDC8C00BDFA0E /* FAddSubTypeController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1720,6 +1725,7 @@
 				182C4A5B20DA43CC003C59F6 /* AppDelegate.m in Sources */,
 				847B387220DDE5BC002DE2CE /* MJRefreshBackNormalFooter.m in Sources */,
 				847B388F20DDE5BC002DE2CE /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				AACFDBEF20DFDC8C00BDFA0E /* FAddSubTypeController.m in Sources */,
 				847B386A20DDE5BC002DE2CE /* UIScrollView+MJRefresh.m in Sources */,
 				847B388720DDE5BC002DE2CE /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				847B387D20DDE5BC002DE2CE /* MJRefreshComponent.m in Sources */,
