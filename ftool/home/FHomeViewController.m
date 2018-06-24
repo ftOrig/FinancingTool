@@ -10,6 +10,7 @@
 #import "HomeHeader.h"
 #import "FHomeCell.h"
 #import "FTakeRecordFatherController.h"
+#import "FRateViewController.h"
 
 @interface FHomeViewController ()
 
@@ -76,6 +77,16 @@ static NSString * const reuseIdentifier = @"FHomeCell";
         FTakeRecordFatherController *controller = [[FTakeRecordFatherController alloc] init];
         controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
+    } else if (indexPath.row == 0) {
+//        FRateViewController *controller = [[FRateViewController alloc] init];
+//
+//        [self.navigationController pushViewController:controller animated:YES];
+        
+        
+        UIStoryboard *homeStoryboard = [UIStoryboard storyboardWithName:@"Counters" bundle:nil];
+        UIViewController *tenderVC = [homeStoryboard instantiateViewControllerWithIdentifier:@"rateController"];
+        tenderVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:tenderVC animated:YES];
     }
 }
 @end

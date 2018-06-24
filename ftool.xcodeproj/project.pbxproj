@@ -15,7 +15,6 @@
 		182C4A7E20DA43CD003C59F6 /* ftoolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A7D20DA43CD003C59F6 /* ftoolUITests.m */; };
 		182C4A9720DA4B48003C59F6 /* FHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9520DA4B48003C59F6 /* FHomeViewController.m */; };
 		182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */; };
-		182C4A9D20DA4BAC003C59F6 /* FCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */; };
 		184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D020DE824300EF7AA1 /* CaptchaView.m */; };
 		184901D420DE961700EF7AA1 /* FUsersTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D320DE961700EF7AA1 /* FUsersTool.m */; };
 		184F90D120DE437E009D37F9 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C120DE437D009D37F9 /* InputView.m */; };
@@ -28,6 +27,10 @@
 		184F90D820DE437E009D37F9 /* FLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90CD20DE437D009D37F9 /* FLoginViewController.m */; };
 		184F90E120DE4D6F009D37F9 /* NSString+encryptDES.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90DF20DE4D6F009D37F9 /* NSString+encryptDES.m */; };
 		184F90E420DE4F8C009D37F9 /* ConverUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90E220DE4F8B009D37F9 /* ConverUtil.m */; };
+		187D394120DF7AD80068D3B2 /* BaseContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D394020DF7AD80068D3B2 /* BaseContentCell.m */; };
+		187D394320DF92AB0068D3B2 /* Counters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D394220DF92AB0068D3B2 /* Counters.storyboard */; };
+		187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */; };
+		188D51F620DF5820004A0C02 /* FRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D51F420DF5820004A0C02 /* FRateViewController.m */; };
 		845606A120DD01790078EDE6 /* FMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* FMineController.m */; };
 		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
 		84617B7320DF8D8200D6630E /* FEditFirstTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */; };
@@ -229,7 +232,6 @@
 		182C4A9520DA4B48003C59F6 /* FHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHomeViewController.m; sourceTree = "<group>"; };
 		182C4A9920DA4BAC003C59F6 /* FCounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCounterViewController.h; sourceTree = "<group>"; };
 		182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCounterViewController.m; sourceTree = "<group>"; };
-		182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FCounterViewController.xib; sourceTree = "<group>"; };
 		182C4A9F20DA4E27003C59F6 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ftool/Macros.h; sourceTree = SOURCE_ROOT; };
 		184901CF20DE824300EF7AA1 /* CaptchaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptchaView.h; sourceTree = "<group>"; };
 		184901D020DE824300EF7AA1 /* CaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptchaView.m; sourceTree = "<group>"; };
@@ -256,6 +258,12 @@
 		184F90E020DE4D6F009D37F9 /* NSString+encryptDES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+encryptDES.h"; sourceTree = "<group>"; };
 		184F90E220DE4F8B009D37F9 /* ConverUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverUtil.m; sourceTree = "<group>"; };
 		184F90E320DE4F8C009D37F9 /* ConverUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverUtil.h; sourceTree = "<group>"; };
+		187D393F20DF7AD80068D3B2 /* BaseContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseContentCell.h; sourceTree = "<group>"; };
+		187D394020DF7AD80068D3B2 /* BaseContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseContentCell.m; sourceTree = "<group>"; };
+		187D394220DF92AB0068D3B2 /* Counters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Counters.storyboard; sourceTree = "<group>"; };
+		187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCounterViewController.xib; sourceTree = "<group>"; };
+		188D51F320DF5820004A0C02 /* FRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRateViewController.h; sourceTree = "<group>"; };
+		188D51F420DF5820004A0C02 /* FRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRateViewController.m; sourceTree = "<group>"; };
 		8456069E20DD01790078EDE6 /* FMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMineController.h; sourceTree = "<group>"; };
 		8456069F20DD01790078EDE6 /* FMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMineController.m; sourceTree = "<group>"; };
 		845606A420DD1C740078EDE6 /* FAccountCategaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAccountCategaries.h; sourceTree = "<group>"; };
@@ -663,6 +671,8 @@
 		182C4A8B20DA4966003C59F6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				187D393F20DF7AD80068D3B2 /* BaseContentCell.h */,
+				187D394020DF7AD80068D3B2 /* BaseContentCell.m */,
 				847B38CE20DDEA18002DE2CE /* FUserModel.h */,
 				847B38CD20DDEA18002DE2CE /* FUserModel.m */,
 				847B37B320DDE562002DE2CE /* FNavigationController.h */,
@@ -687,10 +697,14 @@
 				847B396320DE0F03002DE2CE /* FTakeRecordExpandController.m */,
 				847B396520DE0F17002DE2CE /* FTakeRecordIncomeController.h */,
 				847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */,
+
 				AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */,
 				AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */,
 				84617B7520DF8F3A00D6630E /* FEditSubTypeController.h */,
 				84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */,
+				188D51F320DF5820004A0C02 /* FRateViewController.h */,
+				188D51F420DF5820004A0C02 /* FRateViewController.m */,
+
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -698,9 +712,10 @@
 		182C4A9020DA4A8D003C59F6 /* counter */ = {
 			isa = PBXGroup;
 			children = (
+				187D394220DF92AB0068D3B2 /* Counters.storyboard */,
 				182C4A9920DA4BAC003C59F6 /* FCounterViewController.h */,
 				182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */,
-				182C4A9B20DA4BAC003C59F6 /* FCounterViewController.xib */,
+				187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */,
 			);
 			path = counter;
 			sourceTree = "<group>";
@@ -1546,7 +1561,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				182C4A6620DA43CC003C59F6 /* LaunchScreen.storyboard in Resources */,
-				182C4A9D20DA4BAC003C59F6 /* FCounterViewController.xib in Resources */,
 				847B393C20DDF1BC002DE2CE /* LICENSE in Resources */,
 				847B386720DDE5BC002DE2CE /* LICENSE in Resources */,
 				847B389A20DDE5BC002DE2CE /* LICENSE in Resources */,
@@ -1561,6 +1575,7 @@
 				847B391320DDF024002DE2CE /* License.txt in Resources */,
 				847B396020DE004B002DE2CE /* README.md in Resources */,
 				847B395720DDF870002DE2CE /* FHomeCell.xib in Resources */,
+				187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */,
 				847B388320DDE5BC002DE2CE /* SVProgressHUD.bundle in Resources */,
 				847B389120DDE5BC002DE2CE /* IQKeyboardManager.bundle in Resources */,
 				84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */,
@@ -1574,6 +1589,7 @@
 				847B386C20DDE5BC002DE2CE /* MJRefresh.bundle in Resources */,
 				847B388420DDE5BC002DE2CE /* README.md in Resources */,
 				847B386820DDE5BC002DE2CE /* README.md in Resources */,
+				187D394320DF92AB0068D3B2 /* Counters.storyboard in Resources */,
 				847B38A520DDE5BC002DE2CE /* README.md in Resources */,
 				847B379720DDE458002DE2CE /* close_btn_icon@2x.png in Resources */,
 			);
@@ -1628,6 +1644,7 @@
 				847B394720DDF1BC002DE2CE /* SDWebImageDownloaderOperation.m in Sources */,
 				847B38E920DDEEDB002DE2CE /* SDCollectionViewCell.m in Sources */,
 				847B38EA20DDEEDB002DE2CE /* TADotView.m in Sources */,
+				187D394120DF7AD80068D3B2 /* BaseContentCell.m in Sources */,
 				847B387620DDE5BC002DE2CE /* MJRefreshNormalHeader.m in Sources */,
 				847B387A20DDE5BC002DE2CE /* MJRefreshHeader.m in Sources */,
 				847B387B20DDE5BC002DE2CE /* MJRefreshBackFooter.m in Sources */,
@@ -1667,6 +1684,7 @@
 				847B394520DDF1BC002DE2CE /* SDWebImagePrefetcher.m in Sources */,
 				847B389020DDE5BC002DE2CE /* IQPreviousNextView.m in Sources */,
 				847B37A720DDE458002DE2CE /* AJNetWorkController.m in Sources */,
+				188D51F620DF5820004A0C02 /* FRateViewController.m in Sources */,
 				847B390520DDF016002DE2CE /* BRDatePickerView.m in Sources */,
 				847B37AC20DDE458002DE2CE /* AJTextFieldBaseController.m in Sources */,
 				847B394C20DDF1BC002DE2CE /* UIView+WebCacheOperation.m in Sources */,
