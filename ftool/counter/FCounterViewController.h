@@ -7,7 +7,9 @@
 //
 
 #import "FBaseViewController.h"
+#import "AJContainTableController.h"
 
-@interface FCounterViewController : FBaseViewController
+@interface FCounterViewController : AJContainTableController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

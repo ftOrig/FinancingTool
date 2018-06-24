@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FCounterViewController">
             <connections>
+                <outlet property="tableView" destination="NjG-21-Rpm" id="UY2-CG-zob"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,23 +21,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yiX-Mj-nl5">
-                    <rect key="frame" x="92" y="431" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXd-P2-9gl">
-                    <rect key="frame" x="139" y="245" width="62" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="退出登录"/>
-                    <connections>
-                        <action selector="exitLogin:" destination="-1" eventType="touchUpInside" id="ETH-Mg-eHQ"/>
-                    </connections>
-                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-21-Rpm">
+                    <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="NjG-21-Rpm" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" id="Btd-J9-EKO"/>
+                <constraint firstItem="NjG-21-Rpm" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="45" id="UtG-Td-UVW"/>
+                <constraint firstItem="NjG-21-Rpm" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="WnD-fe-gbI"/>
+                <constraint firstItem="NjG-21-Rpm" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="fs1-8x-7AF"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>

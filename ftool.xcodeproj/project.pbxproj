@@ -30,6 +30,7 @@
 		187D394120DF7AD80068D3B2 /* BaseContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D394020DF7AD80068D3B2 /* BaseContentCell.m */; };
 		187D394320DF92AB0068D3B2 /* Counters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D394220DF92AB0068D3B2 /* Counters.storyboard */; };
 		187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */; };
+		187D394820DFE3190068D3B2 /* FSaveCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D394720DFE3190068D3B2 /* FSaveCounterViewController.m */; };
 		188D51F620DF5820004A0C02 /* FRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D51F420DF5820004A0C02 /* FRateViewController.m */; };
 		845606A120DD01790078EDE6 /* FMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* FMineController.m */; };
 		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
@@ -262,6 +263,8 @@
 		187D394020DF7AD80068D3B2 /* BaseContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseContentCell.m; sourceTree = "<group>"; };
 		187D394220DF92AB0068D3B2 /* Counters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Counters.storyboard; sourceTree = "<group>"; };
 		187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCounterViewController.xib; sourceTree = "<group>"; };
+		187D394620DFE3190068D3B2 /* FSaveCounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSaveCounterViewController.h; sourceTree = "<group>"; };
+		187D394720DFE3190068D3B2 /* FSaveCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSaveCounterViewController.m; sourceTree = "<group>"; };
 		188D51F320DF5820004A0C02 /* FRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRateViewController.h; sourceTree = "<group>"; };
 		188D51F420DF5820004A0C02 /* FRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRateViewController.m; sourceTree = "<group>"; };
 		8456069E20DD01790078EDE6 /* FMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMineController.h; sourceTree = "<group>"; };
@@ -697,14 +700,12 @@
 				847B396320DE0F03002DE2CE /* FTakeRecordExpandController.m */,
 				847B396520DE0F17002DE2CE /* FTakeRecordIncomeController.h */,
 				847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */,
-
 				AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */,
 				AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */,
 				84617B7520DF8F3A00D6630E /* FEditSubTypeController.h */,
 				84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */,
 				188D51F320DF5820004A0C02 /* FRateViewController.h */,
 				188D51F420DF5820004A0C02 /* FRateViewController.m */,
-
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -716,6 +717,8 @@
 				182C4A9920DA4BAC003C59F6 /* FCounterViewController.h */,
 				182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */,
 				187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */,
+				187D394620DFE3190068D3B2 /* FSaveCounterViewController.h */,
+				187D394720DFE3190068D3B2 /* FSaveCounterViewController.m */,
 			);
 			path = counter;
 			sourceTree = "<group>";
@@ -1662,6 +1665,7 @@
 				847B388B20DDE5BC002DE2CE /* IQTextView.m in Sources */,
 				847B38E820DDEEDB002DE2CE /* UIView+SDExtension.m in Sources */,
 				847B389520DDE5BC002DE2CE /* IQUITextFieldView+Additions.m in Sources */,
+				187D394820DFE3190068D3B2 /* FSaveCounterViewController.m in Sources */,
 				847B389320DDE5BC002DE2CE /* IQNSArray+Sort.m in Sources */,
 				847B385F20DDE5BC002DE2CE /* MJProperty.m in Sources */,
 				847B379520DDE458002DE2CE /* AJMonthSectionHeader.m in Sources */,

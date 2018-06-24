@@ -7,34 +7,108 @@
 //
 
 #import "FCounterViewController.h"
+#import "FHomeCell.h"
 
-@interface FCounterViewController ()
+@interface FCounterViewController (){
+    NSArray *groupTitls;
+    NSInteger rowCount; //行计算
+}
 
 @end
+
+static NSString * const reuseIdentifier = @"FHomeCell";
+
 
 @implementation FCounterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NavBar *bar = [[NavBar alloc] initWithTitle:@"计算器" leftName:nil rightName:nil delegate:self];
+    bar.leftBtn.hidden = YES;  //主页隐藏返回按钮
+    
+//    [_tableView registerClass:[BaseContentCell class] forCellReuseIdentifier:@"RateViewCell"];
+ [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    groupTitls = @[@"存款", @"贷款", @"理财"];
+    self.dataArray = @[@"存款计算", @"房贷计算", @"其它贷款计算", @"理财计算", @"生活小计"].mutableCopy;
+    rowCount = 0;
 }
+
+
+//显示多少组
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 4;
+}
+
+
+//每一组有多少行
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (section == 0) { //section组
+        return 1;
+    } else if (section == 1) {
+        return 2;
+    } else if (section == 2) {
+        return 1;
+    } else {
+        return 1;
+    }
+}
+
+//每组标题
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if(section < 3)  return groupTitls[section];
+    else             return @"counter";
+}
+
+//每一组的内容
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    FHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    //    NSInteger section = indexPath.section;
+    //    NSInteger row = indexPath.row;
+    //    if (section == 0) {
+    //        if (row == 0) {
+    if (rowCount >= self.dataArray.count) rowCount = 0;
+    
+    cell.textLabel.text = self.dataArray[rowCount];
+    rowCount++;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%ld", indexPath.row);
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    
+    UIStoryboard *homeStoryboard = [UIStoryboard storyboardWithName:@"Counters" bundle:nil];
+    UIViewController *controller = nil;
+    if (section == 0) { //存款计算
+        controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"SaveCounter"];
+    }
+    else if (section == 1) { //第二组，只有这组有两条
+        if(row == 0){   //房贷计算
+            
+        }else{          //其它贷款计算
+            
+        }
+    }else if (section == 2){ //第三组 /理财计算
+        
+    }else { //第四组 /生活小计
+        
+    }
+    if (controller != nil) {
+        controller.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)exitLogin:(id)sender {
-    [[AppDefaultUtil sharedInstance] setLoginState:NO];
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

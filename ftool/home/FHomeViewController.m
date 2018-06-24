@@ -78,11 +78,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
         controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
     } else if (indexPath.row == 0) {
-//        FRateViewController *controller = [[FRateViewController alloc] init];
-//
-//        [self.navigationController pushViewController:controller animated:YES];
-        
-        
+
         UIStoryboard *homeStoryboard = [UIStoryboard storyboardWithName:@"Counters" bundle:nil];
         UIViewController *tenderVC = [homeStoryboard instantiateViewControllerWithIdentifier:@"rateController"];
         tenderVC.hidesBottomBarWhenPushed = YES;
