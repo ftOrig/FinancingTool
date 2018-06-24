@@ -23,6 +23,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)exitLogin:(id)sender {
+    [[AppDefaultUtil sharedInstance] setLoginState:NO];
+}
 
 /*
 #pragma mark - Navigation

@@ -4,36 +4,38 @@
 //  Copyright (c) 2015年 周利强. All rights reserved.
 //
 
-#import "TabBarController.h"
+#import "FTabBarController.h"
 #import "FCounterViewController.h"
 #import "FMineController.h"
 #import "FHomeViewController.h"
-#import "NavigationController.h"
+#import "FNavigationController.h"
+#import "FLoginViewController.h"
 
+@interface FTabBarController () < UITabBarControllerDelegate>
 
-@interface TabBarController () < UITabBarControllerDelegate>
 
 @end
 
-@implementation TabBarController
+@implementation FTabBarController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeSelectIndex:) name:CHANGETABBAR object:nil];
     
     FHomeViewController *home = [[FHomeViewController alloc] init];
     home.title = @"首页";
-    NavigationController *nav1 = [[NavigationController alloc] initWithRootViewController:home];
+    FNavigationController *nav1 = [[FNavigationController alloc] initWithRootViewController:home];
     [self addChildViewController:nav1];
 
     FCounterViewController *vender = [[FCounterViewController alloc] init];
     vender.title = @"计算器";
-    NavigationController *nav2 = [[NavigationController alloc] initWithRootViewController:vender];
+    FNavigationController *nav2 = [[FNavigationController alloc] initWithRootViewController:vender];
     [self addChildViewController:nav2];
     
     FMineController *personal = [[FMineController alloc] init];
     personal.title = @"我的";
-    NavigationController *nav3 = [[NavigationController alloc] initWithRootViewController:personal];
+    FNavigationController *nav3 = [[FNavigationController alloc] initWithRootViewController:personal];
     [self addChildViewController:nav3];
     
     self.tabBar.tintColor = NavgationColor;
@@ -50,6 +52,34 @@
     self.delegate = self;
 
 }
+
+#pragma mark - UITabBarControllerDelegate
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"%s %@", __FUNCTION__, viewController.tabBarItem.title);
+    //判断的是当前点击的tabBarItem的标题
+    if ([viewController.tabBarItem.title isEqualToString:@"我的"] && ![[AppDefaultUtil sharedInstance]isLoginState]) {
+        
+        //如果未登录，则跳转登录界面
+        FLoginViewController *loginView = [[FLoginViewController alloc] init];
+        UINavigationController *loginNVC = [[UINavigationController alloc] initWithRootViewController:loginView];
+//        loginView.backType = MyWealth;
+        [((UINavigationController *)tabBarController.selectedViewController) presentViewController:loginNVC animated:YES completion:nil];
+        
+        return NO;
+    }
+    else{
+        return YES;
+    }
+}
+
+#pragma mark - 跳转指定tabbar
+- (void)changeSelectIndex:(NSNotification *)note
+{
+    NSInteger index = [[note object]integerValue];
+    [self setSelectedIndex:index];
+}
+
 
 /*获取底部栏按钮*/
 - (UITabBarItem *)getBarItemWithTitle:(NSString *)title imageName:(NSString *)imageName

@@ -6,8 +6,8 @@
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "FBaseViewController.h"
 
-@interface FMineController : BaseViewController
+@interface FMineController : FBaseViewController
 
 @end
