@@ -34,6 +34,7 @@
 		188D51F620DF5820004A0C02 /* FRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D51F420DF5820004A0C02 /* FRateViewController.m */; };
 		845606A120DD01790078EDE6 /* FMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* FMineController.m */; };
 		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
+		84609B1E20E078BE00456128 /* FAddFirstTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84609B1D20E078BE00456128 /* FAddFirstTypeController.m */; };
 		84617B7320DF8D8200D6630E /* FEditFirstTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */; };
 		84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */; };
 		84617B7720DF8F3A00D6630E /* FEditSubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */; };
@@ -272,6 +273,8 @@
 		8456069F20DD01790078EDE6 /* FMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMineController.m; sourceTree = "<group>"; };
 		845606A420DD1C740078EDE6 /* FAccountCategaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAccountCategaries.h; sourceTree = "<group>"; };
 		845606A520DD1C740078EDE6 /* FAccountCategaries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAccountCategaries.m; sourceTree = "<group>"; };
+		84609B1C20E078BE00456128 /* FAddFirstTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAddFirstTypeController.h; sourceTree = "<group>"; };
+		84609B1D20E078BE00456128 /* FAddFirstTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAddFirstTypeController.m; sourceTree = "<group>"; };
 		84617B7020DF8D8200D6630E /* FEditFirstTypeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditFirstTypeCell.h; sourceTree = "<group>"; };
 		84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditFirstTypeCell.m; sourceTree = "<group>"; };
 		84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FEditFirstTypeCell.xib; sourceTree = "<group>"; };
@@ -694,23 +697,18 @@
 		182C4A8F20DA4A85003C59F6 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				84609B1F20E07A5C00456128 /* EditTypes */,
 				847B394F20DDF2E9002DE2CE /* FViews */,
 				182C4A9420DA4B48003C59F6 /* FHomeViewController.h */,
 				182C4A9520DA4B48003C59F6 /* FHomeViewController.m */,
+				188D51F320DF5820004A0C02 /* FRateViewController.h */,
+				188D51F420DF5820004A0C02 /* FRateViewController.m */,
 				847B395820DDFFF1002DE2CE /* FTakeRecordFatherController.h */,
 				847B395920DDFFF1002DE2CE /* FTakeRecordFatherController.m */,
 				847B396220DE0F03002DE2CE /* FTakeRecordExpandController.h */,
 				847B396320DE0F03002DE2CE /* FTakeRecordExpandController.m */,
 				847B396520DE0F17002DE2CE /* FTakeRecordIncomeController.h */,
 				847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */,
-				AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */,
-				AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */,
-				84617B7520DF8F3A00D6630E /* FEditSubTypeController.h */,
-				84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */,
-				188D51F320DF5820004A0C02 /* FRateViewController.h */,
-				188D51F420DF5820004A0C02 /* FRateViewController.m */,
-				AACFDBED20DFDC8C00BDFA0E /* FAddSubTypeController.h */,
-				AACFDBEE20DFDC8C00BDFA0E /* FAddSubTypeController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -783,6 +781,21 @@
 				845606A520DD1C740078EDE6 /* FAccountCategaries.m */,
 			);
 			path = FModels;
+			sourceTree = "<group>";
+		};
+		84609B1F20E07A5C00456128 /* EditTypes */ = {
+			isa = PBXGroup;
+			children = (
+				AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */,
+				AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */,
+				84609B1C20E078BE00456128 /* FAddFirstTypeController.h */,
+				84609B1D20E078BE00456128 /* FAddFirstTypeController.m */,
+				84617B7520DF8F3A00D6630E /* FEditSubTypeController.h */,
+				84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */,
+				AACFDBED20DFDC8C00BDFA0E /* FAddSubTypeController.h */,
+				AACFDBEE20DFDC8C00BDFA0E /* FAddSubTypeController.m */,
+			);
+			path = EditTypes;
 			sourceTree = "<group>";
 		};
 		847B373F20DDE451002DE2CE /* Utils */ = {
@@ -1699,6 +1712,7 @@
 				847B394C20DDF1BC002DE2CE /* UIView+WebCacheOperation.m in Sources */,
 				847B38A320DDE5BC002DE2CE /* MASViewConstraint.m in Sources */,
 				847B389820DDE5BC002DE2CE /* IQUIViewController+Additions.m in Sources */,
+				84609B1E20E078BE00456128 /* FAddFirstTypeController.m in Sources */,
 				847B379E20DDE458002DE2CE /* UIImage+AJ.m in Sources */,
 				847B394320DDF1BC002DE2CE /* UIImage+MultiFormat.m in Sources */,
 				847B396120DE004B002DE2CE /* SPPageMenu.m in Sources */,

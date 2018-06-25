@@ -62,7 +62,7 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
     self.tableView.rowHeight = 55.f;
-    UIView *footer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 50) backgroundColor:nil superview:nil];
+    UIView *footer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 100) backgroundColor:nil superview:nil];
     UIButton *btn = [UIButton buttonWithFrame:RECT(50, 30, MSWIDTH-100, 37) backgroundColor:AJWhiteColor title:@"添加分类" titleColor:[UIColor ys_black] titleFont:15 target:self action:@selector(addSubType:) superview:footer];
     [btn setImage:[UIImage imageNamed:@"FirstType_add"] forState:UIControlStateNormal];
     btn.imageEdgeInsets = EDGEINSET(7, 0, 7, -10);
@@ -97,7 +97,10 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     
-    [self nextItemClick];
+    if (!self.navigationController) {
+        [self nextItemClick];
+    }
+    
 }
 
 - (void)addSubType:(UIButton *)sender

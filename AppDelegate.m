@@ -50,9 +50,18 @@
 }
 
 - (void)initFAccountCategaries{
+    // 编辑过
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *filePathName = [path stringByAppendingPathComponent:@"AccoutCategeries.plist"];
+    FAccountCategaries *bean = [FAccountCategaries mj_objectWithFile:filePathName];
+    if (bean) {
+        self.aFAccountCategaries = bean;
+    }else{// 读取本地的数据
+       
+        NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
+        self.aFAccountCategaries = [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
+    }
     
-    NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
-    self.aFAccountCategaries = [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
 }
 
 - (void)generatePlist{

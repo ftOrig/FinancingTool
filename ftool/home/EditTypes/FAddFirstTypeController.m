@@ -1,21 +1,21 @@
 //
-//  FAddSubTypeController.m
+//  FAddFirstTypeController.m
 //  ftool
 //
-//  Created by zhouli on 2018/6/24.
+//  Created by admin on 2018/6/25.
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
-#import "FAddSubTypeController.h"
+#import "FAddFirstTypeController.h"
 
-@interface FAddSubTypeController ()
+@interface FAddFirstTypeController ()
 @property(nonatomic , weak) UITextField *nameF;
 @property(nonatomic , weak) UIImageView *selectimageView;
 
 @property(nonatomic , copy) NSString *iconName;
 @end
 
-@implementation FAddSubTypeController
+@implementation FAddFirstTypeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +26,7 @@
 - (void)initView {
     
     NavBar *bar = [[NavBar alloc] initWithTitle:self.title?:@"" leftName:@"取消" rightName:@"完成" delegate:self];
-
+    
     UIView *bugetView = [UIView viewWithFrame:RECT(0, bar.maxY+15, MSWIDTH, 70) backgroundColor:AJWhiteColor superview:self.view];
     int x = arc4random() % 10;
     if (x==0) {
@@ -101,11 +101,15 @@
         ShowLightMessage(@"长度不够~");
     }else{
         
-        FSubType *bean = [FSubType subTypeWithName:self.nameF.text];
+        NSMutableArray *firsttypeArr = AppDelegateInstance.aFAccountCategaries.expensesTypeArr.mutableCopy;
+        
+        FFirstType *bean = [FFirstType firstTypeWithName:self.nameF.text budget:0 subTypeArr:nil];
         bean.iconName = self.iconName;
         bean.isEditable = YES;
         [self.view endEditing:YES];
-        [[NSNotificationCenter defaultCenter] postNotificationName:FAddSubTypeControllerDidAddSubTypeNotification object:bean];
+        [firsttypeArr addObject:bean];
+        AppDelegateInstance.aFAccountCategaries.expensesTypeArr = firsttypeArr;
+//        [[NSNotificationCenter defaultCenter] postNotificationName:FAddFirstTypeControllerDidAddSubTypeNotification object:bean];
         [self dismissViewControllerAnimated:YES completion:^{ }];
     }
 }
@@ -116,19 +120,5 @@
         
     }];
 }
-
-//- (UIView *)selectImgView{
-
-//    UIView *view = [UIView viewWithFrame:RECT(<#x#>, <#y#>, <#w#>, <#h#>) backgroundColor:<#(UIColor *)#> superview:<#(id)#>]
-//}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
