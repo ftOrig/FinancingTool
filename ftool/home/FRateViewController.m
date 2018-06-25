@@ -38,7 +38,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    _titleArray = [[NSArray alloc] initWithObjects:@"活期",@"3个月定期",@"6个月定",
+    _titleArray = [[NSArray alloc] initWithObjects:@"活期",@"3个月定期",@"6个月定期",
                    @"1年定期",@"2年定期",@"3年定期",@"5年定期", nil];
     _contentArray = [[NSArray alloc] initWithObjects:@"0.35+浮动", @"1.10+浮动",@"1.30+浮动",@"1.50+浮动",@"2.10+浮动",@"2.75+浮动",@"3.00+浮动",nil];
 }

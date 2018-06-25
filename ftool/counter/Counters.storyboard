@@ -191,6 +191,9 @@
                                             <segment title="活期"/>
                                             <segment title="定期"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="typeChange:" destination="Stk-Im-uQr" eventType="valueChanged" id="PiE-NB-QGo"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -226,6 +229,9 @@
                                         <state key="normal" title="请选择">
                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectLimit:" destination="Stk-Im-uQr" eventType="touchUpInside" id="a4M-5J-JrW"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Payments_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="j7G-Yc-RPO">
                                         <rect key="frame" x="348" y="13" width="10" height="17"/>
@@ -264,24 +270,24 @@
                                             <constraint firstAttribute="height" constant="1" id="ldl-B6-tzp"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u7Q-J7-aWY">
-                                        <rect key="frame" x="197" y="13.5" width="161" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfS-9y-ZXO">
+                                        <rect key="frame" x="308" y="12" width="50" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="161" id="c4e-DN-sDO"/>
+                                            <constraint firstAttribute="width" constant="50" id="CIj-6h-y4Z"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                    </textField>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="esT-eP-Ayt" secondAttribute="bottom" id="5tO-HT-amH"/>
-                                    <constraint firstItem="u7Q-J7-aWY" firstAttribute="centerY" secondItem="cZo-eD-50z" secondAttribute="centerY" id="NPo-zC-pmF"/>
                                     <constraint firstAttribute="trailing" secondItem="esT-eP-Ayt" secondAttribute="trailing" id="RiM-zZ-lOT"/>
                                     <constraint firstItem="esT-eP-Ayt" firstAttribute="leading" secondItem="cZo-eD-50z" secondAttribute="leading" id="Uc5-QS-BZ5"/>
                                     <constraint firstAttribute="height" constant="44" id="VZl-Kk-f8C"/>
-                                    <constraint firstAttribute="trailing" secondItem="u7Q-J7-aWY" secondAttribute="trailing" constant="17" id="iXk-hX-5fs"/>
+                                    <constraint firstAttribute="trailing" secondItem="lfS-9y-ZXO" secondAttribute="trailing" constant="17" id="i3i-uF-gh0"/>
+                                    <constraint firstItem="lfS-9y-ZXO" firstAttribute="centerY" secondItem="cZo-eD-50z" secondAttribute="centerY" id="ulV-86-Ijw"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     请输入存款信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHB-Oi-Lp2">
@@ -322,6 +328,13 @@
                             <constraint firstItem="5Ye-nJ-UIk" firstAttribute="centerX" secondItem="r6C-Ep-LcO" secondAttribute="centerX" id="rG9-o1-tUC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn_select" destination="9f8-GJ-3Eh" id="Io2-h9-i4U"/>
+                        <outlet property="lb_benxi" destination="Rld-BZ-RDO" id="32z-F8-pl4"/>
+                        <outlet property="lb_lixi" destination="Cvd-qE-2EP" id="96s-XM-eQs"/>
+                        <outlet property="lb_rate" destination="lfS-9y-ZXO" id="u4f-2v-Uqk"/>
+                        <outlet property="tf_amount" destination="M6Y-X3-JcS" id="CFx-6q-vhq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="89k-d4-VYT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

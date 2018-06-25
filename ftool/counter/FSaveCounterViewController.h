@@ -9,5 +9,13 @@
 #import "FBaseViewController.h"
 
 @interface FSaveCounterViewController : FBaseViewController
+@property (weak, nonatomic) IBOutlet UILabel *lb_lixi;
+@property (weak, nonatomic) IBOutlet UILabel *lb_benxi;
+@property (weak, nonatomic) IBOutlet UITextField *tf_amount;
 
+- (IBAction)typeChange:(id)sender;
+- (IBAction)selectLimit:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *btn_select;
+@property (weak, nonatomic) IBOutlet UILabel *lb_rate;
 @end
