@@ -62,7 +62,7 @@
 {
     BOOL infoDone = [self.contentV infoDoneCheck];
     if (!infoDone) {
-        ShowLightMessage(@"报告老板，信息填写不完整！");
+//        ShowLightMessage(@"报告老板，信息填写不完整！");
     }else{
         
         UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"账单保存成功" preferredStyle:UIAlertControllerStyleAlert];

@@ -49,7 +49,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     header.tapImgBlock = ^(id item){ };
     
     [self addTableViewRefreshHeader];
-     [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
 }
 
 - (void)requestData{

@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-      [[AppDefaultUtil sharedInstance] setLoginState:NO]; //测试登录
+      [[AppDefaultUtil sharedInstance] setLoginState:YES]; //测试登录
     NSString *clientVersion = [[NSUserDefaults standardUserDefaults] stringForKey:@"clientVersion"];
     //判断应用程序是否更新了版本
     NSLog(@"clientVersion = [%@]", clientVersion);

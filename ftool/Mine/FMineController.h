@@ -6,8 +6,8 @@
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
-#import "FBaseViewController.h"
+#import "AJContainTableController.h"
 
-@interface FMineController : FBaseViewController
+@interface FMineController : AJContainTableController
 
 @end

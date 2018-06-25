@@ -17,6 +17,7 @@
 @property (nonatomic, weak) UILabel *expandCategeryL;
 @property (nonatomic, weak) UILabel *accountCategeryL;
 @property (nonatomic, weak) UILabel *dateL;
+@property (nonatomic, weak) UITextField *moneyF;
 @property (nonatomic, weak) WSPlaceholderTextView *textView;
 @end
 
@@ -25,9 +26,24 @@
 
 - (BOOL)infoDoneCheck{
     
-    return  ![self.expandCategeryL.text isEqualToString:@"未选择"] &&
-            ![self.accountCategeryL.text isEqualToString:@"未选择"] &&
-            ![self.dateL.text isEqualToString:@"未选择"];
+    if (self.moneyF.text.length ==0) {
+        
+        ShowLightMessage(@"请输入金额");
+        return NO;
+    }else if ([self.expandCategeryL.text isEqualToString:@"未选择"]) {
+        ShowLightMessage(@"请选择支出类型");
+        return NO;
+    }else if ([self.accountCategeryL.text isEqualToString:@"未选择"]) {
+        ShowLightMessage(@"请选择账户类型");
+        return NO;
+    }else if ([self.dateL.text isEqualToString:@"未选择"]) {
+        ShowLightMessage(@"请选择时间");
+        return NO;
+    }else if (self.textView.text.length < 2) {
+        ShowLightMessage(@"请输入2个字以上备注");
+        return NO;
+    }
+    return YES;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -37,6 +53,7 @@
         self.backgroundColor = AJWhiteColor;
         CGFloat leading = 15.f;
         UITextField *moneyF = [AJTextField textFieldWithFrame:RECT(leading, 0, MSWIDTH-2*leading, 80) delegate:self text:@"" textColor:[UIColor ys_green] textFont:40 placeholder:@"0.00" superview:self];
+        self.moneyF = moneyF;
         moneyF.borderStyle = UITextBorderStyleNone;
         moneyF.keyboardType = UIKeyboardTypeDecimalPad;
         UIView *line = [UIView viewWithFrame:RECT(leading, moneyF.maxY, MSWIDTH-leading, .5) backgroundColor:[UIColor ys_grayLine] superview:self];

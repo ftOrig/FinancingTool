@@ -12,7 +12,6 @@
 
 @interface FTakeRecordExpandController ()<UIViewOutterDelegate>
 @property (nonatomic, weak) FTakeRecordExpandView *contentV;
-
 @end
 
 @implementation FTakeRecordExpandController
@@ -56,14 +55,19 @@
 
 - (void)oneMoreBtnClick:(UIButton *)sender
 {
-    
+    // 先保存，再翻页
+    NSString *subtypeString = kCATransitionFromBottom;
+    [self transitionWithType:@"pageCurl" WithSubtype:subtypeString ForView:self.contentV];
 }
+
+
+
 
 - (void)saveBtnClick:(UIButton *)sender
 {
     BOOL infoDone = [self.contentV infoDoneCheck];
     if (!infoDone) {
-        ShowLightMessage(@"报告老板，信息填写不完整！");
+//        ShowLightMessage(@"报告老板，信息填写不完整！");
     }else{
         
         UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"账单保存成功" preferredStyle:UIAlertControllerStyleAlert];
@@ -76,5 +80,27 @@
         
         [self presentViewController:alertCon animated:YES completion:nil];
     }
+}
+
+
+
+#pragma CATransition动画实现
+/**
+ *  动画效果实现
+ *
+ *  @param type    动画的类型 在开头的枚举中有列举,比如 CurlDown//下翻页,CurlUp//上翻页
+ ,FlipFromLeft//左翻转,FlipFromRight//右翻转 等...
+ *  @param subtype 动画执行的起始位置,上下左右
+ *  @param view    哪个view执行的动画
+ */
+- (void) transitionWithType:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view {
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.7f;
+    animation.type = type;
+    if (subtype) {
+        animation.subtype = subtype;
+    }
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [view.layer addAnimation:animation forKey:@"animation"];
 }
 @end
