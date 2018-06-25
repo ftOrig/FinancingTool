@@ -9,11 +9,13 @@
 #import "FEditSubTypeController.h"
 #import "FEditFirstTypeCell.h"
 #import "FAddSubTypeController.h"
+#import "FModifySubTypeController.h"
 
 static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
 @interface FEditSubTypeController ()<UITextFieldDelegate>
 
 @property (nonatomic, weak) UITextField *bugetF;
+@property (nonatomic, weak) FSubType *selectSubType;
 @end
 
 @implementation FEditSubTypeController
@@ -30,7 +32,23 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
     self.bugetF.text = [NSString stringWithFormat:@"%.2f", firstBena.budget];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAddSubtypeNotiHandler:) name:FAddSubTypeControllerDidAddSubTypeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didModifySubtypeNotiHandler:) name:FModifySubTypeControllerDidAddSubTypeNotification object:nil];
+    
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+    [self.tableView reloadData];
+}
+
+//- (void)didModifySubtypeNotiHandler:(NSNotification *)note
+//{
+//    NSInteger index = [self.dataArray indexOfObject:self.selectSubType];
+//    [self.dataArray replaceObjectAtIndex:index withObject:note.object];
+//    [self.tableView reloadData];
+//}
+
 - (void)didAddSubtypeNotiHandler:(NSNotification *)note
 {
     [self.dataArray addObject:note.object];
@@ -126,13 +144,25 @@ static NSString * const reuseIdentifier = @"FEditFirstTypeCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
+    FSubType *bean = self.dataArray[indexPath.row];
+    if (!bean.isEditable) {
+        
+        ShowLightMessage(@"APP设定的分类不可编辑");
+    }else{
+       
+        self.selectSubType = bean;
+        FModifySubTypeController *controller = [FModifySubTypeController new];
+        controller.subType = bean;
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row < 9) {
+    FSubType *bean = self.dataArray[indexPath.row];
+    if (!bean.isEditable) {
+        
         return NO;
     }
     return YES;

@@ -35,6 +35,7 @@
 		845606A120DD01790078EDE6 /* FMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* FMineController.m */; };
 		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
 		84609B1E20E078BE00456128 /* FAddFirstTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84609B1D20E078BE00456128 /* FAddFirstTypeController.m */; };
+		84609B2220E08B8800456128 /* FModifySubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84609B2120E08B8800456128 /* FModifySubTypeController.m */; };
 		84617B7320DF8D8200D6630E /* FEditFirstTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */; };
 		84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */; };
 		84617B7720DF8F3A00D6630E /* FEditSubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */; };
@@ -275,6 +276,8 @@
 		845606A520DD1C740078EDE6 /* FAccountCategaries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAccountCategaries.m; sourceTree = "<group>"; };
 		84609B1C20E078BE00456128 /* FAddFirstTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAddFirstTypeController.h; sourceTree = "<group>"; };
 		84609B1D20E078BE00456128 /* FAddFirstTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAddFirstTypeController.m; sourceTree = "<group>"; };
+		84609B2020E08B8800456128 /* FModifySubTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FModifySubTypeController.h; sourceTree = "<group>"; };
+		84609B2120E08B8800456128 /* FModifySubTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FModifySubTypeController.m; sourceTree = "<group>"; };
 		84617B7020DF8D8200D6630E /* FEditFirstTypeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditFirstTypeCell.h; sourceTree = "<group>"; };
 		84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditFirstTypeCell.m; sourceTree = "<group>"; };
 		84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FEditFirstTypeCell.xib; sourceTree = "<group>"; };
@@ -794,6 +797,8 @@
 				84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */,
 				AACFDBED20DFDC8C00BDFA0E /* FAddSubTypeController.h */,
 				AACFDBEE20DFDC8C00BDFA0E /* FAddSubTypeController.m */,
+				84609B2020E08B8800456128 /* FModifySubTypeController.h */,
+				84609B2120E08B8800456128 /* FModifySubTypeController.m */,
 			);
 			path = EditTypes;
 			sourceTree = "<group>";
@@ -1694,6 +1699,7 @@
 				847B387120DDE5BC002DE2CE /* MJRefreshBackStateFooter.m in Sources */,
 				847B395620DDF870002DE2CE /* FHomeCell.m in Sources */,
 				847B37AA20DDE458002DE2CE /* BaseWKWebViewController.m in Sources */,
+				84609B2220E08B8800456128 /* FModifySubTypeController.m in Sources */,
 				84617B7720DF8F3A00D6630E /* FEditSubTypeController.m in Sources */,
 				847B394120DDF1BC002DE2CE /* SDWebImageDownloader.m in Sources */,
 				184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */,
