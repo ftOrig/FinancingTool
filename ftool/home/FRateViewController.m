@@ -34,7 +34,6 @@
 
 -(void) initData{
     [_tableView registerClass:[BaseContentCell class] forCellReuseIdentifier:@"RateViewCell"];
-//    [_myTableView registerClass:[BackBtnCell class] forCellReuseIdentifier:@"backBtnCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
@@ -59,6 +58,8 @@
 {
     NSLog(@"%ld", indexPath.row);
     BaseContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RateViewCell"];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"rateCellIdt"];
+    
     cell.titLabel.text = [_titleArray objectAtIndex:indexPath.row];
     cell.conLabel.text = [_contentArray objectAtIndex:indexPath.row];
     

@@ -74,7 +74,8 @@
     NSString *defultValue = currSelect? currSelect: self.btn_select.titleLabel.text;
     
     NSArray *_data = @[@"3个月", @"6个月", @"1年", @"2年", @"3年", @"4年", @"5年", @"6年",
-                       @"7年", @"8年", @"9年", @"10年", @"15年", @"18年", @"20年", @"30年", @"50年"];
+                       @"7年", @"8年", @"9年", @"10年", @"15年", @"18年", @"20年", @"25年",
+                       @"30年", @"35年", @"40年", @"50年", @"60年", @"80年"];
     
     [BRStringPickerView showStringPickerWithTitle:nil dataSource:_data defaultSelValue:defultValue isAutoSelect:YES themeColor:nil resultBlock:^(id selectValue) {
         currSelect = selectValue;

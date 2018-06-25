@@ -32,7 +32,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     _tableView.dataSource = self;
     
     groupTitls = @[@"存款", @"贷款", @"理财"];
-    self.dataArray = @[@"存款计算", @"房贷计算", @"其它贷款计算", @"理财计算", @"生活小计"].mutableCopy;
+    self.dataArray = @[@"存款计算", @"房贷计算", @"普通贷款计算", @"理财计算", @"生活小计"].mutableCopy;
     rowCount = 0;
 }
 
@@ -91,7 +91,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
         if(row == 0){   //房贷计算
             
         }else{          //其它贷款计算
-            
+            controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"CommonCounter"];
         }
     }else if (section == 2){ //第三组 /理财计算
         

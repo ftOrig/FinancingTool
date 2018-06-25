@@ -17,6 +17,8 @@
 		182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */; };
 		184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D020DE824300EF7AA1 /* CaptchaView.m */; };
 		184901D420DE961700EF7AA1 /* FUsersTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D320DE961700EF7AA1 /* FUsersTool.m */; };
+		184BE8F220E0C027003703B1 /* FCommonCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BE8F120E0C027003703B1 /* FCommonCounterViewController.m */; };
+		184BE8F520E0D9CF003703B1 /* UnderlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BE8F420E0D9CF003703B1 /* UnderlineView.m */; };
 		184F90D120DE437E009D37F9 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C120DE437D009D37F9 /* InputView.m */; };
 		184F90D220DE437E009D37F9 /* UIButton+KK.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C220DE437D009D37F9 /* UIButton+KK.m */; };
 		184F90D320DE437E009D37F9 /* ForgetKeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90C420DE437D009D37F9 /* ForgetKeyController.m */; };
@@ -250,6 +252,10 @@
 		184901D020DE824300EF7AA1 /* CaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptchaView.m; sourceTree = "<group>"; };
 		184901D220DE961700EF7AA1 /* FUsersTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUsersTool.h; sourceTree = "<group>"; };
 		184901D320DE961700EF7AA1 /* FUsersTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUsersTool.m; sourceTree = "<group>"; };
+		184BE8F020E0C027003703B1 /* FCommonCounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCommonCounterViewController.h; sourceTree = "<group>"; };
+		184BE8F120E0C027003703B1 /* FCommonCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCommonCounterViewController.m; sourceTree = "<group>"; };
+		184BE8F320E0D9CF003703B1 /* UnderlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnderlineView.h; sourceTree = "<group>"; };
+		184BE8F420E0D9CF003703B1 /* UnderlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnderlineView.m; sourceTree = "<group>"; };
 		184F90C120DE437D009D37F9 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
 		184F90C220DE437D009D37F9 /* UIButton+KK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+KK.m"; sourceTree = "<group>"; };
 		184F90C320DE437D009D37F9 /* NSString+Shove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Shove.h"; sourceTree = "<group>"; };
@@ -749,6 +755,10 @@
 				187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */,
 				187D394620DFE3190068D3B2 /* FSaveCounterViewController.h */,
 				187D394720DFE3190068D3B2 /* FSaveCounterViewController.m */,
+				184BE8F020E0C027003703B1 /* FCommonCounterViewController.h */,
+				184BE8F120E0C027003703B1 /* FCommonCounterViewController.m */,
+				184BE8F320E0D9CF003703B1 /* UnderlineView.h */,
+				184BE8F420E0D9CF003703B1 /* UnderlineView.m */,
 			);
 			path = counter;
 			sourceTree = "<group>";
@@ -1593,7 +1603,7 @@
 				TargetAttributes = {
 					182C4A5520DA43CC003C59F6 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = MX57N3NB7G;
+						DevelopmentTeam = NBZFE9S223;
 						ProvisioningStyle = Automatic;
 					};
 					182C4A6D20DA43CD003C59F6 = {
@@ -1703,7 +1713,9 @@
 				847B387520DDE5BC002DE2CE /* MJRefreshAutoNormalFooter.m in Sources */,
 				847B389D20DDE5BC002DE2CE /* MASCompositeConstraint.m in Sources */,
 				847B394A20DDF1BC002DE2CE /* NSImage+WebCache.m in Sources */,
+				184BE8F520E0D9CF003703B1 /* UnderlineView.m in Sources */,
 				847B38EC20DDEEDB002DE2CE /* TAAnimatedDotView.m in Sources */,
+				184BE8F220E0C027003703B1 /* FCommonCounterViewController.m in Sources */,
 				847B388E20DDE5BC002DE2CE /* IQBarButtonItem.m in Sources */,
 				847B389E20DDE5BC002DE2CE /* MASConstraintMaker.m in Sources */,
 				847B38EB20DDEEDB002DE2CE /* TAPageControl.m in Sources */,
@@ -2012,7 +2024,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MX57N3NB7G;
+				DEVELOPMENT_TEAM = NBZFE9S223;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Product.pch";
 				INFOPLIST_FILE = ftool/Info.plist;
@@ -2031,7 +2043,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MX57N3NB7G;
+				DEVELOPMENT_TEAM = NBZFE9S223;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Product.pch";
 				INFOPLIST_FILE = ftool/Info.plist;
