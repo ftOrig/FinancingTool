@@ -52,7 +52,7 @@
 
 - (void)initcurrentMonthRecord{
     
-    FAccountRecord *income1 = [FAccountRecord re]
+//    FAccountRecord *income1 = [FAccountRecord re]
 }
 
 - (void)initFAccountCategaries{

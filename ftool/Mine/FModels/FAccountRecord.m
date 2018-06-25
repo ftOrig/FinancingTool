@@ -37,7 +37,7 @@
     bean.amount = amount;
     
 //    NSArray *firstArr = AppDelegateInstance.aFAccountCategaries.incomeTypeArr
-    bean.firstType =
+//    bean.firstType =
     return bean;
 }
 
@@ -46,6 +46,6 @@
 + (instancetype)recordRandomExpandseWithtime_minute:(NSString *)time_minute time_month:(NSString *)time_month
 {
     FAccountRecord *bean = [[FAccountRecord alloc] init];
-    return bean;
+return bean;
 }
 @end
