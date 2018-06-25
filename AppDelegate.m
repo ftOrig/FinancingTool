@@ -44,9 +44,15 @@
     [self setUpKeyboardManager];
     
     [self initFAccountCategaries];
-
+    
+    [self initcurrentMonthRecord];
     
     return YES;
+}
+
+- (void)initcurrentMonthRecord{
+    
+    FAccountRecord *income1 = [FAccountRecord re]
 }
 
 - (void)initFAccountCategaries{
@@ -54,14 +60,13 @@
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *filePathName = [path stringByAppendingPathComponent:@"AccoutCategeries.plist"];
     FAccountCategaries *bean = [FAccountCategaries mj_objectWithFile:filePathName];
-    if (bean) {
+    if (bean) {// 读取用户自定义的数据
         self.aFAccountCategaries = bean;
-    }else{// 读取本地的数据
+    }else{// 读取APP内部设定的数据
        
         NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
         self.aFAccountCategaries = [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
     }
-    
 }
 
 - (void)generatePlist{

@@ -24,6 +24,7 @@
 #import "FTabBarController.h"
 #import "FBaseViewController.h"
 #import "FNavigationController.h"
+#import "FAccountRecord.h"
 
 #import "Masonry.h"
 #import "UIButton+KK.h"

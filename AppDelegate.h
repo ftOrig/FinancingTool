@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class FAccountCategaries;
+@class FAccountCategaries, FCurrentMonthRecord;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, strong) FUserModel *userInfo;
 @property (nonatomic,strong) FAccountCategaries *aFAccountCategaries;
+
+@property (nonatomic,strong) FCurrentMonthRecord *currentMonthRecord;
 @end
 
