@@ -80,7 +80,7 @@ typedef void(^BRAddressCancelBlock)(void);
  *  @param cancelBlock              取消选择的回调
  *
  */
-+ (void)showAddressPickerWithShowType:(BRAddressPickerMode)showType
++ (instancetype)showAddressPickerWithShowType:(BRAddressPickerMode)showType
                            dataSource:(NSArray *)dataSource
                       defaultSelected:(NSArray *)defaultSelectedArr
                          isAutoSelect:(BOOL)isAutoSelect

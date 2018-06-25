@@ -75,7 +75,7 @@
 }
 
 #pragma mark - 4.显示地址选择器（支持 设置选择器类型、传入地区数据源、设置自动选择、自定义主题颜色、取消选择的回调）
-+ (void)showAddressPickerWithShowType:(BRAddressPickerMode)showType
++ (instancetype)showAddressPickerWithShowType:(BRAddressPickerMode)showType
                            dataSource:(NSArray *)dataSource
                       defaultSelected:(NSArray *)defaultSelectedArr
                          isAutoSelect:(BOOL)isAutoSelect
@@ -87,6 +87,7 @@
     if (addressPickerView->_isDataSourceValid) {
         [addressPickerView showWithAnimation:YES];
     }
+    return addressPickerView;
 }
 
 #pragma mark - 初始化地址选择器

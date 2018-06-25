@@ -36,6 +36,7 @@
 		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
 		84609B1E20E078BE00456128 /* FAddFirstTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84609B1D20E078BE00456128 /* FAddFirstTypeController.m */; };
 		84609B2220E08B8800456128 /* FModifySubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84609B2120E08B8800456128 /* FModifySubTypeController.m */; };
+		84609B2520E0934400456128 /* FTakeRecordIncomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84609B2420E0934400456128 /* FTakeRecordIncomeView.m */; };
 		84617B7320DF8D8200D6630E /* FEditFirstTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */; };
 		84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */; };
 		84617B7720DF8F3A00D6630E /* FEditSubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */; };
@@ -278,6 +279,8 @@
 		84609B1D20E078BE00456128 /* FAddFirstTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAddFirstTypeController.m; sourceTree = "<group>"; };
 		84609B2020E08B8800456128 /* FModifySubTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FModifySubTypeController.h; sourceTree = "<group>"; };
 		84609B2120E08B8800456128 /* FModifySubTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FModifySubTypeController.m; sourceTree = "<group>"; };
+		84609B2320E0934400456128 /* FTakeRecordIncomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTakeRecordIncomeView.h; sourceTree = "<group>"; };
+		84609B2420E0934400456128 /* FTakeRecordIncomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTakeRecordIncomeView.m; sourceTree = "<group>"; };
 		84617B7020DF8D8200D6630E /* FEditFirstTypeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditFirstTypeCell.h; sourceTree = "<group>"; };
 		84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditFirstTypeCell.m; sourceTree = "<group>"; };
 		84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FEditFirstTypeCell.xib; sourceTree = "<group>"; };
@@ -1456,6 +1459,8 @@
 				84617B7020DF8D8200D6630E /* FEditFirstTypeCell.h */,
 				84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */,
 				84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */,
+				84609B2320E0934400456128 /* FTakeRecordIncomeView.h */,
+				84609B2420E0934400456128 /* FTakeRecordIncomeView.m */,
 			);
 			path = FViews;
 			sourceTree = "<group>";
@@ -1670,6 +1675,7 @@
 				847B394720DDF1BC002DE2CE /* SDWebImageDownloaderOperation.m in Sources */,
 				847B38E920DDEEDB002DE2CE /* SDCollectionViewCell.m in Sources */,
 				847B38EA20DDEEDB002DE2CE /* TADotView.m in Sources */,
+				84609B2520E0934400456128 /* FTakeRecordIncomeView.m in Sources */,
 				187D394120DF7AD80068D3B2 /* BaseContentCell.m in Sources */,
 				847B387620DDE5BC002DE2CE /* MJRefreshNormalHeader.m in Sources */,
 				847B387A20DDE5BC002DE2CE /* MJRefreshHeader.m in Sources */,
