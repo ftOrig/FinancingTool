@@ -103,4 +103,15 @@
     
 }
 
+
+
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    
+    if (!self.navigationController) {
+    
+        [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+    }
+}
 @end

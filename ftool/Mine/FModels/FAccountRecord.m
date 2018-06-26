@@ -18,6 +18,18 @@
 
 @implementation FAccountRecord
 
+
+- (void)copyPropertyWithRecord:(FAccountRecord *)record{
+    
+    self.amount = record.amount;
+    self.firstType = record.firstType;
+    self.subType = record.subType;
+    self.accountType = record.accountType;
+    self.time_minute = record.time_minute;
+    self.time_month = record.time_month;
+    self.remarks = record.remarks;
+}
+
 + (NSDictionary *)mj_objectClassInArray{
     
     return @{@"subType": [FSubType class], @"firstType": [FFirstType class]};

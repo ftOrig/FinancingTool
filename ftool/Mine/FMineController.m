@@ -10,10 +10,12 @@
 #import "FMineCell.h"
 #import "FMyIncomeRecordController.h"
 #import "FMyExpandseRecordController.h"
+#import "FMonthIncomeRecordController.h"
+#import "FMonthExpandseRecordController.h"
 
 @interface FMineController ()
 @property (nonatomic, weak) UIView *ratioView;
-
+@property (nonatomic, weak) UIView *tongView;
 @property (nonatomic, weak) UILabel *incomeL;
 @property (nonatomic, weak) UILabel *expandseL;
 @property (nonatomic, weak) UILabel *budgetL;
@@ -28,14 +30,52 @@ static NSString * const reuseIdentifier = @"FMineCell";
     self.dataArray = @[@"收入记录", @"支出记录"].mutableCopy;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    // 更新数据
+    CGFloat monthIncome = 0;
+    for (FAccountRecord *incomeRecord in AppDelegateInstance.currentMonthRecord.incomeArr) {
+        monthIncome += incomeRecord.amount;
+    }
+    self.incomeL.text = [NSString stringWithFormat:@"￥%.2f", monthIncome];
+    
+    
+    CGFloat monthExpandse = 0;
+    for (FAccountRecord *expandseRecord in AppDelegateInstance.currentMonthRecord.expandseArr) {
+        monthExpandse += expandseRecord.amount;
+    }
+    self.expandseL.text = [NSString stringWithFormat:@"￥%.2f", monthExpandse];
+    
+    
+    CGFloat monthBudget = 0;
+    for (FFirstType *firtypeBean in AppDelegateInstance.aFAccountCategaries.expensesTypeArr) {
+        monthBudget += firtypeBean.budget;
+    }
+    if (monthBudget > 0) {
+        self.budgetL.font = [UIFont systemFontOfSize:20];
+        self.budgetL.text = [NSString stringWithFormat:@"￥%.2f", monthBudget - monthExpandse];
+    }else{
+        self.budgetL.font = [UIFont systemFontOfSize:17];
+        self.budgetL.text = @"未设置";
+    }
+    
+    CGFloat ratio = monthExpandse / monthBudget;
+    self.ratioView.y = MAX(MIN(self.tongView.y + self.tongView.height*(1-ratio), self.tongView.y + self.tongView.height) , self.tongView.y);
+    self.ratioView.height = MAX(MIN(self.tongView.height - self.tongView.height*(1-ratio)-2, self.tongView.height), 0);
+}
 
 - (void)monthIncomeClick:(UIButton *)sender
 {
-    
+    FMonthIncomeRecordController *controller = [FMonthIncomeRecordController new];
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 - (void)monthExpandseClick:(UIButton *)sender
 {
-    
+    FMonthExpandseRecordController *controller = [FMonthExpandseRecordController new];
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 - (void)monthBudgetClick:(UIButton *)sender
 {
@@ -67,10 +107,12 @@ static NSString * const reuseIdentifier = @"FMineCell";
     UIView *tongView = [UIView viewWithFrame:RECT(MSWIDTH - tongViewW - 15, dateL.maxY+30, tongViewW, tongViewH) backgroundColor:[UIColor blackColor] superview:heaer];
     tongView.alpha = .2f;
     ViewBorderRadius(tongView, 2, 10, [[UIColor blackColor] colorWithAlphaComponent:.32]);
+    self.tongView = tongView;
     
     UIView *ratioView = [UIView viewWithFrame:RECT(MSWIDTH - tongViewW - 15 + 2, dateL.maxY+30, tongViewW-4, tongViewH-2) backgroundColor:[UIColor ys_lightOrange] superview:heaer];
     ratioView.y = tongView.y + 50;
     ratioView.height = tongViewH - 50-2;
+    self.ratioView = ratioView;
     
     self.incomeL = [self addRowWithY:tongView.y-10  Title:@"本月收入" touchaction:@selector(monthIncomeClick:) superView:heaer];
     self.expandseL = [self addRowWithY:heaer.subviews.lastObject.maxY  Title:@"本月支出" touchaction:@selector(monthExpandseClick:) superView:heaer];

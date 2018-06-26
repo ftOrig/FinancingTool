@@ -22,6 +22,54 @@
 
 @implementation FTakeRecordIncomeView
 
+- (void)clear{
+    
+    
+    self.moneyF.text = nil;
+    self.expandCategeryL.text = @"未选择";
+    self.accountCategeryL.text = @"未选择";
+    self.dateL.text = @"未选择";
+    self.textView.text = nil;
+}
+
+- (FAccountRecord *)incomeReord{
+    
+    BOOL done = [self infoDoneCheck];
+    if (done) {
+        
+        FAccountRecord *reord = [[FAccountRecord alloc] init];
+        reord.amount = self.moneyF.text.doubleValue;
+        
+        NSArray *selectTypes = [self.expandCategeryL.text componentsSeparatedByString:@"->"];
+        for (FFirstType *bean in AppDelegateInstance.aFAccountCategaries.incomeTypeArr) {
+            if ([bean.name isEqualToString:selectTypes.firstObject]) {
+                
+                reord.firstType = bean;
+                
+                for (FSubType *subBean in bean.subTypeArr) {
+                    if ([subBean.name isEqualToString:selectTypes.lastObject]) {
+                        
+                        reord.subType = subBean;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        
+        reord.accountType = self.accountCategeryL.text;
+        
+        reord.time_minute = self.dateL.text;
+        
+        reord.time_month = [NSDate getDateString:[NSDate date] format:@"yyyy年MM月"];
+        
+        reord.remarks = self.textView.text;
+        
+        return reord;
+    }
+    return nil;
+}
+
 - (void)setAincomeRecord:(FAccountRecord *)aincomeRecord{
     
     if (!aincomeRecord) return;

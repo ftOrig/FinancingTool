@@ -4,13 +4,15 @@
 //
 //  Created by admin on 2018/6/23.
 //  Copyright © 2018年 apple. All rights reserved.
-//
+// 记录会在FTakeRecordFatherController离开时保存在本地文件，请放心编辑
 
 #import "FTakeRecordIncomeController.h"
 #import "FTakeRecordIncomeView.h"
 
 @interface FTakeRecordIncomeController ()<UIViewOutterDelegate>
 @property (nonatomic, weak) FTakeRecordIncomeView *contentV;
+
+@property (nonatomic, strong) FAccountRecord *lastsaveRecord;
 
 @end
 
@@ -55,26 +57,66 @@
 
 - (void)oneMoreBtnClick:(UIButton *)sender
 {
-    
-}
+    // 先保存，再翻页
+    if ([self saveRecord]) {
+        ShowLightMessage(@"已保存");
+        [[NSNotificationCenter defaultCenter] postNotificationName:FToolUserDidSaveARecordNotification object:nil];
 
-- (void)saveBtnClick:(UIButton *)sender
-{
-    BOOL infoDone = [self.contentV infoDoneCheck];
-    if (!infoDone) {
-//        ShowLightMessage(@"报告老板，信息填写不完整！");
-    }else{
+        NSString *subtypeString = kCATransitionFromBottom;
+        [self transitionWithType:@"pageCurl" WithSubtype:subtypeString ForView:self.contentV];
         
-        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"账单保存成功" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertCon addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-        [alertCon addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-            
-            
-        }]];
-        
-        [self presentViewController:alertCon animated:YES completion:nil];
+        [self.contentV clear];
+        self.lastsaveRecord = nil;
     }
 }
 
+
+- (BOOL)saveRecord{
+    
+    FAccountRecord *incomeRecord = [self.contentV incomeReord];
+    NSMutableArray *incomeArr = AppDelegateInstance.currentMonthRecord.incomeArr.mutableCopy;
+    if (!incomeRecord) return NO;
+    
+    if (self.lastsaveRecord && self.lastsaveRecord == AppDelegateInstance.currentMonthRecord.incomeArr.firstObject) {
+      // 替换
+        [incomeArr replaceObjectAtIndex:0 withObject:incomeRecord];
+    }else{
+        [incomeArr insertObject:incomeRecord atIndex:0];
+    }
+    
+    self.lastsaveRecord = incomeRecord;
+    AppDelegateInstance.currentMonthRecord.incomeArr = incomeArr;
+    return YES;
+}
+
+
+- (void)saveBtnClick:(UIButton *)sender
+{
+    if ([self saveRecord]) {
+        ShowLightMessage(@"已保存, 继续编辑可修改");
+        [[NSNotificationCenter defaultCenter] postNotificationName:FToolUserDidSaveARecordNotification object:nil];
+
+    }
+}
+
+
+#pragma CATransition动画实现
+/**
+ *  动画效果实现
+ *
+ *  @param type    动画的类型 在开头的枚举中有列举,比如 CurlDown//下翻页,CurlUp//上翻页
+ ,FlipFromLeft//左翻转,FlipFromRight//右翻转 等...
+ *  @param subtype 动画执行的起始位置,上下左右
+ *  @param view    哪个view执行的动画
+ */
+- (void) transitionWithType:(NSString *) type WithSubtype:(NSString *) subtype ForView : (UIView *) view {
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.7f;
+    animation.type = type;
+    if (subtype) {
+        animation.subtype = subtype;
+    }
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [view.layer addAnimation:animation forKey:@"animation"];
+}
 @end

@@ -29,6 +29,7 @@
 @property (nonatomic, copy) NSString *time_month;// yyyy年MM月
 @property (nonatomic, copy) NSString *remarks;
 
+- (void)copyPropertyWithRecord:(FAccountRecord *)record;
 // 随机生成收入记录
 + (instancetype)recordRandomIncomeWithtime_minute:(NSString *)time_minute time_month:(NSString *)time_month;
 

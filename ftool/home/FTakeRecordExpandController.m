@@ -4,7 +4,7 @@
 //
 //  Created by admin on 2018/6/23.
 //  Copyright © 2018年 apple. All rights reserved.
-//
+// 记录会在FTakeRecordFatherController离开时保存在本地文件，请放心编辑
 
 #import "FTakeRecordExpandController.h"
 #import "FTakeRecordExpandView.h"
@@ -12,6 +12,8 @@
 
 @interface FTakeRecordExpandController ()<UIViewOutterDelegate>
 @property (nonatomic, weak) FTakeRecordExpandView *contentV;
+
+@property (nonatomic, strong) FAccountRecord *lastsaveRecord;
 @end
 
 @implementation FTakeRecordExpandController
@@ -56,29 +58,44 @@
 - (void)oneMoreBtnClick:(UIButton *)sender
 {
     // 先保存，再翻页
-    NSString *subtypeString = kCATransitionFromBottom;
-    [self transitionWithType:@"pageCurl" WithSubtype:subtypeString ForView:self.contentV];
+    if ([self saveRecord]) {
+        ShowLightMessage(@"已保存");
+        [[NSNotificationCenter defaultCenter] postNotificationName:FToolUserDidSaveARecordNotification object:nil];
+
+        NSString *subtypeString = kCATransitionFromBottom;
+        [self transitionWithType:@"pageCurl" WithSubtype:subtypeString ForView:self.contentV];
+        
+        [self.contentV clear];
+        self.lastsaveRecord = nil;
+    }
 }
 
 
+- (BOOL)saveRecord{
+    
+    FAccountRecord *expandReord = [self.contentV expandReord];
+    NSMutableArray *expandseArr = AppDelegateInstance.currentMonthRecord.expandseArr.mutableCopy;
+    if (!expandReord) return NO;
+    
+    if (self.lastsaveRecord && self.lastsaveRecord == AppDelegateInstance.currentMonthRecord.expandseArr.firstObject) {
+        // 替换
+        [expandseArr replaceObjectAtIndex:0 withObject:expandReord];
+    }else{
+        [expandseArr insertObject:expandReord atIndex:0];
+    }
+    
+    self.lastsaveRecord = expandReord;
+    AppDelegateInstance.currentMonthRecord.expandseArr = expandseArr;
+    return YES;
+}
 
 
 - (void)saveBtnClick:(UIButton *)sender
 {
-    BOOL infoDone = [self.contentV infoDoneCheck];
-    if (!infoDone) {
-//        ShowLightMessage(@"报告老板，信息填写不完整！");
-    }else{
+    if ([self saveRecord]) {
         
-        UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:@"提示" message:@"账单保存成功" preferredStyle:UIAlertControllerStyleAlert];
-        
-         [alertCon addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-        [alertCon addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-            
-            
-        }]];
-        
-        [self presentViewController:alertCon animated:YES completion:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:FToolUserDidSaveARecordNotification object:nil];
+        ShowLightMessage(@"已保存, 继续编辑可修改");
     }
 }
 

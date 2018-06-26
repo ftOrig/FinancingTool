@@ -10,9 +10,11 @@
 
 @interface FTakeRecordExpandView : UIView
 
-@property (nonatomic,strong) FAccountRecord *aExpandseRecord;
+@property (nonatomic,strong) FAccountRecord *aExpandseRecord;// 初始传入的值
 
 @property (nonatomic, weak) id<UIViewOutterDelegate> delegate;
 // 信息完成检查
 - (BOOL)infoDoneCheck;
+- (void)clear;
+- (FAccountRecord *)expandReord;// 修改后的值
 @end

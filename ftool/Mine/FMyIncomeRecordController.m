@@ -156,4 +156,14 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     [self.tableView reloadData];
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    
+    if (!self.navigationController) {
+        
+        AppDelegateInstance.currentMonthRecord.incomeArr = [self.dataArray.firstObject mutableCopy];
+        [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+    }
+}
 @end

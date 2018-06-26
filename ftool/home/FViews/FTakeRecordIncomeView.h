@@ -11,8 +11,11 @@
 @interface FTakeRecordIncomeView : UIView
 
 
-@property (nonatomic,strong) FAccountRecord *aincomeRecord;
+@property (nonatomic,strong) FAccountRecord *aincomeRecord;// 初始传入的值
 @property (nonatomic, weak) id<UIViewOutterDelegate> delegate;
 // 信息完成检查
 - (BOOL)infoDoneCheck;
+
+- (void)clear;
+- (FAccountRecord *)incomeReord;// 修改后的值
 @end

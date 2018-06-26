@@ -60,6 +60,9 @@
 		8463412720E2386800AEB64C /* F_default_201807.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412320E2386800AEB64C /* F_default_201807.txt */; };
 		8463412820E2386800AEB64C /* F_default_201806.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412420E2386800AEB64C /* F_default_201806.txt */; };
 		8463412920E2386800AEB64C /* F_default_201805.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412520E2386800AEB64C /* F_default_201805.txt */; };
+		8463412C20E2402900AEB64C /* FMonthIncomeRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463412B20E2402900AEB64C /* FMonthIncomeRecordController.m */; };
+		8463412F20E252E000AEB64C /* FMonthExpandseRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463412E20E252E000AEB64C /* FMonthExpandseRecordController.m */; };
+		8463413220E254D600AEB64C /* FAccountRecordSaveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463413120E254D600AEB64C /* FAccountRecordSaveTool.m */; };
 		847B378C20DDE458002DE2CE /* AJIDFATool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374220DDE458002DE2CE /* AJIDFATool.m */; };
 		847B378D20DDE458002DE2CE /* AppDefaultUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374420DDE458002DE2CE /* AppDefaultUtil.m */; };
 		847B378E20DDE458002DE2CE /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374520DDE458002DE2CE /* SecurityUtil.m */; };
@@ -339,6 +342,12 @@
 		8463412320E2386800AEB64C /* F_default_201807.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201807.txt; sourceTree = "<group>"; };
 		8463412420E2386800AEB64C /* F_default_201806.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201806.txt; sourceTree = "<group>"; };
 		8463412520E2386800AEB64C /* F_default_201805.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201805.txt; sourceTree = "<group>"; };
+		8463412A20E2402900AEB64C /* FMonthIncomeRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMonthIncomeRecordController.h; sourceTree = "<group>"; };
+		8463412B20E2402900AEB64C /* FMonthIncomeRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMonthIncomeRecordController.m; sourceTree = "<group>"; };
+		8463412D20E252E000AEB64C /* FMonthExpandseRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMonthExpandseRecordController.h; sourceTree = "<group>"; };
+		8463412E20E252E000AEB64C /* FMonthExpandseRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMonthExpandseRecordController.m; sourceTree = "<group>"; };
+		8463413020E254D600AEB64C /* FAccountRecordSaveTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAccountRecordSaveTool.h; sourceTree = "<group>"; };
+		8463413120E254D600AEB64C /* FAccountRecordSaveTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAccountRecordSaveTool.m; sourceTree = "<group>"; };
 		847B373E20DDE342002DE2CE /* Product.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.pch; sourceTree = "<group>"; };
 		847B374220DDE458002DE2CE /* AJIDFATool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJIDFATool.m; sourceTree = "<group>"; };
 		847B374320DDE458002DE2CE /* ReLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReLogin.h; sourceTree = "<group>"; };
@@ -852,6 +861,10 @@
 				8463411D20E2321400AEB64C /* FMyExpandseRecordController.m */,
 				8463411F20E234C500AEB64C /* FMyExpandseRecordDetailController.h */,
 				8463412020E234C500AEB64C /* FMyExpandseRecordDetailController.m */,
+				8463412A20E2402900AEB64C /* FMonthIncomeRecordController.h */,
+				8463412B20E2402900AEB64C /* FMonthIncomeRecordController.m */,
+				8463412D20E252E000AEB64C /* FMonthExpandseRecordController.h */,
+				8463412E20E252E000AEB64C /* FMonthExpandseRecordController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -863,6 +876,8 @@
 				845606A520DD1C740078EDE6 /* FAccountCategaries.m */,
 				84609B3920E11C8A00456128 /* FAccountRecord.h */,
 				84609B3A20E11C8A00456128 /* FAccountRecord.m */,
+				8463413020E254D600AEB64C /* FAccountRecordSaveTool.h */,
+				8463413120E254D600AEB64C /* FAccountRecordSaveTool.m */,
 			);
 			path = FModels;
 			sourceTree = "<group>";
@@ -1762,6 +1777,7 @@
 				184BE8F520E0D9CF003703B1 /* UnderlineView.m in Sources */,
 				847B38EC20DDEEDB002DE2CE /* TAAnimatedDotView.m in Sources */,
 				184BE8F220E0C027003703B1 /* FCommonCounterViewController.m in Sources */,
+				8463413220E254D600AEB64C /* FAccountRecordSaveTool.m in Sources */,
 				847B388E20DDE5BC002DE2CE /* IQBarButtonItem.m in Sources */,
 				847B389E20DDE5BC002DE2CE /* MASConstraintMaker.m in Sources */,
 				847B38EB20DDEEDB002DE2CE /* TAPageControl.m in Sources */,
@@ -1820,6 +1836,7 @@
 				184F90D720DE437E009D37F9 /* NSString+Shove.m in Sources */,
 				847B37A320DDE458002DE2CE /* UIButton+Custom.m in Sources */,
 				847B394520DDF1BC002DE2CE /* SDWebImagePrefetcher.m in Sources */,
+				8463412F20E252E000AEB64C /* FMonthExpandseRecordController.m in Sources */,
 				847B389020DDE5BC002DE2CE /* IQPreviousNextView.m in Sources */,
 				847B37A720DDE458002DE2CE /* AJNetWorkController.m in Sources */,
 				188D51F620DF5820004A0C02 /* FRateViewController.m in Sources */,
@@ -1838,6 +1855,7 @@
 				847B396A20DE148D002DE2CE /* FTakeRecordExpandView.m in Sources */,
 				847B388C20DDE5BC002DE2CE /* IQToolbar.m in Sources */,
 				847B394D20DDF1BC002DE2CE /* UIView+WebCache.m in Sources */,
+				8463412C20E2402900AEB64C /* FMonthIncomeRecordController.m in Sources */,
 				847B397720DE5B8E002DE2CE /* WSPlaceholderTextView.m in Sources */,
 				184F90D620DE437E009D37F9 /* ColorTools.m in Sources */,
 				847B388D20DDE5BC002DE2CE /* IQTitleBarButtonItem.m in Sources */,

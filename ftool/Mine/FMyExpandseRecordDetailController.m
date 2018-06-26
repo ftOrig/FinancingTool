@@ -46,7 +46,7 @@
     tableview.contentSize = CGSizeMake(0, contentV.height+30);
     self.contentV = contentV;
     
-    UILabel *tipL = [UILabel labelWithFrame:RECT(15, MSHIGHT - 50, MSWIDTH, 15) text:@"不是当前月份数据，编辑无效" textColor:[UIColor ys_darkGray] textFont:14 textAligment:NSTextAlignmentLeft superview:self.view];
+    UILabel *tipL = [UILabel labelWithFrame:RECT(15, MSHIGHT - 50, MSWIDTH, 15) text:@"如果不是当前月份数据，编辑无效，抱歉" textColor:[UIColor ys_darkGray] textFont:14 textAligment:NSTextAlignmentLeft superview:self.view];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -72,7 +72,9 @@
     if (!infoDone) {
         //        ShowLightMessage(@"报告老板，信息填写不完整！");
     }else{
-        //        self.aincomeRecord.firstType
+        
+        FAccountRecord *expandse = [self.contentV expandReord];
+        [self.aExpandseRecord copyPropertyWithRecord:expandse];
         ShowLightMessage(@"已保存！");
     }
 }

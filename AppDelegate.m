@@ -19,7 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-      [[AppDefaultUtil sharedInstance] setLoginState:YES]; //测试登录
+    [[AppDefaultUtil sharedInstance] setLoginState:YES]; //测试登录
     NSString *clientVersion = [[NSUserDefaults standardUserDefaults] stringForKey:@"clientVersion"];
     //判断应用程序是否更新了版本
     NSLog(@"clientVersion = [%@]", clientVersion);
@@ -35,51 +35,59 @@
         [[NSUserDefaults standardUserDefaults] setObject:CLIENT_VERSION forKey:@"clientVersion"];
       
     }
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     FTabBarController *tabbarVC = [[FTabBarController alloc] init];
     self.window.rootViewController = tabbarVC;
     
+    
     [self setUpKeyboardManager];
+    
     
     [self initFAccountCategaries];
     
+    
     [self initcurrentMonthRecord];
     
-//    [self generateMonthBlance];
     return YES;
 }
 
 - (void)initcurrentMonthRecord{
     
-    // 6月份 //MM月dd日HH时mm分 yyyy年MM月
-    NSMutableArray *monthExpandse = [NSMutableArray array];
-    NSMutableArray *monthincome = [NSMutableArray array];
-    NSInteger day = [NSDate date].day;
-    int month = (int)[NSDate date].month;
-    for (int i = 1; i<= day; i++) {// 支出一天1-2个，收入有6份收入
+    self.currentMonthRecord = [FAccountRecordSaveTool readLoaclCurrentMonthBlanceRecords];
+    if (!self.currentMonthRecord) {
         
-        NSString *time_minut = [NSString stringWithFormat:@"%02d月%02d日%02d时%02d分", month, i, 9+i%12, 10+i%20];
-        NSString *time_month = [NSString stringWithFormat:@"2018年%02d月", month];
-        FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
-        [monthExpandse addObject:expandse];
-        if (i%5 == 0) {
+        // 6月份 //MM月dd日HH时mm分 yyyy年MM月
+        NSMutableArray *monthExpandse = [NSMutableArray array];
+        NSMutableArray *monthincome = [NSMutableArray array];
+        NSInteger day = [NSDate date].day;
+        int month = (int)[NSDate date].month;
+        for (int i = 1; i<= day; i++) {// 支出一天1-2个，收入有6份收入
             
+            NSString *time_minut = [NSString stringWithFormat:@"%02d月%02d日%02d时%02d分", month, i, 9+i%12, 10+i%20];
+            NSString *time_month = [NSString stringWithFormat:@"2018年%02d月", month];
             FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
             [monthExpandse addObject:expandse];
-            
-            FAccountRecord *income = [FAccountRecord recordRandomIncomeWithtime_minute:time_minut time_month:time_month];
-            [monthincome addObject:income];
+            if (i%5 == 0) {
+                
+                FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
+                [monthExpandse addObject:expandse];
+                
+                FAccountRecord *income = [FAccountRecord recordRandomIncomeWithtime_minute:time_minut time_month:time_month];
+                [monthincome addObject:income];
+            }
         }
+        FCurrentMonthRecord *monthBalance = [FCurrentMonthRecord new];
+        monthBalance.expandseArr = monthExpandse.mutableCopy;
+        monthBalance.incomeArr = monthincome.mutableCopy;
+        
+        self.currentMonthRecord = monthBalance;
+        
+
     }
-    FCurrentMonthRecord *monthBalance = [FCurrentMonthRecord new];
-    monthBalance.expandseArr = monthExpandse.mutableCopy;
-    monthBalance.incomeArr = monthincome.mutableCopy;
-    
-    self.currentMonthRecord = monthBalance;
-    
 }
 
 
