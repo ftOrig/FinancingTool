@@ -10,6 +10,7 @@
 		1811130920E2134800ABFE38 /* FHouseCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811130820E2134800ABFE38 /* FHouseCounterViewController.m */; };
 		1811130C20E2151500ABFE38 /* FHouseCounterSimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811130B20E2151500ABFE38 /* FHouseCounterSimpleViewController.m */; };
 		1811130F20E215B000ABFE38 /* FHouseCounterHybirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811130E20E215B000ABFE38 /* FHouseCounterHybirdViewController.m */; };
+		1811131220E2771100ABFE38 /* FFinanceCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811131120E2771100ABFE38 /* FFinanceCounterViewController.m */; };
 		182C4A5B20DA43CC003C59F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A5A20DA43CC003C59F6 /* AppDelegate.m */; };
 		182C4A6320DA43CC003C59F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A6220DA43CC003C59F6 /* Assets.xcassets */; };
 		182C4A6620DA43CC003C59F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A6420DA43CC003C59F6 /* LaunchScreen.storyboard */; };
@@ -252,6 +253,8 @@
 		1811130B20E2151500ABFE38 /* FHouseCounterSimpleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHouseCounterSimpleViewController.m; sourceTree = "<group>"; };
 		1811130D20E215B000ABFE38 /* FHouseCounterHybirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHouseCounterHybirdViewController.h; sourceTree = "<group>"; };
 		1811130E20E215B000ABFE38 /* FHouseCounterHybirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHouseCounterHybirdViewController.m; sourceTree = "<group>"; };
+		1811131020E2771100ABFE38 /* FFinanceCounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFinanceCounterViewController.h; sourceTree = "<group>"; };
+		1811131120E2771100ABFE38 /* FFinanceCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFinanceCounterViewController.m; sourceTree = "<group>"; };
 		182C4A5620DA43CC003C59F6 /* ftool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ftool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182C4A5920DA43CC003C59F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		182C4A5A20DA43CC003C59F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -812,6 +815,8 @@
 				1811130B20E2151500ABFE38 /* FHouseCounterSimpleViewController.m */,
 				1811130D20E215B000ABFE38 /* FHouseCounterHybirdViewController.h */,
 				1811130E20E215B000ABFE38 /* FHouseCounterHybirdViewController.m */,
+				1811131020E2771100ABFE38 /* FFinanceCounterViewController.h */,
+				1811131120E2771100ABFE38 /* FFinanceCounterViewController.m */,
 			);
 			path = counter;
 			sourceTree = "<group>";
@@ -1909,6 +1914,7 @@
 				184F90D120DE437E009D37F9 /* InputView.m in Sources */,
 				847B394820DDF1BC002DE2CE /* NSData+ImageContentType.m in Sources */,
 				847B37A520DDE458002DE2CE /* AJTime.m in Sources */,
+				1811131220E2771100ABFE38 /* FFinanceCounterViewController.m in Sources */,
 				847B37A020DDE458002DE2CE /* NSDictionary+AJ.m in Sources */,
 				184901D420DE961700EF7AA1 /* FUsersTool.m in Sources */,
 				182C4A5B20DA43CC003C59F6 /* AppDelegate.m in Sources */,

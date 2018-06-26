@@ -96,7 +96,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
             controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"CommonCounter"];
         }
     }else if (section == 2){ //第三组 /理财计算
-        
+        controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"FinanceCounter"];
     }else { //第四组 /生活小计
         
     }
