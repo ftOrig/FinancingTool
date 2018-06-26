@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "FTabBarController.h"
 #import "IQKeyboardManager.h"
+#import "NSDate+BRAdd.h"
 
 @interface AppDelegate ()
 
@@ -52,8 +53,35 @@
 
 - (void)initcurrentMonthRecord{
     
-//    FAccountRecord *income1 = [FAccountRecord re]
+    // 6月份 //MM月dd日HH时mm分 yyyy年MM月
+    NSMutableArray *monthExpandse = [NSMutableArray array];
+    NSMutableArray *monthincome = [NSMutableArray array];
+    NSInteger day = [NSDate date].day;
+    int month = (int)[NSDate date].month;
+    for (int i = 1; i<= day; i++) {// 支出一天1-2个，收入有6份收入
+        
+        NSString *time_minut = [NSString stringWithFormat:@"%02d月%02d日%02d时%02d分", month, i, 9+i%12, 10+i%20];
+        NSString *time_month = [NSString stringWithFormat:@"2018年%02d月", month];
+        FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
+        [monthExpandse addObject:expandse];
+        if (i%5 == 0) {
+            
+            FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
+            [monthExpandse addObject:expandse];
+            
+            FAccountRecord *income = [FAccountRecord recordRandomIncomeWithtime_minute:time_minut time_month:time_month];
+            [monthincome addObject:income];
+        }
+    }
+    FCurrentMonthRecord *monthBalance = [FCurrentMonthRecord new];
+    monthBalance.expandseArr = monthExpandse.mutableCopy;
+    monthBalance.incomeArr = monthincome.mutableCopy;
+    
+    self.currentMonthRecord = monthBalance;
+    
 }
+
+
 
 - (void)initFAccountCategaries{
     // 编辑过
@@ -67,6 +95,41 @@
         NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
         self.aFAccountCategaries = [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
     }
+}
+
+
+- (void)generateMonthBlance{
+    // 6月份 //MM月dd日HH时mm分 yyyy年MM月
+    NSMutableArray *monthExpandse = [NSMutableArray array];
+    NSMutableArray *monthincome = [NSMutableArray array];
+    //    NSInteger day = [NSDate date].day;
+    //    int month = [NSDate date].month;
+    for (int i = 1; i<= 30; i++) {// 支出一天1-2个，收入有6份收入
+        
+        NSString *time_minut = [NSString stringWithFormat:@"07月%02d日%02d时%02d分", i, 9+i%12, 10+i%20];
+        NSString *time_month = [NSString stringWithFormat:@"2018年07月"];
+        FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
+        [monthExpandse addObject:expandse];
+        if (i%5 == 0) {
+            
+            FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
+            [monthExpandse addObject:expandse];
+            
+            FAccountRecord *income = [FAccountRecord recordRandomIncomeWithtime_minute:time_minut time_month:time_month];
+            [monthincome addObject:income];
+        }
+    }
+    FCurrentMonthRecord *moth4 = [FCurrentMonthRecord new];
+    moth4.expandseArr = monthExpandse.mutableCopy;
+    moth4.incomeArr = monthincome.mutableCopy;
+    
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *filePathName = [path stringByAppendingPathComponent:@"F_default_201807.txt"];
+    
+    NSDictionary *month4Account = [moth4 mj_JSONObject];
+    NSString *jsonString = [month4Account mj_JSONString];
+    
+    [jsonString writeToFile:filePathName atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 - (void)generatePlist{

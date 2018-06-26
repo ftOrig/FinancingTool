@@ -21,6 +21,9 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     [super viewDidLoad];
     
     [self initView];
+    NSMutableArray *currentMonthincome = AppDelegateInstance.currentMonthRecord.incomeArr;
+    
+    [self.dataArray addObject:currentMonthincome];
 }
 
 - (void)initView {
@@ -33,10 +36,10 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
     
     UIView *footer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 100) backgroundColor:nil superview:nil];
-    UIButton *btn = [UIButton buttonWithFrame:RECT(50, 30, MSWIDTH-100, 37) backgroundColor:AJWhiteColor title:@"记一笔" titleColor:[UIColor ys_black] titleFont:15 target:self action:@selector(addMoreRecordClick:) superview:footer];
-    [btn setImage:[UIImage imageNamed:@"FirstType_add"] forState:UIControlStateNormal];
-    btn.imageEdgeInsets = EDGEINSET(7, 0, 7, -10);
-    btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    UIButton *btn = [UIButton buttonWithFrame:RECT(50, 30, MSWIDTH-100, 37) backgroundColor:AJWhiteColor title:@"加载更多" titleColor:[UIColor ys_black] titleFont:15 target:self action:@selector(findMoreRecordClick:) superview:footer];
+//    [btn setImage:[UIImage imageNamed:@"FirstType_add"] forState:UIControlStateNormal];
+//    btn.imageEdgeInsets = EDGEINSET(7, 0, 7, -10);
+//    btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.tableView.tableFooterView = footer;
     [self.tableView registerClass:[AJMonthSectionHeader class] forHeaderFooterViewReuseIdentifier:reuseIdentifier2];
 }
@@ -51,41 +54,39 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     return [self.dataArray[section] count];
 }
 
-- (void)addMoreRecordClick:(UIButton *)sender
+- (void)findMoreRecordClick:(UIButton *)sender
 {
-//    if (self.dataArray.count >= 20) {
-//        ShowLightMessage(@"大哥，最多可添加20个子分类, 谢谢！");
-//        return;
-//    }
-//    FAddFirstTypeController *controller = [FAddFirstTypeController new];
-//    [self presentViewController:controller animated:YES completion:^{}];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     FMyIncomeRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-//    FFirstType *bean = self.dataArray[indexPath.row];
-//    cell.textL.text = bean.name;
-//    cell.imgV.image = [UIImage imageNamed:bean.iconName];
+    FAccountRecord *bean = self.dataArray[indexPath.section][indexPath.row];
+
+    cell.timeL.text = [bean.time_minute substringFromIndex:3];
+    cell.textL.text = bean.subType.name;
+    cell.imgV.image = [UIImage imageNamed:bean.subType.iconName];
+    cell.moneyL.text = [NSString stringWithFormat:@"%.2f", bean.amount];
     return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
+    NSString *currentDate = AppDelegateInstance.currentMonthRecord.incomeArr.firstObject.time_month;
 //    static NSString *headerReuse = @""
     AJMonthSectionHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier2];
     
-//    header.
+    [header setText:currentDate];
     return header;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 55.f;
+    return 63.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 55.f;
+    return 63.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

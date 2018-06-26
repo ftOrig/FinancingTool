@@ -6,6 +6,9 @@
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
+static NSString * const Filename_AprilBalance = @"F_default_201804.txt";
+static NSString * const Filename_MayBalanceFilename = @"F_default_201805.txt";
+
 #import <UIKit/UIKit.h>
 
 @class FAccountCategaries, FCurrentMonthRecord;

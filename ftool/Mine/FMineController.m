@@ -24,7 +24,7 @@ static NSString * const reuseIdentifier = @"FMineCell";
     [super viewDidLoad];
     
     [self initView];
-    self.dataArray = @[@"支出记录", @"收入记录"].mutableCopy;
+    self.dataArray = @[@"收入记录", @"支出记录"].mutableCopy;
 }
 
 
@@ -67,9 +67,9 @@ static NSString * const reuseIdentifier = @"FMineCell";
     tongView.alpha = .2f;
     ViewBorderRadius(tongView, 2, 10, [[UIColor blackColor] colorWithAlphaComponent:.32]);
     
-    UIView *ratioView = [UIView viewWithFrame:RECT(MSWIDTH - tongViewW - 15 + 4, dateL.maxY+30, tongViewW-8, tongViewH) backgroundColor:[UIColor ys_lightOrange] superview:heaer];
+    UIView *ratioView = [UIView viewWithFrame:RECT(MSWIDTH - tongViewW - 15 + 2, dateL.maxY+30, tongViewW-4, tongViewH-2) backgroundColor:[UIColor ys_lightOrange] superview:heaer];
     ratioView.y = tongView.y + 50;
-    ratioView.height = tongViewH - 50;
+    ratioView.height = tongViewH - 50-2;
     
     self.incomeL = [self addRowWithY:tongView.y-10  Title:@"本月收入" touchaction:@selector(monthIncomeClick:) superView:heaer];
     self.expandseL = [self addRowWithY:heaer.subviews.lastObject.maxY  Title:@"本月支出" touchaction:@selector(monthExpandseClick:) superView:heaer];
@@ -124,6 +124,7 @@ static NSString * const reuseIdentifier = @"FMineCell";
     if (indexPath.row == 0) {
         
         FMyIncomeRecordController *controller = [FMyIncomeRecordController new];
+        controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }else{
         

@@ -8,15 +8,15 @@
 
 #import "BaseEntity.h"
 
+@class FFirstType, FSubType, FAccountRecord;
 
 @interface FCurrentMonthRecord : BaseEntity
 // 在有编辑的地方记得保存到本地doctment，下次启动才能读取到，否则数据丢失
-@property (nonatomic,strong) NSMutableArray *incomeArr;
-@property (nonatomic,strong) NSMutableArray *expandseArr;
+@property (nonatomic,strong) NSMutableArray<FAccountRecord *> *incomeArr;
+@property (nonatomic,strong) NSMutableArray<FAccountRecord *> *expandseArr;
 @end
 
 
-@class FFirstType, FSubType;
 @interface FAccountRecord : BaseEntity
 
 @property (nonatomic,assign) CGFloat amount;
@@ -25,8 +25,8 @@
 @property (nonatomic,strong) FSubType *subType;
 
 @property (nonatomic, copy) NSString *accountType;
-@property (nonatomic, copy) NSString *time_minute;//月日时分
-@property (nonatomic, copy) NSString *time_month;// 年月
+@property (nonatomic, copy) NSString *time_minute;//MM月dd日HH时mm分
+@property (nonatomic, copy) NSString *time_month;// yyyy年MM月
 @property (nonatomic, copy) NSString *remarks;
 
 // 随机生成收入记录
