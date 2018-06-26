@@ -1,17 +1,17 @@
 //
-//  FCommonCounterViewController.m
+//  FHouseCounterSimpleViewController.m
 //  ftool
-//  普通贷款计算器
-//  Created by apple on 2018/6/25.
+//  纯公积金 或 商业贷
+//  Created by apple on 2018/6/26.
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
-#import "FCommonCounterViewController.h"
+#import "FHouseCounterSimpleViewController.h"
 #import "BaseContentCell.h"
 
 #define LH_RESULT 40 //结果行高
 
-@interface FCommonCounterViewController (){
+@interface FHouseCounterSimpleViewController (){
     CGRect headRect;
     NSInteger repayType;
     NSInteger lastType;
@@ -22,35 +22,32 @@
 
 @end
 
-@implementation FCommonCounterViewController
+@implementation FHouseCounterSimpleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     NavBar *bar = [[NavBar alloc] initWithTitle:@"普通贷款计算器" leftName:nil rightName:@"" delegate:self];
-    
+
     headRect = self.headView.frame;
-    
+    if (!_isBusiness) { //公积金少一行
+        headRect.size.height -= LH_RESULT;
+        [self resetHeadHight: 0];
+        
+        // 公积金 不要折扣项
+        _cst_gjtTop.constant -= 44;
+    }
+
     [_tableView registerClass:[BaseContentCell class] forCellReuseIdentifier:@"RateViewCell"];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    [_tf_amount setText:@"1"]; //贷款
+    [_tf_amount setText:@"10"]; //贷款
     [_tf_discount setText:@"1.0"]; //默认没折扣
-    [_tf_rate setText:@"5"]; //利率
-    [_tf_limit setText:@"1"]; //年限
+    [_tf_rate setText:_isBusiness ? @"4.9" : @"3.25"]; //利率
+    [_tf_limit setText:@"10"]; //年限
     
     repayType = 0;
     
-//    _titleArray = [[NSArray alloc] initWithObjects:@"活期",@"3个月",@"6个月", @"1年",@"2年定期",@"3年期",@"5期", nil];
-//    _contentArray = [[NSArray alloc] initWithObjects:@"0.35动", @"1.1动",@"1.动",@"1.5动",@"2.10+浮",@"2.75+浮",@"3.00+动",nil];
-//    [_tableView reloadData];
-    
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    // 这样不行，要把childView from headView 中 remove掉table才能上移
-//     [self resetHeadHight: - LH_RESULT*3];
 }
 
 
@@ -62,7 +59,7 @@
 
 //修改首次或每次 标题、结果列表
 - (void) changeFirstTitle{
-
+    
     NSString *currTitle = _lb_firstTitle.text;
     if(repayType == 0){ //本息 每期
         [_lb_firstTitle setText:[currTitle stringByReplacingOccurrencesOfString:@"首期" withString:@"每期"]];
@@ -97,12 +94,12 @@
         long repayMonths = [_tf_limit.text integerValue] * 12; //还款期数
         
         if (repayType == 0) { //等额本息
-//            amount = 10000; 示例 https://wenku.baidu.com/view/12c20baa680203d8ce2f244d.html?from=search
-//            monthRate = 0.005541667;   repayMonths = 120;
+            //            amount = 10000; 示例 https://wenku.baidu.com/view/12c20baa680203d8ce2f244d.html?from=search
+            //            monthRate = 0.005541667;   repayMonths = 120;
             
             //每月还款 = [金额*月利率*（1+月利率)^还款月数] / [(1+月利率) ^ 还款月数-1]
             double apiecePay = (amount * monthRate * powl((1+monthRate), repayMonths))
-                                / ( powl((1+monthRate), repayMonths) -1);
+            / ( powl((1+monthRate), repayMonths) -1);
             //总共还款
             double allRepay = apiecePay * repayMonths;
             //共还利息
@@ -129,33 +126,29 @@
             
             double allPayInterest = 0;
             double fisrtMothInterest = amount * monthRate; //第一月利息
-             //总还利息 累计
+            //总还利息 累计
             for (int i = 0; i< repayMonths; i++){
                 allPayInterest += (fisrtMothInterest - decrease*i);
             }
             
             [_lb_allRepayAmount setText:[NSString stringWithFormat:@"%.2f", amount + allPayInterest]];
             [_lb_allRepayInterest setText:[NSString stringWithFormat:@"%.2f", allPayInterest]];
-    
+            
             [self generateListData:repayMonths apieceRepay:firstMonthPay andDecrease:decrease];
         }
     }
 }
 
-/* 生成列表数据
- * apiecePay 第一月还款
- * decrease 每月递减额
- */
+//生成列表数据
 - (void) generateListData:(double) months apieceRepay:(double)apiecePay andDecrease:(double)decrease{
     NSMutableArray *titles = [NSMutableArray array];
     NSMutableArray *contents = [NSMutableArray array];
     
     if(repayType == 1){ //等额本金
-        
         double tempRepay;
         for (int i = 0; i< months; i++){
             //每月还款 = 首月还款 - 递减
-            tempRepay = apiecePay - decrease*i;
+            tempRepay = apiecePay  - decrease*i;
             [titles addObject:[NSString stringWithFormat:@"第 %d 期还款金额(元)", i+1]];
             [contents addObject:[NSString stringWithFormat:@"%.2f", tempRepay]];
         }
@@ -207,18 +200,27 @@
     newFrame.size.height = newFrame.size.height + varHight;
     _headView.frame = newFrame;
     
-//    [self.tableView setTableHeaderView:_headView];
+    //    [self.tableView setTableHeaderView:_headView];
     //加个动画
     [self.tableView beginUpdates];
     [self.tableView setTableHeaderView:_headView];
     [self.tableView endUpdates];
-    //        headRect.size.height += 80;
-    //        self.headView.frame = headRect; 这样改不了
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

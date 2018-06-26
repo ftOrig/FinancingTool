@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1811130920E2134800ABFE38 /* FHouseCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811130820E2134800ABFE38 /* FHouseCounterViewController.m */; };
+		1811130C20E2151500ABFE38 /* FHouseCounterSimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811130B20E2151500ABFE38 /* FHouseCounterSimpleViewController.m */; };
+		1811130F20E215B000ABFE38 /* FHouseCounterHybirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811130E20E215B000ABFE38 /* FHouseCounterHybirdViewController.m */; };
 		182C4A5B20DA43CC003C59F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A5A20DA43CC003C59F6 /* AppDelegate.m */; };
 		182C4A6320DA43CC003C59F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A6220DA43CC003C59F6 /* Assets.xcassets */; };
 		182C4A6620DA43CC003C59F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A6420DA43CC003C59F6 /* LaunchScreen.storyboard */; };
@@ -237,6 +240,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1811130720E2134800ABFE38 /* FHouseCounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHouseCounterViewController.h; sourceTree = "<group>"; };
+		1811130820E2134800ABFE38 /* FHouseCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHouseCounterViewController.m; sourceTree = "<group>"; };
+		1811130A20E2151500ABFE38 /* FHouseCounterSimpleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHouseCounterSimpleViewController.h; sourceTree = "<group>"; };
+		1811130B20E2151500ABFE38 /* FHouseCounterSimpleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHouseCounterSimpleViewController.m; sourceTree = "<group>"; };
+		1811130D20E215B000ABFE38 /* FHouseCounterHybirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHouseCounterHybirdViewController.h; sourceTree = "<group>"; };
+		1811130E20E215B000ABFE38 /* FHouseCounterHybirdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHouseCounterHybirdViewController.m; sourceTree = "<group>"; };
 		182C4A5620DA43CC003C59F6 /* ftool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ftool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182C4A5920DA43CC003C59F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		182C4A5A20DA43CC003C59F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -780,6 +789,12 @@
 				184BE8F120E0C027003703B1 /* FCommonCounterViewController.m */,
 				184BE8F320E0D9CF003703B1 /* UnderlineView.h */,
 				184BE8F420E0D9CF003703B1 /* UnderlineView.m */,
+				1811130720E2134800ABFE38 /* FHouseCounterViewController.h */,
+				1811130820E2134800ABFE38 /* FHouseCounterViewController.m */,
+				1811130A20E2151500ABFE38 /* FHouseCounterSimpleViewController.h */,
+				1811130B20E2151500ABFE38 /* FHouseCounterSimpleViewController.m */,
+				1811130D20E215B000ABFE38 /* FHouseCounterHybirdViewController.h */,
+				1811130E20E215B000ABFE38 /* FHouseCounterHybirdViewController.m */,
 			);
 			path = counter;
 			sourceTree = "<group>";
@@ -1797,6 +1812,7 @@
 				84617B7720DF8F3A00D6630E /* FEditSubTypeController.m in Sources */,
 				847B394120DDF1BC002DE2CE /* SDWebImageDownloader.m in Sources */,
 				184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */,
+				1811130920E2134800ABFE38 /* FHouseCounterViewController.m in Sources */,
 				847B386020DDE5BC002DE2CE /* NSObject+MJCoding.m in Sources */,
 				847B389720DDE5BC002DE2CE /* IQUIView+Hierarchy.m in Sources */,
 				847B391420DDF024002DE2CE /* DejalActivityView.m in Sources */,
@@ -1855,6 +1871,7 @@
 				847B37A620DDE458002DE2CE /* BaseEntity.m in Sources */,
 				847B387C20DDE5BC002DE2CE /* MJRefreshAutoFooter.m in Sources */,
 				84609B2A20E0FFB400456128 /* FMineCell.m in Sources */,
+				1811130C20E2151500ABFE38 /* FHouseCounterSimpleViewController.m in Sources */,
 				847B389B20DDE5BC002DE2CE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				184F90D120DE437E009D37F9 /* InputView.m in Sources */,
 				847B394820DDF1BC002DE2CE /* NSData+ImageContentType.m in Sources */,
@@ -1863,6 +1880,7 @@
 				184901D420DE961700EF7AA1 /* FUsersTool.m in Sources */,
 				182C4A5B20DA43CC003C59F6 /* AppDelegate.m in Sources */,
 				847B387220DDE5BC002DE2CE /* MJRefreshBackNormalFooter.m in Sources */,
+				1811130F20E215B000ABFE38 /* FHouseCounterHybirdViewController.m in Sources */,
 				847B388F20DDE5BC002DE2CE /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				AACFDBEF20DFDC8C00BDFA0E /* FAddSubTypeController.m in Sources */,
 				847B386A20DDE5BC002DE2CE /* UIScrollView+MJRefresh.m in Sources */,

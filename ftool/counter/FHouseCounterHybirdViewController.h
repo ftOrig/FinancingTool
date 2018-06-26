@@ -1,15 +1,15 @@
 //
-//  FCommonCounterViewController.h
+//  FHouseCounterHybirdViewController.h
 //  ftool
 //
-//  Created by apple on 2018/6/25.
+//  Created by apple on 2018/6/26.
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
 #import "FBaseViewController.h"
 #import "AJContainTableController.h"
 
-@interface FCommonCounterViewController : AJContainTableController
+@interface FHouseCounterHybirdViewController : AJContainTableController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headView;
@@ -32,5 +32,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lb_allRepayInterest; //总还利息
 @property (weak, nonatomic) IBOutlet UILabel *lb_allRepayAmount; //总还金额
 
+@property (weak, nonatomic) IBOutlet UITextField *tf_rate_gjj; //公积金 利率
+@property (weak, nonatomic) IBOutlet UITextField *tf_amount_gjj; //公积金 贷款额
 
 @end

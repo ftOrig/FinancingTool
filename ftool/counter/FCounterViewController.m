@@ -9,6 +9,8 @@
 #import "FCounterViewController.h"
 #import "FHomeCell.h"
 
+#import "FHouseCounterViewController.h"
+
 @interface FCounterViewController (){
     NSArray *groupTitls;
     NSInteger rowCount; //行计算
@@ -89,7 +91,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     }
     else if (section == 1) { //第二组，只有这组有两条
         if(row == 0){   //房贷计算
-            
+            controller = [[FHouseCounterViewController alloc] init];
         }else{          //其它贷款计算
             controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"CommonCounter"];
         }
