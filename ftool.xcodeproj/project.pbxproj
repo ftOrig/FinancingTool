@@ -50,10 +50,13 @@
 		84617B7320DF8D8200D6630E /* FEditFirstTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7120DF8D8200D6630E /* FEditFirstTypeCell.m */; };
 		84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */; };
 		84617B7720DF8F3A00D6630E /* FEditSubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */; };
-		8463411320E1EBAF00AEB64C /* F_default_201804.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463411120E1EBAE00AEB64C /* F_default_201804.txt */; };
-		8463411420E1EBAF00AEB64C /* F_default_201805.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463411220E1EBAE00AEB64C /* F_default_201805.txt */; };
-		8463411720E1EEBD00AEB64C /* F_default_201806.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463411520E1EEBC00AEB64C /* F_default_201806.txt */; };
-		8463411820E1EEBD00AEB64C /* F_default_201807.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463411620E1EEBD00AEB64C /* F_default_201807.txt */; };
+		8463411B20E222B700AEB64C /* FMyIncomeRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463411A20E222B700AEB64C /* FMyIncomeRecordDetailController.m */; };
+		8463411E20E2321400AEB64C /* FMyExpandseRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463411D20E2321400AEB64C /* FMyExpandseRecordController.m */; };
+		8463412120E234C500AEB64C /* FMyExpandseRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463412020E234C500AEB64C /* FMyExpandseRecordDetailController.m */; };
+		8463412620E2386800AEB64C /* F_default_201804.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412220E2386800AEB64C /* F_default_201804.txt */; };
+		8463412720E2386800AEB64C /* F_default_201807.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412320E2386800AEB64C /* F_default_201807.txt */; };
+		8463412820E2386800AEB64C /* F_default_201806.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412420E2386800AEB64C /* F_default_201806.txt */; };
+		8463412920E2386800AEB64C /* F_default_201805.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412520E2386800AEB64C /* F_default_201805.txt */; };
 		847B378C20DDE458002DE2CE /* AJIDFATool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374220DDE458002DE2CE /* AJIDFATool.m */; };
 		847B378D20DDE458002DE2CE /* AppDefaultUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374420DDE458002DE2CE /* AppDefaultUtil.m */; };
 		847B378E20DDE458002DE2CE /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374520DDE458002DE2CE /* SecurityUtil.m */; };
@@ -317,10 +320,16 @@
 		84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FEditFirstTypeCell.xib; sourceTree = "<group>"; };
 		84617B7520DF8F3A00D6630E /* FEditSubTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditSubTypeController.h; sourceTree = "<group>"; };
 		84617B7620DF8F3A00D6630E /* FEditSubTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditSubTypeController.m; sourceTree = "<group>"; };
-		8463411120E1EBAE00AEB64C /* F_default_201804.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201804.txt; sourceTree = "<group>"; };
-		8463411220E1EBAE00AEB64C /* F_default_201805.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201805.txt; sourceTree = "<group>"; };
-		8463411520E1EEBC00AEB64C /* F_default_201806.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201806.txt; sourceTree = "<group>"; };
-		8463411620E1EEBD00AEB64C /* F_default_201807.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201807.txt; sourceTree = "<group>"; };
+		8463411920E222B700AEB64C /* FMyIncomeRecordDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMyIncomeRecordDetailController.h; sourceTree = "<group>"; };
+		8463411A20E222B700AEB64C /* FMyIncomeRecordDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMyIncomeRecordDetailController.m; sourceTree = "<group>"; };
+		8463411C20E2321400AEB64C /* FMyExpandseRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMyExpandseRecordController.h; sourceTree = "<group>"; };
+		8463411D20E2321400AEB64C /* FMyExpandseRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMyExpandseRecordController.m; sourceTree = "<group>"; };
+		8463411F20E234C500AEB64C /* FMyExpandseRecordDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMyExpandseRecordDetailController.h; sourceTree = "<group>"; };
+		8463412020E234C500AEB64C /* FMyExpandseRecordDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMyExpandseRecordDetailController.m; sourceTree = "<group>"; };
+		8463412220E2386800AEB64C /* F_default_201804.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201804.txt; sourceTree = "<group>"; };
+		8463412320E2386800AEB64C /* F_default_201807.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201807.txt; sourceTree = "<group>"; };
+		8463412420E2386800AEB64C /* F_default_201806.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201806.txt; sourceTree = "<group>"; };
+		8463412520E2386800AEB64C /* F_default_201805.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201805.txt; sourceTree = "<group>"; };
 		847B373E20DDE342002DE2CE /* Product.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.pch; sourceTree = "<group>"; };
 		847B374220DDE458002DE2CE /* AJIDFATool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJIDFATool.m; sourceTree = "<group>"; };
 		847B374320DDE458002DE2CE /* ReLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReLogin.h; sourceTree = "<group>"; };
@@ -661,10 +670,10 @@
 			isa = PBXGroup;
 			children = (
 				847B397020DE524B002DE2CE /* AccoutCategeries.plist */,
-				8463411120E1EBAE00AEB64C /* F_default_201804.txt */,
-				8463411220E1EBAE00AEB64C /* F_default_201805.txt */,
-				8463411520E1EEBC00AEB64C /* F_default_201806.txt */,
-				8463411620E1EEBD00AEB64C /* F_default_201807.txt */,
+				8463412220E2386800AEB64C /* F_default_201804.txt */,
+				8463412520E2386800AEB64C /* F_default_201805.txt */,
+				8463412420E2386800AEB64C /* F_default_201806.txt */,
+				8463412320E2386800AEB64C /* F_default_201807.txt */,
 				847B373E20DDE342002DE2CE /* Product.pch */,
 				182C4A5920DA43CC003C59F6 /* AppDelegate.h */,
 				182C4A5A20DA43CC003C59F6 /* AppDelegate.m */,
@@ -822,6 +831,12 @@
 				8456069F20DD01790078EDE6 /* FMineController.m */,
 				84609B2C20E115BF00456128 /* FMyIncomeRecordController.h */,
 				84609B2D20E115BF00456128 /* FMyIncomeRecordController.m */,
+				8463411920E222B700AEB64C /* FMyIncomeRecordDetailController.h */,
+				8463411A20E222B700AEB64C /* FMyIncomeRecordDetailController.m */,
+				8463411C20E2321400AEB64C /* FMyExpandseRecordController.h */,
+				8463411D20E2321400AEB64C /* FMyExpandseRecordController.m */,
+				8463411F20E234C500AEB64C /* FMyExpandseRecordDetailController.h */,
+				8463412020E234C500AEB64C /* FMyExpandseRecordDetailController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1655,7 +1670,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8463411720E1EEBD00AEB64C /* F_default_201806.txt in Resources */,
+				8463412820E2386800AEB64C /* F_default_201806.txt in Resources */,
 				182C4A6620DA43CC003C59F6 /* LaunchScreen.storyboard in Resources */,
 				847B393C20DDF1BC002DE2CE /* LICENSE in Resources */,
 				847B386720DDE5BC002DE2CE /* LICENSE in Resources */,
@@ -1670,17 +1685,18 @@
 				847B397120DE524B002DE2CE /* AccoutCategeries.plist in Resources */,
 				847B387E20DDE5BC002DE2CE /* README.md in Resources */,
 				847B391320DDF024002DE2CE /* License.txt in Resources */,
-				8463411320E1EBAF00AEB64C /* F_default_201804.txt in Resources */,
+				8463412620E2386800AEB64C /* F_default_201804.txt in Resources */,
 				847B396020DE004B002DE2CE /* README.md in Resources */,
 				847B395720DDF870002DE2CE /* FHomeCell.xib in Resources */,
+				8463412720E2386800AEB64C /* F_default_201807.txt in Resources */,
 				187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */,
 				847B388320DDE5BC002DE2CE /* SVProgressHUD.bundle in Resources */,
 				847B389120DDE5BC002DE2CE /* IQKeyboardManager.bundle in Resources */,
 				84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */,
 				847B393D20DDF1BC002DE2CE /* README.md in Resources */,
-				8463411820E1EEBD00AEB64C /* F_default_201807.txt in Resources */,
 				847B388920DDE5BC002DE2CE /* LICENSE.md in Resources */,
 				847B391220DDF024002DE2CE /* README.markdown in Resources */,
+				8463412920E2386800AEB64C /* F_default_201805.txt in Resources */,
 				847B388620DDE5BC002DE2CE /* LICENSE in Resources */,
 				84609B3820E118EA00456128 /* FMyExpandseRecordCell.xib in Resources */,
 				847B388820DDE5BC002DE2CE /* README.md in Resources */,
@@ -1691,7 +1707,6 @@
 				847B386820DDE5BC002DE2CE /* README.md in Resources */,
 				187D394320DF92AB0068D3B2 /* Counters.storyboard in Resources */,
 				84609B2B20E0FFB400456128 /* FMineCell.xib in Resources */,
-				8463411420E1EBAF00AEB64C /* F_default_201805.txt in Resources */,
 				847B38A520DDE5BC002DE2CE /* README.md in Resources */,
 				847B379720DDE458002DE2CE /* close_btn_icon@2x.png in Resources */,
 			);
@@ -1815,12 +1830,14 @@
 				847B379A20DDE458002DE2CE /* AJListBox.m in Sources */,
 				847B37B820DDE571002DE2CE /* FTabBarController.m in Sources */,
 				847B379B20DDE458002DE2CE /* ZHPickView.m in Sources */,
+				8463412120E234C500AEB64C /* FMyExpandseRecordDetailController.m in Sources */,
 				847B379D20DDE458002DE2CE /* NSURL+UrlStringAutoAdjust.m in Sources */,
 				847B379220DDE458002DE2CE /* UIView+AJ.m in Sources */,
 				847B37A820DDE458002DE2CE /* AJContainTableController.m in Sources */,
 				847B387920DDE5BC002DE2CE /* MJRefreshFooter.m in Sources */,
 				184F90D220DE437E009D37F9 /* UIButton+KK.m in Sources */,
 				847B390A20DDF016002DE2CE /* BRAddressPickerView.m in Sources */,
+				8463411E20E2321400AEB64C /* FMyExpandseRecordController.m in Sources */,
 				847B386B20DDE5BC002DE2CE /* MJRefreshConst.m in Sources */,
 				847B386F20DDE5BC002DE2CE /* UIView+MJExtension.m in Sources */,
 				182C4A6920DA43CC003C59F6 /* main.m in Sources */,
@@ -1881,6 +1898,7 @@
 				847B37A120DDE458002DE2CE /* NSString+AJ.m in Sources */,
 				847B38A020DDE5BC002DE2CE /* NSArray+MASAdditions.m in Sources */,
 				84609B3220E116F100456128 /* FMyIncomeRecordCell.m in Sources */,
+				8463411B20E222B700AEB64C /* FMyIncomeRecordDetailController.m in Sources */,
 				847B386420DDE5BC002DE2CE /* NSString+MJExtension.m in Sources */,
 				182C4A9720DA4B48003C59F6 /* FHomeViewController.m in Sources */,
 				847B388020DDE5BC002DE2CE /* SVProgressAnimatedView.m in Sources */,

@@ -29,7 +29,7 @@
     bean.time_month = time_month;
     bean.time_minute = time_minute;
     
-    int x = arc4random() % 100000;
+    int x = arc4random() % 1000000;
     if (x==0) {
         x += 1;
     }

@@ -9,6 +9,7 @@
 #import "FMineController.h"
 #import "FMineCell.h"
 #import "FMyIncomeRecordController.h"
+#import "FMyExpandseRecordController.h"
 
 @interface FMineController ()
 @property (nonatomic, weak) UIView *ratioView;
@@ -127,6 +128,9 @@ static NSString * const reuseIdentifier = @"FMineCell";
         controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }else{
+        FMyExpandseRecordController *controller = [FMyExpandseRecordController new];
+        controller.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:controller animated:YES];
         
     }
 }

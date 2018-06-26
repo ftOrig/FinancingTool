@@ -1,38 +1,39 @@
 //
-//  FMyIncomeRecordController.m
+//  FMyExpandseRecordController.m
 //  ftool
 //
-//  Created by admin on 2018/6/25.
+//  Created by admin on 2018/6/26.
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
-#import "FMyIncomeRecordController.h"
-#import "FMyIncomeRecordCell.h"
+#import "FMyExpandseRecordController.h"
+#import "FMyExpandseRecordCell.h"
 #import "AJMonthSectionHeader.h"
-#import "FMyIncomeRecordDetailController.h"
+#import "FMyExpandseRecordDetailController.h"
 
-
-@interface FMyIncomeRecordController ()
+@interface FMyExpandseRecordController ()
 
 @property (nonatomic, strong) FAccountRecord *selectRecord;
 @property (nonatomic, weak) UIButton *loadMorebtn;
 @end
-static NSString * const reuseIdentifier = @"FMyIncomeRecordCell";
+
+static NSString * const reuseIdentifier = @"FMyExpandseRecordCell";
 static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
-@implementation FMyIncomeRecordController
+
+@implementation FMyExpandseRecordController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self initView];
-    NSMutableArray *currentMonthincome = AppDelegateInstance.currentMonthRecord.incomeArr;
+    NSMutableArray *currentMonthExpandse = AppDelegateInstance.currentMonthRecord.expandseArr;
     
-    [self.dataArray addObject:currentMonthincome];
+    [self.dataArray addObject:currentMonthExpandse];
 }
 
 - (void)initView {
     
-    NavBar *bar = [[NavBar alloc] initWithTitle:@"收入记录" leftName:nil rightName:@"" delegate:self];
+    NavBar *bar = [[NavBar alloc] initWithTitle:@"支出记录" leftName:nil rightName:@"" delegate:self];
     
     self.tableView = [UITableView tableViewWithFrmae:RECT(0, bar.maxY, MSWIDTH, MSHIGHT-bar.maxY) backgroundColor:AJGrayBackgroundColor delegate:self tableViewStyle:UITableViewStylePlain separatorStyle:UITableViewCellSeparatorStyleSingleLineEtched superview:self.view];
     
@@ -91,15 +92,15 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     }
     FCurrentMonthRecord *targetMonthRecord = [FCurrentMonthRecord mj_objectWithKeyValues:jsonstring];
     // 加载数组，刷新列表
-    [self.dataArray addObject:targetMonthRecord.incomeArr];
+    [self.dataArray addObject:targetMonthRecord.expandseArr];
     [self.tableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    FMyIncomeRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    FMyExpandseRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     FAccountRecord *bean = self.dataArray[indexPath.section][indexPath.row];
-
+    
     cell.timeL.text = [bean.time_minute substringFromIndex:3];
     cell.textL.text = bean.subType.name;
     cell.imgV.image = [UIImage imageNamed:bean.subType.iconName];
@@ -141,12 +142,12 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-
+    
     FAccountRecord *bean = self.dataArray[indexPath.section][indexPath.row];
     self.selectRecord = bean;
     
-    FMyIncomeRecordDetailController *controller = [FMyIncomeRecordDetailController new];
-    controller.aincomeRecord = bean;
+    FMyExpandseRecordDetailController *controller = [FMyExpandseRecordDetailController new];
+    controller.aExpandseRecord = bean;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

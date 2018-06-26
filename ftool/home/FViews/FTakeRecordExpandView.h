@@ -10,6 +10,8 @@
 
 @interface FTakeRecordExpandView : UIView
 
+@property (nonatomic,strong) FAccountRecord *aExpandseRecord;
+
 @property (nonatomic, weak) id<UIViewOutterDelegate> delegate;
 // 信息完成检查
 - (BOOL)infoDoneCheck;

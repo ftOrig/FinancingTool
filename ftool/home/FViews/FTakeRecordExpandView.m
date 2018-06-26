@@ -23,6 +23,17 @@
 
 @implementation FTakeRecordExpandView
 
+- (void)setAExpandseRecord:(FAccountRecord *)aExpandseRecord{
+    
+    if (!aExpandseRecord) return;
+    _aExpandseRecord = aExpandseRecord;
+    
+    self.moneyF.text = [NSString stringWithFormat:@"%.2f", aExpandseRecord.amount];
+    self.expandCategeryL.text = [NSString stringWithFormat:@"%@->%@", aExpandseRecord.firstType.name, aExpandseRecord.subType.name];;
+    self.accountCategeryL.text = aExpandseRecord.accountType;
+    self.dateL.text = aExpandseRecord.time_minute;
+    self.textView.text = aExpandseRecord.remarks;
+}
 
 - (BOOL)infoDoneCheck{
     

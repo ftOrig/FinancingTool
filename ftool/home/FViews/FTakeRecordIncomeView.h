@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface FTakeRecordIncomeView : UIView
+
+
+@property (nonatomic,strong) FAccountRecord *aincomeRecord;
 @property (nonatomic, weak) id<UIViewOutterDelegate> delegate;
 // 信息完成检查
 - (BOOL)infoDoneCheck;

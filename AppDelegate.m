@@ -48,6 +48,7 @@
     
     [self initcurrentMonthRecord];
     
+//    [self generateMonthBlance];
     return YES;
 }
 
@@ -106,8 +107,8 @@
     //    int month = [NSDate date].month;
     for (int i = 1; i<= 30; i++) {// 支出一天1-2个，收入有6份收入
         
-        NSString *time_minut = [NSString stringWithFormat:@"07月%02d日%02d时%02d分", i, 9+i%12, 10+i%20];
-        NSString *time_month = [NSString stringWithFormat:@"2018年07月"];
+        NSString *time_minut = [NSString stringWithFormat:@"04月%02d日%02d时%02d分", i, 9+i%12, 10+i%20];
+        NSString *time_month = [NSString stringWithFormat:@"2018年04月"];
         FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
         [monthExpandse addObject:expandse];
         if (i%5 == 0) {
@@ -124,7 +125,7 @@
     moth4.incomeArr = monthincome.mutableCopy;
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *filePathName = [path stringByAppendingPathComponent:@"F_default_201807.txt"];
+    NSString *filePathName = [path stringByAppendingPathComponent:@"F_default_201804.txt"];
     
     NSDictionary *month4Account = [moth4 mj_JSONObject];
     NSString *jsonString = [month4Account mj_JSONString];

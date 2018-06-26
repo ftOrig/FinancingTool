@@ -22,6 +22,17 @@
 
 @implementation FTakeRecordIncomeView
 
+- (void)setAincomeRecord:(FAccountRecord *)aincomeRecord{
+    
+    if (!aincomeRecord) return;
+    _aincomeRecord = aincomeRecord;
+   
+    self.moneyF.text = [NSString stringWithFormat:@"%.2f", aincomeRecord.amount];
+    self.expandCategeryL.text = [NSString stringWithFormat:@"%@->%@", aincomeRecord.firstType.name, aincomeRecord.subType.name];;
+    self.accountCategeryL.text = aincomeRecord.accountType;
+    self.dateL.text = aincomeRecord.time_minute;
+    self.textView.text = aincomeRecord.remarks;
+}
 
 - (BOOL)infoDoneCheck{
     
