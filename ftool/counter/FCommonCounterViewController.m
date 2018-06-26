@@ -9,9 +9,12 @@
 #import "FCommonCounterViewController.h"
 #import "BaseContentCell.h"
 
+#define LH_RESULT 40 //结果行高
+
 @interface FCommonCounterViewController (){
     CGRect headRect;
     NSInteger repayType;
+    NSInteger lastType;
     
     NSArray *_titleArray;
     NSArray *_contentArray;
@@ -24,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     NavBar *bar = [[NavBar alloc] initWithTitle:@"普通计算器" leftName:nil rightName:@"" delegate:self];
+     NavBar *bar = [[NavBar alloc] initWithTitle:@"普通贷款计算器" leftName:nil rightName:@"" delegate:self];
     
     headRect = self.headView.frame;
     
@@ -39,54 +42,128 @@
     
     repayType = 0;
     
-    _titleArray = [[NSArray alloc] initWithObjects:@"活期",@"3个月定期",@"6个月定期",
-                   @"1年定期",@"2年定期",@"3年定期",@"5年定期", nil];
-    _contentArray = [[NSArray alloc] initWithObjects:@"0.35+浮动", @"1.10+浮动",@"1.30+浮动",@"1.50+浮动",@"2.10+浮动",@"2.75+浮动",@"3.00+浮动",nil];
+//    _titleArray = [[NSArray alloc] initWithObjects:@"活期",@"3个月",@"6个月", @"1年",@"2年定期",@"3年期",@"5期", nil];
+//    _contentArray = [[NSArray alloc] initWithObjects:@"0.35动", @"1.1动",@"1.动",@"1.5动",@"2.10+浮",@"2.75+浮",@"3.00+动",nil];
+//    [_tableView reloadData];
     
-     [_tableView reloadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    // 这样不行，要把childView from headView 中 remove掉table才能上移
+//     [self resetHeadHight: - LH_RESULT*3];
 }
 
 
 - (IBAction)repayTypeChange:(UISegmentedControl *)sender {
     repayType = sender.selectedSegmentIndex;
     
-    if (sender.selectedSegmentIndex == 0) {
-        [self resetHead:-80];
-        
-    }else {
-        [self resetHead:80];
-
-    }
 }
+
+
+//修改首次或每次 标题、结果列表
+- (void) changeFirstTitle{
+
+    NSString *currTitle = _lb_firstTitle.text;
+    if(repayType == 0){ //本息 每期
+        [_lb_firstTitle setText:[currTitle stringByReplacingOccurrencesOfString:@"首期" withString:@"每期"]];
+        if (lastType != repayType) {
+            _constraint_marginTop.constant -= LH_RESULT;
+            [self resetHeadHight: 0];  //headView复原
+        }
+        
+    }else { //本金 首期
+        [_lb_firstTitle setText:[currTitle stringByReplacingOccurrencesOfString:@"每期" withString:@"首期"]];
+        if (lastType != repayType) {
+            _constraint_marginTop.constant += LH_RESULT;
+            [self resetHeadHight: LH_RESULT];
+        }
+    }
+    lastType = repayType;
+}
+
 
 - (IBAction)btnCounting:(UIButton *)sender {
     if ([self isInputed:_tf_amount andPromit:@"请输入金额"] && [self isInputed:_tf_rate andPromit:@"请输入利率"]
         && [self isInputed:_tf_limit andPromit:@"请输入年限"]) {
+        
+        [self changeFirstTitle];
+        
+        double amount = [_tf_amount.text doubleValue] * 10000;
+        double monthRate = [_tf_rate.text doubleValue]/100/12;   //月利率
+        long repayMonths = [_tf_limit.text integerValue] * 12; //还款期数
+        
         if (repayType == 0) { //等额本息
-            //每月还款 = [金额*月利率*（1+月利率)^还款月数] / [(1+月利率) ^ 还款月数-1] ;
-            double llll = powl(2, 4);
-            NSLog(@"pow = %f", llll);
-      
-            double amount = [_tf_amount.text doubleValue] * 10000;
-            double monthRate = [_tf_rate.text doubleValue]/100/12;   //月利率
-            long repayMonths = [_tf_limit.text integerValue] * 12; //还款月数
 //            amount = 10000; 示例 https://wenku.baidu.com/view/12c20baa680203d8ce2f244d.html?from=search
-//            monthRate = 0.005541667;
-//            repayMonths = 120;
+//            monthRate = 0.005541667;   repayMonths = 120;
+            
+            //每月还款 = [金额*月利率*（1+月利率)^还款月数] / [(1+月利率) ^ 还款月数-1]
             double apiecePay = (amount * monthRate * powl((1+monthRate), repayMonths))
                                 / ( powl((1+monthRate), repayMonths) -1);
+            //总共还款
+            double allRepay = apiecePay * repayMonths;
+            //共还利息
+            double allTerest = allRepay - amount;
+            [_lb_firstRepay setText:[NSString stringWithFormat:@"%.2f", apiecePay]];
+            [_lb_allRepayAmount setText:[NSString stringWithFormat:@"%.2f", allRepay]];
+            [_lb_allRepayInterest setText:[NSString stringWithFormat:@"%.2f", allTerest]];
             
-            [_lb_apieceRepay setText:[NSString stringWithFormat:@"%.2f", apiecePay]];
+            [self generateListData:repayMonths apieceRepay:apiecePay andDecrease:0] ;
+        }
+        else {     //等额本金 实例 https://wenku.baidu.com/view/7c88252bf5335a8102d220f1.html?from=search
+            //每月还款 = [贷款金额/月数] + （本金 - 已还本金累计）* 月利率
+            double alwayRepay = 0; //已还
+            double apieceRepay = (amount/repayMonths) + (amount - alwayRepay) * monthRate;
             
-            double alwayRepay = 0;
-            double benjin = (amount/repayMonths) + (amount - alwayRepay) * monthRate;
-            [_lb_firstRepay setText:[NSString stringWithFormat:@"%.2f", benjin]];
+            double monthBenjin = amount/repayMonths; //每月本金
+            double firstMonthPay = monthBenjin + (amount * monthRate); //第一月还款
+            double secondMonthPay = monthBenjin + ((amount - monthBenjin) * monthRate); //第二月还款
             
-        }else {     //等额本金
+            double decrease = firstMonthPay - secondMonthPay;  //每月递减(利息)
             
+            [_lb_firstRepay setText:[NSString stringWithFormat:@"%.2f", firstMonthPay]];
+            [_lb_dicreaseAmount setText:[NSString stringWithFormat:@"%.2f", decrease]];
             
+            double allPayInterest = 0;
+            double fisrtMothInterest = amount * monthRate; //第一月利息
+             //总还利息 累计
+            for (int i = 0; i< repayMonths; i++){
+                allPayInterest += (fisrtMothInterest - decrease*i);
+            }
+            
+            [_lb_allRepayAmount setText:[NSString stringWithFormat:@"%.2f", amount + allPayInterest]];
+            [_lb_allRepayInterest setText:[NSString stringWithFormat:@"%.2f", allPayInterest]];
+    
+            [self generateListData:repayMonths apieceRepay:fisrtMothInterest andDecrease:decrease];
         }
     }
+}
+
+//生成列表数据
+- (void) generateListData:(double) months apieceRepay:(double)apiecePay andDecrease:(double)decrease{
+    NSMutableArray *titles = [NSMutableArray array];
+    NSMutableArray *contents = [NSMutableArray array];
+    
+    if(repayType == 1){ //等额本金
+        double amount = [_tf_amount.text doubleValue] * 10000;
+        double monthBenjin = amount/months; //每月本金
+        double tempRepay;
+        
+        for (int i = 0; i< months; i++){
+            tempRepay = monthBenjin + (apiecePay - decrease*i);
+            [titles addObject:[NSString stringWithFormat:@"第 %d 期还款金额(元)", i+1]];
+            [contents addObject:[NSString stringWithFormat:@"%.2f", tempRepay]];
+        }
+        
+    }else { //等额本息
+        for(int i = 0; i< months ; i++){
+            [titles addObject:[NSString stringWithFormat:@"第 %d 期还款金额(元)", i+1]];
+            [contents addObject:[NSString stringWithFormat:@"%.2f", apiecePay]];
+        }
+    }
+    
+    _titleArray = titles;
+    _contentArray = contents;
+    [self.tableView reloadData];
 }
 
 -(BOOL) isInputed:(UITextField *)field andPromit:(NSString*)msg{
@@ -119,8 +196,8 @@
     return cell;
 }
 
--(void) resetHead: (NSInteger) varHight{
-    CGRect newFrame = _headView.frame;
+-(void) resetHeadHight: (NSInteger) varHight{
+    CGRect newFrame = headRect;
     newFrame.size.height = newFrame.size.height + varHight;
     _headView.frame = newFrame;
     

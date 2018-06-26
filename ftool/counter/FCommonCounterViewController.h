@@ -22,14 +22,15 @@
 - (IBAction)repayTypeChange:(UISegmentedControl *)sender;
 - (IBAction)btnCounting:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint_marginTop; //累计支付行top间距约束
 
-@property (weak, nonatomic) IBOutlet UILabel *lb_firstRepay;  //等额本金 有
-@property (weak, nonatomic) IBOutlet UILabel *lb_dicreaseAmount; //等额本金 有
 
-@property (weak, nonatomic) IBOutlet UILabel *lb_apieceRepay; //等额本息 有
+@property (weak, nonatomic) IBOutlet UILabel *lb_firstTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lb_firstRepay;  //首期，或每期还款
+@property (weak, nonatomic) IBOutlet UILabel *lb_dicreaseAmount; //等额本金 才有
 
-@property (weak, nonatomic) IBOutlet UILabel *lb_allRepayInterest; //共有
-@property (weak, nonatomic) IBOutlet UILabel *lb_allRepayAmount; //共有
+@property (weak, nonatomic) IBOutlet UILabel *lb_allRepayInterest; //总还利息
+@property (weak, nonatomic) IBOutlet UILabel *lb_allRepayAmount; //总还金额
 
 
 @end
