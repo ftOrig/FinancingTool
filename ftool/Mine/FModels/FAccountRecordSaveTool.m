@@ -57,4 +57,48 @@
     
     return targetMonthRecord;
 }
+
+
+
+
+
+- (BOOL)saveAccountCategaries{
+
+   
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *filePathName = [path stringByAppendingPathComponent:@"AccoutCategeries.plist"];
+    
+    // 写入plist
+    NSDictionary *dic = [AppDelegateInstance.aFAccountCategaries mj_JSONObject];
+    NSString *jsonstr = [dic mj_JSONString];
+    
+    NSDictionary *dicLast = [NSDictionary dictionaryWithContentsOfFile:filePathName];
+    NSString *jsonstrLast = [dicLast mj_JSONString];
+    if ([[jsonstr md5] isEqualToString:[jsonstrLast md5]]) {
+        return YES;
+    }
+    
+    if ([dic writeToFile:filePathName atomically:YES]) {
+        
+        return YES;
+        DLOG(@"写入成功");
+    }else{
+        
+        DLOG(@"写入失败");
+        return NO;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

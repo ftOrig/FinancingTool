@@ -12,6 +12,7 @@
 #import "FMyExpandseRecordController.h"
 #import "FMonthIncomeRecordController.h"
 #import "FMonthExpandseRecordController.h"
+#import "FMonthBudgetRecordController.h"
 
 @interface FMineController ()
 @property (nonatomic, weak) UIView *ratioView;
@@ -79,6 +80,9 @@ static NSString * const reuseIdentifier = @"FMineCell";
 }
 - (void)monthBudgetClick:(UIButton *)sender
 {
+    FMonthBudgetRecordController *controller = [FMonthBudgetRecordController new];
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
     
 }
 

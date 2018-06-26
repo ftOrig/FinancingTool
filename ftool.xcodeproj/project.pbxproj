@@ -63,6 +63,9 @@
 		8463412C20E2402900AEB64C /* FMonthIncomeRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463412B20E2402900AEB64C /* FMonthIncomeRecordController.m */; };
 		8463412F20E252E000AEB64C /* FMonthExpandseRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463412E20E252E000AEB64C /* FMonthExpandseRecordController.m */; };
 		8463413220E254D600AEB64C /* FAccountRecordSaveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463413120E254D600AEB64C /* FAccountRecordSaveTool.m */; };
+		8463413520E26D8B00AEB64C /* FMonthBudgetRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463413420E26D8B00AEB64C /* FMonthBudgetRecordController.m */; };
+		8463413920E26DD400AEB64C /* FMonthBudgetRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463413720E26DD400AEB64C /* FMonthBudgetRecordCell.m */; };
+		8463413A20E26DD400AEB64C /* FMonthBudgetRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463413820E26DD400AEB64C /* FMonthBudgetRecordCell.xib */; };
 		847B378C20DDE458002DE2CE /* AJIDFATool.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374220DDE458002DE2CE /* AJIDFATool.m */; };
 		847B378D20DDE458002DE2CE /* AppDefaultUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374420DDE458002DE2CE /* AppDefaultUtil.m */; };
 		847B378E20DDE458002DE2CE /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B374520DDE458002DE2CE /* SecurityUtil.m */; };
@@ -348,6 +351,11 @@
 		8463412E20E252E000AEB64C /* FMonthExpandseRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMonthExpandseRecordController.m; sourceTree = "<group>"; };
 		8463413020E254D600AEB64C /* FAccountRecordSaveTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAccountRecordSaveTool.h; sourceTree = "<group>"; };
 		8463413120E254D600AEB64C /* FAccountRecordSaveTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAccountRecordSaveTool.m; sourceTree = "<group>"; };
+		8463413320E26D8B00AEB64C /* FMonthBudgetRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMonthBudgetRecordController.h; sourceTree = "<group>"; };
+		8463413420E26D8B00AEB64C /* FMonthBudgetRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMonthBudgetRecordController.m; sourceTree = "<group>"; };
+		8463413620E26DD400AEB64C /* FMonthBudgetRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMonthBudgetRecordCell.h; sourceTree = "<group>"; };
+		8463413720E26DD400AEB64C /* FMonthBudgetRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMonthBudgetRecordCell.m; sourceTree = "<group>"; };
+		8463413820E26DD400AEB64C /* FMonthBudgetRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FMonthBudgetRecordCell.xib; sourceTree = "<group>"; };
 		847B373E20DDE342002DE2CE /* Product.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.pch; sourceTree = "<group>"; };
 		847B374220DDE458002DE2CE /* AJIDFATool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJIDFATool.m; sourceTree = "<group>"; };
 		847B374320DDE458002DE2CE /* ReLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReLogin.h; sourceTree = "<group>"; };
@@ -865,6 +873,8 @@
 				8463412B20E2402900AEB64C /* FMonthIncomeRecordController.m */,
 				8463412D20E252E000AEB64C /* FMonthExpandseRecordController.h */,
 				8463412E20E252E000AEB64C /* FMonthExpandseRecordController.m */,
+				8463413320E26D8B00AEB64C /* FMonthBudgetRecordController.h */,
+				8463413420E26D8B00AEB64C /* FMonthBudgetRecordController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -911,6 +921,9 @@
 				84609B3420E118EA00456128 /* FMyExpandseRecordCell.h */,
 				84609B3520E118EA00456128 /* FMyExpandseRecordCell.m */,
 				84609B3620E118EA00456128 /* FMyExpandseRecordCell.xib */,
+				8463413620E26DD400AEB64C /* FMonthBudgetRecordCell.h */,
+				8463413720E26DD400AEB64C /* FMonthBudgetRecordCell.m */,
+				8463413820E26DD400AEB64C /* FMonthBudgetRecordCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1717,6 +1730,7 @@
 				847B391320DDF024002DE2CE /* License.txt in Resources */,
 				8463412620E2386800AEB64C /* F_default_201804.txt in Resources */,
 				847B396020DE004B002DE2CE /* README.md in Resources */,
+				8463413A20E26DD400AEB64C /* FMonthBudgetRecordCell.xib in Resources */,
 				847B395720DDF870002DE2CE /* FHomeCell.xib in Resources */,
 				8463412720E2386800AEB64C /* F_default_201807.txt in Resources */,
 				187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */,
@@ -1878,6 +1892,7 @@
 				847B386220DDE5BC002DE2CE /* NSObject+MJProperty.m in Sources */,
 				847B37B520DDE563002DE2CE /* FNavigationController.m in Sources */,
 				847B389F20DDE5BC002DE2CE /* MASLayoutConstraint.m in Sources */,
+				8463413520E26D8B00AEB64C /* FMonthBudgetRecordController.m in Sources */,
 				847B394920DDF1BC002DE2CE /* UIImageView+WebCache.m in Sources */,
 				847B394E20DDF1BC002DE2CE /* UIButton+WebCache.m in Sources */,
 				184F90E420DE4F8C009D37F9 /* ConverUtil.m in Sources */,
@@ -1922,6 +1937,7 @@
 				847B37A420DDE458002DE2CE /* ProductItem.m in Sources */,
 				847B386120DDE5BC002DE2CE /* MJExtensionConst.m in Sources */,
 				847B389C20DDE5BC002DE2CE /* ViewController+MASAdditions.m in Sources */,
+				8463413920E26DD400AEB64C /* FMonthBudgetRecordCell.m in Sources */,
 				84609B3B20E11C8A00456128 /* FAccountRecord.m in Sources */,
 				182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */,
 				AACFDBEC20DF540100BDFA0E /* FEditFirstTypeController.m in Sources */,

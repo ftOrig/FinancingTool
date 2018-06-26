@@ -13,4 +13,8 @@
 + (BOOL)saveCurrentMonthBlanceRecords;
 
 + (FCurrentMonthRecord *)readLoaclCurrentMonthBlanceRecords;
+
+
++ (BOOL)saveAccountCategaries;
+
 @end

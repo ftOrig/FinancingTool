@@ -85,8 +85,6 @@
         monthBalance.incomeArr = monthincome.mutableCopy;
         
         self.currentMonthRecord = monthBalance;
-        
-
     }
 }
 
