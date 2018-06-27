@@ -11,6 +11,7 @@
 #import "FHomeCell.h"
 #import "FTakeRecordFatherController.h"
 #import "FRateViewController.h"
+#import "FLoginViewController.h"
 
 @interface FHomeViewController ()
 
@@ -73,6 +74,16 @@ static NSString * const reuseIdentifier = @"FHomeCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row == 1) {
+        
+        if (!AppDelegateInstance.userInfo) {
+            //如果未登录，则跳转登录界面
+            FLoginViewController *loginView = [[FLoginViewController alloc] init];
+            UINavigationController *loginNVC = [[UINavigationController alloc] initWithRootViewController:loginView];
+            //        loginView.backType = MyWealth;
+            [((UINavigationController *)self.tabBarController.selectedViewController) presentViewController:loginNVC animated:YES completion:nil];
+            return;
+        }
+       
         
         FTakeRecordFatherController *controller = [[FTakeRecordFatherController alloc] init];
         controller.hidesBottomBarWhenPushed = YES;

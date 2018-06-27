@@ -161,9 +161,15 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     [super viewDidDisappear:animated];
     
     if (!self.navigationController) {
-        
-        AppDelegateInstance.currentMonthRecord.expandseArr = [self.dataArray.firstObject mutableCopy];
-        [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+        if (!AppDelegateInstance.userInfo) {
+            
+            ShowLightMessage(@"保存失败！未登录！");
+        }else{
+            
+            AppDelegateInstance.currentMonthRecord.expandseArr = [self.dataArray.firstObject mutableCopy];
+            [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+        }
+       
     }
 }
 @end

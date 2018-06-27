@@ -43,7 +43,7 @@ static NSString * const reuseIdentifier = @"FMyExpandseRecordCell";
 
 - (void)initView {
     
-    NavBar *bar = [[NavBar alloc] initWithTitle:@"本月收入记录" leftName:nil rightName:@"" delegate:self];
+    NavBar *bar = [[NavBar alloc] initWithTitle:@"本月支出记录" leftName:nil rightName:@"" delegate:self];
     
     self.tableView = [UITableView tableViewWithFrmae:RECT(0, bar.maxY, MSWIDTH, MSHIGHT-bar.maxY) backgroundColor:AJGrayBackgroundColor delegate:self tableViewStyle:UITableViewStylePlain separatorStyle:UITableViewCellSeparatorStyleSingleLineEtched superview:self.view];
     
@@ -113,8 +113,16 @@ static NSString * const reuseIdentifier = @"FMyExpandseRecordCell";
     
     if (!self.navigationController) {
         
-        AppDelegateInstance.currentMonthRecord.expandseArr = [self.dataArray mutableCopy];
-        [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+        if (!AppDelegateInstance.userInfo) {
+            
+            ShowLightMessage(@"保存失败！未登录！");
+        }else{
+            
+            AppDelegateInstance.currentMonthRecord.expandseArr = [self.dataArray mutableCopy];
+            [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+            
+        }
+        
     }
 }
 @end

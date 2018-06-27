@@ -19,7 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[AppDefaultUtil sharedInstance] setLoginState:YES]; //测试登录
+    [[AppDefaultUtil sharedInstance] setLoginState:NO]; //测试登录
     NSString *clientVersion = [[NSUserDefaults standardUserDefaults] stringForKey:@"clientVersion"];
     //判断应用程序是否更新了版本
     NSLog(@"clientVersion = [%@]", clientVersion);
@@ -36,7 +36,6 @@
       
     }
     
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -46,63 +45,72 @@
     
     [self setUpKeyboardManager];
     
-    
-    [self initFAccountCategaries];
-    
-    
-    [self initcurrentMonthRecord];
+    self.userInfo = [FUserModel userFrom_NSUserDefaults];
+    if (self.userInfo) {
+        [[AppDefaultUtil sharedInstance] setLoginState:YES]; //测试登录
+    }
+
     
     return YES;
+}
+
+- (void)setUserInfo:(FUserModel *)userInfo{
+    _userInfo = userInfo;
+    
+    //    [self initFAccountCategaries];
+    self.aFAccountCategaries = [FAccountRecordSaveTool readLocalUserAccountCategaries];
+    
+    [self initcurrentMonthRecord];
 }
 
 - (void)initcurrentMonthRecord{
     
     self.currentMonthRecord = [FAccountRecordSaveTool readLoaclCurrentMonthBlanceRecords];
-    if (!self.currentMonthRecord) {
+    if (!self.currentMonthRecord) {//
         
-        // 6月份 //MM月dd日HH时mm分 yyyy年MM月
-        NSMutableArray *monthExpandse = [NSMutableArray array];
-        NSMutableArray *monthincome = [NSMutableArray array];
-        NSInteger day = [NSDate date].day;
-        int month = (int)[NSDate date].month;
-        for (int i = 1; i<= day; i++) {// 支出一天1-2个，收入有6份收入
-            
-            NSString *time_minut = [NSString stringWithFormat:@"%02d月%02d日%02d时%02d分", month, i, 9+i%12, 10+i%20];
-            NSString *time_month = [NSString stringWithFormat:@"2018年%02d月", month];
-            FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
-            [monthExpandse addObject:expandse];
-            if (i%5 == 0) {
-                
-                FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
-                [monthExpandse addObject:expandse];
-                
-                FAccountRecord *income = [FAccountRecord recordRandomIncomeWithtime_minute:time_minut time_month:time_month];
-                [monthincome addObject:income];
-            }
-        }
-        FCurrentMonthRecord *monthBalance = [FCurrentMonthRecord new];
-        monthBalance.expandseArr = monthExpandse.mutableCopy;
-        monthBalance.incomeArr = monthincome.mutableCopy;
-        
-        self.currentMonthRecord = monthBalance;
+//        // 6月份 //MM月dd日HH时mm分 yyyy年MM月
+//        NSMutableArray *monthExpandse = [NSMutableArray array];
+//        NSMutableArray *monthincome = [NSMutableArray array];
+//        NSInteger day = [NSDate date].day;
+//        int month = (int)[NSDate date].month;
+//        for (int i = 1; i<= day; i++) {// 支出一天1-2个，收入有6份收入
+//            
+//            NSString *time_minut = [NSString stringWithFormat:@"%02d月%02d日%02d时%02d分", month, i, 9+i%12, 10+i%20];
+//            NSString *time_month = [NSString stringWithFormat:@"2018年%02d月", month];
+//            FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
+//            [monthExpandse addObject:expandse];
+//            if (i%5 == 0) {
+//                
+//                FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
+//                [monthExpandse addObject:expandse];
+//                
+//                FAccountRecord *income = [FAccountRecord recordRandomIncomeWithtime_minute:time_minut time_month:time_month];
+//                [monthincome addObject:income];
+//            }
+//        }
+//        FCurrentMonthRecord *monthBalance = [FCurrentMonthRecord new];
+//        monthBalance.expandseArr = monthExpandse.mutableCopy;
+//        monthBalance.incomeArr = monthincome.mutableCopy;
+//        
+//        self.currentMonthRecord = monthBalance;
     }
 }
 
 
 
-- (void)initFAccountCategaries{
-    // 编辑过
-    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *filePathName = [path stringByAppendingPathComponent:@"AccoutCategeries.plist"];
-    FAccountCategaries *bean = [FAccountCategaries mj_objectWithFile:filePathName];
-    if (bean) {// 读取用户自定义的数据
-        self.aFAccountCategaries = bean;
-    }else{// 读取APP内部设定的数据
-       
-        NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
-        self.aFAccountCategaries = [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
-    }
-}
+//- (void)initFAccountCategaries{
+//    // 编辑过
+//    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+//    NSString *filePathName = [path stringByAppendingPathComponent:@"AccoutCategeries.plist"];
+//    FAccountCategaries *bean = [FAccountCategaries mj_objectWithFile:filePathName];
+//    if (bean) {// 读取用户自定义的数据
+//        self.aFAccountCategaries = bean;
+//    }else{// 读取APP内部设定的数据
+//
+//        NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
+//        self.aFAccountCategaries = [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
+//    }
+//}
 
 
 - (void)generateMonthBlance{
@@ -328,6 +336,8 @@
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
+    [self.userInfo saveTo_NSUserDefaults];
 }
 
 

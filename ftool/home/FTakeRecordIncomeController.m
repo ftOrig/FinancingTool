@@ -81,7 +81,14 @@
       // 替换
         [incomeArr replaceObjectAtIndex:0 withObject:incomeRecord];
     }else{
-        [incomeArr insertObject:incomeRecord atIndex:0];
+        
+        if (incomeArr.count > 1) {
+            [incomeArr insertObject:incomeRecord atIndex:0];
+            
+        }else{
+            [incomeArr addObject:incomeRecord];
+        }
+        
     }
     
     self.lastsaveRecord = incomeRecord;

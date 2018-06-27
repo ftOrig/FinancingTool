@@ -13,6 +13,9 @@
 #import "FMonthIncomeRecordController.h"
 #import "FMonthExpandseRecordController.h"
 #import "FMonthBudgetRecordController.h"
+#import "FMyIncomeRecordCell.h"// 今日记录
+#import "FMyExpandseRecordCell.h"// 今日记录
+#import "FTakeRecordFatherController.h"
 
 @interface FMineController ()
 @property (nonatomic, weak) UIView *ratioView;
@@ -20,6 +23,13 @@
 @property (nonatomic, weak) UILabel *incomeL;
 @property (nonatomic, weak) UILabel *expandseL;
 @property (nonatomic, weak) UILabel *budgetL;
+
+@property (nonatomic, strong) FAccountRecord *todayNewestRecord;
+@property (nonatomic, weak) UILabel *todayRecordCountL;
+//
+@property (nonatomic, weak) UILabel *recordStateL;
+@property (nonatomic, weak) FMyIncomeRecordCell *todayIncomeRecordView;
+@property (nonatomic, weak) FMyExpandseRecordCell *todayExpandseRecordView;
 @end
 static NSString * const reuseIdentifier = @"FMineCell";
 @implementation FMineController
@@ -29,7 +39,77 @@ static NSString * const reuseIdentifier = @"FMineCell";
     
     [self initView];
     self.dataArray = @[@"收入记录", @"支出记录"].mutableCopy;
+    
+    [self updateTodayRecordView];
 }
+
+- (void)updateTodayRecordView{
+    
+    // 查出今天的支出记录
+    NSInteger today = [NSDate date].day;
+    NSMutableArray *todayExpandseArr = [NSMutableArray array];
+    for (FAccountRecord *bean in AppDelegateInstance.currentMonthRecord.expandseArr) {
+        //MM月dd日HH时mm分
+        NSInteger recordDay = [bean.time_minute substringWithRange:NSMakeRange(3, 2)].integerValue;
+        if (recordDay == today) {
+            [todayExpandseArr addObject:bean];
+        }
+    }
+    [todayExpandseArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+        
+        return [obj1.time_minute compare:obj2.time_minute];
+    }];
+    FAccountRecord *newestExpandse = todayExpandseArr.firstObject;// 最新
+    
+    
+    // 查出今天的收入记录
+    NSMutableArray *todayIncomeArr = [NSMutableArray array];
+    for (FAccountRecord *bean in AppDelegateInstance.currentMonthRecord.incomeArr) {
+        //MM月dd日HH时mm分
+        NSInteger recordDay = [bean.time_minute substringWithRange:NSMakeRange(3, 2)].integerValue;
+        if (recordDay == today) {
+            [todayIncomeArr addObject:bean];
+        }
+    }
+    [todayIncomeArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+        
+        return [obj1.time_minute compare:obj2.time_minute];
+    }];
+    FAccountRecord *newestIncome = todayIncomeArr.firstObject;// 最新
+    
+    // 比较时间，选出最新
+    NSComparisonResult result = [newestExpandse.time_minute compare:newestIncome.time_minute];
+    if (result == NSOrderedAscending) {
+        self.todayNewestRecord = newestIncome;
+        
+        self.recordStateL.hidden = YES;
+        self.todayIncomeRecordView.hidden = NO;
+        self.todayExpandseRecordView.hidden = YES;
+    
+        self.todayIncomeRecordView.timeL.text = [newestIncome.time_minute substringFromIndex:3];
+        self.todayIncomeRecordView.textL.text = newestIncome.subType.name;
+        self.todayIncomeRecordView.imgV.image = [UIImage imageNamed:newestIncome.subType.iconName];
+        self.todayIncomeRecordView.moneyL.text = [NSString stringWithFormat:@"￥%.2f", newestIncome.amount];
+        
+    }else{
+        self.recordStateL.hidden = YES;
+        self.todayNewestRecord = newestExpandse;
+        self.todayIncomeRecordView.hidden = YES;
+        self.todayExpandseRecordView.hidden = NO;
+        
+        self.todayExpandseRecordView.timeL.text = [newestExpandse.time_minute substringFromIndex:3];
+        self.todayExpandseRecordView.textL.text = newestExpandse.subType.name;
+        self.todayExpandseRecordView.imgV.image = [UIImage imageNamed:newestExpandse.subType.iconName];
+        self.todayExpandseRecordView.moneyL.text = [NSString stringWithFormat:@"￥%.2f", newestExpandse.amount];
+    }
+    
+    // 显示view
+    self.todayRecordCountL.text = [NSString stringWithFormat:@"共%ld笔", todayExpandseArr.count + todayIncomeArr.count];
+    if (!self.todayNewestRecord) {
+        self.recordStateL.hidden = NO;
+    }
+}
+
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -65,6 +145,8 @@ static NSString * const reuseIdentifier = @"FMineCell";
     self.ratioView.height = MAX(MIN((self.tongView.height-4)*ratio, self.tongView.height-4), 0);
     
     self.ratioView.y = MAX(MIN(self.tongView.maxY -self.ratioView.height, self.tongView.maxY-2) , self.tongView.y+2);
+    
+    [self updateTodayRecordView];
 }
 
 - (void)monthIncomeClick:(UIButton *)sender
@@ -85,6 +167,30 @@ static NSString * const reuseIdentifier = @"FMineCell";
     controller.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:controller animated:YES];
     
+}
+
+- (void)addRecordBtnClick:(UIButton *)sender
+{
+    FTakeRecordFatherController *controller = [[FTakeRecordFatherController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)lookTodayRecord:(UITapGestureRecognizer *)gesture{
+    
+    CGPoint touchPoint = [gesture locationInView:gesture.view];
+    if (CGRectContainsPoint(self.todayExpandseRecordView.frame, touchPoint) == NO) {
+        return;
+    }
+    if (self.todayNewestRecord && self.todayExpandseRecordView.hidden==NO) {
+        
+        [self monthExpandseClick:nil];
+    }else if(self.todayNewestRecord && self.todayIncomeRecordView.hidden==NO){
+        
+        [self monthIncomeClick:nil];
+    }else{
+        return;
+    }
 }
 
 - (void)initView {
@@ -125,6 +231,46 @@ static NSString * const reuseIdentifier = @"FMineCell";
 
     self.budgetL.text = @"未设置";
     
+    // 最近记录=== 今天
+    UIView *recentlyRecordView = [UIView viewWithFrame:RECT(0, 260, MSWIDTH, 150) backgroundColor:AJWhiteColor superview:heaer];
+    UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lookTodayRecord:)];
+    [recentlyRecordView addGestureRecognizer:tapgesture];
+    
+    
+    UILabel *label = [UILabel labelWithFrame:RECT(15, 15, 40, 40) text:@"今" textColor:AJWhiteColor textFont:20 textAligment:NSTextAlignmentCenter superview:recentlyRecordView];
+    label.backgroundColor = [UIColor ys_blue];
+    label.font = [UIFont boldSystemFontOfSize:20];
+    ViewRadius(label, label.width/2);
+    
+    UILabel *todayRecordCountL = [UILabel labelWithFrame:RECT(label.maxX + 8, label.y, MSWIDTH-30, label.height) text:@"共0笔" textColor:[UIColor ys_darkGray] textFont:17 textAligment:NSTextAlignmentLeft superview:recentlyRecordView];
+    self.todayRecordCountL = todayRecordCountL;
+    
+    UILabel *recordStateL = [UILabel labelWithFrame:RECT(15, label.maxY + 5, MSWIDTH-30, 65) text:@"亲，您今天没有记账~" textColor:[UIColor ys_darkGray] textFont:17 textAligment:NSTextAlignmentCenter superview:recentlyRecordView];
+    recordStateL.hidden = YES;
+    
+    //
+    FMyIncomeRecordCell *todayIncomeRecordView = [[NSBundle mainBundle] loadNibNamed:@"FMyIncomeRecordCell" owner:nil options:0].lastObject;
+    self.todayIncomeRecordView =  todayIncomeRecordView;
+    todayIncomeRecordView.frame = RECT(0, recordStateL.y, MSWIDTH, recordStateL.height);
+    [recentlyRecordView addSubview:todayIncomeRecordView];
+    todayIncomeRecordView.hidden = YES;
+    ViewBorderRadius(todayIncomeRecordView, 0, .7, [UIColor ys_grayLine]);
+    
+    FMyExpandseRecordCell *todayExpandseRecordView = [[NSBundle mainBundle] loadNibNamed:@"FMyExpandseRecordCell" owner:nil options:0].lastObject;
+    self.todayExpandseRecordView =  todayExpandseRecordView;
+    todayExpandseRecordView.frame = RECT(0, recordStateL.y, MSWIDTH, recordStateL.height);
+    [recentlyRecordView addSubview:todayExpandseRecordView];
+    todayExpandseRecordView.hidden = YES;
+    ViewBorderRadius(todayExpandseRecordView, 0, .7, [UIColor ys_grayLine]);
+    
+    UIButton *torecordBtn = [UIButton buttonWithFrame:RECT(50, todayExpandseRecordView.maxY + 20, MSWIDTH-100, 37) backgroundColor:NavgationColor title:@"记一笔" titleColor:AJWhiteColor titleFont:15 target:self action:@selector(addRecordBtnClick:) superview:recentlyRecordView];
+    ViewRadius(torecordBtn, 3);
+//
+    recentlyRecordView.height = torecordBtn.maxY + 20;
+    UIView *line = [UIView viewWithFrame:RECT(0, recentlyRecordView.height-.5, MSWIDTH, .7f) backgroundColor:[UIColor ys_grayLine] superview:recentlyRecordView];
+    
+    
+    heaer.height = recentlyRecordView.maxY;
     UIView *footer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 100) backgroundColor:nil superview:nil];
     UIButton *btn = [UIButton buttonWithFrame:RECT(50, 30, MSWIDTH-100, 37) backgroundColor:AJWhiteColor title:@"退出登录" titleColor:[UIColor ys_black] titleFont:15 target:self action:@selector(signOut:) superview:footer];
     self.tableView.tableFooterView = footer;

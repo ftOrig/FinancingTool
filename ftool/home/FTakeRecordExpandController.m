@@ -81,7 +81,12 @@
         // 替换
         [expandseArr replaceObjectAtIndex:0 withObject:expandReord];
     }else{
-        [expandseArr insertObject:expandReord atIndex:0];
+        if (expandseArr.count > 1) {
+            [expandseArr insertObject:expandReord atIndex:0];
+        }else{
+            [expandseArr addObject:expandReord];
+        }
+        
     }
     
     self.lastsaveRecord = expandReord;

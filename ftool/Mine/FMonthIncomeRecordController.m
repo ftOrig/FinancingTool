@@ -111,8 +111,15 @@ static NSString * const reuseIdentifier = @"FMyIncomeRecordCell";
     
     if (!self.navigationController) {
         
-        AppDelegateInstance.currentMonthRecord.incomeArr = [self.dataArray mutableCopy];
-        [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+        if (!AppDelegateInstance.userInfo) {
+            
+            ShowLightMessage(@"保存失败！未登录！");
+        }else{
+            AppDelegateInstance.currentMonthRecord.incomeArr = [self.dataArray mutableCopy];
+            [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+            
+        }
+       
     }
 }
 @end

@@ -70,7 +70,7 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
         year -= 1;
     }
     NSString *targetDateStr = [NSString stringWithFormat:@"%04d%02d", (int)year, (int)month];
-    
+
     // 加载月份数据文件
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *fileName = [NSString stringWithFormat:@"F_%@_%@.txt", @"default", targetDateStr];
@@ -162,8 +162,13 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     
     if (!self.navigationController) {
         
-        AppDelegateInstance.currentMonthRecord.incomeArr = [self.dataArray.firstObject mutableCopy];
-        [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+        if (!AppDelegateInstance.userInfo) {
+            
+            ShowLightMessage(@"保存失败！未登录！");
+        }else{
+            AppDelegateInstance.currentMonthRecord.incomeArr = [self.dataArray.firstObject mutableCopy];
+            [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+        }
     }
 }
 @end

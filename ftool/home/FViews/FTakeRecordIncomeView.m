@@ -24,7 +24,6 @@
 
 - (void)clear{
     
-    
     self.moneyF.text = nil;
     self.expandCategeryL.text = @"未选择";
     self.accountCategeryL.text = @"未选择";

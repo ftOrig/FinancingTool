@@ -18,6 +18,7 @@
     NSInteger month = lastDate.month;
     NSString *targetDateStr = [NSString stringWithFormat:@"%04d%02d", (int)year, (int)month];
     
+//    NSString *userName = AppDelegateInstance.userInfo.phone?:@"default";
     NSString *fileName = [NSString stringWithFormat:@"F_%@_%@.txt", @"default", targetDateStr];
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
@@ -45,7 +46,19 @@
     NSInteger month = [NSDate date].month;
     NSString *targetDateStr = [NSString stringWithFormat:@"%04d%02d", (int)year, (int)month];
     
-    NSString *fileName = [NSString stringWithFormat:@"F_%@_%@.txt", @"default", targetDateStr];
+    NSString *userName = nil;
+    if ([AppDelegateInstance.userInfo.phone isEqualToString:defName]) {
+        
+         userName = @"default";
+    }else if(AppDelegateInstance.userInfo.phone.length>0){
+        
+        userName = AppDelegateInstance.userInfo.phone;
+    }else{
+        
+        return nil;
+    }
+
+    NSString *fileName = [NSString stringWithFormat:@"F_%@_%@.txt", userName, targetDateStr];
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     
@@ -59,14 +72,40 @@
 }
 
 
-
-
++ (FAccountCategaries *)readLocalUserAccountCategaries{
+    
+    // 用户是否默认用户
+    // 用户是否是有效用户
+    // 用户无效
+    NSString *fileName = nil;
+    if ([AppDelegateInstance.userInfo.phone isEqualToString:defName]) {
+        
+        fileName = @"AccoutCategeries.plist";
+    }else if(AppDelegateInstance.userInfo.phone.length>0){
+        
+        fileName = [NSString stringWithFormat:@"F%@_AccoutCategeries.plist", AppDelegateInstance.userInfo.phone];
+    }else{
+        
+        fileName = @"AccoutCategeries.plist";
+    }
+    
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *filePathName = [path stringByAppendingPathComponent:fileName];
+    FAccountCategaries *bean = [FAccountCategaries mj_objectWithFile:filePathName];
+    if (bean) {// 读取用户自定义的数据
+        return  bean;
+    }else{// 读取APP内部设定的数据
+        
+        NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
+        return  [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
+    }
+}
 
 + (BOOL)saveAccountCategaries{
 
-   
+    NSString *fileName = [NSString stringWithFormat:@"F%@_AccoutCategeries.plist", AppDelegateInstance.userInfo.phone];
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *filePathName = [path stringByAppendingPathComponent:@"AccoutCategeries.plist"];
+    NSString *filePathName = [path stringByAppendingPathComponent:fileName];
     
     // 写入plist
     NSDictionary *dic = [AppDelegateInstance.aFAccountCategaries mj_JSONObject];
@@ -88,17 +127,4 @@
         return NO;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 @end

@@ -16,5 +16,5 @@
 
 
 + (BOOL)saveAccountCategaries;
-
++ (FAccountCategaries *)readLocalUserAccountCategaries;
 @end

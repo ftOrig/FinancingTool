@@ -78,8 +78,14 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
     
     if (!self.navigationController) {
         
-        AppDelegateInstance.aFAccountCategaries.expensesTypeArr = [self.dataArray mutableCopy];
-        [FAccountRecordSaveTool saveAccountCategaries];
+        if (!AppDelegateInstance.userInfo) {
+            
+           ShowLightMessage(@"保存失败！未登录！");
+        }else{
+            AppDelegateInstance.aFAccountCategaries.expensesTypeArr = [self.dataArray mutableCopy];
+            [FAccountRecordSaveTool saveAccountCategaries];
+        }
+        
     }
 }
 @end

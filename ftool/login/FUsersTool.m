@@ -15,8 +15,6 @@
 #define KEY_Name @"name"
 #define KEY_Pwd  @"pwd"
 
-#define defName @"13388888888" //默认用户名
-#define defNamePass @"123456"  //默认用户密码
 
 @implementation FUsersTool
 

@@ -12,34 +12,18 @@
 #import "Macros_AJ.h"
 
 static NSString *const UserDefaultKey_userModel = @"userModel";
-static NSString *const UserDefaultKey_closeGesture_AppendStr = @"CloseGesture";
+
 @implementation FUserModel
 
 static NSUserDefaults *defaults;
 
-// 相同的两个东西，但是接口用了2个字段，所以做个同步
-- (void)setIs_borrow:(BOOL)is_borrow
-{
-    _type = _is_borrow = is_borrow;
-}
 
-- (void)setType:(int)type
-{
-    _type = _is_borrow = type;
-}
+
 + (void)load
 {
     defaults = [NSUserDefaults standardUserDefaults];
 }
 
-- (void)setIsCloseGesture:(BOOL)isCloseGesture
-{
-    _isCloseGesture = isCloseGesture;
-    
-    NSString *gestureKey = [self.phone appendStr:UserDefaultKey_closeGesture_AppendStr];
-    [defaults setBool:self.isCloseGesture forKey:gestureKey];
-    [defaults synchronize];
-}
 
 + (FUserModel *)sharedUser
 {
@@ -51,16 +35,6 @@ static NSUserDefaults *defaults;
     return AppDelegateInstance.userInfo;
 }
 
-- (NSString *)token
-{ /*
-     如果为空时候，去数据库中拿该登录名的缓存的ticket
-     */
-    if (!_token || [_token isKindOfClass:[NSNull class]]) {
-        _token = [defaults valueForKey:@"userToken"];
-    }
-    return _token;
-}
-
 @end
 
 
@@ -70,14 +44,6 @@ static NSUserDefaults *defaults;
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self];
     [defaults setObject:data forKey:UserDefaultKey_userModel];
-    
-    // 数据存储
-//    [userdafault setValue:self.phone forKey:@"userPhone"];
-    [defaults setValue:self.token forKey:@"userToken"];
-    
-    NSString *gestureKey = [self.phone appendStr:UserDefaultKey_closeGesture_AppendStr];
-    DLOG(@"--%d", [defaults boolForKey:gestureKey]);
-    self.isCloseGesture = [defaults boolForKey:gestureKey];
     [defaults synchronize];
 }
 
@@ -86,9 +52,6 @@ static NSUserDefaults *defaults;
     NSData *userData = [defaults objectForKey:UserDefaultKey_userModel];
     if (!userData) return nil;
     FUserModel *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
-    
-    NSString *gestureKey = [user.phone appendStr:UserDefaultKey_closeGesture_AppendStr];
-    user.isCloseGesture = [defaults boolForKey:gestureKey];
     return user;
 }
 

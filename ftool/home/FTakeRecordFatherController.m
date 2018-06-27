@@ -111,7 +111,13 @@
     
     if (!self.navigationController) {
     
-        [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+        if (!AppDelegateInstance.userInfo) {
+            
+            ShowLightMessage(@"保存失败！未登录！");
+        }else{
+            
+            [FAccountRecordSaveTool saveCurrentMonthBlanceRecords];
+        }
     }
 }
 @end

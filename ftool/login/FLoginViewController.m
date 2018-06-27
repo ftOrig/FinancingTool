@@ -490,6 +490,10 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:CHANGETABBAR object:@"2"];
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    FUserModel *user = [[FUserModel alloc] init];
+    user.phone = _phoneInput.inputField.text;
+    user.pwdStr = pwdStr;
+    AppDelegateInstance.userInfo = user;
 //    _setGestureView = [[SetGestureLockView alloc]initWithFrame:[[UIScreen mainScreen] bounds] delegate:self];
 //    [_setGestureView show];
 }
