@@ -62,8 +62,9 @@ static NSString * const reuseIdentifier = @"FMineCell";
     }
     
     CGFloat ratio = monthExpandse / monthBudget;
-    self.ratioView.y = MAX(MIN(self.tongView.y + self.tongView.height*(1-ratio), self.tongView.y + self.tongView.height) , self.tongView.y);
-    self.ratioView.height = MAX(MIN(self.tongView.height - self.tongView.height*(1-ratio)-2, self.tongView.height), 0);
+    self.ratioView.height = MAX(MIN((self.tongView.height-4)*ratio, self.tongView.height-4), 0);
+    
+    self.ratioView.y = MAX(MIN(self.tongView.maxY -self.ratioView.height, self.tongView.maxY-2) , self.tongView.y+2);
 }
 
 - (void)monthIncomeClick:(UIButton *)sender

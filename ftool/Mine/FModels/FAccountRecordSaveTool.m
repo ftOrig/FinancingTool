@@ -62,7 +62,7 @@
 
 
 
-- (BOOL)saveAccountCategaries{
++ (BOOL)saveAccountCategaries{
 
    
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;

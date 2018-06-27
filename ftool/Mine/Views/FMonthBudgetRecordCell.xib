@@ -73,13 +73,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8b-SV-hdf">
-                        <rect key="frame" x="117" y="57" width="8" height="30"/>
+                        <rect key="frame" x="117" y="57" width="120" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="255" id="8t3-PS-GVL"/>
+                            <constraint firstAttribute="width" constant="120" id="8t3-PS-GVL"/>
                             <constraint firstAttribute="height" constant="30" id="S1g-XR-8cr"/>
                         </constraints>
                         <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                     </textField>
                 </subviews>

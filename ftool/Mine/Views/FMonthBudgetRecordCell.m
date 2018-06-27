@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet LDProgressView *progressV;
 @property (weak, nonatomic) IBOutlet UITextField *budgetField;
 
+@property (assign, nonatomic) CGFloat monthExpandse;
 @end
 
 @implementation FMonthBudgetRecordCell
@@ -37,7 +38,7 @@
             monthExpandse += expandseRecord.amount;
         }
     }
-    
+    self.monthExpandse= monthExpandse;
     NSString *expandseStr = [NSString stringWithFormat:@"支出 %.2f", monthExpandse];
     self.usedL.attributedText = [MyTools getAttributedStringWithText:expandseStr start:3 end:expandseStr.length textColor:[UIColor ys_green] textFont:self.usedL.font];
     
@@ -66,6 +67,8 @@
     
     self.budgetField.delegate = self;
     self.budgetField.text = @"0.00";
+    self.budgetField.textColor = NavgationColor;
+    self.budgetField.placeholder = @"0.00";
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
@@ -76,8 +79,10 @@
     return [super hitTest:point withEvent:event];
 }
 
-//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-//
-//    self.afirstType.budget = textField.
-//}
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+
+    self.afirstType.budget = textField.text.doubleValue;
+    self.progressV.progress = self.afirstType.budget>0? self.monthExpandse/self.afirstType.budget:0;
+    return YES;
+}
 @end

@@ -49,9 +49,9 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
     self.leftBudgetL = leftBudgetL;
     label = [UILabel labelWithFrame:RECT(leftBudgetL.x, leftBudgetL.maxY+5, 100, 13) text:@"剩余预算" textColor:[[UIColor whiteColor] colorWithAlphaComponent:.8] textFont:13 textAligment:NSTextAlignmentLeft superview:heaer];
     
-    heaer.height = label.maxY + 20;
+    heaer.height = label.maxY + 15;
     self.tableView.tableHeaderView = heaer;
-    self.tableView.tableFooterView = [UIView new];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:RECT(0, 0, 0, 20)];
 }
 
 
@@ -68,22 +68,9 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 63.f;
-//}
-//
-//
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 63.f;
-//}
-
-//
-//
-//- (void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:animated];
-//
-//    [self.tableView reloadData];
-//}
+- (void)nextItemClick{
+    ShowLightMessage(@"已保存");// 实际在viewDidDisappear方法统一保存了
+}
 
 - (void)viewDidDisappear:(BOOL)animated{
     
