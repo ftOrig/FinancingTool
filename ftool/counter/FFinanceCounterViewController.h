@@ -18,8 +18,11 @@
 - (IBAction)btn_lookDetail:(UIButton *)sender;
 //理财金额
 @property (weak, nonatomic) IBOutlet UITextField *tf_amount;
-//启息日
+//启息日 btn_selectStartDate
 @property (weak, nonatomic) IBOutlet UIButton *btn_selectStartDate;
+@property (weak, nonatomic) IBOutlet UIButton *btn_selectRepayWay;
+
+- (IBAction)btnSelectDate:(UIButton *)sender;
 
 - (IBAction)segLimitTypeChange:(UISegmentedControl *)sender;
 - (IBAction)segRateTypeChange:(UISegmentedControl *)sender;

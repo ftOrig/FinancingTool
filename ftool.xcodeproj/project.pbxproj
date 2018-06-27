@@ -19,6 +19,8 @@
 		182C4A7E20DA43CD003C59F6 /* ftoolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A7D20DA43CD003C59F6 /* ftoolUITests.m */; };
 		182C4A9720DA4B48003C59F6 /* FHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9520DA4B48003C59F6 /* FHomeViewController.m */; };
 		182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */; };
+		1848DE0120E37A3600771439 /* FFinanceRepayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1848DE0020E37A3600771439 /* FFinanceRepayDetailViewController.m */; };
+		1848DE0420E3824700771439 /* FRepayDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1848DE0320E3824700771439 /* FRepayDetailCell.m */; };
 		184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D020DE824300EF7AA1 /* CaptchaView.m */; };
 		184901D420DE961700EF7AA1 /* FUsersTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D320DE961700EF7AA1 /* FUsersTool.m */; };
 		184BE8F220E0C027003703B1 /* FCommonCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184BE8F120E0C027003703B1 /* FCommonCounterViewController.m */; };
@@ -273,6 +275,10 @@
 		182C4A9920DA4BAC003C59F6 /* FCounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCounterViewController.h; sourceTree = "<group>"; };
 		182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCounterViewController.m; sourceTree = "<group>"; };
 		182C4A9F20DA4E27003C59F6 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ftool/Macros.h; sourceTree = SOURCE_ROOT; };
+		1848DDFF20E37A3600771439 /* FFinanceRepayDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFinanceRepayDetailViewController.h; sourceTree = "<group>"; };
+		1848DE0020E37A3600771439 /* FFinanceRepayDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFinanceRepayDetailViewController.m; sourceTree = "<group>"; };
+		1848DE0220E3824700771439 /* FRepayDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRepayDetailCell.h; sourceTree = "<group>"; };
+		1848DE0320E3824700771439 /* FRepayDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRepayDetailCell.m; sourceTree = "<group>"; };
 		184901CF20DE824300EF7AA1 /* CaptchaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptchaView.h; sourceTree = "<group>"; };
 		184901D020DE824300EF7AA1 /* CaptchaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptchaView.m; sourceTree = "<group>"; };
 		184901D220DE961700EF7AA1 /* FUsersTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUsersTool.h; sourceTree = "<group>"; };
@@ -817,6 +823,10 @@
 				1811130E20E215B000ABFE38 /* FHouseCounterHybirdViewController.m */,
 				1811131020E2771100ABFE38 /* FFinanceCounterViewController.h */,
 				1811131120E2771100ABFE38 /* FFinanceCounterViewController.m */,
+				1848DDFF20E37A3600771439 /* FFinanceRepayDetailViewController.h */,
+				1848DE0020E37A3600771439 /* FFinanceRepayDetailViewController.m */,
+				1848DE0220E3824700771439 /* FRepayDetailCell.h */,
+				1848DE0320E3824700771439 /* FRepayDetailCell.m */,
 			);
 			path = counter;
 			sourceTree = "<group>";
@@ -1821,6 +1831,7 @@
 				847B379320DDE458002DE2CE /* NavBar.m in Sources */,
 				847B379F20DDE458002DE2CE /* UIImageView+AJ.m in Sources */,
 				847B379820DDE458002DE2CE /* UITableViewCell+AJ.m in Sources */,
+				1848DE0120E37A3600771439 /* FFinanceRepayDetailViewController.m in Sources */,
 				847B390820DDF016002DE2CE /* BRAddressModel.m in Sources */,
 				847B396720DE0F17002DE2CE /* FTakeRecordIncomeController.m in Sources */,
 				847B37A220DDE458002DE2CE /* NSDate+AJax.m in Sources */,
@@ -1940,6 +1951,7 @@
 				847B38A420DDE5BC002DE2CE /* MASViewAttribute.m in Sources */,
 				847B395A20DDFFF1002DE2CE /* FTakeRecordFatherController.m in Sources */,
 				847B388120DDE5BC002DE2CE /* SVProgressHUD.m in Sources */,
+				1848DE0420E3824700771439 /* FRepayDetailCell.m in Sources */,
 				847B37A420DDE458002DE2CE /* ProductItem.m in Sources */,
 				847B386120DDE5BC002DE2CE /* MJExtensionConst.m in Sources */,
 				847B389C20DDE5BC002DE2CE /* ViewController+MASAdditions.m in Sources */,
