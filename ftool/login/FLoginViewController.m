@@ -178,7 +178,7 @@
     if (IS_VISITOR)
     {
         UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [closeBtn setBackgroundImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+        [closeBtn setBackgroundImage:[UIImage imageNamed:@"fclose"] forState:UIControlStateNormal];
         [closeBtn addTarget:self action:@selector(closeBtnClick) forControlEvents:UIControlEventTouchUpInside];
         [_superView addSubview:closeBtn];
         [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -7,7 +7,7 @@
 #define Macros_AJ_h
 
 // 应用程序托管
-#define AppDelegateInstance	                        ((AppDelegate*)([UIApplication sharedApplication].delegate))
+#define AppDelegateInstance	                        ((FAppDelegate*)([UIApplication sharedApplication].delegate))
 
 // 打印
 #ifdef     DEBUG

@@ -13,7 +13,7 @@ static NSString * const FToolUserDidSaveARecordNotification = @"FToolUserDidSave
 #import <UIKit/UIKit.h>
 
 @class FAccountCategaries, FCurrentMonthRecord;
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface FAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

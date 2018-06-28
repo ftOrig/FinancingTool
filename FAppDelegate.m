@@ -6,16 +6,16 @@
 //  Copyright © 2018年 apple. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "FAppDelegate.h"
 #import "FTabBarController.h"
 #import "IQKeyboardManager.h"
 #import "NSDate+BRAdd.h"
 
-@interface AppDelegate ()
+@interface FAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation FAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

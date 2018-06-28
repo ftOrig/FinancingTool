@@ -18,7 +18,7 @@
 #import "AJCustomUI.h"
 #import "MJExtension.h"         //字典和模型工具类
 #import "FUserModel.h"           //用户基类
-#import "AppDelegate.h"
+#import "FAppDelegate.h"
 #import "MJRefresh.h"
 #import "FAccountCategaries.h"
 #import "FTabBarController.h"

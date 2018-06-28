@@ -11,7 +11,7 @@
 		1811130C20E2151500ABFE38 /* FHouseCounterSimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811130B20E2151500ABFE38 /* FHouseCounterSimpleViewController.m */; };
 		1811130F20E215B000ABFE38 /* FHouseCounterHybirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811130E20E215B000ABFE38 /* FHouseCounterHybirdViewController.m */; };
 		1811131220E2771100ABFE38 /* FFinanceCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1811131120E2771100ABFE38 /* FFinanceCounterViewController.m */; };
-		182C4A5B20DA43CC003C59F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A5A20DA43CC003C59F6 /* AppDelegate.m */; };
+		182C4A5B20DA43CC003C59F6 /* FAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A5A20DA43CC003C59F6 /* FAppDelegate.m */; };
 		182C4A6320DA43CC003C59F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A6220DA43CC003C59F6 /* Assets.xcassets */; };
 		182C4A6620DA43CC003C59F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182C4A6420DA43CC003C59F6 /* LaunchScreen.storyboard */; };
 		182C4A6920DA43CC003C59F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A6820DA43CC003C59F6 /* main.m */; };
@@ -258,8 +258,8 @@
 		1811131020E2771100ABFE38 /* FFinanceCounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFinanceCounterViewController.h; sourceTree = "<group>"; };
 		1811131120E2771100ABFE38 /* FFinanceCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFinanceCounterViewController.m; sourceTree = "<group>"; };
 		182C4A5620DA43CC003C59F6 /* ftool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ftool.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		182C4A5920DA43CC003C59F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		182C4A5A20DA43CC003C59F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		182C4A5920DA43CC003C59F6 /* FAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAppDelegate.h; sourceTree = "<group>"; };
+		182C4A5A20DA43CC003C59F6 /* FAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAppDelegate.m; sourceTree = "<group>"; };
 		182C4A6220DA43CC003C59F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		182C4A6520DA43CC003C59F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		182C4A6720DA43CC003C59F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -710,8 +710,8 @@
 				8463412420E2386800AEB64C /* F_default_201806.txt */,
 				8463412320E2386800AEB64C /* F_default_201807.txt */,
 				847B373E20DDE342002DE2CE /* Product.pch */,
-				182C4A5920DA43CC003C59F6 /* AppDelegate.h */,
-				182C4A5A20DA43CC003C59F6 /* AppDelegate.m */,
+				182C4A5920DA43CC003C59F6 /* FAppDelegate.h */,
+				182C4A5A20DA43CC003C59F6 /* FAppDelegate.m */,
 				182C4A5820DA43CC003C59F6 /* ftool */,
 				182C4A7120DA43CD003C59F6 /* ftoolTests */,
 				182C4A7C20DA43CD003C59F6 /* ftoolUITests */,
@@ -1688,7 +1688,7 @@
 				TargetAttributes = {
 					182C4A5520DA43CC003C59F6 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = NBZFE9S223;
+						DevelopmentTeam = UYT9K33J8N;
 						ProvisioningStyle = Automatic;
 					};
 					182C4A6D20DA43CD003C59F6 = {
@@ -1928,7 +1928,7 @@
 				1811131220E2771100ABFE38 /* FFinanceCounterViewController.m in Sources */,
 				847B37A020DDE458002DE2CE /* NSDictionary+AJ.m in Sources */,
 				184901D420DE961700EF7AA1 /* FUsersTool.m in Sources */,
-				182C4A5B20DA43CC003C59F6 /* AppDelegate.m in Sources */,
+				182C4A5B20DA43CC003C59F6 /* FAppDelegate.m in Sources */,
 				847B387220DDE5BC002DE2CE /* MJRefreshBackNormalFooter.m in Sources */,
 				1811130F20E215B000ABFE38 /* FHouseCounterHybirdViewController.m in Sources */,
 				847B388F20DDE5BC002DE2CE /* IQUIView+IQKeyboardToolbar.m in Sources */,
@@ -2127,14 +2127,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NBZFE9S223;
+				DEVELOPMENT_TEAM = UYT9K33J8N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Product.pch";
 				INFOPLIST_FILE = ftool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.p2p.ftool;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxhy.zhy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2146,14 +2147,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NBZFE9S223;
+				DEVELOPMENT_TEAM = UYT9K33J8N;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Product.pch";
 				INFOPLIST_FILE = ftool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.p2p.ftool;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sxhy.zhy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
