@@ -60,7 +60,6 @@
 
 - (void)save{
     
-    
     NSDate *currentDate = [NSDate date];
     NSDate *recordDade = [NSDate getDate:self.aincomeRecord.time_month format:@"yyyy年MM月"];
     if (currentDate.year != recordDade.year || currentDate.month != recordDade.month) {

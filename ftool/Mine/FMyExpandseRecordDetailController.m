@@ -27,8 +27,8 @@
     
     if (ClickType_editCategory == type) {
         
-        //        FEditFirstTypeController *controller = [FEditFirstTypeController new];
-        //        [self.navigationController pushViewController:controller animated:YES];
+        FEditFirstTypeController *controller = [FEditFirstTypeController new];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 - (void)initView {
