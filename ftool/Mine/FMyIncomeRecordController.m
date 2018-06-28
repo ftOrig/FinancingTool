@@ -27,6 +27,16 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     [self initView];
     NSMutableArray *currentMonthincome = AppDelegateInstance.currentMonthRecord.incomeArr;
     
+    [currentMonthincome sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+        // 倒序
+        NSComparisonResult result = [obj1.time_minute compare:obj2.time_minute];
+        if (result == NSOrderedAscending) {
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedAscending;
+        }
+    }];
+    
     [self.dataArray addObject:currentMonthincome];
 }
 
@@ -90,8 +100,19 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
         }
     }
     FCurrentMonthRecord *targetMonthRecord = [FCurrentMonthRecord mj_objectWithKeyValues:jsonstring];
-    // 加载数组，刷新列表
-    [self.dataArray addObject:targetMonthRecord.incomeArr];
+    // 加载数组, 排序，刷新列表
+    NSMutableArray *currentMonthincome = targetMonthRecord.incomeArr;
+    [currentMonthincome sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+        // 倒序
+        NSComparisonResult result = [obj1.time_minute compare:obj2.time_minute];
+        if (result == NSOrderedAscending) {
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedAscending;
+        }
+    }];
+    
+    [self.dataArray addObject:currentMonthincome];
     [self.tableView reloadData];
 }
 
@@ -103,7 +124,7 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     cell.timeL.text = [bean.time_minute substringFromIndex:3];
     cell.textL.text = bean.subType.name;
     cell.imgV.image = [UIImage imageNamed:bean.subType.iconName];
-    cell.moneyL.text = [NSString stringWithFormat:@"￥%.2f", bean.amount];
+    cell.moneyL.text = [NSString numberformatStrFromDouble:bean.amount];
     return cell;
 }
 

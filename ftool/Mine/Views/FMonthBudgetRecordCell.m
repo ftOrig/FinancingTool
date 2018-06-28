@@ -83,6 +83,11 @@
 
     self.afirstType.budget = textField.text.doubleValue;
     self.progressV.progress = self.afirstType.budget>0? self.monthExpandse/self.afirstType.budget:0;
+    
+    if ([self.delegate respondsToSelector:@selector(customView:didClickWithType:)]) {
+        
+        [self.delegate customView:self didClickWithType:ClickType_didEndeditMonthBudget];
+    }
     return YES;
 }
 @end

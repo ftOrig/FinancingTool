@@ -27,6 +27,15 @@ static NSString * const reuseIdentifier = @"FMyExpandseRecordCell";
     
     [self initView];
     self.dataArray = AppDelegateInstance.currentMonthRecord.expandseArr;
+    [self.dataArray sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+        // 倒序
+        NSComparisonResult result = [obj1.time_minute compare:obj2.time_minute];
+        if (result == NSOrderedAscending) {
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedAscending;
+        }
+    }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidSaveARecordNotiHandler:) name:FToolUserDidSaveARecordNotification object:nil];
 }
@@ -77,7 +86,7 @@ static NSString * const reuseIdentifier = @"FMyExpandseRecordCell";
     cell.timeL.text = [bean.time_minute substringFromIndex:3];
     cell.textL.text = bean.subType.name;
     cell.imgV.image = [UIImage imageNamed:bean.subType.iconName];
-    cell.moneyL.text = [NSString stringWithFormat:@"￥%.2f", bean.amount];
+    cell.moneyL.text = [NSString numberformatStrFromDouble:bean.amount];
     return cell;
 }
 

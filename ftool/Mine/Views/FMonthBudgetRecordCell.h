@@ -10,7 +10,7 @@
 
 @interface FMonthBudgetRecordCell : UITableViewCell
 
-
+@property (nonatomic, weak) id<UIViewOutterDelegate> delegate;
 
 @property (nonatomic,strong) FFirstType *afirstType;
 @end

@@ -9,7 +9,8 @@
 // @property (nonatomic, weak) id<UIViewOutterDelegate> outterDelegate;
 //
 typedef NS_ENUM(NSInteger, ClickType){
-    ClickType_editCategory = 1,       // 账单-结算详情页面 “发送邮件”点击
+    ClickType_editCategory = 1,
+    ClickType_didEndeditMonthBudget = 1,   
 };
 
 @protocol UIViewOutterDelegate <NSObject>

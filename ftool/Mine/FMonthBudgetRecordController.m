@@ -9,7 +9,7 @@
 #import "FMonthBudgetRecordController.h"
 #import "FMonthBudgetRecordCell.h"
 
-@interface FMonthBudgetRecordController ()
+@interface FMonthBudgetRecordController ()<UIViewOutterDelegate>
 
 @property (nonatomic, weak) UILabel *totalBudgetL;
 @property (nonatomic, weak) UILabel *usedBudgetL;
@@ -23,6 +23,33 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
     
     [self initView];
     self.dataArray = AppDelegateInstance.aFAccountCategaries.expensesTypeArr;
+    
+    [self updateHeaderView];
+}
+
+- (void)customView:(UIView *)sectionView didClickWithType:(ClickType)type{
+    
+    if (type == ClickType_didEndeditMonthBudget) {
+        
+        [self updateHeaderView];
+    }
+}
+
+- (void)updateHeaderView{
+    
+    CGFloat monthBudget = 0;
+    for (FFirstType *firtypeBean in self.dataArray) {
+        monthBudget += firtypeBean.budget;
+    }
+    self.totalBudgetL.text = [NSString numberformatStrFromDouble:monthBudget];
+    
+    CGFloat monthExpandse = 0;
+    for (FAccountRecord *expandseRecord in AppDelegateInstance.currentMonthRecord.expandseArr) {
+        monthExpandse += expandseRecord.amount;
+    }
+    self.usedBudgetL.text = [NSString numberformatStrFromDouble:monthExpandse];
+    
+    self.leftBudgetL.text = [NSString numberformatStrFromDouble:(monthBudget - monthExpandse)];
 }
 
 - (void)initView {
@@ -65,6 +92,7 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
     FMonthBudgetRecordCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     FFirstType *bean = self.dataArray[indexPath.row];
     cell.afirstType = bean;
+    cell.delegate = self;
     return cell;
 }
 

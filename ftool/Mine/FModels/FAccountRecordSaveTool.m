@@ -103,7 +103,18 @@
 
 + (BOOL)saveAccountCategaries{
 
-    NSString *fileName = [NSString stringWithFormat:@"F%@_AccoutCategeries.plist", AppDelegateInstance.userInfo.phone];
+    NSString *fileName = nil;
+    if ([AppDelegateInstance.userInfo.phone isEqualToString:defName]) {
+        
+        fileName = @"AccoutCategeries.plist";
+    }else if(AppDelegateInstance.userInfo.phone.length>0){
+        
+        fileName = [NSString stringWithFormat:@"F%@_AccoutCategeries.plist", AppDelegateInstance.userInfo.phone];
+    }else{
+        
+        fileName = @"AccoutCategeries.plist";
+    }
+    
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *filePathName = [path stringByAppendingPathComponent:fileName];
     

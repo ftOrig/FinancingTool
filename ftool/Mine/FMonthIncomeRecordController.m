@@ -25,6 +25,16 @@ static NSString * const reuseIdentifier = @"FMyIncomeRecordCell";
     
     [self initView];
     self.dataArray = AppDelegateInstance.currentMonthRecord.incomeArr;
+    
+    [self.dataArray sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+        // 倒序
+        NSComparisonResult result = [obj1.time_minute compare:obj2.time_minute];
+        if (result == NSOrderedAscending) {
+            return NSOrderedDescending;
+        }else{
+            return NSOrderedAscending;
+        }
+    }];
 }
 
 - (void)initView {
@@ -74,7 +84,7 @@ static NSString * const reuseIdentifier = @"FMyIncomeRecordCell";
     cell.timeL.text = [bean.time_minute substringFromIndex:3];
     cell.textL.text = bean.subType.name;
     cell.imgV.image = [UIImage imageNamed:bean.subType.iconName];
-    cell.moneyL.text = [NSString stringWithFormat:@"￥%.2f", bean.amount];
+    cell.moneyL.text = [NSString numberformatStrFromDouble:bean.amount];
     return cell;
 }
 
