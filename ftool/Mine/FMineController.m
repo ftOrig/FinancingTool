@@ -104,9 +104,11 @@ static NSString * const reuseIdentifier = @"FMineCell";
     }
     
     // 显示view
-    self.todayRecordCountL.text = [NSString stringWithFormat:@"共%ld笔", todayExpandseArr.count + todayIncomeArr.count];
+    self.todayRecordCountL.text = [NSString stringWithFormat:@"收支记录共%ld笔", todayExpandseArr.count + todayIncomeArr.count];
     if (!self.todayNewestRecord) {
         self.recordStateL.hidden = NO;
+        self.todayIncomeRecordView.hidden = YES;
+        self.todayExpandseRecordView.hidden = YES;
     }
 }
 
@@ -144,7 +146,7 @@ static NSString * const reuseIdentifier = @"FMineCell";
     CGFloat ratio = monthExpandse / monthBudget;
     self.ratioView.height = MAX(MIN((self.tongView.height-4)*ratio, self.tongView.height-4), 0);
     
-    self.ratioView.y = MAX(MIN(self.tongView.maxY -self.ratioView.height, self.tongView.maxY-2) , self.tongView.y+2);
+    self.ratioView.y = MAX(MIN(self.tongView.maxY-2 -self.ratioView.height, self.tongView.maxY-2) , self.tongView.y+2);
     
     [self updateTodayRecordView];
 }
@@ -247,6 +249,7 @@ static NSString * const reuseIdentifier = @"FMineCell";
     
     UILabel *recordStateL = [UILabel labelWithFrame:RECT(15, label.maxY + 20, MSWIDTH-30, 65) text:@"亲，您今天没有记账~" textColor:[UIColor ys_darkGray] textFont:17 textAligment:NSTextAlignmentCenter superview:recentlyRecordView];
     recordStateL.hidden = YES;
+    self.recordStateL = recordStateL;
     
     UIView *line = [UIView viewWithFrame:RECT(0, todayRecordCountL.maxY+5, MSWIDTH, .7f) backgroundColor:[UIColor ys_grayLine] superview:recentlyRecordView];
     //
@@ -303,6 +306,9 @@ static NSString * const reuseIdentifier = @"FMineCell";
 
 - (void)signOut:(UIButton *)sender
 {
+    self.tabBarController.selectedIndex = 0;
+    [FUserModel clearUser];
+    AppDelegateInstance.userInfo = nil;
     ShowLightMessage(@"已退出登录");
 }
 

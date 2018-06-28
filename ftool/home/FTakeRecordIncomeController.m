@@ -85,13 +85,20 @@
         if (incomeArr.count > 1) {
             [incomeArr insertObject:incomeRecord atIndex:0];
             
-        }else{
+        }else if(incomeArr){
             [incomeArr addObject:incomeRecord];
+        }else{
+            incomeArr = [NSMutableArray arrayWithObject:incomeRecord];
         }
         
     }
     
     self.lastsaveRecord = incomeRecord;
+   
+    if (!AppDelegateInstance.currentMonthRecord) {
+        // 支出收入都没有
+        AppDelegateInstance.currentMonthRecord = [[FCurrentMonthRecord alloc] init];
+    }
     AppDelegateInstance.currentMonthRecord.incomeArr = incomeArr;
     return YES;
 }

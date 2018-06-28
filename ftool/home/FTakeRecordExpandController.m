@@ -83,13 +83,19 @@
     }else{
         if (expandseArr.count > 1) {
             [expandseArr insertObject:expandReord atIndex:0];
-        }else{
+        }else if(expandseArr){
             [expandseArr addObject:expandReord];
+        }else{
+            expandseArr = [NSMutableArray arrayWithObject:expandReord];
         }
         
     }
     
     self.lastsaveRecord = expandReord;
+    if (!AppDelegateInstance.currentMonthRecord) {
+        // 支出收入都没有
+        AppDelegateInstance.currentMonthRecord = [[FCurrentMonthRecord alloc] init];
+    }
     AppDelegateInstance.currentMonthRecord.expandseArr = expandseArr;
     return YES;
 }

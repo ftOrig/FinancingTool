@@ -26,7 +26,9 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     
     [self initView];
     NSMutableArray *currentMonthincome = AppDelegateInstance.currentMonthRecord.incomeArr;
-    
+    if (!currentMonthincome) {
+        return;
+    }
     [currentMonthincome sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
         // 倒序
         NSComparisonResult result = [obj1.time_minute compare:obj2.time_minute];

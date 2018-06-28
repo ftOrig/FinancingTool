@@ -18,8 +18,20 @@
     NSInteger month = lastDate.month;
     NSString *targetDateStr = [NSString stringWithFormat:@"%04d%02d", (int)year, (int)month];
     
-//    NSString *userName = AppDelegateInstance.userInfo.phone?:@"default";
-    NSString *fileName = [NSString stringWithFormat:@"F_%@_%@.txt", @"default", targetDateStr];
+
+    NSString *userName = nil;
+    DLOG(@"AppDelegateInstance.userInfo.phone = %@", AppDelegateInstance.userInfo.phone);
+    if ([AppDelegateInstance.userInfo.phone isEqualToString:defName]) {
+        
+        userName = @"default";
+    }else if(AppDelegateInstance.userInfo.phone.length>0){
+        
+        userName = AppDelegateInstance.userInfo.phone;
+    }else{
+        
+        return NO;
+    }
+    NSString *fileName = [NSString stringWithFormat:@"F_%@_%@.txt", userName, targetDateStr];
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     

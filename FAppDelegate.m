@@ -47,7 +47,7 @@
     
     self.userInfo = [FUserModel userFrom_NSUserDefaults];
     if (self.userInfo) {
-        [[AppDefaultUtil sharedInstance] setLoginState:YES]; //测试登录
+       
     }
 
     
@@ -57,7 +57,8 @@
 - (void)setUserInfo:(FUserModel *)userInfo{
     _userInfo = userInfo;
     
-    //    [self initFAccountCategaries];
+     [[AppDefaultUtil sharedInstance] setLoginState:userInfo]; //测试登录
+    
     self.aFAccountCategaries = [FAccountRecordSaveTool readLocalUserAccountCategaries];
     
     [self initcurrentMonthRecord];

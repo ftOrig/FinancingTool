@@ -10,4 +10,5 @@
 
 @interface FTakeRecordExpandController : AJContainTableController
 
+//- (BOOL)saveRecord;
 @end

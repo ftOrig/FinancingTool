@@ -10,4 +10,5 @@
 
 @interface FTakeRecordIncomeController : AJContainTableController
 
+//- (BOOL)saveRecord;
 @end

@@ -57,6 +57,8 @@ static NSUserDefaults *defaults;
 
 + (void)clearUser
 {
+    [defaults removeObjectForKey:UserDefaultKey_userModel];
+    [defaults synchronize];
 }
 //解档
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{

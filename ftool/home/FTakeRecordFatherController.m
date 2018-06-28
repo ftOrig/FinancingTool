@@ -10,6 +10,7 @@
 #import "SPPageMenu.h"
 #import "FTakeRecordIncomeController.h"
 #import "FTakeRecordExpandController.h"
+#import "MJRefreshConst.h"
 
 @interface FTakeRecordFatherController ()<SPPageMenuDelegate, UIScrollViewDelegate>
 
@@ -94,8 +95,16 @@
     UIViewController *currController = self.myChildViewControllers[fromIndex];
     [currController setValue:@(NO) forKeyPath:@"tableView.scrollsToTop"];
     
+//    if ([currController respondsToSelector:NSSelectorFromString(@"saveRecord")]) {
+//        MJRefreshMsgSend(MJRefreshMsgTarget(currController), NSSelectorFromString(@"saveRecord"), self);
+//    }
+
     UIViewController *targetViewController = self.myChildViewControllers[toIndex];
     [targetViewController setValue:@(YES) forKeyPath:@"tableView.scrollsToTop"];
+    
+//    if ([targetViewController respondsToSelector:NSSelectorFromString(@"saveRecord")]) {
+//        MJRefreshMsgSend(MJRefreshMsgTarget(targetViewController), NSSelectorFromString(@"saveRecord"), self);
+//    }
     // 如果已经加载过，就不再加载
     if ([targetViewController isViewLoaded]) return;
     targetViewController.view.frame = CGRectMake(MSWIDTH * toIndex, 0, MSWIDTH, self.scrollView.height);
