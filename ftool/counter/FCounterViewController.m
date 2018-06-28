@@ -8,8 +8,9 @@
 
 #import "FCounterViewController.h"
 #import "FHomeCell.h"
-
 #import "FHouseCounterViewController.h"
+#import "YGCTradeWindow.h"
+#import "ZTAppCalculatorViewController.h"
 
 @interface FCounterViewController (){
     NSArray *groupTitls;
@@ -98,7 +99,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     }else if (section == 2){ //第三组 /理财计算
         controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"FinanceCounter"];
     }else { //第四组 /生活小计
-        
+        [self showFloatWindow];
     }
     if (controller != nil) {
         controller.hidesBottomBarWhenPushed = YES;
@@ -106,6 +107,20 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     }
 }
 
+// 添加悬浮计算器
+- (void)showFloatWindow{
+    
+    if ([YGCTradeWindow isShow]) {
+        [YGCTradeWindow hide];
+    } else {
+        // 弹出浮层界面
+        ZTAppCalculatorViewController *vc = [[ZTAppCalculatorViewController alloc] init];
+        //    vc.view.backgroundColor = [UIColor blueColor];
+        [YGCTradeWindow showWithVc:vc];
+        [YGCTradeWindow shareWindow].frame =  CGRectMake(([UIScreen mainScreen].bounds.size.width - 220)*0.5, ([UIScreen mainScreen].bounds.size.height - 383)*0.5, 220, 383);
+        [YGCTradeWindow shareWindow].windowLevel = MAXFLOAT;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

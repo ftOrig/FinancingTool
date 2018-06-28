@@ -19,6 +19,16 @@
 		182C4A7E20DA43CD003C59F6 /* ftoolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A7D20DA43CD003C59F6 /* ftoolUITests.m */; };
 		182C4A9720DA4B48003C59F6 /* FHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9520DA4B48003C59F6 /* FHomeViewController.m */; };
 		182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */; };
+		184788DF20E5185C00415243 /* ZTAppCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184788D920E5185C00415243 /* ZTAppCalculatorViewController.m */; };
+		184788E020E5185C00415243 /* UIView+YGCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 184788DC20E5185C00415243 /* UIView+YGCExtension.m */; };
+		184788E120E5185C00415243 /* CalculateMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 184788DD20E5185C00415243 /* CalculateMethod.m */; };
+		184788E220E5185C00415243 /* YGCTradeWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 184788DE20E5185C00415243 /* YGCTradeWindow.m */; };
+		184788EC20E519D500415243 /* 计算器_放大@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184788E620E519D500415243 /* 计算器_放大@2x.png */; };
+		184788ED20E519D500415243 /* 计算器_叉@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184788E720E519D500415243 /* 计算器_叉@2x.png */; };
+		184788EE20E519D500415243 /* 计算器_叉@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184788E820E519D500415243 /* 计算器_叉@3x.png */; };
+		184788EF20E519D500415243 /* 计算器_放大@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184788E920E519D500415243 /* 计算器_放大@3x.png */; };
+		184788F020E519D500415243 /* 计算器_缩小@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184788EA20E519D500415243 /* 计算器_缩小@2x.png */; };
+		184788F120E519D500415243 /* 计算器_缩小@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 184788EB20E519D500415243 /* 计算器_缩小@3x.png */; };
 		1848DE0120E37A3600771439 /* FFinanceRepayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1848DE0020E37A3600771439 /* FFinanceRepayDetailViewController.m */; };
 		1848DE0420E3824700771439 /* FRepayDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1848DE0320E3824700771439 /* FRepayDetailCell.m */; };
 		184901D120DE824300EF7AA1 /* CaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184901D020DE824300EF7AA1 /* CaptchaView.m */; };
@@ -275,6 +285,20 @@
 		182C4A9920DA4BAC003C59F6 /* FCounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FCounterViewController.h; sourceTree = "<group>"; };
 		182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FCounterViewController.m; sourceTree = "<group>"; };
 		182C4A9F20DA4E27003C59F6 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = ftool/Macros.h; sourceTree = SOURCE_ROOT; };
+		184788D720E5185B00415243 /* UIView+YGCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YGCExtension.h"; sourceTree = "<group>"; };
+		184788D820E5185B00415243 /* CalculateMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateMethod.h; sourceTree = "<group>"; };
+		184788D920E5185C00415243 /* ZTAppCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTAppCalculatorViewController.m; sourceTree = "<group>"; };
+		184788DA20E5185C00415243 /* YGCTradeWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGCTradeWindow.h; sourceTree = "<group>"; };
+		184788DB20E5185C00415243 /* ZTAppCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTAppCalculatorViewController.h; sourceTree = "<group>"; };
+		184788DC20E5185C00415243 /* UIView+YGCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YGCExtension.m"; sourceTree = "<group>"; };
+		184788DD20E5185C00415243 /* CalculateMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateMethod.m; sourceTree = "<group>"; };
+		184788DE20E5185C00415243 /* YGCTradeWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGCTradeWindow.m; sourceTree = "<group>"; };
+		184788E620E519D500415243 /* 计算器_放大@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "计算器_放大@2x.png"; sourceTree = "<group>"; };
+		184788E720E519D500415243 /* 计算器_叉@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "计算器_叉@2x.png"; sourceTree = "<group>"; };
+		184788E820E519D500415243 /* 计算器_叉@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "计算器_叉@3x.png"; sourceTree = "<group>"; };
+		184788E920E519D500415243 /* 计算器_放大@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "计算器_放大@3x.png"; sourceTree = "<group>"; };
+		184788EA20E519D500415243 /* 计算器_缩小@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "计算器_缩小@2x.png"; sourceTree = "<group>"; };
+		184788EB20E519D500415243 /* 计算器_缩小@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "计算器_缩小@3x.png"; sourceTree = "<group>"; };
 		1848DDFF20E37A3600771439 /* FFinanceRepayDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFinanceRepayDetailViewController.h; sourceTree = "<group>"; };
 		1848DE0020E37A3600771439 /* FFinanceRepayDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFinanceRepayDetailViewController.m; sourceTree = "<group>"; };
 		1848DE0220E3824700771439 /* FRepayDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRepayDetailCell.h; sourceTree = "<group>"; };
@@ -805,6 +829,7 @@
 		182C4A9020DA4A8D003C59F6 /* counter */ = {
 			isa = PBXGroup;
 			children = (
+				184788D420E5179900415243 /* calculator */,
 				187D394220DF92AB0068D3B2 /* Counters.storyboard */,
 				182C4A9920DA4BAC003C59F6 /* FCounterViewController.h */,
 				182C4A9A20DA4BAC003C59F6 /* FCounterViewController.m */,
@@ -829,6 +854,35 @@
 				1848DE0320E3824700771439 /* FRepayDetailCell.m */,
 			);
 			path = counter;
+			sourceTree = "<group>";
+		};
+		184788D420E5179900415243 /* calculator */ = {
+			isa = PBXGroup;
+			children = (
+				184788E520E519B200415243 /* images */,
+				184788D820E5185B00415243 /* CalculateMethod.h */,
+				184788DD20E5185C00415243 /* CalculateMethod.m */,
+				184788D720E5185B00415243 /* UIView+YGCExtension.h */,
+				184788DC20E5185C00415243 /* UIView+YGCExtension.m */,
+				184788DA20E5185C00415243 /* YGCTradeWindow.h */,
+				184788DE20E5185C00415243 /* YGCTradeWindow.m */,
+				184788DB20E5185C00415243 /* ZTAppCalculatorViewController.h */,
+				184788D920E5185C00415243 /* ZTAppCalculatorViewController.m */,
+			);
+			path = calculator;
+			sourceTree = "<group>";
+		};
+		184788E520E519B200415243 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				184788E720E519D500415243 /* 计算器_叉@2x.png */,
+				184788E820E519D500415243 /* 计算器_叉@3x.png */,
+				184788E620E519D500415243 /* 计算器_放大@2x.png */,
+				184788E920E519D500415243 /* 计算器_放大@3x.png */,
+				184788EA20E519D500415243 /* 计算器_缩小@2x.png */,
+				184788EB20E519D500415243 /* 计算器_缩小@3x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		184F90C020DE4219009D37F9 /* login */ = {
@@ -1738,6 +1792,7 @@
 				847B388520DDE5BC002DE2CE /* LICENSE.txt in Resources */,
 				847B386920DDE5BC002DE2CE /* LICENSE in Resources */,
 				182C4A6320DA43CC003C59F6 /* Assets.xcassets in Resources */,
+				184788F120E519D500415243 /* 计算器_缩小@3x.png in Resources */,
 				847B390C20DDF016002DE2CE /* README.md in Resources */,
 				847B390920DDF016002DE2CE /* BRPickerView.bundle in Resources */,
 				847B397120DE524B002DE2CE /* AccoutCategeries.plist in Resources */,
@@ -1745,6 +1800,7 @@
 				847B391320DDF024002DE2CE /* License.txt in Resources */,
 				8463412620E2386800AEB64C /* F_default_201804.txt in Resources */,
 				847B396020DE004B002DE2CE /* README.md in Resources */,
+				184788ED20E519D500415243 /* 计算器_叉@2x.png in Resources */,
 				8463413A20E26DD400AEB64C /* FMonthBudgetRecordCell.xib in Resources */,
 				847B395720DDF870002DE2CE /* FHomeCell.xib in Resources */,
 				8463412720E2386800AEB64C /* F_default_201807.txt in Resources */,
@@ -1754,6 +1810,7 @@
 				84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */,
 				847B393D20DDF1BC002DE2CE /* README.md in Resources */,
 				847B388920DDE5BC002DE2CE /* LICENSE.md in Resources */,
+				184788EF20E519D500415243 /* 计算器_放大@3x.png in Resources */,
 				847B391220DDF024002DE2CE /* README.markdown in Resources */,
 				8463412920E2386800AEB64C /* F_default_201805.txt in Resources */,
 				847B388620DDE5BC002DE2CE /* LICENSE in Resources */,
@@ -1764,9 +1821,12 @@
 				847B386C20DDE5BC002DE2CE /* MJRefresh.bundle in Resources */,
 				847B388420DDE5BC002DE2CE /* README.md in Resources */,
 				847B386820DDE5BC002DE2CE /* README.md in Resources */,
+				184788EC20E519D500415243 /* 计算器_放大@2x.png in Resources */,
+				184788F020E519D500415243 /* 计算器_缩小@2x.png in Resources */,
 				187D394320DF92AB0068D3B2 /* Counters.storyboard in Resources */,
 				84609B2B20E0FFB400456128 /* FMineCell.xib in Resources */,
 				847B38A520DDE5BC002DE2CE /* README.md in Resources */,
+				184788EE20E519D500415243 /* 计算器_叉@3x.png in Resources */,
 				847B379720DDE458002DE2CE /* close_btn_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1900,6 +1960,7 @@
 				847B37A820DDE458002DE2CE /* AJContainTableController.m in Sources */,
 				847B387920DDE5BC002DE2CE /* MJRefreshFooter.m in Sources */,
 				184F90D220DE437E009D37F9 /* UIButton+KK.m in Sources */,
+				184788E020E5185C00415243 /* UIView+YGCExtension.m in Sources */,
 				847B390A20DDF016002DE2CE /* BRAddressPickerView.m in Sources */,
 				8463411E20E2321400AEB64C /* FMyExpandseRecordController.m in Sources */,
 				847B386B20DDE5BC002DE2CE /* MJRefreshConst.m in Sources */,
@@ -1914,6 +1975,7 @@
 				184F90E420DE4F8C009D37F9 /* ConverUtil.m in Sources */,
 				847B378F20DDE458002DE2CE /* ReLogin.m in Sources */,
 				847B387020DDE5BC002DE2CE /* MJRefreshBackGifFooter.m in Sources */,
+				184788DF20E5185C00415243 /* ZTAppCalculatorViewController.m in Sources */,
 				847B394020DDF1BC002DE2CE /* UIImageView+HighlightedWebCache.m in Sources */,
 				847B38ED20DDEEDB002DE2CE /* TAAbstractDotView.m in Sources */,
 				847B388220DDE5BC002DE2CE /* SVIndefiniteAnimatedView.m in Sources */,
@@ -1924,6 +1986,7 @@
 				847B389B20DDE5BC002DE2CE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				184F90D120DE437E009D37F9 /* InputView.m in Sources */,
 				847B394820DDF1BC002DE2CE /* NSData+ImageContentType.m in Sources */,
+				184788E220E5185C00415243 /* YGCTradeWindow.m in Sources */,
 				847B37A520DDE458002DE2CE /* AJTime.m in Sources */,
 				1811131220E2771100ABFE38 /* FFinanceCounterViewController.m in Sources */,
 				847B37A020DDE458002DE2CE /* NSDictionary+AJ.m in Sources */,
@@ -1959,6 +2022,7 @@
 				84609B3B20E11C8A00456128 /* FAccountRecord.m in Sources */,
 				182C4A9C20DA4BAC003C59F6 /* FCounterViewController.m in Sources */,
 				AACFDBEC20DF540100BDFA0E /* FEditFirstTypeController.m in Sources */,
+				184788E120E5185C00415243 /* CalculateMethod.m in Sources */,
 				847B378C20DDE458002DE2CE /* AJIDFATool.m in Sources */,
 				847B379120DDE458002DE2CE /* UITextField+custom.m in Sources */,
 				847B378D20DDE458002DE2CE /* AppDefaultUtil.m in Sources */,
