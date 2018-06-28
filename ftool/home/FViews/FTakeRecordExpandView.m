@@ -99,10 +99,10 @@
     }else if ([self.dateL.text isEqualToString:@"未选择"]) {
         ShowLightMessage(@"请选择时间");
         return NO;
-    }else if (self.textView.text.length < 2) {
+    }/*else if (self.textView.text.length < 2) {
         ShowLightMessage(@"请输入2个字以上备注");
         return NO;
-    }
+    }*/
     return YES;
 }
 

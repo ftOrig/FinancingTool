@@ -54,10 +54,11 @@
     
     if (!self.navigationController) {// 保存的是页面离开时的样子
         
-        [self nextItemClick];
+        [self save];
     }
 }
-- (void)nextItemClick{
+
+- (void)save{
     
     NSDate *currentDate = [NSDate date];
     NSDate *recordDade = [NSDate getDate:self.aExpandseRecord.time_month format:@"yyyy年MM月"];
@@ -77,6 +78,15 @@
         [self.aExpandseRecord copyPropertyWithRecord:expandse];
         ShowLightMessage(@"已保存！");
     }
+    
+}
+- (void)nextItemClick{
+    
+    
+    ShowLightMessage(@"已保存");
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
 }
 
 @end
