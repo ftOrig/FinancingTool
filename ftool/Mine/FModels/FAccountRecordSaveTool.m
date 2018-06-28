@@ -47,6 +47,7 @@
     NSString *targetDateStr = [NSString stringWithFormat:@"%04d%02d", (int)year, (int)month];
     
     NSString *userName = nil;
+    DLOG(@"AppDelegateInstance.userInfo.phone = %@", AppDelegateInstance.userInfo.phone);
     if ([AppDelegateInstance.userInfo.phone isEqualToString:defName]) {
         
          userName = @"default";
@@ -66,6 +67,11 @@
     
     NSString *jsonstring = [NSString stringWithContentsOfFile:filePathName encoding:NSUTF8StringEncoding error:nil];
     
+    if (!jsonstring) {// 读取APP里面设定的
+        
+        filePathName = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
+        jsonstring = [NSString stringWithContentsOfFile:filePathName encoding:NSUTF8StringEncoding error:nil];
+    }
     FCurrentMonthRecord *targetMonthRecord = [FCurrentMonthRecord mj_objectWithKeyValues:jsonstring];
     
     return targetMonthRecord;
