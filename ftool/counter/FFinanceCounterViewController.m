@@ -26,7 +26,7 @@
     double _decrease; //递减
     
     NSString *selectStartDate; //起息日
-    NSMutableArray *repayListData; //还款明细列表
+
 }
 
 @end
@@ -54,7 +54,7 @@
     limitType = 0;
     dicWay = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"0", @"一次性还本付息",
               @"1", @"先息后本",@"2", @"等额本息",@"3", @"等额本金", nil];
-    repayListData = [NSMutableArray array];
+    
     [_btn_selectRepayWay setTitle:@"一次性还本付息" forState:UIControlStateNormal];
     
 }
@@ -72,6 +72,7 @@
     else if([_btn_selectStartDate.titleLabel.text isEqualToString:@"请选择"]){
         [SVProgressHUD showImage:nil status:@"请选择起息日"];
     }else {
+        [self counting];
         
         UIStoryboard *homeStoryboard = [UIStoryboard storyboardWithName:@"Counters" bundle:nil];
         FFinanceRepayDetailViewController *detailVc = [homeStoryboard instantiateViewControllerWithIdentifier:@"FinanceRepayDetail"];
@@ -79,15 +80,20 @@
         detailVc.amount = [NSString stringWithFormat:@"%@元", _tf_amount.text];
         detailVc.interest = _lb_income.text;
         detailVc.apr = [NSString stringWithFormat:@"%@ %%", _lb_realyRate.text];
+        detailVc.repayWay = _btn_selectRepayWay.titleLabel.text;
+        
         detailVc.months = [NSString stringWithFormat:@"%@期",_tf_limitValue.text];
-        if (repayWay == 0) { //一次性的
+        //期限为日的也是一次性
+        if (repayWay == 0 || limitType == 1) { //一次性的
             detailVc.months = @"1期";
         }
-        detailVc.repayWay = _btn_selectRepayWay.titleLabel.text;
-        detailVc.endTime = [self getNewDateFromString:selectStartDate addMonth:repayMonths];
         
-        [self generateListData];
-        detailVc.data = repayListData;
+        detailVc.endTime = [self getNewDateFromString:selectStartDate addMonth:repayMonths day:0];
+        if ( limitType == 1) {
+            detailVc.endTime = [self getNewDateFromString:selectStartDate addMonth:0 day:[_tf_limitValue.text integerValue]];
+        }
+        detailVc.data = [self generateListData];
+        
         [self.navigationController pushViewController:detailVc animated:YES];
         
     }
@@ -97,6 +103,14 @@
 
 - (IBAction)segLimitTypeChange:(UISegmentedControl *)sender {
     limitType = sender.selectedSegmentIndex;
+    if(limitType == 1){ //期限单位为：日 时只有一种还款方式
+        repayWay = 0;
+        dicWay = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"0", @"一次性还本付息", nil];
+        [_btn_selectRepayWay setTitle:@"一次性还本付息" forState:UIControlStateNormal];
+    }else {
+        dicWay = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"0", @"一次性还本付息",
+                  @"1", @"先息后本",@"2", @"等额本息",@"3", @"等额本金", nil];
+    }
     [self counting];
 }
 
@@ -107,6 +121,7 @@
 
 
 -(void) counting{
+    [self.view endEditing:YES];
     
     double amount = [_tf_amount.text doubleValue] ;
     double rateValue = [_tf_rateValue.text doubleValue];
@@ -125,17 +140,18 @@
     if (rateType == 1) { //类型为月时
         monthRate = rateValue/100;
     }else if(rateType == 2){ //日时
-        monthRate = rateValue * 30;
+        monthRate = rateValue/100 * 30;
     }
     //实际年利率
     [self.lb_realyRate setText:[NSString stringWithFormat:@"%.2f", monthRate * 100* 12]];
+    months = repayMonths;
     
     if (repayWay == 0) { //一次性还本付息 = 金额 * 月利率 * 期数
         double income = amount * monthRate * repayMonths;
         [_lb_income setText:[NSString stringWithFormat:@"%.2f", income]];
         
     }else if (repayWay == 1) { //先息后本
-        months = repayMonths;
+       
         double income = amount * monthRate * repayMonths;
         [_lb_income setText:[NSString stringWithFormat:@"%.2f", income]];
         
@@ -154,7 +170,7 @@
         [_lb_income setText:[NSString stringWithFormat:@"%.2f", allTerest]];
         
 //        [self generateListData:repayMonths apieceRepay:apiecePay andDecrease:0] ;
-         months = repayMonths; firstPay = apiecePay; _decrease = 0;
+         firstPay = apiecePay; _decrease = 0;
     }
     else {     //等额本金 实例 https://wenku.baidu.com/view/7c88252bf5335a8102d220f1.html?from=search
         //每月还款 = [贷款金额/月数] + （本金 - 已还本金累计）* 月利率
@@ -175,7 +191,7 @@
         
         [_lb_income setText:[NSString stringWithFormat:@"%.2f", allPayInterest]];
         
-        months = repayMonths; firstPay = firstMonthPay; _decrease = decrease;
+        firstPay = firstMonthPay; _decrease = decrease;
 //        [self generateListData:repayMonths apieceRepay:firstMonthPay andDecrease:decrease];
     }
     
@@ -203,8 +219,8 @@
  * apiecePay 第一月还款
  * decrease 每月递减额
  */
-- (void) generateListData{
-//    NSMutableArray *repayListData = [NSMutableArray array];
+- (NSMutableArray *) generateListData{
+    NSMutableArray *repayListData = [NSMutableArray array];
 
     repayListData = [NSMutableArray array];
     if (repayWay == 0) { //一次性还本付息
@@ -212,7 +228,11 @@
         
         double oncePay = [_lb_income.text doubleValue] + [_tf_amount.text doubleValue];
         [item setObject:[NSString stringWithFormat:@"%.2f", oncePay] forKey:@"money"];
-        [item setObject:[self getNewDateFromString:selectStartDate addMonth:months] forKey:@"date"];
+        
+        [item setObject:[self getNewDateFromString:selectStartDate addMonth:[_tf_limitValue.text integerValue] day:0] forKey:@"date"];
+        if (limitType == 1) {
+            [item setObject:[self getNewDateFromString:selectStartDate addMonth:0 day:[_tf_limitValue.text integerValue]] forKey:@"date"];
+        }
         [repayListData addObject:item];
         
     }else if (repayWay == 1) { //先息后本
@@ -221,7 +241,7 @@
         for(int i = 0; i < months ; i++){
             NSMutableDictionary *item = [NSMutableDictionary dictionary];
             [item setObject:[NSString stringWithFormat:@"%.2f", incomePiece] forKey:@"money"];
-            [item setObject:[self getNewDateFromString:selectStartDate addMonth:i+1] forKey:@"date"];
+            [item setObject:[self getNewDateFromString:selectStartDate addMonth:i+1 day:0] forKey:@"date"];
             
             if (i == months-1) { //最后一笔加上本金
                 double lastpay = [_tf_amount.text doubleValue] + incomePiece;
@@ -240,7 +260,7 @@
             
             NSMutableDictionary *item = [NSMutableDictionary dictionary];
             [item setObject:[NSString stringWithFormat:@"%.2f", tempRepay] forKey:@"money"];
-            [item setObject:[self getNewDateFromString:selectStartDate addMonth:i+1] forKey:@"date"];
+            [item setObject:[self getNewDateFromString:selectStartDate addMonth:i+1 day:0] forKey:@"date"];
             
             [repayListData addObject:item];
         }
@@ -249,32 +269,36 @@
         for(int i = 0; i< months ; i++){
             NSMutableDictionary *item = [NSMutableDictionary dictionary];
             [item setObject:[NSString stringWithFormat:@"%.2f", firstPay] forKey:@"money"];
-            [item setObject:[self getNewDateFromString:selectStartDate addMonth:i+1] forKey:@"date"];
+            [item setObject:[self getNewDateFromString:selectStartDate addMonth:i+1 day:0] forKey:@"date"];
             
             [repayListData addObject:item];
         }
     }
-    
- 
+    return repayListData;
 }
 
 //增加n个月时间，换取一个新时间
--(NSString* )getNewDateFromString:(NSString*)formString addMonth:(NSInteger) addMonths {
+-(NSString* )getNewDateFromString:(NSString*)formString addMonth:(NSInteger) addMonths  day:(NSInteger) days {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT+0800"];
     
-    [formatter setDateFormat:@"yyyy-MM-dd"]; //已选时间
-    NSDate *selectDate = [formatter dateFromString:formString];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *formDate = [formatter dateFromString:formString];
     
-    NSInteger year = selectDate.year;
-    NSInteger month = selectDate.month + addMonths ;
+    NSInteger year = formDate.year;
+    NSInteger month = formDate.month + addMonths ;
+    NSInteger day = formDate.day + days;
+    if (day > 30) {
+        month += day/30;
+        day = day%30;
+    }
     if (month > 12) {
         year += month/12;
         month = month%12;
     }
     
     [formatter setDateFormat:@"yyyy-MM-dd"];//需要的格式
-    NSDate *newDate = [NSDate setYear:year month:month day:selectDate.day hour:selectDate.hour minute:selectDate.minute];
+    NSDate *newDate = [NSDate setYear:year month:month day:day hour:formDate.hour minute:formDate.minute];
     
     NSString *defaultShow = [formatter stringFromDate:newDate];
     return defaultShow;
@@ -297,7 +321,6 @@
         
         DLOG(@"SelectClick : %@  repayWay = %ld", selectValue, repayWay);
 
-//        [self changeRate];
         [self counting];
     }];
 }
@@ -334,6 +357,7 @@
 
 // 监听输入框
 - ( void )textFieldDidEndEditing:( UITextField *)textField{
+    
     [self counting];
 }
 
