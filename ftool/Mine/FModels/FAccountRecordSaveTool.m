@@ -57,7 +57,7 @@
     NSInteger year = [NSDate date].year;
     NSInteger month = [NSDate date].month;
     NSString *targetDateStr = [NSString stringWithFormat:@"%04d%02d", (int)year, (int)month];
-    
+//    targetDateStr = @"201807";
     NSString *userName = nil;
     DLOG(@"AppDelegateInstance.userInfo.phone = %@", AppDelegateInstance.userInfo.phone);
     if ([AppDelegateInstance.userInfo.phone isEqualToString:defName]) {

@@ -38,16 +38,13 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
 - (void)updateHeaderView{
     
     CGFloat monthBudget = 0;
-    for (FFirstType *firtypeBean in self.dataArray) {
-        monthBudget += firtypeBean.budget;
-    }
-    self.totalBudgetL.text = [NSString numberformatStrFromDouble:monthBudget];
-    
     CGFloat monthExpandse = 0;
     for (FAccountRecord *expandseRecord in AppDelegateInstance.currentMonthRecord.expandseArr) {
         monthExpandse += expandseRecord.amount;
+        monthBudget += expandseRecord.firstType.budget;
     }
     self.usedBudgetL.text = [NSString numberformatStrFromDouble:monthExpandse];
+     self.totalBudgetL.text = [NSString numberformatStrFromDouble:monthBudget];
     
     self.leftBudgetL.text = [NSString numberformatStrFromDouble:(monthBudget - monthExpandse)];
 }

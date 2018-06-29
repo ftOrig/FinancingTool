@@ -61,7 +61,6 @@ static NSString * const reuseIdentifier = @"FMineCell";
     }];
     FAccountRecord *newestExpandse = todayExpandseArr.lastObject;// 最新
     
-    
     // 查出今天的收入记录
     NSMutableArray *todayIncomeArr = [NSMutableArray array];
     for (FAccountRecord *bean in AppDelegateInstance.currentMonthRecord.incomeArr) {
@@ -72,7 +71,7 @@ static NSString * const reuseIdentifier = @"FMineCell";
         }
     }
     [todayIncomeArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
-        
+
         return [obj1.time_minute compare:obj2.time_minute];
     }];
     FAccountRecord *newestIncome = todayIncomeArr.lastObject;// 最新
@@ -125,16 +124,13 @@ static NSString * const reuseIdentifier = @"FMineCell";
     
     
     CGFloat monthExpandse = 0;
+    CGFloat monthBudget = 0;
     for (FAccountRecord *expandseRecord in AppDelegateInstance.currentMonthRecord.expandseArr) {
         monthExpandse += expandseRecord.amount;
+        monthBudget += expandseRecord.firstType.budget;
     }
     self.expandseL.text = [NSString numberformatStrFromDouble:monthExpandse];
     
-    
-    CGFloat monthBudget = 0;
-    for (FFirstType *firtypeBean in AppDelegateInstance.aFAccountCategaries.expensesTypeArr) {
-        monthBudget += firtypeBean.budget;
-    }
     if (monthBudget > 0) {
         self.budgetL.font = [UIFont systemFontOfSize:20];
         self.budgetL.text = [NSString numberformatStrFromDouble:monthBudget - monthExpandse];

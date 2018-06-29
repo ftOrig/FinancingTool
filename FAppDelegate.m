@@ -33,7 +33,6 @@
     } else{
         NSLog(@"更新了APP");
         [[NSUserDefaults standardUserDefaults] setObject:CLIENT_VERSION forKey:@"clientVersion"];
-      
     }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -42,15 +41,12 @@
     FTabBarController *tabbarVC = [[FTabBarController alloc] init];
     self.window.rootViewController = tabbarVC;
     
-    
+   
     [self setUpKeyboardManager];
     
     self.userInfo = [FUserModel userFrom_NSUserDefaults];
-    if (self.userInfo) {
-       
-    }
-
     
+//    [self generateMonthBlance];
     return YES;
 }
 
@@ -68,50 +64,8 @@
     
     self.currentMonthRecord = [FAccountRecordSaveTool readLoaclCurrentMonthBlanceRecords];
     if (!self.currentMonthRecord) {//
-        
-//        // 6月份 //MM月dd日HH时mm分 yyyy年MM月
-//        NSMutableArray *monthExpandse = [NSMutableArray array];
-//        NSMutableArray *monthincome = [NSMutableArray array];
-//        NSInteger day = [NSDate date].day;
-//        int month = (int)[NSDate date].month;
-//        for (int i = 1; i<= day; i++) {// 支出一天1-2个，收入有6份收入
-//            
-//            NSString *time_minut = [NSString stringWithFormat:@"%02d月%02d日%02d时%02d分", month, i, 9+i%12, 10+i%20];
-//            NSString *time_month = [NSString stringWithFormat:@"2018年%02d月", month];
-//            FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
-//            [monthExpandse addObject:expandse];
-//            if (i%5 == 0) {
-//                
-//                FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
-//                [monthExpandse addObject:expandse];
-//                
-//                FAccountRecord *income = [FAccountRecord recordRandomIncomeWithtime_minute:time_minut time_month:time_month];
-//                [monthincome addObject:income];
-//            }
-//        }
-//        FCurrentMonthRecord *monthBalance = [FCurrentMonthRecord new];
-//        monthBalance.expandseArr = monthExpandse.mutableCopy;
-//        monthBalance.incomeArr = monthincome.mutableCopy;
-//        
-//        self.currentMonthRecord = monthBalance;
     }
 }
-
-
-
-//- (void)initFAccountCategaries{
-//    // 编辑过
-//    NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-//    NSString *filePathName = [path stringByAppendingPathComponent:@"AccoutCategeries.plist"];
-//    FAccountCategaries *bean = [FAccountCategaries mj_objectWithFile:filePathName];
-//    if (bean) {// 读取用户自定义的数据
-//        self.aFAccountCategaries = bean;
-//    }else{// 读取APP内部设定的数据
-//
-//        NSString *AccoutCategeriesPath = [[NSBundle mainBundle] pathForResource:@"AccoutCategeries" ofType:@"plist"];
-//        self.aFAccountCategaries = [FAccountCategaries mj_objectWithFile:AccoutCategeriesPath];
-//    }
-//}
 
 
 - (void)generateMonthBlance{
@@ -122,8 +76,8 @@
     //    int month = [NSDate date].month;
     for (int i = 1; i<= 30; i++) {// 支出一天1-2个，收入有6份收入
         
-        NSString *time_minut = [NSString stringWithFormat:@"04月%02d日%02d时%02d分", i, 9+i%12, 10+i%20];
-        NSString *time_month = [NSString stringWithFormat:@"2018年04月"];
+        NSString *time_minut = [NSString stringWithFormat:@"07月%02d日%02d时%02d分", i, 9+i%12, 10+i%20];
+        NSString *time_month = [NSString stringWithFormat:@"2018年07月"];
         FAccountRecord *expandse = [FAccountRecord recordRandomExpandseWithtime_minute:time_minut time_month:time_month];
         [monthExpandse addObject:expandse];
         if (i%5 == 0) {
@@ -140,7 +94,7 @@
     moth4.incomeArr = monthincome.mutableCopy;
     
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *filePathName = [path stringByAppendingPathComponent:@"F_default_201804.txt"];
+    NSString *filePathName = [path stringByAppendingPathComponent:@"F_default_201807.txt"];
     
     NSDictionary *month4Account = [moth4 mj_JSONObject];
     NSString *jsonString = [month4Account mj_JSONString];
@@ -153,118 +107,166 @@
     NSMutableArray *arrtemp = [NSMutableArray array];
     FSubType *sub1, *sub2, *sub3, *sub4, *sub5, *sub6;
     sub1 = [FSubType subTypeWithName:@"早午晚餐"];
+    sub1.amountRange = @"5-700";
     [arrtemp addObject:sub1];
     sub2 = [FSubType subTypeWithName:@"烟茶水"];
+    sub2.amountRange = @"5-700";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"水果零食"];
+    sub3.amountRange = @"5-100";
     [arrtemp addObject:sub3];
     FFirstType *firstType1 = [FFirstType firstTypeWithName:@"食品酒水" budget:0 subTypeArr:arrtemp.copy];
-    
+    firstType1.initBudget = 2000;
     
     [arrtemp removeAllObjects];
     sub1 = [FSubType subTypeWithName:@"日常用品"];
+    sub1.amountRange = @"100-500";
     [arrtemp addObject:sub1];
-    sub2 = [FSubType subTypeWithName:@"回电煤气"];
+    sub2 = [FSubType subTypeWithName:@"水电煤气"];
+    sub2.amountRange = @"100-500";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"房租"];
+    sub3.amountRange = @"1000-1500";
     [arrtemp addObject:sub3];
     sub4 = [FSubType subTypeWithName:@"物业管理"];
+    sub4.amountRange = @"150-200";
     [arrtemp addObject:sub4];
     sub5 = [FSubType subTypeWithName:@"维修保养"];
+    sub5.amountRange = @"200-1000";
     [arrtemp addObject:sub5];
     FFirstType *firstType2 = [FFirstType firstTypeWithName:@"居家物业" budget:0 subTypeArr:arrtemp.copy];
-    
+    firstType2.initBudget = 4000;
     
     [arrtemp removeAllObjects];
     sub1 = [FSubType subTypeWithName:@"公共交通"];
+    sub1.amountRange = @"5-10";
     [arrtemp addObject:sub1];
     sub2 = [FSubType subTypeWithName:@"打车"];
+    sub2.amountRange = @"30-100";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"租车"];
+    sub3.amountRange = @"200-500";
     [arrtemp addObject:sub3];
     sub4 = [FSubType subTypeWithName:@"私家车"];
+    sub4.amountRange = @"200-300";
     [arrtemp addObject:sub4];
     sub5 = [FSubType subTypeWithName:@"包车"];
+    sub5.amountRange = @"500-800";
     [arrtemp addObject:sub5];
     FFirstType *firstType3 = [FFirstType firstTypeWithName:@"行车交通" budget:0 subTypeArr:arrtemp.copy];
-    
+    firstType3.initBudget = 500;
     
     [arrtemp removeAllObjects];
     sub1 = [FSubType subTypeWithName:@"运动健身"];
+    sub1.amountRange = @"10-100";
     [arrtemp addObject:sub1];
     sub2 = [FSubType subTypeWithName:@"腐败聚会"];
+    sub2.amountRange = @"150-300";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"休闲玩乐"];
+    sub3.amountRange = @"200-400";
     [arrtemp addObject:sub3];
     sub4 = [FSubType subTypeWithName:@"宠物宝贝"];
+    sub4.amountRange = @"200-400";
     [arrtemp addObject:sub4];
     sub5 = [FSubType subTypeWithName:@"旅游度假"];
+    sub5.amountRange = @"1000-3000";
     [arrtemp addObject:sub5];
     sub6 = [FSubType subTypeWithName:@"酒店费"];
+    sub6.amountRange = @"300-1000";
     [arrtemp addObject:sub6];
     FFirstType *firstType4 = [FFirstType firstTypeWithName:@"休闲娱乐" budget:0 subTypeArr:arrtemp.copy];
+    firstType4.initBudget = 1000;
     
     
     [arrtemp removeAllObjects];
     sub1 = [FSubType subTypeWithName:@"书报杂志"];
+    sub1.amountRange = @"50-200";
     [arrtemp addObject:sub1];
     sub2 = [FSubType subTypeWithName:@"培训"];
+    sub2.amountRange = @"2000-4000";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"数码装备"];
+    sub3.amountRange = @"2000-4000";
     [arrtemp addObject:sub3];
     sub4 = [FSubType subTypeWithName:@"教材"];
+    sub4.amountRange = @"50-100";
     [arrtemp addObject:sub4];
     FFirstType *firstType5 = [FFirstType firstTypeWithName:@"学习进修" budget:0 subTypeArr:arrtemp.copy];
+    firstType5.initBudget = 500;
     
     [arrtemp removeAllObjects];
     sub1 = [FSubType subTypeWithName:@"送礼"];
+    sub1.amountRange = @"200-1000";
     [arrtemp addObject:sub1];
     sub2 = [FSubType subTypeWithName:@"请客"];
+    sub2.amountRange = @"200-1000";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"孝敬长辈"];
+    sub3.amountRange = @"200-1000";
     [arrtemp addObject:sub3];
     sub4 = [FSubType subTypeWithName:@"还钱"];
+    sub4.amountRange = @"200-1000";
     [arrtemp addObject:sub4];
     sub5 = [FSubType subTypeWithName:@"慈善捐助"];
+    sub5.amountRange = @"200-1000";
     [arrtemp addObject:sub5];
     sub6 = [FSubType subTypeWithName:@"酒席红包"];
+    sub6.amountRange = @"200-1000";
     [arrtemp addObject:sub6];
     FFirstType *firstType6 = [FFirstType firstTypeWithName:@"人情来往" budget:0 subTypeArr:arrtemp.copy];
+    firstType6.initBudget = 1000;
     
     [arrtemp removeAllObjects];
     sub1 = [FSubType subTypeWithName:@"药品费"];
+    sub1.amountRange = @"20-100";
     [arrtemp addObject:sub1];
     sub2 = [FSubType subTypeWithName:@"保健费"];
+    sub2.amountRange = @"200-1000";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"美容费"];
+    sub3.amountRange = @"200-1000";
     [arrtemp addObject:sub3];
     sub4 = [FSubType subTypeWithName:@"治疗费"];
+    sub4.amountRange = @"100-200";
     [arrtemp addObject:sub4];
     FFirstType *firstType7 = [FFirstType firstTypeWithName:@"医疗保健" budget:0 subTypeArr:arrtemp.copy];
+    firstType7.initBudget = 500;
     
     [arrtemp removeAllObjects];
     sub1 = [FSubType subTypeWithName:@"银行手续"];
+    sub1.amountRange = @"10-50";
     [arrtemp addObject:sub1];
     sub2 = [FSubType subTypeWithName:@"投资亏损"];
+    sub2.amountRange = @"10-500";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"按揭还款"];
+    sub3.amountRange = @"2000-5000";
     [arrtemp addObject:sub3];
     sub4 = [FSubType subTypeWithName:@"消费税收"];
+    sub4.amountRange = @"500-1000";
     [arrtemp addObject:sub4];
     sub5 = [FSubType subTypeWithName:@"利息支出"];
+    sub5.amountRange = @"50-100";
     [arrtemp addObject:sub5];
     sub6 = [FSubType subTypeWithName:@"赔偿罚款"];
+    sub6.amountRange = @"50-300";
     [arrtemp addObject:sub6];
     FFirstType *firstType8 = [FFirstType firstTypeWithName:@"金融保险" budget:0 subTypeArr:arrtemp.copy];
+    firstType8.initBudget = 2000;
     
     [arrtemp removeAllObjects];
     sub1 = [FSubType subTypeWithName:@"其它支出"];
+    sub1.amountRange = @"50-300";
     [arrtemp addObject:sub1];
     sub2 = [FSubType subTypeWithName:@"意外丢失"];
+    sub2.amountRange = @"50-300";
     [arrtemp addObject:sub2];
     sub3 = [FSubType subTypeWithName:@"烂账损失"];
+    sub3.amountRange = @"50-300";
     [arrtemp addObject:sub3];
     FFirstType *firstType9 = [FFirstType firstTypeWithName:@"其它杂项" budget:0 subTypeArr:arrtemp.copy];
+    firstType9.initBudget = 500;
     
     NSMutableArray *expandesArr = [NSMutableArray arrayWithObjects:firstType1, firstType2, firstType3, firstType4, firstType5, firstType6, firstType7, firstType8, firstType9, nil];
     

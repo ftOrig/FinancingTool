@@ -50,6 +50,11 @@
 		187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */; };
 		187D394820DFE3190068D3B2 /* FSaveCounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D394720DFE3190068D3B2 /* FSaveCounterViewController.m */; };
 		188D51F620DF5820004A0C02 /* FRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D51F420DF5820004A0C02 /* FRateViewController.m */; };
+		84009B1120E6376A007B1516 /* AccoutCategeries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84009B1020E6376A007B1516 /* AccoutCategeries.plist */; };
+		84009B1620E63DD9007B1516 /* F_default_201806.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84009B1220E63DD8007B1516 /* F_default_201806.txt */; };
+		84009B1720E63DD9007B1516 /* F_default_201805.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84009B1320E63DD9007B1516 /* F_default_201805.txt */; };
+		84009B1820E63DD9007B1516 /* F_default_201807.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84009B1420E63DD9007B1516 /* F_default_201807.txt */; };
+		84009B1920E63DD9007B1516 /* F_default_201804.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84009B1520E63DD9007B1516 /* F_default_201804.txt */; };
 		845606A120DD01790078EDE6 /* FMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456069F20DD01790078EDE6 /* FMineController.m */; };
 		845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */ = {isa = PBXBuildFile; fileRef = 845606A520DD1C740078EDE6 /* FAccountCategaries.m */; };
 		84609B1E20E078BE00456128 /* FAddFirstTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84609B1D20E078BE00456128 /* FAddFirstTypeController.m */; };
@@ -69,10 +74,6 @@
 		8463411B20E222B700AEB64C /* FMyIncomeRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463411A20E222B700AEB64C /* FMyIncomeRecordDetailController.m */; };
 		8463411E20E2321400AEB64C /* FMyExpandseRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463411D20E2321400AEB64C /* FMyExpandseRecordController.m */; };
 		8463412120E234C500AEB64C /* FMyExpandseRecordDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463412020E234C500AEB64C /* FMyExpandseRecordDetailController.m */; };
-		8463412620E2386800AEB64C /* F_default_201804.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412220E2386800AEB64C /* F_default_201804.txt */; };
-		8463412720E2386800AEB64C /* F_default_201807.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412320E2386800AEB64C /* F_default_201807.txt */; };
-		8463412820E2386800AEB64C /* F_default_201806.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412420E2386800AEB64C /* F_default_201806.txt */; };
-		8463412920E2386800AEB64C /* F_default_201805.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8463412520E2386800AEB64C /* F_default_201805.txt */; };
 		8463412C20E2402900AEB64C /* FMonthIncomeRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463412B20E2402900AEB64C /* FMonthIncomeRecordController.m */; };
 		8463412F20E252E000AEB64C /* FMonthExpandseRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463412E20E252E000AEB64C /* FMonthExpandseRecordController.m */; };
 		8463413220E254D600AEB64C /* FAccountRecordSaveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8463413120E254D600AEB64C /* FAccountRecordSaveTool.m */; };
@@ -235,7 +236,6 @@
 		847B396420DE0F03002DE2CE /* FTakeRecordExpandController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396320DE0F03002DE2CE /* FTakeRecordExpandController.m */; };
 		847B396720DE0F17002DE2CE /* FTakeRecordIncomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */; };
 		847B396A20DE148D002DE2CE /* FTakeRecordExpandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396920DE148D002DE2CE /* FTakeRecordExpandView.m */; };
-		847B397120DE524B002DE2CE /* AccoutCategeries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847B397020DE524B002DE2CE /* AccoutCategeries.plist */; };
 		847B397720DE5B8E002DE2CE /* WSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */; };
 		AACFDBEC20DF540100BDFA0E /* FEditFirstTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */; };
 		AACFDBEF20DFDC8C00BDFA0E /* FAddSubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACFDBEE20DFDC8C00BDFA0E /* FAddSubTypeController.m */; };
@@ -340,6 +340,11 @@
 		187D394720DFE3190068D3B2 /* FSaveCounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSaveCounterViewController.m; sourceTree = "<group>"; };
 		188D51F320DF5820004A0C02 /* FRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FRateViewController.h; sourceTree = "<group>"; };
 		188D51F420DF5820004A0C02 /* FRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FRateViewController.m; sourceTree = "<group>"; };
+		84009B1020E6376A007B1516 /* AccoutCategeries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccoutCategeries.plist; sourceTree = "<group>"; };
+		84009B1220E63DD8007B1516 /* F_default_201806.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201806.txt; sourceTree = "<group>"; };
+		84009B1320E63DD9007B1516 /* F_default_201805.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201805.txt; sourceTree = "<group>"; };
+		84009B1420E63DD9007B1516 /* F_default_201807.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201807.txt; sourceTree = "<group>"; };
+		84009B1520E63DD9007B1516 /* F_default_201804.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201804.txt; sourceTree = "<group>"; };
 		8456069E20DD01790078EDE6 /* FMineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMineController.h; sourceTree = "<group>"; };
 		8456069F20DD01790078EDE6 /* FMineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMineController.m; sourceTree = "<group>"; };
 		845606A420DD1C740078EDE6 /* FAccountCategaries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAccountCategaries.h; sourceTree = "<group>"; };
@@ -374,10 +379,6 @@
 		8463411D20E2321400AEB64C /* FMyExpandseRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMyExpandseRecordController.m; sourceTree = "<group>"; };
 		8463411F20E234C500AEB64C /* FMyExpandseRecordDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMyExpandseRecordDetailController.h; sourceTree = "<group>"; };
 		8463412020E234C500AEB64C /* FMyExpandseRecordDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMyExpandseRecordDetailController.m; sourceTree = "<group>"; };
-		8463412220E2386800AEB64C /* F_default_201804.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201804.txt; sourceTree = "<group>"; };
-		8463412320E2386800AEB64C /* F_default_201807.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201807.txt; sourceTree = "<group>"; };
-		8463412420E2386800AEB64C /* F_default_201806.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201806.txt; sourceTree = "<group>"; };
-		8463412520E2386800AEB64C /* F_default_201805.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201805.txt; sourceTree = "<group>"; };
 		8463412A20E2402900AEB64C /* FMonthIncomeRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMonthIncomeRecordController.h; sourceTree = "<group>"; };
 		8463412B20E2402900AEB64C /* FMonthIncomeRecordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMonthIncomeRecordController.m; sourceTree = "<group>"; };
 		8463412D20E252E000AEB64C /* FMonthExpandseRecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMonthExpandseRecordController.h; sourceTree = "<group>"; };
@@ -691,7 +692,6 @@
 		847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTakeRecordIncomeController.m; sourceTree = "<group>"; };
 		847B396820DE148D002DE2CE /* FTakeRecordExpandView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTakeRecordExpandView.h; sourceTree = "<group>"; };
 		847B396920DE148D002DE2CE /* FTakeRecordExpandView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTakeRecordExpandView.m; sourceTree = "<group>"; };
-		847B397020DE524B002DE2CE /* AccoutCategeries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccoutCategeries.plist; sourceTree = "<group>"; };
 		847B397520DE5B8E002DE2CE /* WSPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPlaceholderTextView.h; sourceTree = "<group>"; };
 		847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPlaceholderTextView.m; sourceTree = "<group>"; };
 		AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditFirstTypeController.h; sourceTree = "<group>"; };
@@ -728,11 +728,11 @@
 		182C4A4D20DA43CC003C59F6 = {
 			isa = PBXGroup;
 			children = (
-				847B397020DE524B002DE2CE /* AccoutCategeries.plist */,
-				8463412220E2386800AEB64C /* F_default_201804.txt */,
-				8463412520E2386800AEB64C /* F_default_201805.txt */,
-				8463412420E2386800AEB64C /* F_default_201806.txt */,
-				8463412320E2386800AEB64C /* F_default_201807.txt */,
+				84009B1020E6376A007B1516 /* AccoutCategeries.plist */,
+				84009B1520E63DD9007B1516 /* F_default_201804.txt */,
+				84009B1320E63DD9007B1516 /* F_default_201805.txt */,
+				84009B1220E63DD8007B1516 /* F_default_201806.txt */,
+				84009B1420E63DD9007B1516 /* F_default_201807.txt */,
 				847B373E20DDE342002DE2CE /* Product.pch */,
 				182C4A5920DA43CC003C59F6 /* FAppDelegate.h */,
 				182C4A5A20DA43CC003C59F6 /* FAppDelegate.m */,
@@ -1782,7 +1782,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8463412820E2386800AEB64C /* F_default_201806.txt in Resources */,
 				182C4A6620DA43CC003C59F6 /* LaunchScreen.storyboard in Resources */,
 				847B393C20DDF1BC002DE2CE /* LICENSE in Resources */,
 				847B386720DDE5BC002DE2CE /* LICENSE in Resources */,
@@ -1795,15 +1794,14 @@
 				184788F120E519D500415243 /* 计算器_缩小@3x.png in Resources */,
 				847B390C20DDF016002DE2CE /* README.md in Resources */,
 				847B390920DDF016002DE2CE /* BRPickerView.bundle in Resources */,
-				847B397120DE524B002DE2CE /* AccoutCategeries.plist in Resources */,
 				847B387E20DDE5BC002DE2CE /* README.md in Resources */,
 				847B391320DDF024002DE2CE /* License.txt in Resources */,
-				8463412620E2386800AEB64C /* F_default_201804.txt in Resources */,
 				847B396020DE004B002DE2CE /* README.md in Resources */,
 				184788ED20E519D500415243 /* 计算器_叉@2x.png in Resources */,
 				8463413A20E26DD400AEB64C /* FMonthBudgetRecordCell.xib in Resources */,
 				847B395720DDF870002DE2CE /* FHomeCell.xib in Resources */,
-				8463412720E2386800AEB64C /* F_default_201807.txt in Resources */,
+				84009B1620E63DD9007B1516 /* F_default_201806.txt in Resources */,
+				84009B1720E63DD9007B1516 /* F_default_201805.txt in Resources */,
 				187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */,
 				847B388320DDE5BC002DE2CE /* SVProgressHUD.bundle in Resources */,
 				847B389120DDE5BC002DE2CE /* IQKeyboardManager.bundle in Resources */,
@@ -1812,14 +1810,16 @@
 				847B388920DDE5BC002DE2CE /* LICENSE.md in Resources */,
 				184788EF20E519D500415243 /* 计算器_放大@3x.png in Resources */,
 				847B391220DDF024002DE2CE /* README.markdown in Resources */,
-				8463412920E2386800AEB64C /* F_default_201805.txt in Resources */,
+				84009B1920E63DD9007B1516 /* F_default_201804.txt in Resources */,
 				847B388620DDE5BC002DE2CE /* LICENSE in Resources */,
 				84609B3820E118EA00456128 /* FMyExpandseRecordCell.xib in Resources */,
 				847B388820DDE5BC002DE2CE /* README.md in Resources */,
 				847B388A20DDE5BC002DE2CE /* README.md in Resources */,
+				84009B1820E63DD9007B1516 /* F_default_201807.txt in Resources */,
 				847B390B20DDF016002DE2CE /* LICENSE in Resources */,
 				847B386C20DDE5BC002DE2CE /* MJRefresh.bundle in Resources */,
 				847B388420DDE5BC002DE2CE /* README.md in Resources */,
+				84009B1120E6376A007B1516 /* AccoutCategeries.plist in Resources */,
 				847B386820DDE5BC002DE2CE /* README.md in Resources */,
 				184788EC20E519D500415243 /* 计算器_放大@2x.png in Resources */,
 				184788F020E519D500415243 /* 计算器_缩小@2x.png in Resources */,

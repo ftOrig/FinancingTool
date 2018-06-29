@@ -27,14 +27,21 @@
 @property (nonatomic,assign) CGFloat budget;
 @property (nonatomic, copy) NSMutableArray<FSubType *> *subTypeArr;
 
+
+@property (nonatomic,assign) CGFloat initBudget;// 仅随机生成数据时使用
+
 + (instancetype)firstTypeWithName:(NSString *)name budget:(CGFloat)budget subTypeArr:(NSMutableArray<FSubType *> *)SubTypeArr;
 @end
 
 @interface FSubType : BaseEntity
 
+@property (nonatomic, weak) FFirstType *firstType;
 @property (nonatomic, copy) NSString *iconName;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isEditable;
+
+
+@property (nonatomic, copy) NSString *amountRange;// 用于随机生成时，其他时候不用管这个属性
 
 
 + (instancetype)subTypeWithName:(NSString *)name;
