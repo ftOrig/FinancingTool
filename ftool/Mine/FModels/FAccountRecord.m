@@ -47,8 +47,12 @@
 + (instancetype)recordRandomIncomeWithtime_minute:(NSString *)time_minute time_month:(NSString *)time_month{
     
     FAccountRecord *bean = [[FAccountRecord alloc] init];
-    bean.time_month = time_month;
-    bean.time_minute = time_minute;
+    bean.time_month = time_month;// yyyy年MM月
+    bean.time_minute = time_minute;// MM月dd日HH时mm分
+    
+    NSDate *date = [NSDate getDate:[time_month stringByAppendingString:time_minute] format:@"yyyy年MM月MM月dd日HH时mm分"];
+    NSDate *target = [date dateByAddingTimeInterval:60*60];
+    bean.editTime = [NSDate getDateString:target format:@"yyyyMMddHHmmss"];
     
     int x = arc4random() % 1000000;
     if (x==0) {
@@ -94,6 +98,10 @@
     FAccountRecord *bean = [[FAccountRecord alloc] init];
     bean.time_month = time_month;
     bean.time_minute = time_minute;
+    
+    NSDate *date = [NSDate getDate:[time_month stringByAppendingString:time_minute] format:@"yyyy年MM月MM月dd日HH时mm分"];
+    NSDate *target = [date dateByAddingTimeInterval:60*60];
+    bean.editTime = [NSDate getDateString:target format:@"yyyyMMddHHmmss"];
     
     int x = arc4random() % 10000;
     if (x==0) {

@@ -8,6 +8,9 @@
 
 #import "FAccountRecordSaveTool.h"
 
+// 在存储时，需要添加这个数组再存，否则会数据丢失
+static NSMutableArray *expiredDateExpandseArr;
+
 @implementation FAccountRecordSaveTool
 
 + (BOOL)saveCurrentMonthBlanceRecords
@@ -37,7 +40,7 @@
     
     NSString *filePathName = [path stringByAppendingPathComponent:fileName];
     
-    
+//    AppDelegateInstance.currentMonthRecord.expandseArr
     NSDictionary *month4Account = [AppDelegateInstance.currentMonthRecord mj_JSONObject];
     NSString *jsonString = [month4Account mj_JSONString];
     NSString *jsonstringLast = [NSString stringWithContentsOfFile:filePathName encoding:NSUTF8StringEncoding error:nil];
@@ -79,12 +82,50 @@
     
     NSString *jsonstring = [NSString stringWithContentsOfFile:filePathName encoding:NSUTF8StringEncoding error:nil];
     
+    BOOL isFormDoc = YES;
     if (!jsonstring) {// 读取APP里面设定的
         
         filePathName = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
         jsonstring = [NSString stringWithContentsOfFile:filePathName encoding:NSUTF8StringEncoding error:nil];
+        isFormDoc = NO;
     }
     FCurrentMonthRecord *targetMonthRecord = [FCurrentMonthRecord mj_objectWithKeyValues:jsonstring];
+    
+    // 如果是默认用户，需要先拿走超过当前日期的记录，但是不能删除，也不能直接引用。需要先保存，在存储数据的时候需要添加保存的这部分再一起写进文件
+    if ([userName isEqualToString:@"default"] && isFormDoc == NO) {
+        
+        // 支出
+        NSMutableArray *expandseArrTemp = targetMonthRecord.expandseArr.mutableCopy;
+        
+        NSDate *date = [[NSDate date] dateByAddingTimeInterval:60*60];
+        NSString *currentTime = [NSDate getDateString:date format:@"MM月dd日HH时mm分"];
+        
+        expiredDateExpandseArr = [NSMutableArray array];
+        for (FAccountRecord *bean in expandseArrTemp) {
+            // 大于当前时间的索引
+            if ([bean.time_minute compare:currentTime] != NSOrderedAscending) {// 距现在60分钟以内的都不行
+                [expiredDateExpandseArr addObject:bean];
+            }
+        }
+        [expandseArrTemp removeObjectsInArray:expiredDateExpandseArr];
+        targetMonthRecord.expandseArr = expandseArrTemp;
+        
+        // 收入
+//        NSMutableArray *expandseArrTemp = targetMonthRecord.expandseArr.mutableCopy;
+//
+//        NSDate *date = [[NSDate date] dateByAddingTimeInterval:60*60];
+//        NSString *currentTime = [NSDate getDateString:date format:@"MM月dd日HH时mm分"];
+//
+//        expiredDateExpandseArr = [NSMutableArray array];
+//        for (FAccountRecord *bean in expandseArrTemp) {
+//            // 大于当前时间的索引
+//            if ([bean.time_minute compare:currentTime] != NSOrderedAscending) {// 距现在60分钟以内的都不行
+//                [expiredDateExpandseArr addObject:bean];
+//            }
+//        }
+//        [expandseArrTemp removeObjectsInArray:expiredDateExpandseArr];
+//        targetMonthRecord.expandseArr = expandseArrTemp;
+    }
     
     return targetMonthRecord;
 }

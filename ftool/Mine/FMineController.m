@@ -57,7 +57,7 @@ static NSString * const reuseIdentifier = @"FMineCell";
     }
     [todayExpandseArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
         
-        return [obj1.time_minute compare:obj2.time_minute];
+        return [obj1.editTime compare:obj2.editTime];
     }];
     FAccountRecord *newestExpandse = todayExpandseArr.lastObject;// 最新
     
@@ -72,12 +72,12 @@ static NSString * const reuseIdentifier = @"FMineCell";
     }
     [todayIncomeArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
 
-        return [obj1.time_minute compare:obj2.time_minute];
+        return [obj1.editTime compare:obj2.editTime];
     }];
     FAccountRecord *newestIncome = todayIncomeArr.lastObject;// 最新
     
     // 比较时间，选出最新
-    NSComparisonResult result = [newestExpandse.time_minute compare:newestIncome.time_minute];
+    NSComparisonResult result = [newestExpandse.editTime compare:newestIncome.editTime];
     if (result == NSOrderedAscending) {
         self.todayNewestRecord = newestIncome;
         
