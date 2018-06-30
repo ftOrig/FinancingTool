@@ -302,10 +302,14 @@ static NSString * const reuseIdentifier = @"FMineCell";
 
 - (void)signOut:(UIButton *)sender
 {
-    self.tabBarController.selectedIndex = 0;
-    [FUserModel clearUser];
-    AppDelegateInstance.userInfo = nil;
-    ShowLightMessage(@"已退出登录");
+    [SVProgressHUD show];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        ShowLightMessage(@"已退出登录");
+        self.tabBarController.selectedIndex = 0;
+        [FUserModel clearUser];
+        AppDelegateInstance.userInfo = nil;
+    });
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

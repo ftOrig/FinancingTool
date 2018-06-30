@@ -12,12 +12,18 @@
 #import "FTakeRecordFatherController.h"
 #import "FRateViewController.h"
 #import "FLoginViewController.h"
+#import "FHomeNews.h"
+#import "FHomeNewsCell.h"
+#import "UIImageView+WebCache.h"
+#import "FWebController.h"
 
+#define baseUrl @"https://wechat.meipenggang.com"
 @interface FHomeViewController ()
 
 @property (nonatomic, weak) HomeHeader *header;
 @end
 static NSString * const reuseIdentifier = @"FHomeCell";
+static NSString * const reuseIdentifier2 = @"FHomeNewsCell";
 @implementation FHomeViewController
 
 - (void)viewDidLoad {
@@ -29,6 +35,18 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     self.header.imageURLStringsGroup = @[@"https://static.weijinzaixian.com/ad_0603403dc18654ec40c34a63c5eb5dd8.jpg",
                                          @"https://static.weijinzaixian.com/ad_15bf2acdc7a3119e37d3fae7bcdbd10f.jpg",
                                          @"https://static.weijinzaixian.com/ad_261360cfeb807ef46adbf76b69f5c8a2.jpg"];
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self requestData];
+//    });
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    
+    
 }
 
 - (void)initView
@@ -51,11 +69,61 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     
     [self addTableViewRefreshHeader];
     [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
+     [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier2 bundle:nil] forCellReuseIdentifier:reuseIdentifier2];
 }
+
 
 - (void)requestData{
     [MyTools hidenNetworkActitvityIndicator];
-    [self.tableView.mj_header endRefreshing];
+    
+    NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:@"https://wechat.meipenggang.com/AccountController/wealthinfoNewsList?currPage=1"];
+    
+//    NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length - 1] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:mutableUrl]];
+    NSURLSession *urlSession = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        
+        [self.tableView.mj_header endRefreshing];
+        if (error) {
+            NSString *errorDescription = error.localizedDescription;
+            ShowLightMessage(errorDescription);
+        } else {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+
+            NSArray *newsArr = [FHomeNews mj_objectArrayWithKeyValuesArray:dic[@"list"]];
+            
+            if (self.dataArray.count > 2) {
+                [self.dataArray removeObjectsInRange:NSMakeRange(2, self.dataArray.count-2)];
+            }
+            
+            [self.dataArray addObjectsFromArray:newsArr];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.tableView reloadData];
+            });
+           
+            DLOG(@"%@", dic);
+        }
+    }];
+    [dataTask resume];
+    
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row >=2) {
+        return 90;
+    }
+    return 50.f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row >=2) {
+        return 90;
+    }
+    return 50.f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -64,11 +132,24 @@ static NSString * const reuseIdentifier = @"FHomeCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    FHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = self.dataArray[indexPath.row];
-    
-    return cell;
+    if (indexPath.row >=2) {
+        
+        FHomeNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier2 forIndexPath:indexPath];
+        
+        FHomeNews *bean = self.dataArray[indexPath.row];
+        cell.titleL.text = bean.title;
+        [cell.imgV sd_setImageWithURL:[NSURL URLWithString:[baseUrl stringByAppendingString:bean.image_filename]]];
+        cell.detailL.text = bean.time;
+        return cell;
+    }else{
+        
+        
+        FHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+        
+        cell.textLabel.text = self.dataArray[indexPath.row];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -94,6 +175,13 @@ static NSString * const reuseIdentifier = @"FHomeCell";
         UIViewController *tenderVC = [homeStoryboard instantiateViewControllerWithIdentifier:@"rateController"];
         tenderVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:tenderVC animated:YES];
+    }else{
+        
+        FHomeNews *bean = self.dataArray[indexPath.row];
+        FWebController *controller = [FWebController new];
+        controller.urlStr = [NSString stringWithFormat:@"%@/AccountController/wealthinfoNewsDeatil?id=%@", baseUrl, bean.ID];
+        controller.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 @end

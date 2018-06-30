@@ -233,6 +233,10 @@
 		847B396720DE0F17002DE2CE /* FTakeRecordIncomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */; };
 		847B396A20DE148D002DE2CE /* FTakeRecordExpandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B396920DE148D002DE2CE /* FTakeRecordExpandView.m */; };
 		847B397720DE5B8E002DE2CE /* WSPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */; };
+		84BEEA8420E74B8F00F94C49 /* FHomeNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEEA8320E74B8F00F94C49 /* FHomeNews.m */; };
+		84BEEA8820E75DF000F94C49 /* FHomeNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEEA8620E75DF000F94C49 /* FHomeNewsCell.m */; };
+		84BEEA8920E75DF000F94C49 /* FHomeNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEEA8720E75DF000F94C49 /* FHomeNewsCell.xib */; };
+		84BEEA8C20E761A000F94C49 /* FWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEEA8B20E761A000F94C49 /* FWebController.m */; };
 		AA1E8AA420E67FBE005BD161 /* F_default_201804.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA020E67FBD005BD161 /* F_default_201804.txt */; };
 		AA1E8AA520E67FBE005BD161 /* F_default_201805.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA120E67FBD005BD161 /* F_default_201805.txt */; };
 		AA1E8AA620E67FBE005BD161 /* F_default_201807.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA220E67FBD005BD161 /* F_default_201807.txt */; };
@@ -690,6 +694,13 @@
 		847B396920DE148D002DE2CE /* FTakeRecordExpandView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTakeRecordExpandView.m; sourceTree = "<group>"; };
 		847B397520DE5B8E002DE2CE /* WSPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPlaceholderTextView.h; sourceTree = "<group>"; };
 		847B397620DE5B8E002DE2CE /* WSPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPlaceholderTextView.m; sourceTree = "<group>"; };
+		84BEEA8220E74B8F00F94C49 /* FHomeNews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHomeNews.h; sourceTree = "<group>"; };
+		84BEEA8320E74B8F00F94C49 /* FHomeNews.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHomeNews.m; sourceTree = "<group>"; };
+		84BEEA8520E75DF000F94C49 /* FHomeNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHomeNewsCell.h; sourceTree = "<group>"; };
+		84BEEA8620E75DF000F94C49 /* FHomeNewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHomeNewsCell.m; sourceTree = "<group>"; };
+		84BEEA8720E75DF000F94C49 /* FHomeNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FHomeNewsCell.xib; sourceTree = "<group>"; };
+		84BEEA8A20E761A000F94C49 /* FWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWebController.h; sourceTree = "<group>"; };
+		84BEEA8B20E761A000F94C49 /* FWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWebController.m; sourceTree = "<group>"; };
 		AA1E8AA020E67FBD005BD161 /* F_default_201804.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201804.txt; sourceTree = "<group>"; };
 		AA1E8AA120E67FBD005BD161 /* F_default_201805.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201805.txt; sourceTree = "<group>"; };
 		AA1E8AA220E67FBD005BD161 /* F_default_201807.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201807.txt; sourceTree = "<group>"; };
@@ -810,6 +821,7 @@
 		182C4A8F20DA4A85003C59F6 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				84BEEA8120E74B7A00F94C49 /* Model */,
 				84609B1F20E07A5C00456128 /* EditTypes */,
 				847B394F20DDF2E9002DE2CE /* FViews */,
 				182C4A9420DA4B48003C59F6 /* FHomeViewController.h */,
@@ -822,6 +834,8 @@
 				847B396320DE0F03002DE2CE /* FTakeRecordExpandController.m */,
 				847B396520DE0F17002DE2CE /* FTakeRecordIncomeController.h */,
 				847B396620DE0F17002DE2CE /* FTakeRecordIncomeController.m */,
+				84BEEA8A20E761A000F94C49 /* FWebController.h */,
+				84BEEA8B20E761A000F94C49 /* FWebController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -1652,6 +1666,9 @@
 				84617B7220DF8D8200D6630E /* FEditFirstTypeCell.xib */,
 				84609B2320E0934400456128 /* FTakeRecordIncomeView.h */,
 				84609B2420E0934400456128 /* FTakeRecordIncomeView.m */,
+				84BEEA8520E75DF000F94C49 /* FHomeNewsCell.h */,
+				84BEEA8620E75DF000F94C49 /* FHomeNewsCell.m */,
+				84BEEA8720E75DF000F94C49 /* FHomeNewsCell.xib */,
 			);
 			path = FViews;
 			sourceTree = "<group>";
@@ -1672,6 +1689,15 @@
 				847B395F20DE004B002DE2CE /* SPPageMenu.h */,
 			);
 			path = SPPageMenu;
+			sourceTree = "<group>";
+		};
+		84BEEA8120E74B7A00F94C49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84BEEA8220E74B8F00F94C49 /* FHomeNews.h */,
+				84BEEA8320E74B8F00F94C49 /* FHomeNews.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1807,6 +1833,7 @@
 				84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */,
 				847B393D20DDF1BC002DE2CE /* README.md in Resources */,
 				847B388920DDE5BC002DE2CE /* LICENSE.md in Resources */,
+				84BEEA8920E75DF000F94C49 /* FHomeNewsCell.xib in Resources */,
 				184788EF20E519D500415243 /* 计算器_放大@3x.png in Resources */,
 				847B391220DDF024002DE2CE /* README.markdown in Resources */,
 				847B388620DDE5BC002DE2CE /* LICENSE in Resources */,
@@ -1882,6 +1909,7 @@
 				847B386620DDE5BC002DE2CE /* MJFoundation.m in Sources */,
 				847B394720DDF1BC002DE2CE /* SDWebImageDownloaderOperation.m in Sources */,
 				847B38E920DDEEDB002DE2CE /* SDCollectionViewCell.m in Sources */,
+				84BEEA8C20E761A000F94C49 /* FWebController.m in Sources */,
 				847B38EA20DDEEDB002DE2CE /* TADotView.m in Sources */,
 				84609B2520E0934400456128 /* FTakeRecordIncomeView.m in Sources */,
 				187D394120DF7AD80068D3B2 /* BaseContentCell.m in Sources */,
@@ -1970,6 +1998,7 @@
 				847B37B520DDE563002DE2CE /* FNavigationController.m in Sources */,
 				847B389F20DDE5BC002DE2CE /* MASLayoutConstraint.m in Sources */,
 				8463413520E26D8B00AEB64C /* FMonthBudgetRecordController.m in Sources */,
+				84BEEA8820E75DF000F94C49 /* FHomeNewsCell.m in Sources */,
 				847B394920DDF1BC002DE2CE /* UIImageView+WebCache.m in Sources */,
 				847B394E20DDF1BC002DE2CE /* UIButton+WebCache.m in Sources */,
 				184F90E420DE4F8C009D37F9 /* ConverUtil.m in Sources */,
@@ -1977,6 +2006,7 @@
 				847B387020DDE5BC002DE2CE /* MJRefreshBackGifFooter.m in Sources */,
 				184788DF20E5185C00415243 /* ZTAppCalculatorViewController.m in Sources */,
 				847B394020DDF1BC002DE2CE /* UIImageView+HighlightedWebCache.m in Sources */,
+				84BEEA8420E74B8F00F94C49 /* FHomeNews.m in Sources */,
 				847B38ED20DDEEDB002DE2CE /* TAAbstractDotView.m in Sources */,
 				847B388220DDE5BC002DE2CE /* SVIndefiniteAnimatedView.m in Sources */,
 				847B37A620DDE458002DE2CE /* BaseEntity.m in Sources */,
