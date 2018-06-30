@@ -10,4 +10,6 @@
 
 @interface ZTAppCalculatorViewController : UIViewController
 
+@property (nonatomic ,assign) BOOL isNew; //以viewConroller 方式显示
+
 @end

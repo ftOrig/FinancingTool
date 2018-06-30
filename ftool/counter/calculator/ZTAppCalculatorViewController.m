@@ -41,10 +41,11 @@
     
     int nowTag ; // 记录本次是点击的什么;
     int realPreTag; // 记录上一次是点击的什么;
-
-    UIButton *cButton;  // 保存的的clabel
-
     
+    UIButton *cButton;  // 保存的的clabel
+    
+    int marginTop ;
+    BOOL isNewSetEnd; //以viewConroller形式显示后
 }
 
 
@@ -68,19 +69,20 @@
 
 - (void)enlargeClick:(id)sender
 {
+    if (isNewSetEnd)  return;
     
     if (self.isEnlarge) {
         
         [YGCTradeWindow shareWindow].frame =  CGRectMake((YGCScreenW - 220)*0.5, (YGCScreenH - 383)*0.5, 220, 383);
-
-        self.showView.frame = CGRectMake(0, 0, 220, 108);
+        
+        self.showView.frame = CGRectMake(0, marginTop, 220, 108);
         closeBtn.frame = CGRectMake(220-40, 0, 40, 40);
         [enlargeBtn setImage:[UIImage imageNamed:@"计算器_放大.png"] forState:UIControlStateNormal];
-
+        
         enlargeBtn.frame = CGRectMake(220-80, 0, 40, 40);
-        formulaLabel.frame = CGRectMake( 10, 40, 200, 28);
+        formulaLabel.frame = CGRectMake( 10,_isNew? 10: 40, 200, 28);
         formulaLabel.font = [UIFont systemFontOfSize:18];
-        showLabel.frame =  CGRectMake(10, 68, 200, 40);
+        showLabel.frame =  CGRectMake(10, _isNew? 30:68, 200, 40);
         showLabel.font = [UIFont systemFontOfSize:32];
         
         _container.frame = CGRectMake(0,108, 220, 383-108);
@@ -95,17 +97,17 @@
     } else {
         
         [YGCTradeWindow shareWindow].frame = CGRectMake(0, 0, YGCScreenW, YGCScreenH);
-
-        self.showView.frame = CGRectMake(0, 0, YGCScreenW, 200);
+        
+        self.showView.frame = CGRectMake(0, marginTop, YGCScreenW, 200);
         closeBtn.frame = CGRectMake(YGCScreenW-40, 10, 40, 40);
         enlargeBtn.frame = CGRectMake(YGCScreenW-80, 10, 40, 40);
         [enlargeBtn setImage:[UIImage imageNamed:@"计算器_缩小.png"] forState:UIControlStateNormal];
-
-        formulaLabel.frame = CGRectMake( 10, 60, YGCScreenW-20, 50);
+        
+        formulaLabel.frame = CGRectMake( 10, _isNew? 10:60, YGCScreenW-20, 50);
         formulaLabel.font = [UIFont systemFontOfSize:34];
-        showLabel.frame =  CGRectMake( 10, 120, YGCScreenW-20, 70);
+        showLabel.frame =  CGRectMake( 10, _isNew? 60:120, YGCScreenW-20, 70);
         showLabel.font = [UIFont systemFontOfSize:56];
-
+        
         _container.frame = CGRectMake(0,200, YGCScreenW, YGCScreenH-200);
         float containerWidth = CGRectGetWidth(_container.frame);
         float containerHeight = CGRectGetHeight(_container.frame);
@@ -114,7 +116,9 @@
         [_container.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [self addBtnWithFloatWidthContainerWidth:containerWidth containerHeight:containerHeight btnSize:32];
         self.isEnlarge = YES;
-
+        if (_isNew) {
+            isNewSetEnd = YES;
+        }
     }
     
     
@@ -126,13 +130,19 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    marginTop = 0;
+    if(_isNew){
+        NavBar *bar = [[NavBar alloc] initWithTitle:@"小计算器" leftName:nil rightName:@"" delegate:self];
+        marginTop = 64;
+    }
+    
     //加阴影- 设置阴影
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;//shadowColor阴影颜色
     self.view.layer.shadowOffset = CGSizeMake(4,4);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
     self.view.layer.shadowOpacity = 0.8;//阴影透明度，默认0
     self.view.layer.shadowRadius = 4;//阴影半径，默认3
     
-    UIView *showView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 220, 108)];
+    UIView *showView = [[UIView alloc] initWithFrame:CGRectMake(0,marginTop, 220, 108)];
     showView.backgroundColor = YGCRGBColor255(79, 83, 102);
     self.showView = showView;
     [self.view addSubview:showView];
@@ -143,11 +153,11 @@
     closeBtn = closeB;
     closeBtn.frame = CGRectMake(220-40, 0, 40, 40);
     [closeBtn setImage:[UIImage imageNamed:@"计算器_叉.png"] forState:UIControlStateNormal];
-//    closeBtn.image = [UIImage imageNamed:@"计算器_叉.png"];
+    //    closeBtn.image = [UIImage imageNamed:@"计算器_叉.png"];
     closeBtn.contentMode = UIViewContentModeCenter;
     closeBtn.userInteractionEnabled = YES;
-//    UITapGestureRecognizer *closeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeClick:)];
-//    [closeBtn addGestureRecognizer:closeTap];
+    //    UITapGestureRecognizer *closeTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeClick:)];
+    //    [closeBtn addGestureRecognizer:closeTap];
     [closeBtn addTarget:self action:@selector(closeClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [showView addSubview:closeBtn];
@@ -157,14 +167,14 @@
     enlargeBtn = enlargeB;
     enlargeBtn.frame = CGRectMake(220-80, 0, 40, 40);
     [enlargeBtn setImage:[UIImage imageNamed:@"计算器_放大.png"] forState:UIControlStateNormal];
-
-//    enlargeBtn.image = [UIImage imageNamed:@"计算器_放大.png"];
+    
+    //    enlargeBtn.image = [UIImage imageNamed:@"计算器_放大.png"];
     enlargeBtn.contentMode = UIViewContentModeCenter;
     enlargeBtn.userInteractionEnabled = YES;
-//    UITapGestureRecognizer *enlargeBtnTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(enlargeClick:)];
-//    [enlargeBtn addGestureRecognizer:enlargeBtnTap];
+    //    UITapGestureRecognizer *enlargeBtnTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(enlargeClick:)];
+    //    [enlargeBtn addGestureRecognizer:enlargeBtnTap];
     [enlargeBtn addTarget:self action:@selector(enlargeClick:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [showView addSubview:enlargeBtn];
     
     UILabel *formulaLab = [[UILabel alloc] initWithFrame:CGRectMake( 10, 40, 200, 28)];
@@ -211,7 +221,10 @@
     [_container.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self addBtnWithFloatWidthContainerWidth:containerWidth containerHeight:containerHeight btnSize:16];
     
-    
+    if(_isNew){
+        [self enlargeClick:enlargeBtn];
+        [enlargeBtn addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 
@@ -227,12 +240,12 @@
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         pasteboard.string = showLabel.text;
         
-//        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:_container animated:YES];
-//        hud.mode = MBProgressHUDModeText;
-//        hud.labelText = @"计算结果已复制到剪切板";
-//        hud.margin = 10.f;
-//        hud.removeFromSuperViewOnHide = YES;
-//        [hud hide:YES afterDelay:2.0];
+        //        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:_container animated:YES];
+        //        hud.mode = MBProgressHUDModeText;
+        //        hud.labelText = @"计算结果已复制到剪切板";
+        //        hud.margin = 10.f;
+        //        hud.removeFromSuperViewOnHide = YES;
+        //        [hud hide:YES afterDelay:2.0];
         
     }
 }
@@ -245,7 +258,7 @@
     
     float buttonHeight = containerHeight/5; //获取每个button的高度
     float buttonWidth = containerWidth/4; //获取每个Button的宽度
-
+    
     
     /*-----------------------------添加按钮-------------------------------------*/
     NSArray *titleArray = @[@"AC",@"⇦",@"%",@"÷",@"7",@"8",@"9",@"x",@"4",@"5",@"6",@"-",@"1",@"2",@"3",@"+",@"0",@".",@"="];
@@ -261,29 +274,29 @@
                 
                 [button addTarget:self action:@selector(caculate:) forControlEvents:UIControlEventTouchUpInside];
                 
-//                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(caculate:)];
-//                [button addGestureRecognizer:tap];
-//                button.userInteractionEnabled = YES;
+                //                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(caculate:)];
+                //                [button addGestureRecognizer:tap];
+                //                button.userInteractionEnabled = YES;
                 
                 button.tag = [tagArray[n] intValue];
                 NSString *title = titleArray[n++];
-//                [button setBackgroundColor:[UIColor whiteColor]];
+                //                [button setBackgroundColor:[UIColor whiteColor]];
                 
-//                [button setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor] widthHeight:20] forState:UIControlStateNormal];
-//                [button setBackgroundImage:[UIImage createImageWithColor:YGCRGBColor255(238, 238, 238) widthHeight:20] forState:UIControlStateHighlighted];
+                //                [button setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor] widthHeight:20] forState:UIControlStateNormal];
+                //                [button setBackgroundImage:[UIImage createImageWithColor:YGCRGBColor255(238, 238, 238) widthHeight:20] forState:UIControlStateHighlighted];
                 
                 [button setBackgroundColor:[UIColor whiteColor]];
                 
                 button.titleLabel.font = [UIFont fontWithName:@"Heiti TC" size:fontsize];
                 [button setTitle:title forState:UIControlStateNormal];
                 [button setTitleColor:YGCRGBColor255(102, 102, 102) forState:UIControlStateNormal];
-//                button.textAlignment = NSTextAlignmentCenter;
-//                button.textColor = YGCRGBColor255(102, 102, 102);
+                //                button.textAlignment = NSTextAlignmentCenter;
+                //                button.textColor = YGCRGBColor255(102, 102, 102);
                 
                 if (i==0 && j==0) {
                     [button setTitleColor:YGCRGBColor255(255, 130, 55) forState:UIControlStateNormal];
-
-//                    button.textColor = YGCRGBColor255(255, 130, 55);
+                    
+                    //                    button.textColor = YGCRGBColor255(255, 130, 55);
                     cButton = button;
                     if (currentNumber > 0 ||isdecimal) {
                         [button setTitle:@"C" forState:UIControlStateNormal];
@@ -300,25 +313,25 @@
                     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
                     button.frame = CGRectMake(0, (buttonHeight*4), buttonWidth*2, buttonHeight);
                     
-                   [button addTarget:self action:@selector(caculate:) forControlEvents:UIControlEventTouchUpInside];
+                    [button addTarget:self action:@selector(caculate:) forControlEvents:UIControlEventTouchUpInside];
                     
-//                    button.backgroundColor = [UIColor whiteColor];
+                    //                    button.backgroundColor = [UIColor whiteColor];
                     
-//                    [button setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor] widthHeight:20] forState:UIControlStateNormal];
-//                    [button setBackgroundImage:[UIImage createImageWithColor:YGCRGBColor255(238, 238, 238) widthHeight:20] forState:UIControlStateHighlighted];
+                    //                    [button setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor] widthHeight:20] forState:UIControlStateNormal];
+                    //                    [button setBackgroundImage:[UIImage createImageWithColor:YGCRGBColor255(238, 238, 238) widthHeight:20] forState:UIControlStateHighlighted];
                     
                     [button setBackgroundColor:[UIColor whiteColor]];
-
+                    
                     
                     [button setTitle:titleArray[n] forState:UIControlStateNormal];
-
+                    
                     button.tag = [tagArray[n] intValue];
                     
                     button.titleLabel.font = [UIFont fontWithName:@"Heiti TC" size:fontsize];
                     [button setTitleColor:YGCRGBColor255(102, 102, 102) forState:UIControlStateNormal];
-//                    button.font = [UIFont fontWithName:@"Heiti TC" size:fontsize];
-//                    button.textAlignment = NSTextAlignmentCenter;
-//                    button.textColor = YGCRGBColor255(102, 102, 102);
+                    //                    button.font = [UIFont fontWithName:@"Heiti TC" size:fontsize];
+                    //                    button.textAlignment = NSTextAlignmentCenter;
+                    //                    button.textColor = YGCRGBColor255(102, 102, 102);
                     
                     [_container addSubview:button];
                     n++;
@@ -328,41 +341,41 @@
                     button.frame = CGRectMake(j*buttonWidth+buttonWidth, (buttonHeight*4), buttonWidth, buttonHeight);
                     NSLog(@"%@",titleArray[n]);
                     [button addTarget:self action:@selector(caculate:) forControlEvents:UIControlEventTouchUpInside];
-
-//                    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(caculate:)];
-//                    [button addGestureRecognizer:tap];
-//                    button.userInteractionEnabled = YES;
                     
-//                    [button setBackgroundColor:[UIColor whiteColor]];
-//                    button.text = titleArray[n];
+                    //                    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(caculate:)];
+                    //                    [button addGestureRecognizer:tap];
+                    //                    button.userInteractionEnabled = YES;
                     
-//                    [button setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor] widthHeight:20] forState:UIControlStateNormal];
-//                    [button setBackgroundImage:[UIImage createImageWithColor:YGCRGBColor255(238, 238, 238) widthHeight:20] forState:UIControlStateHighlighted];
+                    //                    [button setBackgroundColor:[UIColor whiteColor]];
+                    //                    button.text = titleArray[n];
+                    
+                    //                    [button setBackgroundImage:[UIImage createImageWithColor:[UIColor whiteColor] widthHeight:20] forState:UIControlStateNormal];
+                    //                    [button setBackgroundImage:[UIImage createImageWithColor:YGCRGBColor255(238, 238, 238) widthHeight:20] forState:UIControlStateHighlighted];
                     
                     [button setBackgroundColor:[UIColor whiteColor]];
-
+                    
                     
                     [button setTitle:titleArray[n] forState:UIControlStateNormal];
-
+                    
                     button.tag = [tagArray[n] intValue];
                     
                     [button setTitleColor:YGCRGBColor255(102, 102, 102) forState:UIControlStateNormal];
                     button.titleLabel.font = [UIFont fontWithName:@"Heiti TC" size:fontsize];
-
                     
-//                    button.font = [UIFont fontWithName:@"Heiti TC" size:fontsize];
-//                    button.textAlignment = NSTextAlignmentCenter;
-//                    button.textColor = YGCRGBColor255(102, 102, 102);
+                    
+                    //                    button.font = [UIFont fontWithName:@"Heiti TC" size:fontsize];
+                    //                    button.textAlignment = NSTextAlignmentCenter;
+                    //                    button.textColor = YGCRGBColor255(102, 102, 102);
                     
                     [_container addSubview:button];
                     if (n==18) {
-//                        [button setBackgroundColor:[UIColor orangeColor]];
+                        //                        [button setBackgroundColor:[UIColor orangeColor]];
                         
-//                        [button setBackgroundImage:[UIImage createImageWithColor:UIColorFromRGB(0xf99012) widthHeight:20] forState:UIControlStateNormal];
-//                        [button setBackgroundImage:[UIImage createImageWithColor:YGCRGBColor255(235, 110, 35) widthHeight:20] forState:UIControlStateHighlighted];
+                        //                        [button setBackgroundImage:[UIImage createImageWithColor:UIColorFromRGB(0xf99012) widthHeight:20] forState:UIControlStateNormal];
+                        //                        [button setBackgroundImage:[UIImage createImageWithColor:YGCRGBColor255(235, 110, 35) widthHeight:20] forState:UIControlStateHighlighted];
                         
                         [button setBackgroundColor:[UIColor orangeColor]];
-
+                        
                         
                         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                     }
@@ -391,16 +404,16 @@
         label.backgroundColor = YGCRGBColor255(233, 233, 233);
         [_container addSubview:label];
     }
-
+    
 }
 
 
 - (void)caculate:(UIButton *)sender{
     
-//    UILabel *label;
-//    if ([gestureRecognizer.view isKindOfClass:[UILabel class]]) {
-//        label = (UILabel *)gestureRecognizer.view;
-//    }
+    //    UILabel *label;
+    //    if ([gestureRecognizer.view isKindOfClass:[UILabel class]]) {
+    //        label = (UILabel *)gestureRecognizer.view;
+    //    }
     //    showLabel.text = [NSString stringWithFormat:@"%@",label.text];
     [self clickButtonsWithTag:sender.tag];
 }
@@ -425,13 +438,13 @@
         if (realPreTag == 13 || realPreTag == 14 || realPreTag == 15 || realPreTag == 16 || realPreTag == 17)
         {
             [self displayString:@"0." withMethod:@"cover"];
-
+            
         } else {
             [self displayString:@"." withMethod:@"add"];
         }
         isEqualClick = NO;
         [cButton setTitle:@"C" forState:UIControlStateNormal];
-
+        
     }
     else if(digit>=0 && digit<=9 && totalDecimals<=9)   //若点击了数字键
     {
@@ -439,7 +452,7 @@
         totalDecimals++;
         isEqualClick = NO;
         [cButton setTitle:@"C" forState:UIControlStateNormal];
-
+        
         
     }else if(digit==10)  // 点击了"c"键
     {
@@ -451,7 +464,7 @@
             isdecimal=NO;
             decimals = 0;
             totalDecimals = 0;
-
+            
             
         } else {
             [self clear];
@@ -472,7 +485,7 @@
         {
             [self displayString:@"0." withMethod:@"cover"];
             
-        } 
+        }
         isEqualClick = NO;
         [cButton setTitle:@"C" forState:UIControlStateNormal];
         
@@ -484,7 +497,7 @@
 // 点击了数字键
 -(void)processDigit:(int)digit
 {
-   
+    
     BOOL cover = NO;
     if (realPreTag == 13 || realPreTag == 14 || realPreTag == 15 || realPreTag == 16) {
         cover = YES;
@@ -493,11 +506,11 @@
         decimals=0;
     }
     
-   
+    
     
     if (isEqualClick) {
         currentNumber = 0;
-       formulaLabel.text = @"";
+        formulaLabel.text = @"";
         isdecimal=NO;
         decimals = 0;
     }
@@ -528,7 +541,7 @@
 {
     switch (theOp) {
         case 11:    //  删除键
-
+            
         {
             if (showLabel.text.length <1) {
                 return;
@@ -541,11 +554,11 @@
             [self displayString:positive withMethod:@"cover"];
             
             totalDecimals = positive.length;
-
+            
             NSDecimalNumber *num1 = [NSDecimalNumber decimalNumberWithString:positive];
             
             currentNumber = [num1 doubleValue];
-//            currentNumber=-currentNumber;
+            //            currentNumber=-currentNumber;
             isEqualClick = NO;
         }
             break;
@@ -646,12 +659,12 @@
         }
             break;
         case 17:    //按下“=”
-           
+            
         {
             totalDecimals=0;
             calMethod.operand2=currentNumber;
             currentNumber=[calMethod performOperation:op];
-//            [self displayString:[NSString stringWithFormat:@"%Lg",currentNumber] withMethod:@"cover"];
+            //            [self displayString:[NSString stringWithFormat:@"%Lg",currentNumber] withMethod:@"cover"];
             
             NSString *result = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:currentNumber]];
             NSArray *arr = [result componentsSeparatedByString:@"."];
@@ -673,7 +686,7 @@
                     switch (count) {
                         case 8:
                             result = [NSString stringWithFormat:@"%.8Lf",currentNumber];
-
+                            
                             break;
                         case 7:
                             result = [NSString stringWithFormat:@"%.7Lf",currentNumber];
@@ -705,7 +718,7 @@
                             break;
                         default:
                             result = [NSString stringWithFormat:@"%.0Lf",currentNumber];
-
+                            
                             break;
                     }
                     
@@ -721,8 +734,8 @@
                 resultReal  = [NSString stringWithFormat:@"%.4e", [result floatValue]];
             }
             [self displayString:resultReal withMethod:@"cover"];
-
-        
+            
+            
             // 设置公式-----------
             NSString *O1Str = [NSString stringWithFormat:@"%Lf",  calMethod.operand1];
             NSDecimalNumber *num1 = [NSDecimalNumber decimalNumberWithString:O1Str];
@@ -742,7 +755,7 @@
                 formulaLabel.text = [NSString stringWithFormat:@"%@+%@=",strD1,strD2];
             }
             // -----------------
-        
+            
             calMethod.operand1=calMethod.result;
             op=0;
             
@@ -789,7 +802,8 @@
 
 - (void)dealloc
 {
-//    YGCFunc;
+    //    YGCFunc;
 }
 
 @end
+

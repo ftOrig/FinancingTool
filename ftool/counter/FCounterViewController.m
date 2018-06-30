@@ -100,6 +100,8 @@ static NSString * const reuseIdentifier = @"FHomeCell";
         controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"FinanceCounter"];
     }else { //第四组 /生活小计
         [self showFloatWindow];
+        //        controller =  [[ZTAppCalculatorViewController alloc] init];
+        //        ((ZTAppCalculatorViewController *)controller).isNew = YES;
     }
     if (controller != nil) {
         controller.hidesBottomBarWhenPushed = YES;
