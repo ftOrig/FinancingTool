@@ -32,9 +32,12 @@ static NSString * const reuseIdentifier2 = @"FHomeNewsCell";
     [self initView];
     
     self.dataArray = @[@"最新利率", @"记一笔"].mutableCopy;
-    self.header.imageURLStringsGroup = @[@"https://static.weijinzaixian.com/ad_0603403dc18654ec40c34a63c5eb5dd8.jpg",
+    self.header.imageURLStringsGroup = @[
+//                                         @"https://static.weijinzaixian.com/ad_0603403dc18654ec40c34a63c5eb5dd8.jpg",
                                          @"https://static.weijinzaixian.com/ad_15bf2acdc7a3119e37d3fae7bcdbd10f.jpg",
-                                         @"https://static.weijinzaixian.com/ad_261360cfeb807ef46adbf76b69f5c8a2.jpg"];
+                                         @"WechatIMG608.jpeg"
+//                                         @"https://static.weijinzaixian.com/ad_261360cfeb807ef46adbf76b69f5c8a2.jpg"
+                                         ];
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self requestData];

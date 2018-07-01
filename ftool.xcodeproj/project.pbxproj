@@ -45,6 +45,7 @@
 		184F90D820DE437E009D37F9 /* FLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90CD20DE437D009D37F9 /* FLoginViewController.m */; };
 		184F90E120DE4D6F009D37F9 /* NSString+encryptDES.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90DF20DE4D6F009D37F9 /* NSString+encryptDES.m */; };
 		184F90E420DE4F8C009D37F9 /* ConverUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F90E220DE4F8B009D37F9 /* ConverUtil.m */; };
+		1858136F20E7E290005ACC59 /* WechatIMG608.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1858136E20E7E290005ACC59 /* WechatIMG608.jpeg */; };
 		187D394120DF7AD80068D3B2 /* BaseContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D394020DF7AD80068D3B2 /* BaseContentCell.m */; };
 		187D394320DF92AB0068D3B2 /* Counters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187D394220DF92AB0068D3B2 /* Counters.storyboard */; };
 		187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187D394420DF9E1D0068D3B2 /* FCounterViewController.xib */; };
@@ -237,10 +238,10 @@
 		84BEEA8820E75DF000F94C49 /* FHomeNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEEA8620E75DF000F94C49 /* FHomeNewsCell.m */; };
 		84BEEA8920E75DF000F94C49 /* FHomeNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BEEA8720E75DF000F94C49 /* FHomeNewsCell.xib */; };
 		84BEEA8C20E761A000F94C49 /* FWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BEEA8B20E761A000F94C49 /* FWebController.m */; };
-		AA1E8AA420E67FBE005BD161 /* F_default_201804.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA020E67FBD005BD161 /* F_default_201804.txt */; };
-		AA1E8AA520E67FBE005BD161 /* F_default_201805.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA120E67FBD005BD161 /* F_default_201805.txt */; };
-		AA1E8AA620E67FBE005BD161 /* F_default_201807.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA220E67FBD005BD161 /* F_default_201807.txt */; };
-		AA1E8AA720E67FBE005BD161 /* F_default_201806.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA320E67FBE005BD161 /* F_default_201806.txt */; };
+		AA1E8AA420E67FBE005BD161 /* F_default_201805.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA020E67FBD005BD161 /* F_default_201805.txt */; };
+		AA1E8AA520E67FBE005BD161 /* F_default_201806.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA120E67FBD005BD161 /* F_default_201806.txt */; };
+		AA1E8AA620E67FBE005BD161 /* F_default_201808.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA220E67FBD005BD161 /* F_default_201808.txt */; };
+		AA1E8AA720E67FBE005BD161 /* F_default_201807.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA1E8AA320E67FBE005BD161 /* F_default_201807.txt */; };
 		AACFDBEC20DF540100BDFA0E /* FEditFirstTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */; };
 		AACFDBEF20DFDC8C00BDFA0E /* FAddSubTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = AACFDBEE20DFDC8C00BDFA0E /* FAddSubTypeController.m */; };
 /* End PBXBuildFile section */
@@ -336,6 +337,7 @@
 		184F90E020DE4D6F009D37F9 /* NSString+encryptDES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+encryptDES.h"; sourceTree = "<group>"; };
 		184F90E220DE4F8B009D37F9 /* ConverUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverUtil.m; sourceTree = "<group>"; };
 		184F90E320DE4F8C009D37F9 /* ConverUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverUtil.h; sourceTree = "<group>"; };
+		1858136E20E7E290005ACC59 /* WechatIMG608.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = WechatIMG608.jpeg; path = ftool/home/WechatIMG608.jpeg; sourceTree = SOURCE_ROOT; };
 		187D393F20DF7AD80068D3B2 /* BaseContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseContentCell.h; sourceTree = "<group>"; };
 		187D394020DF7AD80068D3B2 /* BaseContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseContentCell.m; sourceTree = "<group>"; };
 		187D394220DF92AB0068D3B2 /* Counters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Counters.storyboard; sourceTree = "<group>"; };
@@ -701,10 +703,10 @@
 		84BEEA8720E75DF000F94C49 /* FHomeNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FHomeNewsCell.xib; sourceTree = "<group>"; };
 		84BEEA8A20E761A000F94C49 /* FWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWebController.h; sourceTree = "<group>"; };
 		84BEEA8B20E761A000F94C49 /* FWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWebController.m; sourceTree = "<group>"; };
-		AA1E8AA020E67FBD005BD161 /* F_default_201804.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201804.txt; sourceTree = "<group>"; };
-		AA1E8AA120E67FBD005BD161 /* F_default_201805.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201805.txt; sourceTree = "<group>"; };
-		AA1E8AA220E67FBD005BD161 /* F_default_201807.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201807.txt; sourceTree = "<group>"; };
-		AA1E8AA320E67FBE005BD161 /* F_default_201806.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201806.txt; sourceTree = "<group>"; };
+		AA1E8AA020E67FBD005BD161 /* F_default_201805.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201805.txt; sourceTree = "<group>"; };
+		AA1E8AA120E67FBD005BD161 /* F_default_201806.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201806.txt; sourceTree = "<group>"; };
+		AA1E8AA220E67FBD005BD161 /* F_default_201808.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201808.txt; sourceTree = "<group>"; };
+		AA1E8AA320E67FBE005BD161 /* F_default_201807.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_default_201807.txt; sourceTree = "<group>"; };
 		AACFDBEA20DF540100BDFA0E /* FEditFirstTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FEditFirstTypeController.h; sourceTree = "<group>"; };
 		AACFDBEB20DF540100BDFA0E /* FEditFirstTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FEditFirstTypeController.m; sourceTree = "<group>"; };
 		AACFDBED20DFDC8C00BDFA0E /* FAddSubTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAddSubTypeController.h; sourceTree = "<group>"; };
@@ -740,10 +742,10 @@
 			isa = PBXGroup;
 			children = (
 				84009B1020E6376A007B1516 /* AccoutCategeries.plist */,
-				AA1E8AA020E67FBD005BD161 /* F_default_201804.txt */,
-				AA1E8AA120E67FBD005BD161 /* F_default_201805.txt */,
-				AA1E8AA320E67FBE005BD161 /* F_default_201806.txt */,
-				AA1E8AA220E67FBD005BD161 /* F_default_201807.txt */,
+				AA1E8AA020E67FBD005BD161 /* F_default_201805.txt */,
+				AA1E8AA120E67FBD005BD161 /* F_default_201806.txt */,
+				AA1E8AA320E67FBE005BD161 /* F_default_201807.txt */,
+				AA1E8AA220E67FBD005BD161 /* F_default_201808.txt */,
 				847B373E20DDE342002DE2CE /* Product.pch */,
 				182C4A5920DA43CC003C59F6 /* FAppDelegate.h */,
 				182C4A5A20DA43CC003C59F6 /* FAppDelegate.m */,
@@ -1654,6 +1656,7 @@
 		847B394F20DDF2E9002DE2CE /* FViews */ = {
 			isa = PBXGroup;
 			children = (
+				1858136E20E7E290005ACC59 /* WechatIMG608.jpeg */,
 				847B395120DDF33D002DE2CE /* HomeHeader.h */,
 				847B395020DDF33D002DE2CE /* HomeHeader.m */,
 				847B395320DDF870002DE2CE /* FHomeCell.h */,
@@ -1820,6 +1823,7 @@
 				184788F120E519D500415243 /* 计算器_缩小@3x.png in Resources */,
 				847B390C20DDF016002DE2CE /* README.md in Resources */,
 				847B390920DDF016002DE2CE /* BRPickerView.bundle in Resources */,
+				1858136F20E7E290005ACC59 /* WechatIMG608.jpeg in Resources */,
 				847B387E20DDE5BC002DE2CE /* README.md in Resources */,
 				847B391320DDF024002DE2CE /* License.txt in Resources */,
 				847B396020DE004B002DE2CE /* README.md in Resources */,
@@ -1827,7 +1831,7 @@
 				8463413A20E26DD400AEB64C /* FMonthBudgetRecordCell.xib in Resources */,
 				847B395720DDF870002DE2CE /* FHomeCell.xib in Resources */,
 				187D394520DF9E1D0068D3B2 /* FCounterViewController.xib in Resources */,
-				AA1E8AA520E67FBE005BD161 /* F_default_201805.txt in Resources */,
+				AA1E8AA520E67FBE005BD161 /* F_default_201806.txt in Resources */,
 				847B388320DDE5BC002DE2CE /* SVProgressHUD.bundle in Resources */,
 				847B389120DDE5BC002DE2CE /* IQKeyboardManager.bundle in Resources */,
 				84617B7420DF8D8200D6630E /* FEditFirstTypeCell.xib in Resources */,
@@ -1841,15 +1845,15 @@
 				847B388820DDE5BC002DE2CE /* README.md in Resources */,
 				847B388A20DDE5BC002DE2CE /* README.md in Resources */,
 				847B390B20DDF016002DE2CE /* LICENSE in Resources */,
-				AA1E8AA620E67FBE005BD161 /* F_default_201807.txt in Resources */,
+				AA1E8AA620E67FBE005BD161 /* F_default_201808.txt in Resources */,
 				847B386C20DDE5BC002DE2CE /* MJRefresh.bundle in Resources */,
 				847B388420DDE5BC002DE2CE /* README.md in Resources */,
-				AA1E8AA420E67FBE005BD161 /* F_default_201804.txt in Resources */,
+				AA1E8AA420E67FBE005BD161 /* F_default_201805.txt in Resources */,
 				84009B1120E6376A007B1516 /* AccoutCategeries.plist in Resources */,
 				847B386820DDE5BC002DE2CE /* README.md in Resources */,
 				184788EC20E519D500415243 /* 计算器_放大@2x.png in Resources */,
 				184788F020E519D500415243 /* 计算器_缩小@2x.png in Resources */,
-				AA1E8AA720E67FBE005BD161 /* F_default_201806.txt in Resources */,
+				AA1E8AA720E67FBE005BD161 /* F_default_201807.txt in Resources */,
 				187D394320DF92AB0068D3B2 /* Counters.storyboard in Resources */,
 				84609B2B20E0FFB400456128 /* FMineCell.xib in Resources */,
 				847B38A520DDE5BC002DE2CE /* README.md in Resources */,

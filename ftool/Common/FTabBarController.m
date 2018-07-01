@@ -44,7 +44,7 @@
     }
     UITabBarItem *tabbarItem0 = [self getBarItemWithTitle:@"首页" imageName:@"Tabbar_home_unselected"];
     nav1.tabBarItem = tabbarItem0;
-    UITabBarItem *tabbarItem1 = [self getBarItemWithTitle:@"投资" imageName:@"Tabbar_finance_unselected"];
+    UITabBarItem *tabbarItem1 = [self getBarItemWithTitle:@"投资计算" imageName:@"Tabbar_finance_unselected"];
     nav2.tabBarItem = tabbarItem1;
     UITabBarItem *tabbarItem2 = [self getBarItemWithTitle:@"我的" imageName:@"Tabbar_my_unselected"];
     nav3.tabBarItem = tabbarItem2;
@@ -56,14 +56,14 @@
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
-    NSLog(@"%s %@", __FUNCTION__, viewController.tabBarItem.title);
+//    NSLog(@"%s %@", __FUNCTION__, viewController.tabBarItem.title);
     //判断的是当前点击的tabBarItem的标题
     if ([viewController.tabBarItem.title isEqualToString:@"我的"] && ![[AppDefaultUtil sharedInstance]isLoginState]) {
         
         //如果未登录，则跳转登录界面
         FLoginViewController *loginView = [[FLoginViewController alloc] init];
         UINavigationController *loginNVC = [[UINavigationController alloc] initWithRootViewController:loginView];
-//        loginView.backType = MyWealth;
+
         [((UINavigationController *)tabBarController.selectedViewController) presentViewController:loginNVC animated:YES completion:nil];
         
         return NO;

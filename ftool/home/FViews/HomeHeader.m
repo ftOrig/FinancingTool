@@ -24,7 +24,8 @@
 
 - (instancetype)initWithFixedHeght
 {
-    CGFloat cycleH = (205/375.f)*MSWIDTH;
+//    CGFloat cycleH = (205/375.f)*MSWIDTH;
+    CGFloat cycleH = (496/1000.f)*MSWIDTH;
 //    CGFloat newsH = 40.f;
 //    CGFloat toolBarH = 105.f;
 //    CGFloat grayviewH = 9.f;
