@@ -99,9 +99,9 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     }else if (section == 2){ //第三组 /理财计算
         controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"FinanceCounter"];
     }else { //第四组 /生活小计
-        [self showFloatWindow];
-        //        controller =  [[ZTAppCalculatorViewController alloc] init];
-        //        ((ZTAppCalculatorViewController *)controller).isNew = YES;
+//        [self showFloatWindow];
+                controller =  [[ZTAppCalculatorViewController alloc] init];
+                ((ZTAppCalculatorViewController *)controller).isNew = YES;
     }
     if (controller != nil) {
         controller.hidesBottomBarWhenPushed = YES;
