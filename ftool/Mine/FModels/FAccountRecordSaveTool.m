@@ -10,6 +10,7 @@
 
 // 在存储时，需要添加这个数组再存，否则会数据丢失
 static NSMutableArray *expiredDateExpandseArr;
+//static BOOL  isFormDocumentDirectory = YES;
 
 @implementation FAccountRecordSaveTool
 
@@ -21,7 +22,6 @@ static NSMutableArray *expiredDateExpandseArr;
     NSInteger month = lastDate.month;
     NSString *targetDateStr = [NSString stringWithFormat:@"%04d%02d", (int)year, (int)month];
     
-
     NSString *userName = nil;
     DLOG(@"AppDelegateInstance.userInfo.phone = %@", AppDelegateInstance.userInfo.phone);
     if ([AppDelegateInstance.userInfo.phone isEqualToString:defName]) {
@@ -60,7 +60,7 @@ static NSMutableArray *expiredDateExpandseArr;
     NSInteger year = [NSDate date].year;
     NSInteger month = [NSDate date].month;
     NSString *targetDateStr = [NSString stringWithFormat:@"%04d%02d", (int)year, (int)month];
-//    targetDateStr = @"201807";
+//    targetDateStr = @"201806";
     NSString *userName = nil;
     DLOG(@"AppDelegateInstance.userInfo.phone = %@", AppDelegateInstance.userInfo.phone);
     if ([AppDelegateInstance.userInfo.phone isEqualToString:defName]) {
@@ -82,49 +82,51 @@ static NSMutableArray *expiredDateExpandseArr;
     
     NSString *jsonstring = [NSString stringWithContentsOfFile:filePathName encoding:NSUTF8StringEncoding error:nil];
     
-    BOOL isFormDoc = YES;
-    if (!jsonstring) {// 读取APP里面设定的
+    BOOL isFormDocumentDirectory = YES;
+    if (!jsonstring && [userName isEqualToString:@"default"]) {// 不存在而且读取APP里面设定的
         
         filePathName = [[NSBundle mainBundle] pathForResource:fileName ofType:nil];
         jsonstring = [NSString stringWithContentsOfFile:filePathName encoding:NSUTF8StringEncoding error:nil];
-        isFormDoc = NO;
+        isFormDocumentDirectory = NO;
     }
     FCurrentMonthRecord *targetMonthRecord = [FCurrentMonthRecord mj_objectWithKeyValues:jsonstring];
     
-    // 如果是默认用户，需要先拿走超过当前日期的记录，但是不能删除，也不能直接引用。需要先保存，在存储数据的时候需要添加保存的这部分再一起写进文件
-    if ([userName isEqualToString:@"default"] && isFormDoc == NO) {
+    // 如果是默认用户，需要先拿走超过当前日期的记录，但是不能删除，也不能直接引用。需要先保存，并且在存储数据的时候需要添加保存的这部分再一起写进文件
+    if ([userName isEqualToString:@"default"] && isFormDocumentDirectory == NO) {
         
+        expiredDateExpandseArr = [NSMutableArray array];
         // 支出
         NSMutableArray *expandseArrTemp = targetMonthRecord.expandseArr.mutableCopy;
         
-        NSDate *date = [[NSDate date] dateByAddingTimeInterval:60*60];
+        NSDate *date = [[NSDate date] dateByAddingTimeInterval:-60*60];
         NSString *currentTime = [NSDate getDateString:date format:@"MM月dd日HH时mm分"];
         
-        expiredDateExpandseArr = [NSMutableArray array];
+        NSMutableArray *arrBean = [NSMutableArray array];
         for (FAccountRecord *bean in expandseArrTemp) {
-            // 大于当前时间的索引
             if ([bean.time_minute compare:currentTime] != NSOrderedAscending) {// 距现在60分钟以内的都不行
-                [expiredDateExpandseArr addObject:bean];
+                [arrBean addObject:bean];
             }
         }
-        [expandseArrTemp removeObjectsInArray:expiredDateExpandseArr];
+        if (arrBean.count>0) {
+            [expandseArrTemp removeObjectsInArray:arrBean];
+            [expiredDateExpandseArr addObject:arrBean];
+        }
         targetMonthRecord.expandseArr = expandseArrTemp;
         
         // 收入
-//        NSMutableArray *expandseArrTemp = targetMonthRecord.expandseArr.mutableCopy;
-//
-//        NSDate *date = [[NSDate date] dateByAddingTimeInterval:60*60];
-//        NSString *currentTime = [NSDate getDateString:date format:@"MM月dd日HH时mm分"];
-//
-//        expiredDateExpandseArr = [NSMutableArray array];
-//        for (FAccountRecord *bean in expandseArrTemp) {
-//            // 大于当前时间的索引
-//            if ([bean.time_minute compare:currentTime] != NSOrderedAscending) {// 距现在60分钟以内的都不行
-//                [expiredDateExpandseArr addObject:bean];
-//            }
-//        }
-//        [expandseArrTemp removeObjectsInArray:expiredDateExpandseArr];
-//        targetMonthRecord.expandseArr = expandseArrTemp;
+        NSMutableArray *incomeArrTemp = targetMonthRecord.incomeArr.mutableCopy;
+        NSMutableArray *arrBean2 = [NSMutableArray array];
+
+        for (FAccountRecord *bean in incomeArrTemp) {
+            if ([bean.time_minute compare:currentTime] != NSOrderedAscending) {// 距现在60分钟以内的都不行
+                [arrBean2 addObject:bean];
+            }
+        }
+        if (arrBean2.count>0) {
+            [incomeArrTemp removeObjectsInArray:arrBean2];
+            [expiredDateExpandseArr addObject:arrBean2];
+        }
+        targetMonthRecord.incomeArr = incomeArrTemp;
     }
     
     return targetMonthRecord;

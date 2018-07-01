@@ -26,7 +26,7 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     
     [self initView];
     NSMutableArray *currentMonthincome = AppDelegateInstance.currentMonthRecord.incomeArr;
-    if (!currentMonthincome) {
+    if (currentMonthincome.count<=0) {
         return;
     }
     [currentMonthincome sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
@@ -73,7 +73,12 @@ static NSString * const reuseIdentifier2 = @"AJMonthSectionHeader";
     // 锁定要加载的月份
     NSArray *lastArr = self.dataArray.lastObject;
     FAccountRecord *bean = lastArr.firstObject;
-    NSDate *lastDate = [NSDate getDate:bean.time_month format:@"yyyy年MM月"];
+    NSDate *lastDate = nil;
+    if (!bean) {
+        lastDate = [NSDate date];
+    }else{
+        lastDate = [NSDate getDate:bean.time_month format:@"yyyy年MM月"];
+    }
     NSInteger year = lastDate.year;
     NSInteger month = lastDate.month;
     month -= 1;

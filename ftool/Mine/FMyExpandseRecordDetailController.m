@@ -82,10 +82,13 @@
 }
 - (void)nextItemClick{
     
-    
-    ShowLightMessage(@"已保存");
+//    ShowLightMessage(@"已保存");
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.navigationController popViewControllerAnimated:YES];
+//        [self.navigationController popViewControllerAnimated:YES];
+       NSArray *arrPoped = [self.navigationController popToRootViewControllerAnimated:YES];
+        for (UIViewController *popVC in arrPoped) {
+            [popVC viewDidDisappear:NO];
+        }
     });
 }
 

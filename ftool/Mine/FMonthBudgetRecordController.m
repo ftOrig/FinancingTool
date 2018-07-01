@@ -38,13 +38,16 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
 - (void)updateHeaderView{
     
     CGFloat monthBudget = 0;
+    for (FFirstType *typeBean in AppDelegateInstance.aFAccountCategaries.expensesTypeArr) {
+        monthBudget += typeBean.budget;
+    }
+    
     CGFloat monthExpandse = 0;
     for (FAccountRecord *expandseRecord in AppDelegateInstance.currentMonthRecord.expandseArr) {
         monthExpandse += expandseRecord.amount;
-        monthBudget += expandseRecord.firstType.budget;
     }
     self.usedBudgetL.text = [NSString numberformatStrFromDouble:monthExpandse];
-     self.totalBudgetL.text = [NSString numberformatStrFromDouble:monthBudget];
+    self.totalBudgetL.text = [NSString numberformatStrFromDouble:monthBudget];
     
     self.leftBudgetL.text = [NSString numberformatStrFromDouble:(monthBudget - monthExpandse)];
 }
@@ -95,6 +98,9 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
 
 - (void)nextItemClick{
     ShowLightMessage(@"已保存");// 实际在viewDidDisappear方法统一保存了
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
 }
 
 - (void)viewDidDisappear:(BOOL)animated{

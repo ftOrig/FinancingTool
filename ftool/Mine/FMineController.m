@@ -25,11 +25,14 @@
 @property (nonatomic, weak) UILabel *budgetL;
 
 @property (nonatomic, strong) FAccountRecord *todayNewestRecord;
+@property (nonatomic, copy) NSString *todayNewestRecordType;// 支出还是收入
+
 @property (nonatomic, weak) UILabel *todayRecordCountL;
 //
 @property (nonatomic, weak) UILabel *recordStateL;
 @property (nonatomic, weak) FMyIncomeRecordCell *todayIncomeRecordView;
 @property (nonatomic, weak) FMyExpandseRecordCell *todayExpandseRecordView;
+
 @end
 static NSString * const reuseIdentifier = @"FMineCell";
 @implementation FMineController
@@ -43,67 +46,86 @@ static NSString * const reuseIdentifier = @"FMineCell";
     [self updateTodayRecordView];
 }
 
-- (void)updateTodayRecordView{
-    
+
+/** 筛选最新的一条记录 */
+- (void)selectNewestRecord{
     // 查出今天的支出记录
-    NSInteger today = [NSDate date].day;
-    NSMutableArray *todayExpandseArr = [NSMutableArray array];
-    for (FAccountRecord *bean in AppDelegateInstance.currentMonthRecord.expandseArr) {
-        //MM月dd日HH时mm分
-        NSInteger recordDay = [bean.time_minute substringWithRange:NSMakeRange(3, 2)].integerValue;
-        if (recordDay == today) {
-            [todayExpandseArr addObject:bean];
-        }
-    }
-    [todayExpandseArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+    NSMutableArray *expandseArr = AppDelegateInstance.currentMonthRecord.expandseArr.mutableCopy;
+   
+    [expandseArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
         
         return [obj1.editTime compare:obj2.editTime];
     }];
-    FAccountRecord *newestExpandse = todayExpandseArr.lastObject;// 最新
+    FAccountRecord *newestExpandse = expandseArr.lastObject;// 最新
     
     // 查出今天的收入记录
-    NSMutableArray *todayIncomeArr = [NSMutableArray array];
-    for (FAccountRecord *bean in AppDelegateInstance.currentMonthRecord.incomeArr) {
-        //MM月dd日HH时mm分
-        NSInteger recordDay = [bean.time_minute substringWithRange:NSMakeRange(3, 2)].integerValue;
-        if (recordDay == today) {
-            [todayIncomeArr addObject:bean];
-        }
-    }
-    [todayIncomeArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+    NSMutableArray *IncomeArr = AppDelegateInstance.currentMonthRecord.incomeArr.mutableCopy;
 
+    [IncomeArr sortUsingComparator:^NSComparisonResult(FAccountRecord *obj1, FAccountRecord *obj2) {
+        
         return [obj1.editTime compare:obj2.editTime];
     }];
-    FAccountRecord *newestIncome = todayIncomeArr.lastObject;// 最新
+    FAccountRecord *newestIncome = IncomeArr.lastObject;// 最新
     
-    // 比较时间，选出最新
     NSComparisonResult result = [newestExpandse.editTime compare:newestIncome.editTime];
     if (result == NSOrderedAscending) {
-        self.todayNewestRecord = newestIncome;
         
+        self.todayNewestRecord = newestIncome;
+        self.todayNewestRecordType = @"Income";
+    }else{
+        self.todayNewestRecordType = @"Expandse";
+        self.todayNewestRecord = newestExpandse;
+    }
+}
+
+- (void)updateTodayRecordView{
+    
+    [self selectNewestRecord];
+    // 比较firstType是在哪个数组
+    if ([self.todayNewestRecordType isEqualToString:@"Income"]) {
+
         self.recordStateL.hidden = YES;
         self.todayIncomeRecordView.hidden = NO;
         self.todayExpandseRecordView.hidden = YES;
-    
-        self.todayIncomeRecordView.timeL.text = [newestIncome.time_minute substringFromIndex:3];
-        self.todayIncomeRecordView.textL.text = newestIncome.subType.name;
-        self.todayIncomeRecordView.imgV.image = [UIImage imageNamed:newestIncome.subType.iconName];
-        self.todayIncomeRecordView.moneyL.text = [NSString stringWithFormat:@"￥%.2f", newestIncome.amount];
-        
+
+        self.todayIncomeRecordView.timeL.text = [self.todayNewestRecord.time_minute substringFromIndex:3];
+        self.todayIncomeRecordView.textL.text = self.todayNewestRecord.subType.name;
+        self.todayIncomeRecordView.imgV.image = [UIImage imageNamed:self.todayNewestRecord.subType.iconName];
+        self.todayIncomeRecordView.moneyL.text = [NSString stringWithFormat:@"￥%.2f", self.todayNewestRecord.amount];
+
     }else{
         self.recordStateL.hidden = YES;
-        self.todayNewestRecord = newestExpandse;
         self.todayIncomeRecordView.hidden = YES;
         self.todayExpandseRecordView.hidden = NO;
-        
-        self.todayExpandseRecordView.timeL.text = [newestExpandse.time_minute substringFromIndex:3];
-        self.todayExpandseRecordView.textL.text = newestExpandse.subType.name;
-        self.todayExpandseRecordView.imgV.image = [UIImage imageNamed:newestExpandse.subType.iconName];
-        self.todayExpandseRecordView.moneyL.text = [NSString stringWithFormat:@"￥%.2f", newestExpandse.amount];
+
+        self.todayExpandseRecordView.timeL.text = [self.todayNewestRecord.time_minute substringFromIndex:3];
+        self.todayExpandseRecordView.textL.text = self.todayNewestRecord.subType.name;
+        self.todayExpandseRecordView.imgV.image = [UIImage imageNamed:self.todayNewestRecord.subType.iconName];
+        self.todayExpandseRecordView.moneyL.text = [NSString stringWithFormat:@"￥%.2f", self.todayNewestRecord.amount];
     }
+
+    // 显示今日记录有几条
+     NSInteger today = [NSDate date].day;
+    NSInteger todayexpandseCount = 0;
+    for (FAccountRecord *expandse in AppDelegateInstance.currentMonthRecord.expandseArr) {
+        
+        //MM月dd日HH时mm分
+        NSInteger recordDay = [expandse.time_minute substringWithRange:NSMakeRange(3, 2)].integerValue;
+        if (recordDay == today) {
+            todayexpandseCount += 1;
+        }
+    }
+    NSInteger todayIncomeCount = 0;
+    for (FAccountRecord *income in AppDelegateInstance.currentMonthRecord.incomeArr) {
+        
+        //MM月dd日HH时mm分
+        NSInteger recordDay = [income.time_minute substringWithRange:NSMakeRange(3, 2)].integerValue;
+        if (recordDay == today) {
+            todayIncomeCount += 1;
+        }
+    }
+    self.todayRecordCountL.text = [NSString stringWithFormat:@"收支记录共%ld笔", todayexpandseCount + todayIncomeCount];
     
-    // 显示view
-    self.todayRecordCountL.text = [NSString stringWithFormat:@"收支记录共%ld笔", todayExpandseArr.count + todayIncomeArr.count];
     if (!self.todayNewestRecord) {
         self.recordStateL.hidden = NO;
         self.todayIncomeRecordView.hidden = YES;
@@ -122,15 +144,19 @@ static NSString * const reuseIdentifier = @"FMineCell";
     }
     self.incomeL.text = [NSString numberformatStrFromDouble:monthIncome];
     
+
     
     CGFloat monthExpandse = 0;
-    CGFloat monthBudget = 0;
     for (FAccountRecord *expandseRecord in AppDelegateInstance.currentMonthRecord.expandseArr) {
         monthExpandse += expandseRecord.amount;
-        monthBudget += expandseRecord.firstType.budget;
     }
     self.expandseL.text = [NSString numberformatStrFromDouble:monthExpandse];
     
+    CGFloat monthBudget = 0;
+    
+    for (FFirstType *typeBean in AppDelegateInstance.aFAccountCategaries.expensesTypeArr) {
+        monthBudget += typeBean.budget;
+    }
     if (monthBudget > 0) {
         self.budgetL.font = [UIFont systemFontOfSize:20];
         self.budgetL.text = [NSString numberformatStrFromDouble:monthBudget - monthExpandse];
@@ -139,7 +165,7 @@ static NSString * const reuseIdentifier = @"FMineCell";
         self.budgetL.text = @"未设置";
     }
     
-    CGFloat ratio = monthExpandse / monthBudget;
+    CGFloat ratio = (monthBudget>0)? monthExpandse / monthBudget:0;
     self.ratioView.height = MAX(MIN((self.tongView.height-4)*ratio, self.tongView.height-4), 0);
     
     self.ratioView.y = MAX(MIN(self.tongView.maxY-2 -self.ratioView.height, self.tongView.maxY-2) , self.tongView.y+2);

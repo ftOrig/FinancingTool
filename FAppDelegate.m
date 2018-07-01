@@ -47,7 +47,7 @@
     self.userInfo = [FUserModel userFrom_NSUserDefaults];
     
 //    [FAccountRecord recordRandomIncomeWithtime_minute:@"07月29日12时20分" time_month:@"2018年07月"];
-    [self generateMonthBlance];
+//    [self generateMonthBlance];
     return YES;
 }
 
@@ -56,7 +56,16 @@
     
     [[AppDefaultUtil sharedInstance] setLoginState:userInfo?YES:NO]; //测试登录
     
+    if (!userInfo) {
+        return;
+    }
     self.aFAccountCategaries = [FAccountRecordSaveTool readLocalUserAccountCategaries];
+    // 为默认用户专门生成预算
+    if ([userInfo.phone isEqualToString:defName]) {
+        for (FFirstType *expandseFirstType in self.aFAccountCategaries.expensesTypeArr) {
+            expandseFirstType.budget = expandseFirstType.initBudget;
+        }
+    }
     
     [self initcurrentMonthRecord];
 }

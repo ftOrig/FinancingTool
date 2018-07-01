@@ -30,20 +30,19 @@
     self.imgV.image = [UIImage imageNamed:afirstType.iconName];
     
     // 支出
-    CGFloat monthBudget = 0;
+    CGFloat monthBudget = afirstType.budget;
     CGFloat monthExpandse = 0;
     for (FAccountRecord *expandseRecord in AppDelegateInstance.currentMonthRecord.expandseArr) {
         
         if ([expandseRecord.firstType.name isEqualToString:afirstType.name]) {
             monthExpandse += expandseRecord.amount;
-            monthBudget += expandseRecord.firstType.budget;
         }
     }
-    self.monthExpandse= monthExpandse;
-    NSString *expandseStr = [NSString stringWithFormat:@"支出 %.2f", monthExpandse];
+    self.monthExpandse = monthExpandse;
+    NSString *expandseStr =  [NSString stringWithFormat:@"支出 %.2f", monthExpandse];
     self.usedL.attributedText = [MyTools getAttributedStringWithText:expandseStr start:3 end:expandseStr.length textColor:[UIColor ys_green] textFont:self.usedL.font];
     
-    self.budgetField.text = [NSString stringWithFormat:@"%.2f", monthBudget];
+    self.budgetField.text = [NSString numberformatStrFromDouble:monthBudget];
     
     CGFloat progress = monthBudget>0? monthExpandse/ monthBudget:0;
     self.progressV.progress = progress;
