@@ -54,7 +54,7 @@
     
     [super awakeFromNib];
     
-    self.progressV.color = NavgationColor;
+    self.progressV.color = baseNavColor;
     self.progressV.background = RGB(238,238,238);
     self.progressV.flat = @YES;
     self.progressV.animate = @NO;
@@ -70,7 +70,7 @@
     
     self.budgetField.delegate = self;
     self.budgetField.text = @"0.00";
-    self.budgetField.textColor = NavgationColor;
+    self.budgetField.textColor = baseNavColor;
     self.budgetField.placeholder = @"0.00";
 }
 

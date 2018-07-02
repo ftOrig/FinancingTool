@@ -79,7 +79,7 @@ static NSString * const reuseIdentifier2 = @"FHomeNewsCell";
 - (void)requestData{
     [MyTools hidenNetworkActitvityIndicator];
     
-    NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:@"https://wechat.meipenggang.com/AccountController/wealthinfoNewsList?currPage=1"];
+    NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:@"https://wechat.meipenggang.com/AccountController/wealthinfoNewsList?currPage=2"];
     
 //    NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length - 1] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:mutableUrl]];

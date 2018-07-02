@@ -39,7 +39,7 @@
     // 设置代理
     pageMenu.needTextColorGradients = NO;
     pageMenu.delegate = self;
-    pageMenu.backgroundColor = NavgationColor;
+    pageMenu.backgroundColor = baseNavColor;
     [self.view addSubview:pageMenu];
     _pageMenu = pageMenu;
     pageMenu.itemPadding = 30;

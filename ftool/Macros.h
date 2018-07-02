@@ -13,7 +13,9 @@
 //十六进制颜色
 #define UIColorFromHex(s)  [UIColor colorWithRed:(((s & 0xFF0000) >> 16))/255.0 green:(((s &0xFF00) >>8))/255.0 blue:((s &0xFF))/255.0 alpha:1.0]
 
-#define baseNavColor [UIColor colorWithRed:(242.0 / 255.0f) green:(70.0 / 255.0f) blue:(14.0 / 255.0f) alpha:1.0f]  //导航栏颜色
+//#define baseNavColor [UIColor colorWithRed:(242.0 / 255.0f) green:(70.0 / 255.0f) blue:(14.0 / 255.0f) alpha:1.0f]  //导航栏颜色
+#define baseNavColor  RGB(22,131,231)  //蓝色
+
 #define baseBgColor UIColorFromHex(0xf5f5f5)   //背景颜色
 #define baseBlackColor UIColorFromHex(0x333333)   //浅黑色调
 #define baseDarkGrayColor UIColorFromHex(0x666666)  //深灰色调

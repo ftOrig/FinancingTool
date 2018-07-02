@@ -62,7 +62,7 @@ static NSString * const reuseIdentifier = @"FMonthBudgetRecordCell";
     [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
     
     // headerView
-    UIView *heaer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 160) backgroundColor:NavgationColor superview:nil];
+    UIView *heaer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 160) backgroundColor:baseNavColor superview:nil];
     UILabel *totalBudgetL = [UILabel labelWithFrame:RECT(15, 30, MSWIDTH-30, 35) text:@"1,543.00" textColor:AJWhiteColor textFont:35 textAligment:NSTextAlignmentLeft superview:heaer];
     self.totalBudgetL = totalBudgetL;
     UILabel *label = [UILabel labelWithFrame:RECT(15, totalBudgetL.maxY+5, 100, 13) text:@"支出总预算" textColor:[[UIColor whiteColor] colorWithAlphaComponent:.8] textFont:13 textAligment:NSTextAlignmentLeft superview:heaer];

@@ -26,7 +26,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NavBar *bar = [[NavBar alloc] initWithTitle:@"计算器" leftName:nil rightName:nil delegate:self];
+    NavBar *bar = [[NavBar alloc] initWithTitle:@"计你所想" leftName:nil rightName:nil delegate:self];
     bar.leftBtn.hidden = YES;  //主页隐藏返回按钮
     
 //    [_tableView registerClass:[BaseContentCell class] forCellReuseIdentifier:@"RateViewCell"];
@@ -34,8 +34,8 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
-    groupTitls = @[@"存款", @"贷款", @"理财"];
-    self.dataArray = @[@"存款计算", @"房贷计算", @"普通贷款计算", @"理财计算", @"生活小计"].mutableCopy;
+    groupTitls = @[@"存款", @"贷款", @"理财", @"简计"];
+    self.dataArray = @[@"存款计算器", @"房贷计算器", @"普通贷款计算器", @"理财计算器", @"小计算器"].mutableCopy;
     rowCount = 0;
 }
 
@@ -62,7 +62,7 @@ static NSString * const reuseIdentifier = @"FHomeCell";
 
 //每组标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if(section < 3)  return groupTitls[section];
+    if(section < groupTitls.count)  return groupTitls[section];
     else             return @"counter";
 }
 
@@ -99,9 +99,9 @@ static NSString * const reuseIdentifier = @"FHomeCell";
     }else if (section == 2){ //第三组 /理财计算
         controller = [homeStoryboard instantiateViewControllerWithIdentifier:@"FinanceCounter"];
     }else { //第四组 /生活小计
-//        [self showFloatWindow];
-                controller =  [[ZTAppCalculatorViewController alloc] init];
-                ((ZTAppCalculatorViewController *)controller).isNew = YES;
+        [self showFloatWindow];
+//                controller =  [[ZTAppCalculatorViewController alloc] init];
+//                ((ZTAppCalculatorViewController *)controller).isNew = YES;
     }
     if (controller != nil) {
         controller.hidesBottomBarWhenPushed = YES;

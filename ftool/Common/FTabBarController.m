@@ -38,7 +38,7 @@
     FNavigationController *nav3 = [[FNavigationController alloc] initWithRootViewController:personal];
     [self addChildViewController:nav3];
     
-    self.tabBar.tintColor = NavgationColor;
+    self.tabBar.tintColor = baseNavColor;
     if (isIOS10later) {
         self.tabBar.unselectedItemTintColor = [UIColor ys_darkGray];
     }

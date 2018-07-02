@@ -31,7 +31,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = NavgationColor;
+        self.backgroundColor = baseNavColor;
         
 //        NSLog(@"%@", self.backgroundColor);
         // 中间title

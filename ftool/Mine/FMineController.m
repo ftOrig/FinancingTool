@@ -228,14 +228,14 @@ static NSString * const reuseIdentifier = @"FMineCell";
     [self.tableView registerNib:[UINib nibWithNibName:reuseIdentifier bundle:nil] forCellReuseIdentifier:reuseIdentifier];
     
     
-    UIView *heaer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 260) backgroundColor:NavgationColor superview:nil];
+    UIView *heaer = [UIView viewWithFrame:RECT(0, 0, MSWIDTH, 260) backgroundColor:baseNavColor superview:nil];
     UILabel *dateL = [UILabel labelWithFrame:RECT(20, 50, 200, 25) text:@"06/2018" textColor:[UIColor ys_blue] textFont:35 textAligment:NSTextAlignmentLeft superview:heaer];
-    dateL.textColor = RGB(162, 119, 63);
+    dateL.textColor = RGB(255, 255, 255);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     dateFormat.dateFormat = @"MM/yyyy";
     NSString *dateStr = [dateFormat stringFromDate:[NSDate date]];
     
-    dateL.attributedText = [MyTools getAttributedStringWithText:dateStr start:3 end:dateStr.length textColor:RGB(162, 119, 63) textFont:[UIFont systemFontOfSize:20]];
+    dateL.attributedText = [MyTools getAttributedStringWithText:dateStr start:3 end:dateStr.length textColor:RGB(255, 255, 255) textFont:[UIFont systemFontOfSize:20]];
     
     CGFloat tongViewW = 70;
     CGFloat tongViewH = 130;
@@ -289,7 +289,7 @@ static NSString * const reuseIdentifier = @"FMineCell";
     todayExpandseRecordView.hidden = YES;
 //    ViewBorderRadius(todayExpandseRecordView, 0, .7, [UIColor ys_grayLine]);
     
-//    UIButton *torecordBtn = [UIButton buttonWithFrame:RECT(50, todayExpandseRecordView.maxY + 20, MSWIDTH-100, 37) backgroundColor:NavgationColor title:@"记一笔" titleColor:AJWhiteColor titleFont:15 target:self action:@selector(addRecordBtnClick:) superview:recentlyRecordView];
+//    UIButton *torecordBtn = [UIButton buttonWithFrame:RECT(50, todayExpandseRecordView.maxY + 20, MSWIDTH-100, 37) backgroundColor:baseNavColor title:@"记一笔" titleColor:AJWhiteColor titleFont:15 target:self action:@selector(addRecordBtnClick:) superview:recentlyRecordView];
 //    ViewRadius(torecordBtn, 3);
 //
     recentlyRecordView.height = todayExpandseRecordView.maxY + 20;
