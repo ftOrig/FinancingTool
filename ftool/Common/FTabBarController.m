@@ -44,7 +44,7 @@
     }
     UITabBarItem *tabbarItem0 = [self getBarItemWithTitle:@"首页" imageName:@"Tabbar_home_unselected"];
     nav1.tabBarItem = tabbarItem0;
-    UITabBarItem *tabbarItem1 = [self getBarItemWithTitle:@"投资计算" imageName:@"Tabbar_finance_unselected"];
+    UITabBarItem *tabbarItem1 = [self getBarItemWithTitle:@"理财计算" imageName:@"Tabbar_finance_unselected"];
     nav2.tabBarItem = tabbarItem1;
     UITabBarItem *tabbarItem2 = [self getBarItemWithTitle:@"我的" imageName:@"Tabbar_my_unselected"];
     nav3.tabBarItem = tabbarItem2;
