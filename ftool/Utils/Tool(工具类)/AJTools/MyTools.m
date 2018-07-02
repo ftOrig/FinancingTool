@@ -74,6 +74,25 @@ singletonM(Tools)
     }
 }
 
+//当前时间 是否在这个时间内
++(BOOL)isInTimeFromString:(NSString*)formString addMonth:(NSInteger) addMonths  day:(NSInteger) days {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT+0800"];
+    
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *formDate = [formatter dateFromString:formString];
+    
+    [formatter setDateFormat:@"yyyy-MM-dd"];//需要的格式
+    //    NSDate *newDate = [NSDate setYear:year month:month day:day hour:formDate.hour minute:formDate.minute];
+    NSString *defaultShow = [formatter stringFromDate:formDate];
+    
+    NSString *currTime = [formatter stringFromDate:[NSDate date]];
+    
+    NSInteger delay = [NSDate deltaDays:defaultShow endDate:currTime];
+    NSLog(@"currTime = %@, 过去天数：%ld",currTime, delay);
+    return delay <= days;
+}
+
 #if (istest==1)
 + (void)transformToModelByDictionary:(NSDictionary *)dict{
     

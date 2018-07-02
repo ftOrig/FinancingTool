@@ -18,6 +18,9 @@
  */
 + (NSString *)filterHTML:(NSString *)html;
 
+//当前时间 是否在这个时间内
++(BOOL)isInTimeFromString:(NSString*)formString addMonth:(NSInteger) addMonths  day:(NSInteger) days;
+
 //获取图片路径
 + (NSString *)getImageUrlPath:(NSString *)path;
 
