@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NavBar.h"
-#import "NoDataView.h"
+#import "FNoDataView.h"
 
 typedef enum : NSUInteger {
     BackType_PopToRoot = 10,

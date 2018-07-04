@@ -105,7 +105,7 @@
 		847B37A620DDE458002DE2CE /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B377D20DDE458002DE2CE /* BaseEntity.m */; };
 		847B37A720DDE458002DE2CE /* AJNetWorkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B378520DDE458002DE2CE /* AJNetWorkController.m */; };
 		847B37A820DDE458002DE2CE /* AJContainTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B378620DDE458002DE2CE /* AJContainTableController.m */; };
-		847B37A920DDE458002DE2CE /* NoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B378720DDE458002DE2CE /* NoDataView.m */; };
+		847B37A920DDE458002DE2CE /* FNoDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B378720DDE458002DE2CE /* FNoDataView.m */; };
 		847B37AA20DDE458002DE2CE /* BaseWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B378820DDE458002DE2CE /* BaseWKWebViewController.m */; };
 		847B37AC20DDE458002DE2CE /* AJTextFieldBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B378A20DDE458002DE2CE /* AJTextFieldBaseController.m */; };
 		847B37B220DDE512002DE2CE /* FBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847B37B120DDE512002DE2CE /* FBaseViewController.m */; };
@@ -449,11 +449,11 @@
 		847B377E20DDE458002DE2CE /* AJTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTime.h; sourceTree = "<group>"; };
 		847B378020DDE458002DE2CE /* AJContainTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJContainTableController.h; sourceTree = "<group>"; };
 		847B378120DDE458002DE2CE /* BaseWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWKWebViewController.h; sourceTree = "<group>"; };
-		847B378220DDE458002DE2CE /* NoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoDataView.h; sourceTree = "<group>"; };
+		847B378220DDE458002DE2CE /* FNoDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNoDataView.h; sourceTree = "<group>"; };
 		847B378320DDE458002DE2CE /* AJTextFieldBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJTextFieldBaseController.h; sourceTree = "<group>"; };
 		847B378520DDE458002DE2CE /* AJNetWorkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNetWorkController.m; sourceTree = "<group>"; };
 		847B378620DDE458002DE2CE /* AJContainTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJContainTableController.m; sourceTree = "<group>"; };
-		847B378720DDE458002DE2CE /* NoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoDataView.m; sourceTree = "<group>"; };
+		847B378720DDE458002DE2CE /* FNoDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNoDataView.m; sourceTree = "<group>"; };
 		847B378820DDE458002DE2CE /* BaseWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWKWebViewController.m; sourceTree = "<group>"; };
 		847B378A20DDE458002DE2CE /* AJTextFieldBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJTextFieldBaseController.m; sourceTree = "<group>"; };
 		847B378B20DDE458002DE2CE /* AJNetWorkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNetWorkController.h; sourceTree = "<group>"; };
@@ -1122,11 +1122,11 @@
 			children = (
 				847B378020DDE458002DE2CE /* AJContainTableController.h */,
 				847B378120DDE458002DE2CE /* BaseWKWebViewController.h */,
-				847B378220DDE458002DE2CE /* NoDataView.h */,
+				847B378220DDE458002DE2CE /* FNoDataView.h */,
 				847B378320DDE458002DE2CE /* AJTextFieldBaseController.h */,
 				847B378520DDE458002DE2CE /* AJNetWorkController.m */,
 				847B378620DDE458002DE2CE /* AJContainTableController.m */,
-				847B378720DDE458002DE2CE /* NoDataView.m */,
+				847B378720DDE458002DE2CE /* FNoDataView.m */,
 				847B378820DDE458002DE2CE /* BaseWKWebViewController.m */,
 				847B378A20DDE458002DE2CE /* AJTextFieldBaseController.m */,
 				847B378B20DDE458002DE2CE /* AJNetWorkController.h */,
@@ -1882,7 +1882,7 @@
 				845606A620DD1C740078EDE6 /* FAccountCategaries.m in Sources */,
 				184F90E120DE4D6F009D37F9 /* NSString+encryptDES.m in Sources */,
 				847B389620DDE5BC002DE2CE /* IQUIScrollView+Additions.m in Sources */,
-				847B37A920DDE458002DE2CE /* NoDataView.m in Sources */,
+				847B37A920DDE458002DE2CE /* FNoDataView.m in Sources */,
 				184F90D420DE437E009D37F9 /* FRegisterViewController.m in Sources */,
 				847B379620DDE458002DE2CE /* AJImgBrowser.m in Sources */,
 				845606A120DD01790078EDE6 /* FMineController.m in Sources */,

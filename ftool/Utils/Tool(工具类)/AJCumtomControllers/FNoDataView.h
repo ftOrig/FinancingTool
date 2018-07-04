@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class NoDataView;
+@class FNoDataView;
 @protocol NoDataViewDelegate <NSObject>
 
 @optional
-- (CGRect)noDataViewFrame:(NoDataView *)view;
-- (void)noDataViewDidClickView:(NoDataView *)view;
+- (CGRect)noDataViewFrame:(FNoDataView *)view;
+- (void)noDataViewDidClickView:(FNoDataView *)view;
 
 @end
 
-@interface NoDataView : UIView
+@interface FNoDataView : UIView
 
 /*! @abstract 代理必须是控制器
  */

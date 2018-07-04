@@ -80,12 +80,12 @@ static char navBarKey;// 属性关联
 {
     for (UIView *subV in self.view.subviews) {
         
-        if ([subV isKindOfClass:[NoDataView class]]) {
+        if ([subV isKindOfClass:[FNoDataView class]]) {
             
             return;
         }
     }
-    NoDataView *view = [[NoDataView alloc] initWithFrame:CGRectMake(0, 64, MSWIDTH, MSHIGHT) delegate:self];
+    FNoDataView *view = [[FNoDataView alloc] initWithFrame:CGRectMake(0, 64, MSWIDTH, MSHIGHT) delegate:self];
     [self.view addSubview:view];
 }
 
@@ -93,7 +93,7 @@ static char navBarKey;// 属性关联
 {
     for (UIView *subV in self.view.subviews) {
         
-        if ([subV isKindOfClass:[NoDataView class]]) {
+        if ([subV isKindOfClass:[FNoDataView class]]) {
             
             [subV removeFromSuperview];
             break;

@@ -35,7 +35,6 @@
 #import "NSString+Shove.h"
 #import "NSString+encryptDES.h"
 #import "FUsersTool.h"
-
 #define CLIENT_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 
 

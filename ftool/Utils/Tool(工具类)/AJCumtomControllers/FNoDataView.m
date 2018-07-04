@@ -6,17 +6,17 @@
 //  Copyright © 2017年 zhouli. All rights reserved.
 //
 
-#import "NoDataView.h"
+#import "FNoDataView.h"
 #import "AJExtension.h"
 
-@interface NoDataView ()
+@interface FNoDataView ()
 @property (nonatomic, weak) UIImageView *imgV;
 @property (nonatomic, weak) UILabel *lable1;
 @property (nonatomic, weak) UILabel *lable2;
 @property (nonatomic, weak) UIButton *reloadBtn;
 @end
 
-@implementation NoDataView
+@implementation FNoDataView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {    
@@ -85,7 +85,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame delegate:(id<NoDataViewDelegate>)delegate
 {
-    NoDataView *view = [self initWithFrame:frame];
+    FNoDataView *view = [self initWithFrame:frame];
     view.delegate = delegate;
     return view;
 }
